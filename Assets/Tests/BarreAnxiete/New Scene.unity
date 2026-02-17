@@ -620,6 +620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d5f381efe484a4dbf848bc3593d9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressionBarre
+  conteneur: {fileID: 0}
+  vitProgBarre: 0.25
 --- !u!1 &1723171168
 GameObject:
   m_ObjectHideFlags: 0
