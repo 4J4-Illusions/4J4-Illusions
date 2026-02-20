@@ -36,7 +36,7 @@ public class ProgressionBarre : MonoBehaviour
             if (rectBarre.rect.width >= maxWidth * .25f)
             {
                 float progressiveShake;
-                progressiveShake = rectBarre.rect.width / (maxWidth * .25f);
+                progressiveShake = rectBarre.rect.width / (maxWidth * .5f);
                 //Debug.Log("progressive shake value: " + progressiveShake);
 
                 Tremblement(-progressiveShake, progressiveShake);
