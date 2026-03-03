@@ -4,24 +4,27 @@ using Random = UnityEngine.Random;
 
 public class ProgressionBarre : MonoBehaviour
 {
+    //      Objets Unity
+    [Header("Objets Unity")]
     public GameObject conteneur;
-    [Range(0f, 1f)]
+
+    //      Variables publiques ajustables dans l'inspecteur
+    [Header("Variables publiques ajustables dans l'inspecteur"), Range(0f, 1f)]
     public float vitProgBarre = .1f;
 
+    //      Variables de travail
     RectTransform rectBarre;
     float maxWidth;
-
-    // constantes
-    Vector2 defaultPos = new(0, -50);
-    Vector3 defaultRot = Vector3.zero;
+    //  Constantes
+    Vector2 DEFAULT_POS = new(0, -50);
+    Vector3 DEFAULT_ROT = Vector3.zero;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        conteneur = transform.parent.gameObject;
-        Debug.Log("Conteneur : " + conteneur.name);
+        //Debug.Log("Conteneur : " + conteneur.name);
         rectBarre = GetComponent<RectTransform>();
-        Debug.Log(rectBarre.sizeDelta);
+        //Debug.Log(rectBarre.sizeDelta);
 
         maxWidth = conteneur.GetComponent<RectTransform>().rect.width;
     }
@@ -43,10 +46,6 @@ public class ProgressionBarre : MonoBehaviour
                 Vibration(-progressiveShake * .5f, progressiveShake * .5f);
             }
         }
-        else
-        {
-
-        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -54,16 +53,17 @@ public class ProgressionBarre : MonoBehaviour
         }
     }
 
+
     void Tremblement(float min = -1, float max = 1)
     {
         float randomX = Random.Range(min, max);
         float randomY = Random.Range(min, max);
-        conteneur.GetComponent<RectTransform>().anchoredPosition = defaultPos + new Vector2(randomX, randomY);
+        conteneur.GetComponent<RectTransform>().anchoredPosition = DEFAULT_POS + new Vector2(randomX, randomY);
     }
 
     void Vibration(float min = -1, float max = 1)
     {
         float randomR = Random.Range(min, max);
-        conteneur.GetComponent<RectTransform>().rotation = Quaternion.Euler(defaultRot + new Vector3(0, 0, randomR));
+        conteneur.GetComponent<RectTransform>().rotation = Quaternion.Euler(DEFAULT_ROT + new Vector3(0, 0, randomR));
     }
 }

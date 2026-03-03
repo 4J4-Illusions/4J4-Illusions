@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Main Camera Profile
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
-  - {fileID: 8604045580115132865}
---- !u!114 &8604045580115132865
+  - {fileID: 7007495025308738348}
+--- !u!114 &7007495025308738348
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35,10 +35,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.75
   smoothness:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.5
   rounded:
     m_OverrideState: 0
     m_Value: 0

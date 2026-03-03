@@ -1,12 +1,13 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-//using UnityEngine.Rendering.PostProcessing;
 
 public class VolumeVignettePulse : MonoBehaviour
 {
-    public Volume volume;
+    //      Composants Unity
+    Volume volume;
+
+    //      Variables de travail
     VolumeProfile profile;
     Vignette vignette;
 
