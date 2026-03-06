@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 699658077}
   - component: {fileID: 699658078}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraJoueur
   joueur: {fileID: 1791438422}
-  ajustementPos: {x: 0, y: 0, z: 0}
+  ajustementPos: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1782079069
 GameObject:
   m_ObjectHideFlags: 0

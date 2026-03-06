@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class CameraJoueur : MonoBehaviour
 {
+    [Header("Objets Unity")]
     public GameObject joueur;
+
+    [Space(10)]
     public Vector3 ajustementPos;
     public Vector3 ajustementRot;
 
@@ -16,6 +19,6 @@ public class CameraJoueur : MonoBehaviour
     void Update()
     {
         transform.position = joueur.transform.position + ajustementPos;
-        transform.rotation = new Quaternion();
+        transform.rotation = joueur.transform.rotation;
     }
 }
