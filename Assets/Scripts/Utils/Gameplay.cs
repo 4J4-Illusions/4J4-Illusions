@@ -1,17 +1,21 @@
 using System;
 using UnityEngine.InputSystem.Controls;
 
-public class Gameplay
+namespace Utils
 {
-    public void KeyDependantAction(KeyControl key, Action onPressCallback, Action onReleaseCallback)
+    public class Gameplay
     {
-        if (key.isPressed)
+        public void KeyDependantAction(KeyControl key, Action onPressCallback, Action onReleaseCallback)
         {
-            onPressCallback();
-        }
-        else
-        {
-            onReleaseCallback();
+            if (key.isPressed)
+            {
+                onPressCallback();
+            }
+            else
+            {
+                onReleaseCallback();
+            }
         }
     }
 }
+
