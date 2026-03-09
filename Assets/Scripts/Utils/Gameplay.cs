@@ -1,17 +1,38 @@
 using System;
 using UnityEngine.InputSystem.Controls;
+using Globals;
+using UnityEngine;
 
-public class Gameplay
+namespace Utils
 {
-    public void KeyDependantAction(KeyControl key, Action onPressCallback, Action onReleaseCallback)
+    public static class Gameplay
     {
-        if (key.isPressed)
+        public static void KeyDependantAction(KeyControl key, Action onPressCallback, Action onReleaseCallback)
         {
-            onPressCallback();
+            if (key.isPressed)
+            {
+                onPressCallback();
+            }
+            else
+            {
+                onReleaseCallback();
+            }
         }
-        else
+
+        /// <summary>
+        /// Méthode générale pour gérer les interactions avec les objets interactifs. 
+        /// </summary>
+        /// <param name="typeInteraction">Le type d'interaction</param>
+        /// <param name="obj">Le GameObject qui sera affecté (si applicable)</param>
+        public static void Interaction(TypeInteraction typeInteraction, GameObject obj = null)
         {
-            onReleaseCallback();
+            switch (typeInteraction)
+            {
+                case TypeInteraction.None:
+                    if (obj != null) UnityEngine.Object.Destroy(obj);
+                    break;
+            }
         }
     }
 }
+
