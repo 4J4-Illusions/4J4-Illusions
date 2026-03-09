@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class ControllerRideaux : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Animator RideauDroite;
+    public Animator RideauGauche;
+     
     void Start()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    }
+    public void AnimationRideaux()
     {
-        
+
     }
 }
