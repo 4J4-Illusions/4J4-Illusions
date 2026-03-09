@@ -1,5 +1,4 @@
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,16 +17,15 @@ public class ControlesPersonnage : MonoBehaviour
     public Vector3 ajustementPosCam = new(0, .5f, 0);
     public bool debugMode = false;
 
-    public static event Action OnPlayerInteract;
-
     Rigidbody rigidBody;
     InputAction mouvementAction, rotationAction, courseAction, interactionAction;
     Vector3 mvtFinal, rotFinal;
-    int valeurModifCourse = 0;
+    int indexModifCourse = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // affectations
         rigidBody = GetComponent<Rigidbody>();
         mouvementAction = InputSystem.actions.FindAction("Player/Move");
         rotationAction = InputSystem.actions.FindAction("Player/Look");
@@ -38,6 +36,7 @@ public class ControlesPersonnage : MonoBehaviour
 
         cameraJoueur.transform.position = transform.position + ajustementPosCam;
 
+        // active les elements de debogage
         if (debugMode)
         {
             debugRangeInteract.gameObject.SetActive(true);
@@ -50,10 +49,10 @@ public class ControlesPersonnage : MonoBehaviour
     private void Update()
     {
         // calcul mouvement et rotation selon input
-        mvtFinal = multiplicateurMouvement[valeurModifCourse] * vitesseMouvement * (transform.forward * mouvementAction.ReadValue<Vector2>().y + transform.right * mouvementAction.ReadValue<Vector2>().x);
+        mvtFinal = multiplicateurMouvement[indexModifCourse] * vitesseMouvement * (transform.forward * mouvementAction.ReadValue<Vector2>().y + transform.right * mouvementAction.ReadValue<Vector2>().x);
         rotFinal = new Vector3(-rotationAction.ReadValue<Vector2>().y, rotationAction.ReadValue<Vector2>().x, 0) * vitesseRotation;
 
-        // pour le debougage
+        // pour le debogage
         if (debugMode)
         {
             debugRangeInteract.SetPosition(0, transform.position);
@@ -67,15 +66,11 @@ public class ControlesPersonnage : MonoBehaviour
         // actions selon d'autres touches
         if (courseAction.IsPressed())
         {
-            valeurModifCourse = 1;
+            indexModifCourse = 1;
         }
         else
         {
-            valeurModifCourse = 0;
-        }
-        if (interactionAction.WasPressedThisFrame())
-        {
-            //OnPlayerInteract.Invoke();
+            indexModifCourse = 0;
         }
 
 

@@ -1,11 +1,13 @@
 using System;
 using UnityEngine.InputSystem.Controls;
+using Globals;
+using UnityEngine;
 
 namespace Utils
 {
-    public class Gameplay
+    public static class Gameplay
     {
-        public void KeyDependantAction(KeyControl key, Action onPressCallback, Action onReleaseCallback)
+        public static void KeyDependantAction(KeyControl key, Action onPressCallback, Action onReleaseCallback)
         {
             if (key.isPressed)
             {
@@ -14,6 +16,21 @@ namespace Utils
             else
             {
                 onReleaseCallback();
+            }
+        }
+
+        /// <summary>
+        /// Méthode générale pour gérer les interactions avec les objets interactifs. 
+        /// </summary>
+        /// <param name="typeInteraction">Le type d'interaction</param>
+        /// <param name="obj">Le GameObject qui sera affecté (si applicable)</param>
+        public static void Interaction(TypeInteraction typeInteraction, GameObject obj = null)
+        {
+            switch (typeInteraction)
+            {
+                case TypeInteraction.None:
+                    if (obj != null) UnityEngine.Object.Destroy(obj);
+                    break;
             }
         }
     }
