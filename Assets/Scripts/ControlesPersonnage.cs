@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,7 @@ public class ControlesPersonnage : MonoBehaviour
 {
     [Header("Affectation inspecteur")]
     public GameObject cameraJoueur;
+    public GameObject texteInteraction;
     public LineRenderer debugRangeInteract;
 
     [Header("Ajustement inspecteur")]
@@ -39,6 +41,9 @@ public class ControlesPersonnage : MonoBehaviour
         if (debugMode)
         {
             debugRangeInteract.gameObject.SetActive(true);
+            debugRangeInteract.material = new Material(Shader.Find("Sprites/Default"));
+            debugRangeInteract.startColor = Color.red;
+            debugRangeInteract.endColor = Color.rebeccaPurple;
         }
     }
 
@@ -80,11 +85,16 @@ public class ControlesPersonnage : MonoBehaviour
             //Debug.Log(hit.transform.gameObject.name);
             if(hit.transform.gameObject.TryGetComponent<ObjetInteractif>(out ObjetInteractif objInter))
             {
+                texteInteraction.SetActive(true);
                 if (interactionAction.WasPressedThisFrame())
                 {
                     objInter.Interaction();
                 }
             }
+        }
+        else
+        {
+            texteInteraction.SetActive(false);
         }
 
     }
