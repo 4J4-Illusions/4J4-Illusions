@@ -19,13 +19,17 @@ public class ProgressionBarre : MonoBehaviour
     Vector2 DEFAULT_POS = new(0, -50);
     Vector3 DEFAULT_ROT = Vector3.zero;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Awake()
     {
         //Debug.Log("Conteneur : " + conteneur.name);
         rectBarre = GetComponent<RectTransform>();
         //Debug.Log(rectBarre.sizeDelta);
+    }
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
         maxWidth = conteneur.GetComponent<RectTransform>().rect.width;
     }
 

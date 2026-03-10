@@ -15,4 +15,14 @@ namespace Globals
         Calibration,
         CalibrationStop
     }
+
+    public enum StageJeu
+    {
+        Intro,
+        Desert,
+        Foret,
+        Theatre,
+        Fin,
+        Lobby
+    }
 }
