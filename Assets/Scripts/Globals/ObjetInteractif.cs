@@ -4,6 +4,7 @@ using Utils;
 
 public class ObjetInteractif : MonoBehaviour
 {
+    [Header("Ajustement inspecteur"), Space]
     // valeur servant a identifier le type d'interaction
     public TypeInteraction typeInterac = 0;
 
