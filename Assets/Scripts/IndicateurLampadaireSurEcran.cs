@@ -1,11 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InidcateurLampadaireSurEcran : MonoBehaviour
+public class IndicateurLampadaireSurEcran : MonoBehaviour
 {
     [Header("Affectation inspecteur"), Space]
-    public GameObject indicateurUI;
     public GameObject canvas;
+    public GameObject prefabIndicateurUI, indicateurUI;
     public Camera cameraJoueur;
 
     [Header("Ajustement inspecteur"), Space]
@@ -18,7 +19,7 @@ public class InidcateurLampadaireSurEcran : MonoBehaviour
     Vector3 posConvertie2d, canvasDimensions;
     // float au lieu de vector2 parce que l'indicateur est carre
     float indicUIDimensions;
-    bool estVisible, estBonCoteCam;
+    bool estBonCoteCam;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,7 +38,7 @@ public class InidcateurLampadaireSurEcran : MonoBehaviour
     void Update()
     {
         posConvertie2d = Camera.main.WorldToScreenPoint(transform.position + ajustPosIndic);
-        Debug.Log("Position 2D convertie: " + posConvertie2d);
+        //Debug.Log("Position 2D convertie: " + posConvertie2d);
         estBonCoteCam = posConvertie2d.z > 0;
         indicateurUI.SetActive(estBonCoteCam);
         indicateurUI.GetComponent<RectTransform>().anchoredPosition = KeepInsideBorders(posConvertie2d);
@@ -52,6 +53,17 @@ public class InidcateurLampadaireSurEcran : MonoBehaviour
                 Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.red);
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        indicateurUI = Instantiate(prefabIndicateurUI, canvas.transform);
+        Invoke(nameof(DesactiveIndicateur), 3f);
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(indicateurUI);
     }
 
 
@@ -77,5 +89,11 @@ public class InidcateurLampadaireSurEcran : MonoBehaviour
         }
 
         return posNonFormattee;
+    }
+
+    void DesactiveIndicateur()
+    {
+        Destroy(indicateurUI);
+        enabled = false;
     }
 }

@@ -6,7 +6,7 @@ using static UnityEngine.Object;
 
 namespace Utils
 {
-    public static class Gameplay
+    public class Gameplay
     {
         public static void KeyDependantAction(KeyControl key, Action onPressCallback, Action onReleaseCallback)
         {
@@ -20,6 +20,7 @@ namespace Utils
             }
         }
 
+
         /// <summary>
         /// Méthode générale pour gérer les interactions avec les objets interactifs. 
         /// </summary>
@@ -27,7 +28,7 @@ namespace Utils
         /// <param name="obj">Le GameObject qui sera affecté (si applicable)</param>
         public static void Interaction(TypeInteraction typeInteraction, GameObject obj = null)
         {
-            Debug.Log($"Called to process {typeInteraction} interaction with {obj} object");
+            //Debug.Log($"Called to process {typeInteraction} interaction with {obj} object");
             switch (typeInteraction)
             {
                 case TypeInteraction.None:
@@ -38,9 +39,21 @@ namespace Utils
                 case TypeInteraction.Parler:
                     break;
                 case TypeInteraction.Onde:
-                    obj.GetComponent<Animator>().SetTrigger("TriggerOnde");
+                    // fait jouer animation onde quand elle ne joue pas presentement
+                    // active script indicateur lampadaire
+                    if (obj.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Default"))
+                    {
+                        obj.GetComponent<Animator>().SetTrigger("TriggerOnde");
+                        if (GameManager.indexLampCour < 5) GameManager.listeLampadaires[GameManager.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
+                    }
                     break;
                 case TypeInteraction.Lampadaire:
+                    // code placeholder, a changer eventuellement
+                    if (int.Parse(obj.name.Substring(obj.name.Length - 2)) == GameManager.indexLampCour)
+                    {
+                        Destroy(obj);
+                        GameManager.indexLampCour++;
+                    }
                     break;
                 case TypeInteraction.Calibration:
                     GameManager.InCalibInterac = true;

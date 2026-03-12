@@ -1,10 +1,21 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using Globals;
 
 public class GameManager : MonoBehaviour
 {
-    public static StageJeu stage = 0;
+    [Header("Affectation inspecteur"), Space]
+    public GameObject[] _listeLampadaires = new GameObject[5];
 
+    // gestions, trackage et acces pour autres scripts
+    public static StageJeu stage = 0;
     public static bool InCalibInterac = false;
+    public static int indexLampCour = 0;
+    public static GameObject[] listeLampadaires;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+
+        listeLampadaires = _listeLampadaires;
+    }
 }
