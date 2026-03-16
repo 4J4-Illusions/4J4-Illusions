@@ -59,11 +59,11 @@ public class ControlesPersonnage : MonoBehaviour
             }
             if (debugStage)
             {
-                GameManager.stage = debugStageJeu;
+                GameManager.stageJeu = debugStageJeu;
             }
         }
 
-        if(GameManager.stage == StageJeu.Foret)
+        if(GameManager.stageJeu == StageJeu.Foret)
         {
             DefaultInterac = TypeInteraction.Onde;
         }
@@ -117,7 +117,7 @@ public class ControlesPersonnage : MonoBehaviour
         }
         if (interactionAction.WasPressedThisFrame() && hit.collider == null)
         {
-            if(GameManager.stage == StageJeu.Foret)
+            if(GameManager.stageJeu == StageJeu.Foret)
             {
                 Gameplay.Interaction(DefaultInterac, ondeSonore);
             }
@@ -137,5 +137,4 @@ public class ControlesPersonnage : MonoBehaviour
         // applique mouvement au joueur
         rigidBody.linearVelocity = mvtFinal;
     }
-
 }

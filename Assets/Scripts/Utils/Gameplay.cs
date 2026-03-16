@@ -49,7 +49,7 @@ namespace Utils
                     break;
                 case TypeInteraction.Lampadaire:
                     // code placeholder, a changer eventuellement
-                    if (int.Parse(obj.name.Substring(obj.name.Length - 2)) == GameManager.indexLampCour)
+                    if (int.Parse(obj.name[^2..]) == GameManager.indexLampCour)
                     {
                         Destroy(obj);
                         GameManager.indexLampCour++;
@@ -57,8 +57,11 @@ namespace Utils
                     break;
                 case TypeInteraction.Calibration:
                     GameManager.InCalibInterac = true;
+                    obj.SetActive(true);
+                    //obj.GetComponent<CalibRoulette>().enabled = true;
                     break;
                 case TypeInteraction.CalibrationStop:
+                    GameManager.InCalibInterac = false;
                     break;
             }
         }
