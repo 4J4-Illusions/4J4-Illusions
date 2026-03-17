@@ -224,7 +224,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6440725620028220330}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf08b87c6af7abf49bf6458add73ef50, type: 3}
   m_Name: 
@@ -235,7 +235,7 @@ MonoBehaviour:
   cameraJoueur: {fileID: 0}
   ajustPosIndic: {x: 0, y: 2, z: 0}
   fixDecalageY: 0
-  debugMode: 1
+  debugMode: 0
   debugRay: 0
   debugIndicPerm: 1
 --- !u!114 &722291156302225895

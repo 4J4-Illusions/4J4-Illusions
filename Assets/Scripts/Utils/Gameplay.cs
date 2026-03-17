@@ -28,7 +28,7 @@ namespace Utils
         /// <param name="obj">Le GameObject qui sera affecté (si applicable)</param>
         public static void Interaction(TypeInteraction typeInteraction, GameObject obj = null)
         {
-            //Debug.Log($"Called to process {typeInteraction} interaction with {obj} object");
+            Debug.Log($"Called to process {typeInteraction} interaction with {obj} object");
             switch (typeInteraction)
             {
                 case TypeInteraction.None:
@@ -57,11 +57,15 @@ namespace Utils
                     break;
                 case TypeInteraction.Calibration:
                     GameManager.InCalibInterac = true;
-                    obj.SetActive(true);
+                    GameManager.overlayCalibration.SetActive(true);
+                    ControlesPersonnage.canMove = false;
+                    //obj.SetActive(true);
                     //obj.GetComponent<CalibRoulette>().enabled = true;
                     break;
                 case TypeInteraction.CalibrationStop:
-                    GameManager.InCalibInterac = false;
+                    GameManager.overlayCalibration.GetComponent<CalibRoulette>().StopRoulette();
+                    //GameManager.InCalibInterac = false;
+                    //GameManager.overlayCalibration.SetActive(false);
                     break;
             }
         }

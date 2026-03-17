@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -55,13 +54,13 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
         indicateurUI = Instantiate(prefabIndicateurUI, canvas.transform);
         Invoke(nameof(DesactiveIndicateur), 3f);
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
         Destroy(indicateurUI);
     }
