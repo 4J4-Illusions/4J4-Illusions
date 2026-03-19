@@ -44,7 +44,7 @@ namespace Utils
                     if (obj.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Default"))
                     {
                         obj.GetComponent<Animator>().SetTrigger("TriggerOnde");
-                        if (GameManager.indexLampCour < 5) GameManager.listeLampadaires[GameManager.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
+                        if (GameManager.indexLampCour < 5) GameManager.Instance.listeLampadaires[GameManager.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
                     }
                     break;
                 case TypeInteraction.Lampadaire:
@@ -57,13 +57,13 @@ namespace Utils
                     break;
                 case TypeInteraction.Calibration:
                     GameManager.InCalibInterac = true;
-                    GameManager.overlayCalibration.SetActive(true);
+                    GameManager.Instance.overlayCalibration.SetActive(true);
                     ControlesPersonnage.canMove = false;
                     //obj.SetActive(true);
                     //obj.GetComponent<CalibRoulette>().enabled = true;
                     break;
                 case TypeInteraction.CalibrationStop:
-                    GameManager.overlayCalibration.GetComponent<CalibRoulette>().StopRoulette();
+                    GameManager.Instance.overlayCalibration.GetComponent<CalibRoulette>().StopRoulette();
                     //GameManager.InCalibInterac = false;
                     //GameManager.overlayCalibration.SetActive(false);
                     break;
