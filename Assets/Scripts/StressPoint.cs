@@ -4,12 +4,7 @@ public class StressPoint : MonoBehaviour
 {
     [Header("Affectation inspecteur"), Space]
     [Range(0, 100)] public float porteeStress = 50;
-    public float[] intervalleValeursStress = new float[2] { .01f, .1f };
-
-    private void Awake()
-    {
-        Debug.Log(GetInstanceID());
-    }
+    public float[] intervalleValeursStress = new float[2] { .0001f, .001f };
 
     private void Start()
     {
@@ -31,7 +26,8 @@ public class StressPoint : MonoBehaviour
         }
         else
         {
-            GestionBarreAnxiete.collectionStressPoints[GetInstanceID()] = 0;
+            //GestionBarreAnxiete.collectionStressPoints[GetInstanceID()] = 0;
+            GestionBarreAnxiete.collectionStressPoints.Remove(GetInstanceID());
         }
     }
 }
