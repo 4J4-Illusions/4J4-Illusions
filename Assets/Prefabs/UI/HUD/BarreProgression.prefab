@@ -51,8 +51,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GestionBarreAnxiete
   conteneurBarre: {fileID: 5854173073362920325}
-  modeBarreProgression: 1
-  progressionBarre: 0.001
+  animCoeur: {fileID: 399714026731670684}
+  modeBarreProgression: 0
+  progressionBarre: 0.01
 --- !u!1 &2545866732705249789
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -215,6 +216,7 @@ GameObject:
   - component: {fileID: 2079994137438417834}
   - component: {fileID: 632158850932758710}
   - component: {fileID: 6316240522378249783}
+  - component: {fileID: 399714026731670684}
   m_Layer: 0
   m_Name: Coeur
   m_TagString: Untagged
@@ -271,7 +273,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 508844921, guid: 7f8283aea92e2a148bb4c4002c54b553, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -279,3 +281,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &399714026731670684
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302486100481961275}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8125f6dc1fac0db4195b7a425aea1fc6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

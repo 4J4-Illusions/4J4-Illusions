@@ -25,4 +25,24 @@ namespace Globals
         Fin,
         Lobby
     }
+
+    public enum TypeStress
+    {
+        Proportionnel,
+        Instant
+    }
+
+
+
+    public struct StressPointEntry
+    {
+        public float valeurStress;
+        public TypeStress type;
+
+
+        public override readonly string ToString()
+        {
+            return $"Valeur Stresss: {valeurStress}    Type: {type}";
+        }
+    }
 }
