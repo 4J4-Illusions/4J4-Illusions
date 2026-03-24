@@ -15,6 +15,7 @@ public class StressPoint : MonoBehaviour
     {
         valeurDict.type = type;
         valeurDict.valeurStress = 0;
+        valeurDict.pauseProgBarre = true;
         GestionBarreAnxiete.collectionStressPoints.Add(GetInstanceID(), valeurDict);
     }
 
@@ -40,7 +41,6 @@ public class StressPoint : MonoBehaviour
                     inRange = true;
                     calculValeurStress = intervalleValeursStressPourcent[1];
                 }
-                GestionBarreAnxiete.multiplierProgBarre = 0;
             }
             valeurDict.valeurStress = calculValeurStress / 100;
         }
@@ -48,8 +48,9 @@ public class StressPoint : MonoBehaviour
         {
             inRange = false;
             valeurDict.valeurStress = intervalleValeursStressPourcent[0];
-            GestionBarreAnxiete.multiplierProgBarre = 1;
         }
+        valeurDict.pauseProgBarre = inRange;
+        //Debug.Log($"GameObject: {gameObject.name}    Dictionnary value: {valeurDict}");
         GestionBarreAnxiete.collectionStressPoints[GetInstanceID()] = valeurDict;
     }
 }

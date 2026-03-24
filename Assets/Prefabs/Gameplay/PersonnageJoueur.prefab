@@ -293,8 +293,8 @@ MonoBehaviour:
   - 1.5
   ajustementPosCam: {x: 0, y: 0.5, z: 0}
   debugMode: 0
-  debugPortee: 1
-  debugStage: 0
+  debugPortee: 0
+  debugStage: 1
   debugStageJeu: 2
 --- !u!54 &232147172958412112
 Rigidbody:

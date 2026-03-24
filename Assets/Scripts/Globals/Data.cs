@@ -38,11 +38,11 @@ namespace Globals
     {
         public float valeurStress;
         public TypeStress type;
-
+        public bool pauseProgBarre;
 
         public override readonly string ToString()
         {
-            return $"Valeur Stresss: {valeurStress}    Type: {type}";
+            return $"Valeur Stresss: {valeurStress}    Type: {type}    Pause Barre Prog?: {pauseProgBarre}";
         }
     }
 }

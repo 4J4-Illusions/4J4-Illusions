@@ -26,5 +26,9 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(transform.gameObject);
+
+        //Debug.Log(Screen.currentResolution);
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
     }
 }

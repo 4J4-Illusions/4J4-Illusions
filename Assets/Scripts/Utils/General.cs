@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class General
+namespace Globals
 {
-    
+    public class General
+    {
+
+    }
 }
