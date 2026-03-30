@@ -424,6 +424,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1403018977441427433, guid: 6100ebb0d7727354da26e558e6aefe6b, type: 3}
   m_PrefabInstance: {fileID: 40931734783301319}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &419998603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3419308302078367805, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+  m_PrefabInstance: {fileID: 6476570237030568703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &439464957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2213,6 +2218,23 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 8445392992082924421, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
   m_PrefabInstance: {fileID: 6476570237030568703}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1864332791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419998603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 0
+  sharedProfile: {fileID: 11400000, guid: 73c9f347433e7ac42b30f05b93d7a58a, type: 2}
 --- !u!1 &2002788617
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,10 +2662,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersonnageJoueur
       objectReference: {fileID: 0}
+    - target: {fileID: 7678403698104937620, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3419308302078367805, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1864332791}
   m_SourcePrefab: {fileID: 100100000, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
 --- !u!1001 &7905806163682158077
 PrefabInstance:

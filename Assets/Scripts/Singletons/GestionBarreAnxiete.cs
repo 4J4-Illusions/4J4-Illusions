@@ -20,11 +20,13 @@ public class GestionBarreAnxiete : MonoBehaviour
     float vitesseAnimCoeur = 1, finalProgBarre;
     Dictionary<int, StressPointEntry> instantEntriesToUpdate = new();
     bool pauseProgBarre = false;
+    VolumeVignette vfxVignette;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         imgBarre = conteneurBarre.transform.GetChild(0).GetComponent<Image>();
+        vfxVignette = GameManager.Instance.player.GetComponentInChildren<VolumeVignette>();
     }
 
     // Update is called once per frame
@@ -62,6 +64,7 @@ public class GestionBarreAnxiete : MonoBehaviour
             finalProgBarre = (!pauseProgBarre) ? (-progressionBarre / 10) : 0;
             //if(finalProgBarre >= 0) Debug.Log(finalProgBarre);
             imgBarre.fillAmount += (totalStress > 0) ? totalStress : finalProgBarre;
+            vfxVignette.intensite = imgBarre.fillAmount;
         }
         vitesseAnimCoeur = 1 + imgBarre.fillAmount * 4;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);

@@ -2,8 +2,11 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class VolumeVignettePulse : MonoBehaviour
+public class VolumeVignette : MonoBehaviour
 {
+    [Header("Accès publique pour autres scripts"), Space]
+    public float intensite;
+
     Volume volume;
     VolumeProfile profile;
     Vignette vignette;
@@ -30,7 +33,7 @@ public class VolumeVignettePulse : MonoBehaviour
     {
         if(volume != null)
         {
-            volume.weight = Mathf.Sin(Time.realtimeSinceStartup);
+            volume.weight = intensite;
         }
     }
 }
