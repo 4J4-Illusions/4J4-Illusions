@@ -60,7 +60,7 @@ public class CalibRoulette : MonoBehaviour
 
     void FinInteracCalib()
     {
-        GameManager.InCalibInterac = false;
+        GameManager.Instance.InCalibInterac = false;
         ControlesPersonnage.canMove = true;
         gameObject.SetActive(false);
     }

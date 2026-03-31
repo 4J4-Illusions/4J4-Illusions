@@ -5,7 +5,7 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
 {
     [Header("Affectation inspecteur"), Space]
     public GameObject canvas;
-    public GameObject prefabIndicateurUI, indicateurUI;
+    public GameObject indicateurUI;
     public Camera cameraJoueur;
 
     [Header("Ajustement inspecteur"), Space]
@@ -56,13 +56,18 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
 
     void OnEnable()
     {
-        indicateurUI = Instantiate(prefabIndicateurUI, canvas.transform);
         Invoke(nameof(DesactiveIndicateur), 3f);
+    }
+
+    private void OnDisable()
+    {
+        indicateurUI.SetActive(false);
     }
 
     void OnDestroy()
     {
-        Destroy(indicateurUI);
+        //Destroy(indicateurUI);
+        indicateurUI.SetActive(false);
     }
 
 
@@ -92,7 +97,6 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
 
     void DesactiveIndicateur()
     {
-        Destroy(indicateurUI);
         enabled = false;
     }
 }

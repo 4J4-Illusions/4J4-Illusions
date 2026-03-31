@@ -10,9 +10,9 @@ public class GameManager : MonoBehaviour
     public GameObject _overlayCalibration, player;
 
     // gestions, trackage et acces pour autres scripts
-    public static StageJeu stageJeu = 0;
-    public static bool InCalibInterac = false;
-    public static int indexLampCour = 0;
+    public StageJeu stageJeu = 0;
+    public bool InCalibInterac = false;
+    public int indexLampCour = 0;
     public GameObject[] listeLampadaires { get { return _listeLampadaires; } }
     public GameObject overlayCalibration { get { return _overlayCalibration; } }
 
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(transform.gameObject);
+        DontDestroyOnLoad(gameObject);
 
         //Debug.Log(Screen.currentResolution);
         QualitySettings.vSyncCount = 0;

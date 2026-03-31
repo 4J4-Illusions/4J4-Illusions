@@ -44,19 +44,19 @@ namespace Utils
                     if (obj.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Default"))
                     {
                         obj.GetComponent<Animator>().SetTrigger("TriggerOnde");
-                        if (GameManager.indexLampCour < 5) GameManager.Instance.listeLampadaires[GameManager.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
+                        if (GameManager.Instance.indexLampCour < 5) GameManager.Instance.listeLampadaires[GameManager.Instance.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
                     }
                     break;
                 case TypeInteraction.Lampadaire:
                     // code placeholder, a changer eventuellement
-                    if (int.Parse(obj.name[^2..]) == GameManager.indexLampCour)
+                    if (int.Parse(obj.name[^2..]) == GameManager.Instance.indexLampCour)
                     {
                         Destroy(obj);
-                        GameManager.indexLampCour++;
+                        GameManager.Instance.indexLampCour++;
                     }
                     break;
                 case TypeInteraction.Calibration:
-                    GameManager.InCalibInterac = true;
+                    GameManager.Instance.InCalibInterac = true;
                     GameManager.Instance.overlayCalibration.SetActive(true);
                     ControlesPersonnage.canMove = false;
                     //obj.SetActive(true);

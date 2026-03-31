@@ -61,11 +61,11 @@ public class ControlesPersonnage : MonoBehaviour
             }
             if (debugStage)
             {
-                GameManager.stageJeu = debugStageJeu;
+                GameManager.Instance.stageJeu = debugStageJeu;
             }
         }
 
-        if(GameManager.stageJeu == StageJeu.Foret)
+        if(GameManager.Instance.stageJeu == StageJeu.Foret)
         {
             DefaultInterac = TypeInteraction.Onde;
         }
@@ -114,13 +114,13 @@ public class ControlesPersonnage : MonoBehaviour
     void HandleInteractionInput()
     {
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
-        if (Physics.Raycast(transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.InCalibInterac)
+        if (Physics.Raycast(transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.InCalibInterac)
         {
             //Debug.Log(hit.transform.gameObject.name);
             if (hit.transform.gameObject.TryGetComponent<ObjetInteractif>(out ObjetInteractif objInter))
             {
                 texteInteraction.SetActive(true);
-                /*if (GameManager.InCalibInterac)
+                /*if (GameManager.Instance.InCalibInterac)
                 {
                     Gameplay.Interaction(TypeInteraction.CalibrationStop);
                 }
@@ -138,14 +138,14 @@ public class ControlesPersonnage : MonoBehaviour
         }
 
         // interactions standard (sans necessiter un ObjectInteractif)
-        if (interactionAction.WasPressedThisFrame() && (hit.collider == null || GameManager.InCalibInterac))
+        if (interactionAction.WasPressedThisFrame() && (hit.collider == null || GameManager.Instance.InCalibInterac))
         {
             //Debug.Log("Interaction hors Objet Interactif");
-            if (GameManager.stageJeu == StageJeu.Foret)
+            if (GameManager.Instance.stageJeu == StageJeu.Foret)
             {
                 Gameplay.Interaction(DefaultInterac, ondeSonore);
             }
-            else if (GameManager.InCalibInterac)
+            else if (GameManager.Instance.InCalibInterac)
             {
                 Gameplay.Interaction(TypeInteraction.CalibrationStop);
             }
