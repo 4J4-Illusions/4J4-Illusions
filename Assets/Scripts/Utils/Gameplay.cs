@@ -51,7 +51,10 @@ namespace Utils
                     // code placeholder, a changer eventuellement
                     if (int.Parse(obj.name[^2..]) == GameManager.Instance.indexLampCour)
                     {
-                        Destroy(obj);
+                        //Destroy(obj);
+                        MeshRenderer meshr = obj.transform.Find("Lumiere").GetComponent<MeshRenderer>();
+                        meshr.enabled = false;
+                        meshr.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
                         GameManager.Instance.indexLampCour++;
                     }
                     break;
