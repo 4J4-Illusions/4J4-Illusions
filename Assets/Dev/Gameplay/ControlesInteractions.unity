@@ -256,37 +256,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15145663}
   m_CullTransparentMesh: 1
---- !u!1 &80408071
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 80408072}
-  m_Layer: 0
-  m_Name: ListeMachinesCalibration
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &80408072
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80408071}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.5, y: 0.81656, z: -14.32625}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &145331966
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,13 +833,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d059ddc74bb804bad46b5c88f3c50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Globals.GameManager
-  _listeLampadaires:
+  listeLampadaires:
   - {fileID: 1554343699}
   - {fileID: 1840640468}
   - {fileID: 734848275}
   - {fileID: 156713250}
   - {fileID: 1797380875}
-  _overlayCalibration: {fileID: 388326410}
+  overlayCalibration: {fileID: 388326410}
   player: {fileID: 321191029}
   stageJeu: 0
   InCalibInterac: 0
@@ -2708,10 +2677,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 374680696373501302, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
-      propertyPath: debugMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 374680696373501302, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
       propertyPath: texteInteraction
       value: 
       objectReference: {fileID: 15145663}
@@ -2880,5 +2845,4 @@ SceneRoots:
   - {fileID: 1780872684}
   - {fileID: 145331967}
   - {fileID: 1565815554}
-  - {fileID: 80408072}
   - {fileID: 1856085625}
