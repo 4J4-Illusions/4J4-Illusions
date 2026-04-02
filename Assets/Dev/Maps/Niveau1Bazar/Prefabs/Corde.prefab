@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8482339021541921148}
   - component: {fileID: 1800384447917591421}
   - component: {fileID: 1922852123482103497}
-  - component: {fileID: 8450964585777543602}
+  - component: {fileID: 4070100020076147830}
   m_Layer: 0
   m_Name: Corde
   m_TagString: Untagged
@@ -91,8 +91,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8450964585777543602
-CapsuleCollider:
+--- !u!65 &4070100020076147830
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,8 +109,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 1.9999999, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

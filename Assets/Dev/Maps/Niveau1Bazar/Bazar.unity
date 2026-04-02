@@ -930,55 +930,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &497583202
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 497583204}
-  - component: {fileID: 497583203}
-  m_Layer: 0
-  m_Name: Corde
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &497583203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497583202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11e07847e267c67408d2d0dd2b3ac90b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Corde
-  startPoint: {fileID: 487930260}
-  endPoint: {fileID: 923263839}
-  segmentPrefab: {fileID: 1252929352427584978, guid: 2401584e362bb954da822151d0a58bac, type: 3}
-  segmentCount: 15
-  sagAmount: 1.5
---- !u!4 &497583204
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497583202}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 491.4456, y: -0.00003, z: 572.1264}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &498981224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,7 +1851,7 @@ Transform:
   m_GameObject: {fileID: 923263838}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 501.7, y: 31.93, z: 639.69}
+  m_LocalPosition: {x: 501.7, y: 31.93, z: 639.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4962,7 +4913,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5016,4 +4968,3 @@ SceneRoots:
   - {fileID: 652186348534705280}
   - {fileID: 487930260}
   - {fileID: 923263839}
-  - {fileID: 497583204}

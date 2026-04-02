@@ -1,99 +1,91 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class Corde : MonoBehaviour
+public class MultipleCordes : MonoBehaviour
 {
-    [Header("Points de la corde")]
-    public Transform startPoint;
-    public Transform endPoint;
+    [System.Serializable]
+    public class CordeData
+    {
+        public Transform startPoint;
+        public Transform endPoint;
+        public GameObject segmentPrefab;
+        public int segmentCount = 15;
+        public float sagAmount = 1.5f;
+    }
 
-    [Header("Segment de la corde")]
-    public GameObject segmentPrefab; // Pivot à la base du cylindre
-
-    [Header("Réglages")]
-    public int segmentCount = 15;
-    public float sagAmount = 1.5f;
-
-    private GameObject[] segments;
-    //private GameObject[] flags;
-    //public GameObject flagPrefab;
-    //public int flagSpacing = 2;
+    [Header("Toutes les cordes")]
+    public List<CordeData> cordes;
 
     void Start()
     {
-        segments = new GameObject[segmentCount];
-        //flags = new GameObject[segmentCount];
-
-        for (int i = 0; i < segmentCount; i++)
+        foreach (CordeData corde in cordes)
         {
-            segments[i] = Instantiate(segmentPrefab, transform);
-
-            /**
-            if (i % flagSpacing == 0)
-            {
-                flags[i] = Instantiate(flagPrefab, transform);
-            }
-            **/
+            CreateCorde(corde);
         }
     }
 
-    void Update()
+    void CreateCorde(CordeData corde)
     {
-        float segmentHeight = segmentPrefab.transform.localScale.y;
+        GameObject previousSegment = null;
 
-        for (int i = 0; i < segmentCount; i++)
+        for (int i = 0; i < corde.segmentCount; i++)
         {
-            Vector3 pos;
+            GameObject segment = Instantiate(corde.segmentPrefab, transform);
+            float t = (float)i / (corde.segmentCount - 1);
+
+            // Position interpolée avec sag
+            Vector3 pos = Vector3.Lerp(corde.startPoint.position, corde.endPoint.position, t);
+            pos.y -= Mathf.Sin(t * Mathf.PI) * corde.sagAmount;
+            segment.transform.position = pos;
+
+            // Rigidbody
+            Rigidbody rb = segment.GetComponent<Rigidbody>();
+            if (rb == null)
+                rb = segment.AddComponent<Rigidbody>();
+
+            rb.mass = 0.2f;
+            rb.linearDamping = 0.1f;     // Remplace drag obsolète
+            rb.angularDamping = 0.05f;   // Remplace angularDrag obsolète
+
+            // HingeJoint
+            HingeJoint joint = segment.AddComponent<HingeJoint>();
+            joint.axis = Vector3.forward;
+            joint.useLimits = false;
 
             if (i == 0)
             {
-                // Premier segment : base sur startPoint
-                pos = startPoint.position;
-            }
-            else
-            {
-                // Base sur le sommet du segment précédent
-                Vector3 prevTop = segments[i - 1].transform.position + segments[i - 1].transform.up * segmentHeight;
-                pos = prevTop;
-            }
-
-            // Sag naturel
-            float t = (float)i / (segmentCount - 1);
-            pos.y -= Mathf.Sin(t * Mathf.PI) * sagAmount;
-
-            segments[i].transform.position = pos;
-
-            // Rotation du segment
-            Vector3 dirRot;
-            if (i < segmentCount - 1)
-                dirRot = (segments[i + 1].transform.position - pos).normalized;
-            else
-                dirRot = (pos - segments[i - 1].transform.position).normalized;
-
-            if (dirRot != Vector3.zero)
-            {
-                Quaternion targetRot = Quaternion.LookRotation(dirRot);
-                targetRot *= Quaternion.Euler(90, 0, 0); // garder cylindre vertical
-                segments[i].transform.rotation = targetRot;
-            }
-
-            /**
-            // LOGIQUE DES DRAPEAUX (désactivée)
-            if (flags[i] != null)
-            {
-                flags[i].transform.position = pos;
-
-                if (i < segmentCount - 1)
+                if (!corde.startPoint.GetComponent<Rigidbody>())
                 {
-                    Vector3 dirFlag = (segments[i + 1].transform.position - pos).normalized;
-                    if (dirFlag != Vector3.zero)
-                        flags[i].transform.rotation = Quaternion.LookRotation(dirFlag);
-
-                    flags[i].transform.Rotate(90, 0, 0); // pendage
-                    float wave = Mathf.Sin(Time.time * 2f + i) * 10f; // vent
-                    flags[i].transform.Rotate(wave, 0, 0);
+                    Rigidbody rbStart = corde.startPoint.gameObject.AddComponent<Rigidbody>();
+                    rbStart.isKinematic = true;
                 }
+                joint.connectedBody = corde.startPoint.GetComponent<Rigidbody>();
             }
-            **/
+            else
+            {
+                joint.connectedBody = previousSegment.GetComponent<Rigidbody>();
+            }
+
+            previousSegment = segment;
+
+            if (i == corde.segmentCount - 1)
+            {
+                if (!corde.endPoint.GetComponent<Rigidbody>())
+                {
+                    Rigidbody rbEnd = corde.endPoint.gameObject.AddComponent<Rigidbody>();
+                    rbEnd.isKinematic = true;
+                }
+                joint.connectedBody = corde.endPoint.GetComponent<Rigidbody>();
+            }
+
+            /*
+            // Fanions optionnels
+            // if (flagPrefab != null && i % 3 == 0)
+            // {
+            //     GameObject flag = Instantiate(flagPrefab, segment.transform);
+            //     flag.transform.localPosition = Vector3.up * 0.5f;
+            // }
+            */
         }
     }
 }
