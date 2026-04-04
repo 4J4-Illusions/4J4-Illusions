@@ -54,19 +54,13 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
         }
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         Invoke(nameof(DesactiveIndicateur), 3f);
     }
 
     private void OnDisable()
     {
-        indicateurUI.SetActive(false);
-    }
-
-    void OnDestroy()
-    {
-        //Destroy(indicateurUI);
         indicateurUI.SetActive(false);
     }
 

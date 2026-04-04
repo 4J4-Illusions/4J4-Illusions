@@ -28,7 +28,7 @@ namespace Utils
         /// <param name="obj">Le GameObject qui sera affecté (si applicable)</param>
         public static void Interaction(TypeInteraction typeInteraction, GameObject obj = null)
         {
-            Debug.Log($"Called to process {typeInteraction} interaction with {obj} object");
+            Debug.Log($"Gestion de l'interaction de type {typeInteraction} pour l'objet {obj}");
             switch (typeInteraction)
             {
                 case TypeInteraction.None:
@@ -48,10 +48,18 @@ namespace Utils
                     }
                     break;
                 case TypeInteraction.Lampadaire:
-                    // code placeholder, a changer eventuellement
                     if (int.Parse(obj.name[^2..]) == GameManager.Instance.indexLampCour)
                     {
-                        Destroy(obj);
+                        // detruire le component ObjectInteractif pour arreter la détection par le raycast du joueur sans empêcher les collisions
+                        Destroy(obj.GetComponent<ObjetInteractif>());
+                        // desactiver mesh sphere mis comme placeholder pour lumiere
+                        MeshRenderer meshrender = obj.transform.Find("Lumiere").GetComponent<MeshRenderer>();
+                        meshrender.enabled = false;
+                        // jouer particule
+                        meshrender.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+                        // activer lumiere
+                        obj.transform.Find("PointLightLampadaire").gameObject.SetActive(true);
+
                         GameManager.Instance.indexLampCour++;
                     }
                     break;
@@ -68,6 +76,7 @@ namespace Utils
                     //GameManager.overlayCalibration.SetActive(false);
                     break;
             }
+            GameManager.Instance.player.GetComponent<ControlesPersonnage>().texteInteraction.SetActive(false);
         }
     }
 }

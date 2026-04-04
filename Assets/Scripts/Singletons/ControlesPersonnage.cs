@@ -39,8 +39,6 @@ public class ControlesPersonnage : MonoBehaviour
         rotationAction = InputSystem.actions.FindAction("Player/Look");
         courseAction = InputSystem.actions.FindAction("Player/Sprint");
         interactionAction = InputSystem.actions.FindAction("Player/Interact");
-
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

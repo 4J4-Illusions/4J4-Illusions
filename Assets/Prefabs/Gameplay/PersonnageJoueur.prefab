@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 96309941873648042}
   - component: {fileID: 7301701092120370950}
   - component: {fileID: 6903406369661579611}
+  - component: {fileID: 3146523367247805650}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -119,7 +120,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -177,6 +178,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VolumeVignettePulse
   intensite: 0
+--- !u!114 &3146523367247805650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419308302078367805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 0
+  sharedProfile: {fileID: 11400000, guid: 73c9f347433e7ac42b30f05b93d7a58a, type: 2}
 --- !u!1 &5313433800481762951
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +337,7 @@ MonoBehaviour:
   - 1
   - 1.5
   ajustementPosCam: {x: 0, y: 0.5, z: 0}
-  debugMode: 0
+  debugMode: 1
   debugPortee: 0
   debugStage: 1
   debugStageJeu: 2
@@ -509,22 +527,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1568875386147487604}
     m_Modifications:
-    - target: {fileID: 2089846161012513762, guid: dd1f5fa4246ae2c489c3ff5a2bb28b98, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2089846161012513762, guid: dd1f5fa4246ae2c489c3ff5a2bb28b98, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2089846161012513762, guid: dd1f5fa4246ae2c489c3ff5a2bb28b98, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2089846161012513762, guid: dd1f5fa4246ae2c489c3ff5a2bb28b98, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8399725547561054856, guid: dd1f5fa4246ae2c489c3ff5a2bb28b98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -569,7 +571,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: OndeSonore
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3791115959152586621, guid: dd1f5fa4246ae2c489c3ff5a2bb28b98, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
