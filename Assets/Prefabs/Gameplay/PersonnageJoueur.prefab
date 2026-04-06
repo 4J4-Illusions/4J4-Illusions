@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 8445392992082924421}
   - component: {fileID: 8662469963559205336}
   - component: {fileID: 7678403698104937620}
+  - component: {fileID: 6909365219630141942}
   - component: {fileID: 96309941873648042}
-  - component: {fileID: 7301701092120370950}
   - component: {fileID: 6903406369661579611}
   - component: {fileID: 3146523367247805650}
   m_Layer: 0
-  m_Name: PlayerCamera
+  m_Name: CameraJoueur
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3419308302078367805}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -141,7 +141,7 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!114 &96309941873648042
+--- !u!114 &6909365219630141942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,10 +150,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3419308302078367805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84a3d6a18889aa24f82556c081485713, type: 3}
+  m_Script: {fileID: 11500000, guid: 0edf248fcbced874abdbb9c96302d91f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnableDepthTexture
---- !u!114 &7301701092120370950
+  m_EditorClassIdentifier: Assembly-CSharp::GestionCamera
+  limitesFOV: 3c0000005a000000
+  limitesBobbing:
+  - 0.5
+  - 0.75
+  vitesseChangementFOV: 5
+  vitesseBobbing: 0.01
+  rotationFinale: {x: 0, y: 0, z: 0}
+--- !u!114 &96309941873648042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -337,7 +344,7 @@ MonoBehaviour:
   - 1
   - 1.5
   ajustementPosCam: {x: 0, y: 0.5, z: 0}
-  debugMode: 1
+  debugMode: 0
   debugPortee: 0
   debugStage: 1
   debugStageJeu: 2
