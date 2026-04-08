@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         // setup du singleton
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -32,5 +32,16 @@ public class GameManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void Start()
+    {
+        if (stageJeu == StageJeu.Foret)
+        {
+            RenderSettings.fog = true;
+            RenderSettings.fogColor = Color.black;
+            RenderSettings.fogMode = FogMode.ExponentialSquared;
+            RenderSettings.fogDensity = .3f;
+        }
     }
 }

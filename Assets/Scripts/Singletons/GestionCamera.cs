@@ -11,8 +11,8 @@ public class GestionCamera : MonoBehaviour
     [Header("Accès publique pour autres scripts"), Space]
     public Vector3 rotationFinale = new(0, 0, 0);
 
-    int targetFOV = 60;
-    float targetBobbing = .75f;
+    int targetFOV;
+    float targetBobbing;
     ControlesPersonnage player;
 
     private void Start()
