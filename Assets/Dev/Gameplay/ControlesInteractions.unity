@@ -3498,12 +3498,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersonnageJoueur
       objectReference: {fileID: 0}
-    - target: {fileID: 7678403698104937620, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 96309941873648042, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3598,10 +3593,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263928954358375363, guid: 8be266027b7ec6048a032252afa64703, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676752151370491365, guid: 8be266027b7ec6048a032252afa64703, type: 3}
-      propertyPath: m_FillAmount
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
