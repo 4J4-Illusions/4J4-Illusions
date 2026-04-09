@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem; // 🔹 Nécessaire pour le nouveau Input System
 
 public class MenuCirculaireChangementOptions : MonoBehaviour
 {
@@ -35,7 +36,12 @@ public class MenuCirculaireChangementOptions : MonoBehaviour
 
     void Update()
     {
-        float scroll = Input.mouseScrollDelta.y;
+        // 🔹 Nouveau Input System pour la molette
+        float scroll = 0f;
+        if (Mouse.current != null)
+        {
+            scroll = Mouse.current.scroll.ReadValue().y;
+        }
 
         if (Time.time - lastScrollTime >= scrollCooldown)
         {
