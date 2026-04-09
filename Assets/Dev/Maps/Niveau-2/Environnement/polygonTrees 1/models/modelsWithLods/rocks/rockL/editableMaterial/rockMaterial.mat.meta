@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: becee20b7202ad31092291e9f86d6467
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 224068
+  packageName: Polygon Trees
+  packageVersion: 2.5
+  assetPath: Assets/polygonTrees/polygonTrees/models/modelsWithLods/rocks/rockL/editableMaterial/rockMaterial.mat
+  uploadId: 616684
