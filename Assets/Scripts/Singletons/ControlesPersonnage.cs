@@ -111,17 +111,20 @@ public class ControlesPersonnage : MonoBehaviour
 
     private void OnEnable()
     {
-        // abonement evenement
+        // abonement évènement
         Gameplay.OnInteraction += (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(ondeSonore.transform.position); };
     }
     private void OnDisable()
     {
-        // desabonnement evenement
+        // désabonnement évènement
         Gameplay.OnInteraction -= (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(ondeSonore.transform.position); };
     }
 
 
 
+    /// <summary>
+    /// Méthode qui gère les interactions du joueur.
+    /// </summary>
     void HandleInteractionInput()
     {
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
@@ -148,10 +151,10 @@ public class ControlesPersonnage : MonoBehaviour
             texteInteraction.SetActive(false);
         }
 
-        // interactions standard (sans necessiter un ObjectInteractif)
+        // interactions standard (sans passer directemenr par un objet interactif)
         if (interactionAction.WasPressedThisFrame() && (hit.collider == null || GameManager.Instance.InCalibInterac))
         {
-            //Debug.Log("Interaction hors Objet Interactif");
+            //Debug.Log("Interaction hors objet interactif");
             if (GameManager.Instance.stageJeu == StageJeu.Foret)
             {
                 Gameplay.Interaction(DefaultInterac, ondeSonore);
