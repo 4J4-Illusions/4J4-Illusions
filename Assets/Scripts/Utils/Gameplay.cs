@@ -1,24 +1,15 @@
 using System;
-using UnityEngine.InputSystem.Controls;
 using Globals;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.Object;
 
 namespace Utils
 {
     public class Gameplay
     {
-        public static void KeyDependantAction(KeyControl key, Action onPressCallback, Action onReleaseCallback)
-        {
-            if (key.isPressed)
-            {
-                onPressCallback();
-            }
-            else
-            {
-                onReleaseCallback();
-            }
-        }
+        // evenements
+        public static Action<TypeInteraction> OnInteraction;
 
 
         /// <summary>
@@ -76,7 +67,17 @@ namespace Utils
                     //GameManager.overlayCalibration.SetActive(false);
                     break;
             }
+
             GameManager.Instance.player.GetComponent<ControlesPersonnage>().texteInteraction.SetActive(false);
+            OnInteraction.Invoke(typeInteraction);
+        }
+        /// <summary>
+        /// Lance la séquence de jumpscare, qui correspond à la fin du jeu.
+        /// </summary>
+        public static void Jumpscare()
+        {
+            GestionBarreAnxiete.Instance.conteneurBarre.transform.GetChild(0).GetComponent<Image>().fillAmount = 1;
+            GameManager.Instance.FinDePartie();
         }
     }
 }

@@ -23,11 +23,13 @@ public class ControlesPersonnage : MonoBehaviour
     public bool debugPortee, debugStage;
     public StageJeu debugStageJeu = 0;
     // gestions, trackage et acces pour autres scripts
-    public static bool canMove = true;
+    public static bool isRunning, isMoving, canMove = true;
+    // evenements
+    public static Action<Vector3> OnPlayerOnde;
 
     Rigidbody rigidBody;
     InputAction mouvementAction, rotationAction, courseAction, interactionAction;
-    Vector3 mvtFinal, rotFinal;
+    Vector3 mouvementFinal, rotationFinal;
     int indexModifCourse = 0;
     TypeInteraction DefaultInterac = 0;
     RaycastHit hit;
@@ -72,12 +74,13 @@ public class ControlesPersonnage : MonoBehaviour
     void Update()
     {
         // calcul mouvement et rotation selon le input du clavier et de la souris
-        mvtFinal = multiplicateurMouvement[indexModifCourse] * vitesseMouvement * (transform.forward * mouvementAction.ReadValue<Vector2>().y + transform.right * mouvementAction.ReadValue<Vector2>().x);
-        rotFinal = new Vector3(-rotationAction.ReadValue<Vector2>().y, rotationAction.ReadValue<Vector2>().x, 0) * vitesseRotation;
-        if (!canMove) mvtFinal = rotFinal *= 0;
+        mouvementFinal = multiplicateurMouvement[indexModifCourse] * vitesseMouvement * 
+            (transform.forward * mouvementAction.ReadValue<Vector2>().y + transform.right * mouvementAction.ReadValue<Vector2>().x);
+        rotationFinal = new Vector3(-rotationAction.ReadValue<Vector2>().y, rotationAction.ReadValue<Vector2>().x, 0) * vitesseRotation;
+        if (!canMove) mouvementFinal *= 0;
         // applique rotation a camera et joueur
-        cameraJoueur.transform.Rotate(rotFinal.x, 0, 0);
-        transform.Rotate(0, rotFinal.y, 0);
+        cameraJoueur.GetComponent<GestionCamera>().rotationFinale = rotationFinal;
+        transform.Rotate(0, rotationFinal.y, 0);
 
         // pour le debogage
         if (debugMode)
@@ -89,26 +92,39 @@ public class ControlesPersonnage : MonoBehaviour
             }
         }
 
-        // actions selon le input du clavier
-        if (courseAction.IsPressed())
-        {
-            indexModifCourse = 1;
-        }
-        else
-        {
-            indexModifCourse = 0;
-        }
+        // obtention des etats
+        isMoving = mouvementFinal != Vector3.zero;
+        isRunning = courseAction.IsPressed();
+
+        // appliquer ou non le modificateur de vitesse
+        indexModifCourse = isRunning ? 1 : 0;
+
+        // decide comment se fera l'appel de la methode qui gere les interactions
         HandleInteractionInput();
     }
 
     void FixedUpdate()
     {
         // applique mouvement au joueur
-        rigidBody.linearVelocity = mvtFinal;
+        rigidBody.linearVelocity = mouvementFinal;
+    }
+
+    private void OnEnable()
+    {
+        // abonement évènement
+        Gameplay.OnInteraction += (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(ondeSonore.transform.position); };
+    }
+    private void OnDisable()
+    {
+        // désabonnement évènement
+        Gameplay.OnInteraction -= (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(ondeSonore.transform.position); };
     }
 
 
 
+    /// <summary>
+    /// Méthode qui gère les interactions du joueur.
+    /// </summary>
     void HandleInteractionInput()
     {
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
@@ -135,10 +151,10 @@ public class ControlesPersonnage : MonoBehaviour
             texteInteraction.SetActive(false);
         }
 
-        // interactions standard (sans necessiter un ObjectInteractif)
+        // interactions standard (sans passer directemenr par un objet interactif)
         if (interactionAction.WasPressedThisFrame() && (hit.collider == null || GameManager.Instance.InCalibInterac))
         {
-            //Debug.Log("Interaction hors Objet Interactif");
+            //Debug.Log("Interaction hors objet interactif");
             if (GameManager.Instance.stageJeu == StageJeu.Foret)
             {
                 Gameplay.Interaction(DefaultInterac, ondeSonore);
