@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         if (stageJeu == StageJeu.Foret)
         {
-            RenderSettings.fog = true;
+            //RenderSettings.fog = true;
             RenderSettings.fogColor = Color.black;
             RenderSettings.fogMode = FogMode.ExponentialSquared;
             RenderSettings.fogDensity = .3f;

@@ -18,7 +18,7 @@ public class GestionBarreAnxiete : MonoBehaviour
 
     Image imgBarre;
     float vitesseAnimCoeur = 1, finalProgBarre;
-    Dictionary<int, StressPointEntry> instantEntriesToUpdate = new();
+    readonly Dictionary<int, StressPointEntry> instantEntriesToUpdate = new();
     bool pauseProgBarre = false;
     VolumeVignette vfxVignette;
 

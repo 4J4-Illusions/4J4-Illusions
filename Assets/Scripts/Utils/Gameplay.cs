@@ -8,6 +8,9 @@ namespace Utils
 {
     public class Gameplay
     {
+        // evenements
+        public static Action<TypeInteraction> OnInteraction;
+
         public static void KeyDependantAction(KeyControl key, Action onPressCallback, Action onReleaseCallback)
         {
             if (key.isPressed)
@@ -76,7 +79,9 @@ namespace Utils
                     //GameManager.overlayCalibration.SetActive(false);
                     break;
             }
+
             GameManager.Instance.player.GetComponent<ControlesPersonnage>().texteInteraction.SetActive(false);
+            OnInteraction.Invoke(typeInteraction);
         }
     }
 }

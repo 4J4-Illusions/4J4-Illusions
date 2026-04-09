@@ -24,6 +24,8 @@ public class ControlesPersonnage : MonoBehaviour
     public StageJeu debugStageJeu = 0;
     // gestions, trackage et acces pour autres scripts
     public static bool isRunning, isMoving, canMove = true;
+    // evenements
+    public static Action<Vector3> OnPlayerOnde;
 
     Rigidbody rigidBody;
     InputAction mouvementAction, rotationAction, courseAction, interactionAction;
@@ -95,7 +97,7 @@ public class ControlesPersonnage : MonoBehaviour
         isRunning = courseAction.IsPressed();
 
         // appliquer ou non le modificateur de vitesse
-        indexModifCourse =  isRunning ? 1 : 0;
+        indexModifCourse = isRunning ? 1 : 0;
 
         // decide comment se fera l'appel de la methode qui gere les interactions
         HandleInteractionInput();
@@ -105,6 +107,17 @@ public class ControlesPersonnage : MonoBehaviour
     {
         // applique mouvement au joueur
         rigidBody.linearVelocity = mouvementFinal;
+    }
+
+    private void OnEnable()
+    {
+        // abonement evenement
+        Gameplay.OnInteraction += (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(ondeSonore.transform.position); };
+    }
+    private void OnDisable()
+    {
+        // desabonnement evenement
+        Gameplay.OnInteraction -= (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(ondeSonore.transform.position); };
     }
 
 
