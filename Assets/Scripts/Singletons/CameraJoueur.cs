@@ -1,7 +1,8 @@
-using System;
+using Globals;
 using UnityEngine;
 
-public class GestionCamera : MonoBehaviour
+[RequireComponent(typeof(Camera))]
+public class CameraJoueur : MonoBehaviour
 {
     [Header("Ajustement inspecteur"), Space]
     public int[] limitesFOV = new int[2] { 60, 90 };
@@ -18,6 +19,11 @@ public class GestionCamera : MonoBehaviour
     private void Start()
     {
         player = transform.parent.GetComponent<ControlesPersonnage>();
+
+        if(GameManager.Instance.stageJeu == StageJeu.Foret)
+        {
+            GetComponent<Camera>().depthTextureMode = DepthTextureMode.Depth;
+        }
     }
 
     // Update is called once per frame

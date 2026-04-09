@@ -79,7 +79,7 @@ public class ControlesPersonnage : MonoBehaviour
         rotationFinal = new Vector3(-rotationAction.ReadValue<Vector2>().y, rotationAction.ReadValue<Vector2>().x, 0) * vitesseRotation;
         if (!canMove) mouvementFinal *= 0;
         // applique rotation a camera et joueur
-        cameraJoueur.GetComponent<GestionCamera>().rotationFinale = rotationFinal;
+        cameraJoueur.GetComponent<CameraJoueur>().rotationFinale = rotationFinal;
         transform.Rotate(0, rotationFinal.y, 0);
 
         // pour le debogage

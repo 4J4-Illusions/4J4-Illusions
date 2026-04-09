@@ -27,14 +27,18 @@ public class GestionBarreAnxiete : MonoBehaviour
 
     void Awake()
     {
-        // setup du singleton
+        /*
+         * setup du singleton
+         * trouvé sur ce lien:
+         * https://gamedev.stackexchange.com/questions/116009/in-unity-how-do-i-correctly-implement-the-singleton-pattern
+        */
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
