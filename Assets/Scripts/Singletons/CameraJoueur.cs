@@ -45,7 +45,7 @@ public class CameraJoueur : MonoBehaviour
         GetComponent<Camera>().fieldOfView = Mathf.MoveTowards(GetComponent<Camera>().fieldOfView, targetFOV, vitesseChangementFOV);
 
         // effet de bobbing (mvt bond naturel de la tete quand on marche)
-        if (ControlesPersonnage.isMoving) transform.localPosition = new(0, Mathf.MoveTowards(transform.localPosition.y, targetBobbing, vitesseBobbing));
+        if (ControlesPersonnage.isMoving) transform.localPosition = new(0, Mathf.MoveTowards(transform.localPosition.y, targetBobbing, vitesseBobbing), .2f);
         else transform.localPosition = player.ajustementPosCam;
 
         if (transform.localPosition.y == limitesBobbing[0]) targetBobbing = limitesBobbing[1];

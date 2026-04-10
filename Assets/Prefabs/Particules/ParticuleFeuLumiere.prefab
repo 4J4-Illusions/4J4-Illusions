@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8634341255406492735}
   - component: {fileID: 3859732076751736765}
   m_Layer: 0
-  m_Name: ParticuleLumiereLampadaire
+  m_Name: ParticuleFeuLumiere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
