@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class GestionBarreAnxiete : MonoBehaviour
 {
-    // référence statique pour accéder aux propriététs du singleton
-    public static GestionBarreAnxiete Instance;
-
     [Header("Affectation inspecteur"), Space]
     public GameObject conteneurBarre;
     public Animator animCoeur;
@@ -21,25 +18,9 @@ public class GestionBarreAnxiete : MonoBehaviour
 
     Image imgBarre;
     float vitesseAnimCoeur = 1, finalProgBarre;
-    readonly Dictionary<int, StressPointEntry> instantEntriesToUpdate = new();
+    Dictionary<int, StressPointEntry> instantEntriesToUpdate = new();
     bool pauseProgBarre = false;
     VolumeVignette vfxVignette;
-
-    void Awake()
-    {
-        /*
-         * setup du singleton
-         * trouvé sur ce lien:
-         * https://gamedev.stackexchange.com/questions/116009/in-unity-how-do-i-correctly-implement-the-singleton-pattern
-        */
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        //DontDestroyOnLoad(gameObject);
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -66,7 +47,7 @@ public class GestionBarreAnxiete : MonoBehaviour
             foreach (KeyValuePair<int, StressPointEntry> entry in collectionStressPoints)
             {
                 totalStress += entry.Value.valeurStress;
-                if (entry.Value.pauseProgBarre) pauseProgBarre = true;
+                if(entry.Value.pauseProgBarre) pauseProgBarre = true;
                 if (entry.Value.type == TypeStress.Instant && entry.Value.valeurStress > 0)
                 {
                     StressPointEntry updatedValue = entry.Value;
@@ -87,25 +68,5 @@ public class GestionBarreAnxiete : MonoBehaviour
         }
         vitesseAnimCoeur = 1 + imgBarre.fillAmount * 4;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
-    }
-
-    private void OnEnable()
-    {
-        GameManager.OnGameOver += CriseDePanique;
-    }
-    private void OnDisable()
-    {
-        GameManager.OnGameOver -= CriseDePanique;
-    }
-
-
-
-    /// <summary>
-    /// Éxecute la crise de panique, qui correspond à la fin du jeu, en remplissant complètement la barre d'anxiété et en désactivant le script pour arrêter toute mise à jour de la barre d'anxiété.
-    /// </summary>
-    void CriseDePanique()
-    {
-        imgBarre.fillAmount = 1;
-        enabled = false;
     }
 }

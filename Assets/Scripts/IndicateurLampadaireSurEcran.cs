@@ -66,11 +66,6 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
 
 
 
-    /// <summary>
-    /// Méthode qui s'assure que l'indicateur ne dépasse pas les extrmités du canvas en limitant la position aux dimensions du canvas
-    /// </summary>
-    /// <param name="posNonFormattee">Position non conforme de l'indicateur avant de l'adapter pour un bon affichage sur canvas</param>
-    /// <returns></returns>
     Vector3 KeepInsideBorders(Vector3 posNonFormattee)
     {
         if ((posNonFormattee.x - indicUIDimensions) < 0)
@@ -93,9 +88,7 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
 
         return posNonFormattee;
     }
-    /// <summary>
-    /// Désactive le script et, par conséquent, l'indicateur. Cela permet de limiter la durée d'affichage de l'indicateur à l'écran après son activation.
-    /// </summary>
+
     void DesactiveIndicateur()
     {
         enabled = false;

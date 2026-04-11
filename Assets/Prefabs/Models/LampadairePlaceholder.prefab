@@ -500,7 +500,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3649872722535831342, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
       propertyPath: m_Name
-      value: ParticuleFeuLumiere
+      value: ParticuleLumiereLampadaire
       objectReference: {fileID: 0}
     - target: {fileID: 9048789364963902769, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
       propertyPath: m_LocalPosition.x
