@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edf248fcbced874abdbb9c96302d91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GestionCamera
-  limitesFOV: 3c0000005a000000
+  limitesFOV: 3c0000004b000000
   limitesBobbing:
   - 0.5
   - 0.6
@@ -332,7 +332,7 @@ MonoBehaviour:
   porteeInteraction: 3
   multiplicateurMouvement:
   - 1
-  - 1.5
+  - 1.25
   ajustementPosCam: {x: 0, y: 0.6, z: 0.2}
   debugMode: 1
   debugPortee: 0
