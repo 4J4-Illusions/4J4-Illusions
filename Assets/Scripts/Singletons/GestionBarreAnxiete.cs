@@ -18,12 +18,14 @@ public class GestionBarreAnxiete : MonoBehaviour
     [Range(0, 1)] public float progressionBarre = .001f;
     // gestions, trackage et acces pour autres scripts
     public static Dictionary<int, StressPointEntry> collectionStressPoints = new();
+    public static float stressTotal;
 
     Image imgBarre;
     float vitesseAnimCoeur = 1, finalProgBarre;
     readonly Dictionary<int, StressPointEntry> instantEntriesToUpdate = new();
     bool pauseProgBarre = false;
     VolumeVignette vfxVignette;
+    AudioSource audioSource;
 
     void Awake()
     {
@@ -39,6 +41,8 @@ public class GestionBarreAnxiete : MonoBehaviour
         }
         Instance = this;
         //DontDestroyOnLoad(gameObject);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,19 +57,19 @@ public class GestionBarreAnxiete : MonoBehaviour
     {
         if (modeProgBarre)
         {
-            if (imgBarre.fillAmount < 1)
+            if (stressTotal < 1)
             {
                 //Debug.Log("Increasing...");
-                imgBarre.fillAmount += progressionBarre;
+                stressTotal += progressionBarre;
             }
         }
         else
         {
-            float totalStress = 0;
+            float sommeStress = 0;
             pauseProgBarre = false;
             foreach (KeyValuePair<int, StressPointEntry> entry in collectionStressPoints)
             {
-                totalStress += entry.Value.valeurStress;
+                sommeStress += entry.Value.valeurStress;
                 if (entry.Value.pauseProgBarre) pauseProgBarre = true;
                 if (entry.Value.type == TypeStress.Instant && entry.Value.valeurStress > 0)
                 {
@@ -82,10 +86,10 @@ public class GestionBarreAnxiete : MonoBehaviour
 
             finalProgBarre = (!pauseProgBarre) ? (-progressionBarre / 10) : 0;
             //if(finalProgBarre >= 0) Debug.Log(finalProgBarre);
-            imgBarre.fillAmount += (totalStress > 0) ? totalStress : finalProgBarre;
-            vfxVignette.intensite = imgBarre.fillAmount;
+            stressTotal += (sommeStress > 0) ? sommeStress : finalProgBarre;
         }
-        vitesseAnimCoeur = 1 + imgBarre.fillAmount * 4;
+        audioSource.volume = vfxVignette.intensite = imgBarre.fillAmount = stressTotal;
+        vitesseAnimCoeur = 1 + stressTotal * 4;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
     }
 

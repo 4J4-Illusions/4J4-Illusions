@@ -29,14 +29,16 @@ public class ControlesPersonnage : MonoBehaviour
 
     Rigidbody rigidBody;
     InputAction mouvementAction, rotationAction, courseAction, interactionAction;
-    Vector3 mouvementFinal, rotationFinal;
+    Vector3 mouvementFinal, rotationFinale;
     int indexModifCourse = 0;
     TypeInteraction DefaultInterac = 0;
     RaycastHit hit;
+    AudioSource audioSource;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         mouvementAction = InputSystem.actions.FindAction("Player/Move");
         rotationAction = InputSystem.actions.FindAction("Player/Look");
         courseAction = InputSystem.actions.FindAction("Player/Sprint");
@@ -76,11 +78,11 @@ public class ControlesPersonnage : MonoBehaviour
         // calcul mouvement et rotation selon le input du clavier et de la souris
         mouvementFinal = multiplicateurMouvement[indexModifCourse] * vitesseMouvement * 
             (transform.forward * mouvementAction.ReadValue<Vector2>().y + transform.right * mouvementAction.ReadValue<Vector2>().x);
-        rotationFinal = new Vector3(-rotationAction.ReadValue<Vector2>().y, rotationAction.ReadValue<Vector2>().x, 0) * vitesseRotation;
-        if (!canMove) mouvementFinal *= 0;
+        rotationFinale = new Vector3(-rotationAction.ReadValue<Vector2>().y, rotationAction.ReadValue<Vector2>().x, 0) * vitesseRotation;
+        if (!canMove) mouvementFinal = rotationFinale *= 0;
         // applique rotation a camera et joueur
-        cameraJoueur.GetComponent<CameraJoueur>().rotationFinale = rotationFinal;
-        transform.Rotate(0, rotationFinal.y, 0);
+        cameraJoueur.GetComponent<CameraJoueur>().rotationFinale = rotationFinale;
+        transform.Rotate(0, rotationFinale.y, 0);
 
         // pour le debogage
         if (debugMode)
@@ -101,6 +103,15 @@ public class ControlesPersonnage : MonoBehaviour
 
         // decide comment se fera l'appel de la methode qui gere les interactions
         HandleInteractionInput();
+
+        if (isMoving && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        else if(!isMoving && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
 
     void FixedUpdate()
@@ -155,19 +166,18 @@ public class ControlesPersonnage : MonoBehaviour
         if (interactionAction.WasPressedThisFrame() && (hit.collider == null || GameManager.Instance.InCalibInterac))
         {
             //Debug.Log("Interaction hors objet interactif");
-            if (GameManager.Instance.stageJeu == StageJeu.Foret)
-            {
-                Gameplay.Interaction(DefaultInterac, ondeSonore);
-            }
-            else if (GameManager.Instance.InCalibInterac)
+            if (GameManager.Instance.InCalibInterac)
             {
                 Gameplay.Interaction(TypeInteraction.CalibrationStop);
+            }
+            else if(GameManager.Instance.stageJeu == StageJeu.Foret)
+            {
+                Gameplay.Interaction(DefaultInterac, ondeSonore);
             }
             else
             {
                 Gameplay.Interaction(DefaultInterac);
             }
-            return;
         }
     }
 }
