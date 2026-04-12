@@ -100,6 +100,7 @@ public class ControlesPersonnage : MonoBehaviour
 
         // appliquer ou non le modificateur de vitesse
         indexModifCourse = isRunning ? 1 : 0;
+        audioSource.pitch = multiplicateurMouvement[indexModifCourse];
 
         // decide comment se fera l'appel de la methode qui gere les interactions
         HandleInteractionInput();
