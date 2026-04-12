@@ -21,11 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-         /*
-          * setup du singleton
-          * trouvé sur ce lien:
-          * https://gamedev.stackexchange.com/questions/116009/in-unity-how-do-i-correctly-implement-the-singleton-pattern
-         */
+        // setup du singleton
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);

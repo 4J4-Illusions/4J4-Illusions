@@ -41,25 +41,30 @@ namespace Utils
                 case TypeInteraction.Lampadaire:
                     if (int.Parse(obj.name[^2..]) == GameManager.Instance.indexLampCour)
                     {
-                        // detruit le component ObjectInteractif pour arreter la détection par le raycast du joueur sans empêcher les collisions
+                        // detruire le component ObjectInteractif pour arreter la détection par le raycast du joueur sans empêcher les collisions
                         Destroy(obj.GetComponent<ObjetInteractif>());
-                        // fait jouer la particule
-                        obj.transform.Find("Lampadaire/Final_Candle1/ParticuleFeuLumiere").GetComponent<ParticleSystem>().Play();
-                        // active la lumiere
-                        obj.transform.Find("Lampadaire/Final_Candle1/PointLightLampadaire").gameObject.SetActive(true);
+                        // desactiver mesh sphere mis comme placeholder pour lumiere
+                        MeshRenderer meshrender = obj.transform.Find("Lumiere").GetComponent<MeshRenderer>();
+                        meshrender.enabled = false;
+                        // jouer particule
+                        meshrender.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+                        // activer lumiere
+                        obj.transform.Find("PointLightLampadaire").gameObject.SetActive(true);
 
                         GameManager.Instance.indexLampCour++;
                     }
                     break;
                 case TypeInteraction.Calibration:
-                    // active l'état en mode calibration, l'overlay de calibration et empêche le joueur de bouger
                     GameManager.Instance.InCalibInterac = true;
                     GameManager.Instance.overlayCalibration.SetActive(true);
                     ControlesPersonnage.canMove = false;
+                    //obj.SetActive(true);
+                    //obj.GetComponent<CalibRoulette>().enabled = true;
                     break;
                 case TypeInteraction.CalibrationStop:
-                    // stop la roulette de calibration, cachant l'overlay par conséquent
                     GameManager.Instance.overlayCalibration.GetComponent<CalibRoulette>().StopRoulette();
+                    //GameManager.InCalibInterac = false;
+                    //GameManager.overlayCalibration.SetActive(false);
                     break;
             }
 

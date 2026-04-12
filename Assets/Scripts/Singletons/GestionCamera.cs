@@ -1,8 +1,7 @@
-using Globals;
+using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Camera))]
-public class CameraJoueur : MonoBehaviour
+public class GestionCamera : MonoBehaviour
 {
     [Header("Ajustement inspecteur"), Space]
     public int[] limitesFOV = new int[2] { 60, 90 };
@@ -19,11 +18,6 @@ public class CameraJoueur : MonoBehaviour
     private void Start()
     {
         player = transform.parent.GetComponent<ControlesPersonnage>();
-
-        if(GameManager.Instance.stageJeu == StageJeu.Foret)
-        {
-            GetComponent<Camera>().depthTextureMode = DepthTextureMode.Depth;
-        }
     }
 
     // Update is called once per frame
@@ -45,7 +39,7 @@ public class CameraJoueur : MonoBehaviour
         GetComponent<Camera>().fieldOfView = Mathf.MoveTowards(GetComponent<Camera>().fieldOfView, targetFOV, vitesseChangementFOV);
 
         // effet de bobbing (mvt bond naturel de la tete quand on marche)
-        if (ControlesPersonnage.isMoving) transform.localPosition = new(0, Mathf.MoveTowards(transform.localPosition.y, targetBobbing, vitesseBobbing), .2f);
+        if (ControlesPersonnage.isMoving) transform.localPosition = new(0, Mathf.MoveTowards(transform.localPosition.y, targetBobbing, vitesseBobbing));
         else transform.localPosition = player.ajustementPosCam;
 
         if (transform.localPosition.y == limitesBobbing[0]) targetBobbing = limitesBobbing[1];

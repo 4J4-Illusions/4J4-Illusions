@@ -10,6 +10,11 @@ public class MonstreForet : MonoBehaviour
     bool canMove = false;
     Vector3 dernierePosOnde;
 
+    private void Start()
+    {
+        Debug.Log(GetComponent<StressPoint>().inRange);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +27,7 @@ public class MonstreForet : MonoBehaviour
 
         if (GetComponent<StressPoint>().inRange)
         {
-            //Debug.Log("in range");
+            Debug.Log("in range");
             Gameplay.Jumpscare();
             gameObject.SetActive(false);
             //enabled = false;
@@ -48,8 +53,8 @@ public class MonstreForet : MonoBehaviour
     {
         canMove = true;
         dernierePosOnde = targetPos;
-        //Debug.Log(dernierePosOnde);
-        //Debug.Log(transform.position);
+        Debug.Log(dernierePosOnde);
+        Debug.Log(transform.position);
         Invoke(nameof(ArreterBouger), dureeDeplacement);
     }
     /// <summary>

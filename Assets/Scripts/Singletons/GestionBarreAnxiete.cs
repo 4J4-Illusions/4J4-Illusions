@@ -18,31 +18,23 @@ public class GestionBarreAnxiete : MonoBehaviour
     [Range(0, 1)] public float progressionBarre = .001f;
     // gestions, trackage et acces pour autres scripts
     public static Dictionary<int, StressPointEntry> collectionStressPoints = new();
-    public static float stressTotal;
 
     Image imgBarre;
     float vitesseAnimCoeur = 1, finalProgBarre;
     readonly Dictionary<int, StressPointEntry> instantEntriesToUpdate = new();
     bool pauseProgBarre = false;
     VolumeVignette vfxVignette;
-    AudioSource audioSource;
 
     void Awake()
     {
-        /*
-         * setup du singleton
-         * trouvé sur ce lien:
-         * https://gamedev.stackexchange.com/questions/116009/in-unity-how-do-i-correctly-implement-the-singleton-pattern
-        */
+        // setup du singleton
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
         Instance = this;
-        //DontDestroyOnLoad(gameObject);
-
-        audioSource = GetComponent<AudioSource>();
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -57,19 +49,19 @@ public class GestionBarreAnxiete : MonoBehaviour
     {
         if (modeProgBarre)
         {
-            if (stressTotal < 1)
+            if (imgBarre.fillAmount < 1)
             {
                 //Debug.Log("Increasing...");
-                stressTotal += progressionBarre;
+                imgBarre.fillAmount += progressionBarre;
             }
         }
         else
         {
-            float sommeStress = 0;
+            float totalStress = 0;
             pauseProgBarre = false;
             foreach (KeyValuePair<int, StressPointEntry> entry in collectionStressPoints)
             {
-                sommeStress += entry.Value.valeurStress;
+                totalStress += entry.Value.valeurStress;
                 if (entry.Value.pauseProgBarre) pauseProgBarre = true;
                 if (entry.Value.type == TypeStress.Instant && entry.Value.valeurStress > 0)
                 {
@@ -86,10 +78,10 @@ public class GestionBarreAnxiete : MonoBehaviour
 
             finalProgBarre = (!pauseProgBarre) ? (-progressionBarre / 10) : 0;
             //if(finalProgBarre >= 0) Debug.Log(finalProgBarre);
-            stressTotal += (sommeStress > 0) ? sommeStress : finalProgBarre;
+            imgBarre.fillAmount += (totalStress > 0) ? totalStress : finalProgBarre;
+            vfxVignette.intensite = imgBarre.fillAmount;
         }
-        audioSource.volume = vfxVignette.intensite = imgBarre.fillAmount = stressTotal;
-        vitesseAnimCoeur = 1 + stressTotal * 4;
+        vitesseAnimCoeur = 1 + imgBarre.fillAmount * 4;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
     }
 
