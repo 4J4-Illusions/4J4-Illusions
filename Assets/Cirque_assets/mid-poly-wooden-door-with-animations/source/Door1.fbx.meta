@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de8ed41067dfdf044a85454d2ca93c9c
+guid: f74373d772f5d924ba35b5f527ac8395
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,8 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: table_lambert2
-    second: {fileID: 2100000, guid: 8e2bdd58cc1a528459ac4c2070b99d8d, type: 2}
+      name: Door1_door_mat
+    second: {fileID: 2100000, guid: e886823be2ddbb144bc33e12dddfc963, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door1_doorhandle_mat
+    second: {fileID: 2100000, guid: b2a49b5f2f985a14186a3857ef41b380, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door1_doorhandleplate_mat
+    second: {fileID: 2100000, guid: a668c6f970a8242489185b62a0b13c1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door1_frame_mat
+    second: {fileID: 2100000, guid: 27f083147a0fb84498ccb9b289390575, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door1_lock_mat
+    second: {fileID: 2100000, guid: 74a35269116036f4db23398467ce0384, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

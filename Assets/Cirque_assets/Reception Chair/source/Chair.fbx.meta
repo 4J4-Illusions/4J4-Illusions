@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de8ed41067dfdf044a85454d2ca93c9c
+guid: 98f53e9ac010ca045aa8d3f15890f26a
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,8 +7,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: table_lambert2
-    second: {fileID: 2100000, guid: 8e2bdd58cc1a528459ac4c2070b99d8d, type: 2}
+      name: Chair Arc
+    second: {fileID: 2100000, guid: 3b0b33d4adee45a468bfbfdacec24683, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chair Details
+    second: {fileID: 2100000, guid: 9af5a841b47da08438a1710740f35df0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leather Seating
+    second: {fileID: 2100000, guid: 7282d7d35abd10b42962ced99dce621d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leather Top
+    second: {fileID: 2100000, guid: 01c03c4a5374ca147896ac6713e631df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood  Front
+    second: {fileID: 2100000, guid: 9905ed452a0083d41b707746109f13c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood Legs
+    second: {fileID: 2100000, guid: 998f9f234e720f141b2ae041964ea564, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

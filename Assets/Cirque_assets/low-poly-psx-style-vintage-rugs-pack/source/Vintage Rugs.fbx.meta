@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de8ed41067dfdf044a85454d2ca93c9c
+guid: 1e1f53b68f50a0945a9a0e530a30714b
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: table_lambert2
-    second: {fileID: 2100000, guid: 8e2bdd58cc1a528459ac4c2070b99d8d, type: 2}
+      name: Vintage Rugs
+    second: {fileID: 2100000, guid: 22c7a5a626aacff45b89c09c2c5ce8d1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
