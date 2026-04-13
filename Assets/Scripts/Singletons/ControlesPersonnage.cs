@@ -51,7 +51,8 @@ public class ControlesPersonnage : MonoBehaviour
     {
         ondeSonore = ondeSonore.transform.GetChild(0).gameObject;
         cameraJoueur.transform.position = transform.position + ajustementPosCam;
-        animPerso = transform.Find("Vyktor").GetComponent<Animator>();
+        animPerso = transform.Find("Model").GetComponent<Animator>();
+        //Debug.Log(animPerso.transform.name);
 
         // active les elements de debogage
         if (debugMode)
@@ -130,12 +131,12 @@ public class ControlesPersonnage : MonoBehaviour
     private void OnEnable()
     {
         // abonement évènement
-        Gameplay.OnInteraction += (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(ondeSonore.transform.position); };
+        Gameplay.OnInteraction += (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(transform.position); };
     }
     private void OnDisable()
     {
         // désabonnement évènement
-        Gameplay.OnInteraction -= (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(ondeSonore.transform.position); };
+        Gameplay.OnInteraction -= (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(transform.position); };
     }
 
 

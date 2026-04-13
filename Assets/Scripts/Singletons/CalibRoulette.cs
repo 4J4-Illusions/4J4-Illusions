@@ -12,6 +12,7 @@ public class CalibRoulette : MonoBehaviour
     RectTransform rectPointeur;
     float[] sectionRouletteAToucher = new float[2];
     const float ROTAT_OFFSET = 200;
+    // constantes
     const int RANGE_ZONE_ROULETTE = 40, RANGE_ECART_ROULETTE = 20;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

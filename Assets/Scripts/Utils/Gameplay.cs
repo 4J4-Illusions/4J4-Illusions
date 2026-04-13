@@ -34,8 +34,14 @@ namespace Utils
                     // active script indicateur lampadaire
                     if (obj.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Default"))
                     {
+                        // donner position du joueur à l'onde
+                        obj.transform.position = GameManager.Instance.player.transform.position;
+
                         obj.GetComponent<Animator>().SetTrigger("TriggerOnde");
-                        if (GameManager.Instance.indexLampCour < 5) GameManager.Instance.listeLampadaires[GameManager.Instance.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
+                        if (GameManager.Instance.indexLampCour < 5) 
+                            GameManager.Instance.listeLampadaires[GameManager.Instance.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
+
+                        obj.GetComponent<AudioSource>().Play();
                     }
                     break;
                 case TypeInteraction.Lampadaire:
