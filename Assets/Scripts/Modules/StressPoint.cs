@@ -8,8 +8,10 @@ public class StressPoint : MonoBehaviour
     public float[] intervalleValeursStressPourcent = new float[2] { 0, 1f };
     public TypeStress type;
 
+    [Header("Accès pour autres scripts"), Space]
+    public bool inRange = false;
+
     StressPointEntry valeurDict;
-    bool inRange = false;
 
     private void Awake()
     {
@@ -21,13 +23,16 @@ public class StressPoint : MonoBehaviour
 
     private void Update()
     {
+        // récupère la distance entre le joueur et le point de stress
         float distance = Vector3.Distance(transform.position, GameManager.Instance.player.transform.position);
         //Debug.Log(distance);
         if (distance <= porteeStress)
         {
+            // si le joueur est dans la portée du stress, on calcule la valeur de stress en fonction du type de stress
             float calculValeurStress = 0;
             if (type == TypeStress.Proportionnel)
             {
+                inRange = true;
                 calculValeurStress = Mathf.Clamp(
                     (1 - Mathf.Clamp(distance / porteeStress, 0, 1)) * intervalleValeursStressPourcent[1],
                     intervalleValeursStressPourcent[0],
@@ -52,5 +57,15 @@ public class StressPoint : MonoBehaviour
         valeurDict.pauseProgBarre = inRange;
         //Debug.Log($"GameObject: {gameObject.name}    Dictionnary value: {valeurDict}");
         GestionBarreAnxiete.collectionStressPoints[GetInstanceID()] = valeurDict;
+    }
+
+    private void OnDisable()
+    {
+        GestionBarreAnxiete.collectionStressPoints.Remove(GetInstanceID());
+    }
+
+    private void OnDestroy()
+    {
+        GestionBarreAnxiete.collectionStressPoints.Remove(GetInstanceID());
     }
 }

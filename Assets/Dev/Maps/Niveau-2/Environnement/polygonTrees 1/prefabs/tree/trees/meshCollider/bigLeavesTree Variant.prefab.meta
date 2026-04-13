@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ec34882ba31489d06961bd32786a0806
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 224068
+  packageName: Polygon Trees
+  packageVersion: 2.5
+  assetPath: Assets/polygonTrees/polygonTrees/prefabs/tree/trees/meshCollider/bigLeavesTree
+    Variant.prefab
+  uploadId: 616684
