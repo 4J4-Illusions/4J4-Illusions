@@ -317,10 +317,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ParticuleFeuLumiere
       objectReference: {fileID: 0}
-    - target: {fileID: 8634341255406492735, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9048789364963902769, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.05

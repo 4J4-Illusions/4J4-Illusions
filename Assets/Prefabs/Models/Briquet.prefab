@@ -110,6 +110,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6783464644124936822, guid: 7abef68c2022a0a47862d2d0745276dc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6302566013347202288}
+    - targetCorrespondingSourceObject: {fileID: 6783464644124936822, guid: 7abef68c2022a0a47862d2d0745276dc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4517814453520270333}
   m_SourcePrefab: {fileID: 100100000, guid: 7abef68c2022a0a47862d2d0745276dc, type: 3}
 --- !u!4 &677128311435985943 stripped
 Transform:
@@ -148,6 +151,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4517814453520270333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822213989379139978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62759684ee8121c43b77506c42564cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationPlaqueBriquet
+  particuleFeuBriquet: {fileID: 6834295308903617786}
 --- !u!1001 &2957489464916609221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8634341255406492735, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8634341255406492735, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
       propertyPath: moveWithTransform
@@ -170,15 +186,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9048789364963902769, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05000001
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 9048789364963902769, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.050000012
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 9048789364963902769, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.050000012
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 9048789364963902769, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
       propertyPath: m_LocalPosition.x
@@ -228,5 +244,10 @@ PrefabInstance:
 --- !u!4 &6095865103105723892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9048789364963902769, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
+  m_PrefabInstance: {fileID: 2957489464916609221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6834295308903617786 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8634341255406492735, guid: 0a1dd7245ffedff45afd7a6386968586, type: 3}
   m_PrefabInstance: {fileID: 2957489464916609221}
   m_PrefabAsset: {fileID: 0}

@@ -153,11 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GestionCamera
   limitesFOV: 3c0000004b000000
-  limitesBobbing:
-  - 0.5
-  - 0.6
   vitesseChangementFOV: 5
   vitesseBobbing: 0.01
+  variationBobbing: -0.1
   rotationFinale: {x: 0, y: 0, z: 0}
 --- !u!114 &6903406369661579611
 MonoBehaviour:
@@ -275,7 +273,7 @@ MonoBehaviour:
   - 1
   - 1.25
   ajustementPosCam: {x: 0, y: 0.6, z: 0.2}
-  debugMode: 1
+  debugMode: 0
   debugPortee: 0
   debugStage: 1
   debugStageJeu: 2
@@ -606,8 +604,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: OndeSonore
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3791115959152586621, guid: dd1f5fa4246ae2c489c3ff5a2bb28b98, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -688,7 +685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 02b835fa6390fa446a2eb66723a57f3b, type: 3}
       propertyPath: m_Name
-      value: Vyktor_Squelettes
+      value: Vyktor
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 02b835fa6390fa446a2eb66723a57f3b, type: 3}
       propertyPath: m_Controller
@@ -719,22 +716,6 @@ PrefabInstance:
     - target: {fileID: 4849439531400734206, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_Name
       value: Briquet
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095865103105723892, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095865103105723892, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095865103105723892, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 6834295308903617786, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
-      propertyPath: playOnAwake
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -779,36 +760,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5822213989379139978, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1686280523286666279}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
 --- !u!4 &1482476820598644017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
-  m_PrefabInstance: {fileID: 7061462236077874409}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3545444217499235683 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5822213989379139978, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
-  m_PrefabInstance: {fileID: 7061462236077874409}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1686280523286666279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3545444217499235683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62759684ee8121c43b77506c42564cab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationPlaqueBriquet
-  particuleFeuBriquet: {fileID: 4550624786762450963}
---- !u!198 &4550624786762450963 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6834295308903617786, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
   m_PrefabInstance: {fileID: 7061462236077874409}
   m_PrefabAsset: {fileID: 0}

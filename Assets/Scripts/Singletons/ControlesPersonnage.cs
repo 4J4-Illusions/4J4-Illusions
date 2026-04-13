@@ -33,12 +33,13 @@ public class ControlesPersonnage : MonoBehaviour
     int indexModifCourse = 0;
     TypeInteraction DefaultInterac = 0;
     RaycastHit hit;
-    AudioSource audioSource;
+    AudioSource audsrc;
+    Animator animPerso;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+        audsrc = GetComponent<AudioSource>();
         mouvementAction = InputSystem.actions.FindAction("Player/Move");
         rotationAction = InputSystem.actions.FindAction("Player/Look");
         courseAction = InputSystem.actions.FindAction("Player/Sprint");
@@ -50,6 +51,7 @@ public class ControlesPersonnage : MonoBehaviour
     {
         ondeSonore = ondeSonore.transform.GetChild(0).gameObject;
         cameraJoueur.transform.position = transform.position + ajustementPosCam;
+        animPerso = transform.Find("Vyktor").GetComponent<Animator>();
 
         // active les elements de debogage
         if (debugMode)
@@ -100,19 +102,23 @@ public class ControlesPersonnage : MonoBehaviour
 
         // appliquer ou non le modificateur de vitesse
         indexModifCourse = isRunning ? 1 : 0;
-        audioSource.pitch = multiplicateurMouvement[indexModifCourse];
+        audsrc.pitch = multiplicateurMouvement[indexModifCourse];
 
         // decide comment se fera l'appel de la methode qui gere les interactions
         HandleInteractionInput();
 
-        if (isMoving && !audioSource.isPlaying)
+        // controlle du son de marche selon son mouvement
+        if (isMoving && !audsrc.isPlaying)
         {
-            audioSource.Play();
+            audsrc.Play();
         }
-        else if(!isMoving && audioSource.isPlaying)
+        else if(!isMoving && audsrc.isPlaying)
         {
-            audioSource.Stop();
+            audsrc.Stop();
         }
+
+        // gestion des animations
+        GererAnimations();
     }
 
     void FixedUpdate()
@@ -180,5 +186,10 @@ public class ControlesPersonnage : MonoBehaviour
                 Gameplay.Interaction(DefaultInterac);
             }
         }
+    }
+    void GererAnimations()
+    {
+        animPerso.SetBool("isMoving", isMoving);
+        animPerso.SetBool("isRunning", isRunning);
     }
 }
