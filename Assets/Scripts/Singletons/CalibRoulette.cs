@@ -38,6 +38,9 @@ public class CalibRoulette : MonoBehaviour
 
 
 
+    /// <summary>
+    /// Arrête la roulette et vérifie si le pointeur est dans la zone à toucher pour réussir la calibration
+    /// </summary>
     public void StopRoulette()
     {
         vitRotation = 0;
@@ -57,14 +60,20 @@ public class CalibRoulette : MonoBehaviour
 
         Invoke(nameof(FinInteracCalib), 2);
     }
-
+    /// <summary>
+    /// Termine l'interaction de calibration
+    /// </summary>
     void FinInteracCalib()
     {
         GameManager.Instance.InCalibInterac = false;
         ControlesPersonnage.canMove = true;
         gameObject.SetActive(false);
     }
-
+    /// <summary>
+    /// Règle les problèmes de mismatch de rotation entre le background et le pointeur pour que les calculs de réussite de calibration soient cohérents
+    /// </summary>
+    /// <param name="rotation">La rotation à régler</param>
+    /// <returns>La nouvelle rotation, adaptée pour le calcul de réussite de l'interaction de calibration</returns>
     float FixRotationMismatch(float rotation)
     {
         if (rotation < 0) return 360 + rotation;

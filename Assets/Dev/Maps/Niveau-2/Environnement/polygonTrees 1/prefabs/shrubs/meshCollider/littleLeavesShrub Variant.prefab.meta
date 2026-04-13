@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 37d3df5e6a5351e5abe637f98bd93990
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 224068
+  packageName: Polygon Trees
+  packageVersion: 2.5
+  assetPath: Assets/polygonTrees/polygonTrees/prefabs/shrubs/meshCollider/littleLeavesShrub
+    Variant.prefab
+  uploadId: 616684
