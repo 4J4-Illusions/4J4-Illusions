@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 840f1b06f0afe044f9577a0dfcc4cbad
+guid: 02b835fa6390fa446a2eb66723a57f3b
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Textures_Personnage
+    second: {fileID: 2100000, guid: f4b8b3815b138c54db6a0638cdd918e3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -94,7 +99,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
