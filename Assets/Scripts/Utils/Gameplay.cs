@@ -41,7 +41,9 @@ namespace Utils
                         if (GameManager.Instance.indexLampCour < 5) 
                             GameManager.Instance.listeLampadaires[GameManager.Instance.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
 
-                        obj.GetComponent<AudioSource>().Play();
+                        AudioSource ondeAudsrc = obj.GetComponent<AudioSource>();
+                        ondeAudsrc.volume = AudioManager.Instance.SetClipVolume(ondeAudsrc.clip);
+                        ondeAudsrc.Play();
                     }
                     break;
                 case TypeInteraction.Lampadaire:

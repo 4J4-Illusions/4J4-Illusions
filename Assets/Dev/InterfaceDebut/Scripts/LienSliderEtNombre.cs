@@ -4,8 +4,8 @@ using TMPro;
 
 public class LienSliderEtNombre : MonoBehaviour
 {
+    [Header("Affectation inspecteur"), Space]
     public Slider slider;
-
     public TMP_Text valeurSlider;     // texte principal
     public TMP_Text background;       // texte arrière (ombre)
 
@@ -15,11 +15,25 @@ public class LienSliderEtNombre : MonoBehaviour
         slider.onValueChanged.AddListener(UpdateValue);
     }
 
+
+
+    /// <summary>
+    /// Met à jour le texte du slider et sauvegarde la valeur dans le dictionnaire de paramètres
+    /// </summary>
+    /// <param name="value">Valeur du slider</param>
     void UpdateValue(float value)
     {
-        string texte = Mathf.RoundToInt(value * 100) + "%";
+        // convertit la valeur du slider en pourcentage entier
+        int valeurInt = Mathf.RoundToInt(value * 100);
+        string valeurTexte = valeurInt + "%";
 
-        valeurSlider.text = texte;
-        background.text = texte;
+        // met à jour les textes du slider
+        valeurSlider.text = valeurTexte;
+        background.text = valeurTexte;
+
+        // sauvegarde dans le dictionnaire de paramètres
+        Parametres.Instance.dictParametres["Audio-" + slider.name[12..]] = valeurInt.ToString();
+        Debug.Log($"Paramètre {"Audio-" + slider.name[12..]} mis à jour: {valeurInt}");
+        Debug.Log($"Valeur dans le dictionnaire: {Parametres.Instance.dictParametres["Audio-" + slider.name[12..]]}");
     }
 }

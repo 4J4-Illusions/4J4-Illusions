@@ -112,6 +112,7 @@ public class ControlesPersonnage : MonoBehaviour
         // controlle du son de marche selon son mouvement
         if (isMoving && !audsrc.isPlaying)
         {
+            audsrc.volume = AudioManager.Instance.SetClipVolume(AudioManager.Instance.GetClipCategory(audsrc.clip));
             audsrc.Play();
         }
         else if (!isMoving && audsrc.isPlaying)
@@ -148,7 +149,12 @@ public class ControlesPersonnage : MonoBehaviour
     void HandleInteractionInput()
     {
         // ouverture du menu de pause
-        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) { controllerMenu.OpenSettingsWithDelay(); return; }
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            if (controllerMenu.settingsUI.activeSelf) controllerMenu.CloseSettings();
+            else controllerMenu.OpenSettingsWithDelay();
+            return;
+        }
 
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
         if (Physics.Raycast(transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.InCalibInterac)

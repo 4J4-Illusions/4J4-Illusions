@@ -45,6 +45,11 @@ namespace Globals
         /// </summary>
         Instant
     }
+    public enum CategorieSon
+    {
+        Ambience,
+        SFX
+    }
 
 
 
