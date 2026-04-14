@@ -53,6 +53,14 @@ public class GameManager : MonoBehaviour
             RenderSettings.fogDensity = .3f;
         }
     }
+    private void OnEnable()
+    {
+        ScriptMenuPauseDepuisInterface.OnMenuPause += GestionPause;
+    }
+    private void OnDisable()
+    {
+        ScriptMenuPauseDepuisInterface.OnMenuPause -= GestionPause;
+    }
 
 
 
@@ -62,5 +70,12 @@ public class GameManager : MonoBehaviour
     public void FinDePartie()
     {
         OnGameOver.Invoke();
+    }
+    void GestionPause(bool enPause)
+    {
+        ControlesPersonnage.canMove = !enPause;
+
+        if(enPause) Cursor.lockState = CursorLockMode.None;
+        else Cursor.lockState = CursorLockMode.Locked;
     }
 }
