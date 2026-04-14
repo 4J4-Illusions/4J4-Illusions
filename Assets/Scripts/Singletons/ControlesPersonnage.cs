@@ -9,6 +9,7 @@ public class ControlesPersonnage : MonoBehaviour
     [Header("Affectation inspecteur"), Space]
     public GameObject cameraJoueur;
     public GameObject texteInteraction, ondeSonore;
+    public ScriptMenuPauseDepuisInterface controllerMenu;
     [Header("Gameobjects utilisés pour le déboggage")]
     public LineRenderer indicateurPorteeInterac;
 
@@ -16,7 +17,7 @@ public class ControlesPersonnage : MonoBehaviour
     [Range(0f, 10f)] public float vitesseMouvement = 5f;
     [Range(0f, 3f)] public float vitesseRotation = .1f;
     [Range(1f, 5f)] public float porteeInteraction = 2f;
-    public float[] multiplicateurMouvement = new float[2] {1f, 1.5f};
+    public float[] multiplicateurMouvement = new float[2] { 1f, 1.5f };
     public Vector3 ajustementPosCam = new(0, .5f, 0);
     [Header("Paramétrage des options de debug")]
     public bool debugMode = false;
@@ -70,7 +71,7 @@ public class ControlesPersonnage : MonoBehaviour
             }
         }
 
-        if(GameManager.Instance.stageJeu == StageJeu.Foret)
+        if (GameManager.Instance.stageJeu == StageJeu.Foret)
         {
             DefaultInterac = TypeInteraction.Onde;
         }
@@ -79,7 +80,7 @@ public class ControlesPersonnage : MonoBehaviour
     void Update()
     {
         // calcul mouvement et rotation selon le input du clavier et de la souris
-        mouvementFinal = multiplicateurMouvement[indexModifCourse] * vitesseMouvement * 
+        mouvementFinal = multiplicateurMouvement[indexModifCourse] * vitesseMouvement *
             (transform.forward * mouvementAction.ReadValue<Vector2>().y + transform.right * mouvementAction.ReadValue<Vector2>().x);
         rotationFinale = new Vector3(-rotationAction.ReadValue<Vector2>().y, rotationAction.ReadValue<Vector2>().x, 0) * vitesseRotation;
         if (!canMove) mouvementFinal = rotationFinale *= 0;
@@ -113,7 +114,7 @@ public class ControlesPersonnage : MonoBehaviour
         {
             audsrc.Play();
         }
-        else if(!isMoving && audsrc.isPlaying)
+        else if (!isMoving && audsrc.isPlaying)
         {
             audsrc.Stop();
         }
@@ -146,6 +147,9 @@ public class ControlesPersonnage : MonoBehaviour
     /// </summary>
     void HandleInteractionInput()
     {
+        // ouverture du menu de pause
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) { controllerMenu.OpenSettingsWithDelay(); return; }
+
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
         if (Physics.Raycast(transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.InCalibInterac)
         {
@@ -178,7 +182,7 @@ public class ControlesPersonnage : MonoBehaviour
             {
                 Gameplay.Interaction(TypeInteraction.CalibrationStop);
             }
-            else if(GameManager.Instance.stageJeu == StageJeu.Foret)
+            else if (GameManager.Instance.stageJeu == StageJeu.Foret)
             {
                 Gameplay.Interaction(DefaultInterac, ondeSonore);
             }
