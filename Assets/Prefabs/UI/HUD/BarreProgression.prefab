@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GestionBarreAnxiete
   conteneurBarre: {fileID: 5854173073362920325}
   animCoeur: {fileID: 399714026731670684}
+  texteGameOver: {fileID: 0}
   modeProgBarre: 0
   progressionBarre: 0.01
 --- !u!82 &1423337415008941435

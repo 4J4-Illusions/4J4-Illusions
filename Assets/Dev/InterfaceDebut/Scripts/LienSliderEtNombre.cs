@@ -25,15 +25,19 @@ public class LienSliderEtNombre : MonoBehaviour
     {
         // convertit la valeur du slider en pourcentage entier
         int valeurInt = Mathf.RoundToInt(value * 100);
+        //Debug.Log(valeurInt);
         string valeurTexte = valeurInt + "%";
+        //Debug.Log(valeurTexte);
 
         // met à jour les textes du slider
         valeurSlider.text = valeurTexte;
         background.text = valeurTexte;
 
         // sauvegarde dans le dictionnaire de paramètres
-        Parametres.Instance.dictParametres["Audio-" + slider.name[12..]] = valeurInt.ToString();
-        Debug.Log($"Paramètre {"Audio-" + slider.name[12..]} mis à jour: {valeurInt}");
-        Debug.Log($"Valeur dans le dictionnaire: {Parametres.Instance.dictParametres["Audio-" + slider.name[12..]]}");
+        string paramKeyAudio = "Audio-" + slider.name[12..]; // extrait la partie du nom du slider après "SliderAudio"
+        //Debug.Log(paramKeyAudio);
+        Parametres.Instance.dictParametres[paramKeyAudio] = valeurInt.ToString();
+        Debug.Log($"Paramètre {paramKeyAudio} mis à jour: {valeurInt}");
+        Debug.Log($"Valeur dans le dictionnaire: {Parametres.Instance.dictParametres[paramKeyAudio]}");
     }
 }

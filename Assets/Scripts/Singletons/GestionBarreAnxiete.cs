@@ -1,6 +1,7 @@
 using Globals;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ public class GestionBarreAnxiete : MonoBehaviour
     [Header("Affectation inspecteur"), Space]
     public GameObject conteneurBarre;
     public Animator animCoeur;
+    public GameObject texteGameOver;
 
     [Header("Ajustement inspecteur"), Space]
     public bool modeProgBarre = false;
@@ -110,6 +112,8 @@ public class GestionBarreAnxiete : MonoBehaviour
     void CriseDePanique()
     {
         imgBarre.fillAmount = 1;
+        texteGameOver.SetActive(true);
+
         enabled = false;
     }
 }

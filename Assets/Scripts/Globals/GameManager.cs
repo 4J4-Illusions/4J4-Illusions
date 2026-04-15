@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Globals;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -73,6 +74,7 @@ public class GameManager : MonoBehaviour
     public void FinDePartie()
     {
         OnGameOver.Invoke();
+        Invoke(nameof(RetourMenu), 5f);
     }
     /// <summary>
     /// Met le jeu dans un état de pause ou de reprise en fonction de la valeur du paramètre "enPause".
@@ -86,5 +88,12 @@ public class GameManager : MonoBehaviour
 
         if (enPause) Cursor.lockState = CursorLockMode.None;
         else Cursor.lockState = CursorLockMode.Locked;
+    }
+    /// <summary>
+    /// Retourne au menu principal
+    /// </summary>
+    void RetourMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
