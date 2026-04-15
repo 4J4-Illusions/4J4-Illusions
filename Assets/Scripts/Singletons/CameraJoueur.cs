@@ -21,7 +21,7 @@ public class CameraJoueur : MonoBehaviour
     private void Awake()
     {
         POSITION_Y_INITIALE = transform.localPosition.y;
-        Debug.Log($"Limities du bobbing: [base, variation] = [{POSITION_Y_INITIALE}, {POSITION_Y_INITIALE + variationBobbing}]");
+        Debug.Log($"Limities du bobbing: [base, variation] = [{POSITION_Y_INITIALE}, {POSITION_Y_INITIALE - variationBobbing}]");
     }
 
     private void Start()
@@ -57,7 +57,7 @@ public class CameraJoueur : MonoBehaviour
         if (ControlesPersonnage.isMoving) transform.localPosition = new(0, Mathf.MoveTowards(transform.localPosition.y, targetBobbing, vitesseBobbing), .2f);
         else transform.localPosition = player.ajustementPosCam;
 
-        if (transform.localPosition.y == POSITION_Y_INITIALE) targetBobbing = POSITION_Y_INITIALE + variationBobbing;
-        else if (transform.localPosition.y == POSITION_Y_INITIALE + variationBobbing) targetBobbing = POSITION_Y_INITIALE - variationBobbing;
+        if (transform.localPosition.y >= POSITION_Y_INITIALE) targetBobbing = POSITION_Y_INITIALE - variationBobbing;
+        else if (transform.localPosition.y <= POSITION_Y_INITIALE - variationBobbing) targetBobbing = POSITION_Y_INITIALE;
     }
 }

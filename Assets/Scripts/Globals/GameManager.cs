@@ -2,6 +2,7 @@
 using Globals;
 using System;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -52,10 +53,11 @@ public class GameManager : MonoBehaviour
             RenderSettings.fog = true;
             RenderSettings.fogColor = Color.black;
             RenderSettings.fogMode = FogMode.ExponentialSquared;
-            RenderSettings.fogDensity = .3f;
+            RenderSettings.fogDensity = .1f;
         }
 
         playerScript = player.GetComponent<ControlesPersonnage>();
+        Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
     }
     private void OnEnable()
     {
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour
     public void FinDePartie()
     {
         OnGameOver.Invoke();
+        GestionPause(true);
         Invoke(nameof(RetourMenu), 5f);
     }
     /// <summary>

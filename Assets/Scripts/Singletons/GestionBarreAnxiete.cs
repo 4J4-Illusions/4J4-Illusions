@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 public class GestionBarreAnxiete : MonoBehaviour
 {
@@ -93,6 +94,11 @@ public class GestionBarreAnxiete : MonoBehaviour
         audioSource.volume = vfxVignette.intensite = imgBarre.fillAmount = stressTotal;
         vitesseAnimCoeur = 1 + stressTotal * 4;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
+
+        if (stressTotal >= 1)
+        {
+            Gameplay.Jumpscare();
+        }
     }
 
     private void OnEnable()

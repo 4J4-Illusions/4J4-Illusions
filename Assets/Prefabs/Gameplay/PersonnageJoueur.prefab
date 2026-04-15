@@ -154,8 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GestionCamera
   limitesFOV: 3c0000004b000000
   vitesseChangementFOV: 5
-  vitesseBobbing: 0.01
-  variationBobbing: -0.1
+  vitesseBobbing: 0.0375
+  variationBobbing: 0.1
   rotationFinale: {x: 0, y: 0, z: 0}
 --- !u!114 &6903406369661579611
 MonoBehaviour:
@@ -222,8 +222,8 @@ Transform:
   m_Children:
   - {fileID: 1699482993550192632}
   - {fileID: 1753239517731654236}
-  - {fileID: 1482476820598644017}
   - {fileID: 1417030514493697767}
+  - {fileID: 1482476820598644017}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &4058053405875700129
@@ -2030,49 +2030,69 @@ PrefabInstance:
       propertyPath: m_Name
       value: Briquet
       objectReference: {fileID: 0}
-    - target: {fileID: 6834295308903617786, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 2
+    - target: {fileID: 6095865103105723892, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095865103105723892, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095865103105723892, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.258
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.106
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.646
+      value: 0.673
       objectReference: {fileID: 0}
     - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.6740076
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.08609151
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.73338443
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.021196067
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 4.874
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 264.787
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 8461571753884877272, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -8.941
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -163,14 +163,13 @@ public class ControlesPersonnage : MonoBehaviour
             if (hit.transform.gameObject.TryGetComponent<ObjetInteractif>(out ObjetInteractif objInter))
             {
                 texteInteraction.SetActive(true);
-                /*if (GameManager.Instance.InCalibInterac)
-                {
-                    Gameplay.Interaction(TypeInteraction.CalibrationStop);
-                }
-                else */
                 if (interactionAction.WasPressedThisFrame())
                 {
                     objInter.Interaction();
+
+                    // joue l'animation de briquet si l'interaction concerne un lampadaire
+                    if (objInter.typeInterac == TypeInteraction.Lampadaire) animPerso.SetTrigger("triggerBriquet");
+                    
                     return;
                 }
             }

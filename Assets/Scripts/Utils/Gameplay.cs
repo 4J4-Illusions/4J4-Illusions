@@ -38,7 +38,7 @@ namespace Utils
                         obj.transform.position = GameManager.Instance.player.transform.position;
 
                         obj.GetComponent<Animator>().SetTrigger("TriggerOnde");
-                        if (GameManager.Instance.indexLampCour < 5) 
+                        if (GameManager.Instance.indexLampCour < 5)
                             GameManager.Instance.listeLampadaires[GameManager.Instance.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
 
                         AudioSource ondeAudsrc = obj.GetComponent<AudioSource>();
@@ -47,7 +47,8 @@ namespace Utils
                     }
                     break;
                 case TypeInteraction.Lampadaire:
-                    if (int.Parse(obj.name[^2..]) == GameManager.Instance.indexLampCour)
+                    //if (int.Parse(obj.name[^2..]) == GameManager.Instance.indexLampCour)
+                    if (obj == GameManager.Instance.listeLampadaires[GameManager.Instance.indexLampCour])
                     {
                         // detruit le component ObjectInteractif pour arreter la détection par le raycast du joueur sans empêcher les collisions
                         Destroy(obj.GetComponent<ObjetInteractif>());
@@ -57,6 +58,11 @@ namespace Utils
                         obj.transform.Find("Lampadaire/Final_Candle1/PointLightLampadaire").gameObject.SetActive(true);
 
                         GameManager.Instance.indexLampCour++;
+                        // si tous les lampadaires sont allumés, lance la fin de partie
+                        if (GameManager.Instance.indexLampCour == 5)
+                        {
+                            GameManager.Instance.FinDePartie();
+                        }
                     }
                     break;
                 case TypeInteraction.Calibration:

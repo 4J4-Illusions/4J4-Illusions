@@ -24,5 +24,9 @@ public class Parametres : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        dictParametres.Add("Audio-General", "100");
+        dictParametres.Add("Audio-Jeu", "100");
+        dictParametres.Add("Audio-Musique", "100");
     }
 }

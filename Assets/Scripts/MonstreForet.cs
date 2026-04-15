@@ -5,28 +5,30 @@ public class MonstreForet : MonoBehaviour
 {
     [Header("Ajustement inspecteur"), Space]
     public float vitesseMonstre = .1f;
-    public float dureeDeplacement = 5;
+    public float incrementDureeDeplacement = 5;
 
     bool canMove = false;
     Vector3 dernierePosOnde;
+    float dureeDeplacement = 0;
 
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
+        if (dureeDeplacement > 0)
         {
             //Debug.Log("can move");
             AllerVersJoueur(dernierePosOnde);
+            dureeDeplacement -= Time.deltaTime;
             //transform.position = Vector3.MoveTowards(transform.position, dernierePosOnde, vitesseMonstre);
         }
 
-        if (GetComponent<StressPoint>().inRange)
-        {
-            //Debug.Log("in range");
-            Gameplay.Jumpscare();
-            gameObject.SetActive(false);
-            //enabled = false;
-        }
+        //if (GetComponent<StressPoint>().inRange)
+        //{
+        //    //Debug.Log("in range");
+        //    Gameplay.Jumpscare();
+        //    gameObject.SetActive(false);
+        //    //enabled = false;
+        //}
     }
 
     private void OnEnable()
@@ -48,9 +50,8 @@ public class MonstreForet : MonoBehaviour
     {
         canMove = true;
         dernierePosOnde = targetPos;
-        //Debug.Log(dernierePosOnde);
-        //Debug.Log(transform.position);
-        Invoke(nameof(ArreterBouger), dureeDeplacement);
+        Debug.Log(dernierePosOnde);
+        dureeDeplacement += incrementDureeDeplacement;
     }
     /// <summary>
     /// Méthode qui arrête le déplacement du monstre.
