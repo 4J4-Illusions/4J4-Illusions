@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3d113170c2575c05092ff47bd67a7b22
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 224068
+  packageName: Polygon Trees
+  packageVersion: 2.5
+  assetPath: Assets/polygonTrees/polygonTrees/models/modelsWithLods/trees/fallenBranchesTreeL/editableMaterial/leavesMaterial.mat
+  uploadId: 616684
