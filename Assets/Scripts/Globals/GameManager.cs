@@ -11,12 +11,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Affectation inspecteur"), Space]
     public GameObject[] listeLampadaires = new GameObject[5];
-    public GameObject overlayCalibration, player;
+    public GameObject overlayCalibration;
 
     [Header("Accès pour autres scripts"), Space]
     public StageJeu stageJeu = 0;
-    public bool InCalibInterac, gameOver;
+    public bool inCalibInterac, gameOver, allowGameLoop = true;
     public int indexLampCour = 0;
+    public GameObject player;
     public ControlesPersonnage playerScript;
 
     // evenements
@@ -47,15 +48,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // setup du brouillard pour la forêt
-        if (stageJeu == StageJeu.Foret)
-        {
-            RenderSettings.fog = true;
-            RenderSettings.fogColor = Color.black;
-            RenderSettings.fogMode = FogMode.ExponentialSquared;
-            RenderSettings.fogDensity = .1f;
-        }
+        stageJeu = (StageJeu) SceneManager.GetActiveScene().buildIndex;
 
+        player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<ControlesPersonnage>();
         Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
     }
@@ -87,7 +82,7 @@ public class GameManager : MonoBehaviour
     /// <param name="enPause">La valeur de pause</param>
     void GestionPause(bool enPause)
     {
-        ControlesPersonnage.canMove = !enPause;
+        ControlesPersonnage.canMove = allowGameLoop = !enPause;
 
         if (enPause) Cursor.lockState = CursorLockMode.None;
         else Cursor.lockState = CursorLockMode.Locked;

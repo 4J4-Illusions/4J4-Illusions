@@ -13,7 +13,7 @@ public class MonstreForet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dureeDeplacement > 0)
+        if (dureeDeplacement > 0 && GameManager.Instance.allowGameLoop)
         {
             //Debug.Log("can move");
             AllerVersJoueur(dernierePosOnde);

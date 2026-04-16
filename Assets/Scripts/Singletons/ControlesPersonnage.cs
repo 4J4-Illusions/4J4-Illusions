@@ -157,7 +157,7 @@ public class ControlesPersonnage : MonoBehaviour
         }
 
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
-        if (Physics.Raycast(transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.InCalibInterac)
+        if (Physics.Raycast(transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.inCalibInterac)
         {
             //Debug.Log(hit.transform.gameObject.name);
             if (hit.transform.gameObject.TryGetComponent<ObjetInteractif>(out ObjetInteractif objInter))
@@ -180,10 +180,10 @@ public class ControlesPersonnage : MonoBehaviour
         }
 
         // interactions standard (sans passer directemenr par un objet interactif)
-        if (interactionAction.WasPressedThisFrame() && (hit.collider == null || GameManager.Instance.InCalibInterac))
+        if (interactionAction.WasPressedThisFrame() && (hit.collider == null || GameManager.Instance.inCalibInterac))
         {
             //Debug.Log("Interaction hors objet interactif");
-            if (GameManager.Instance.InCalibInterac)
+            if (GameManager.Instance.inCalibInterac)
             {
                 Gameplay.Interaction(TypeInteraction.CalibrationStop);
             }

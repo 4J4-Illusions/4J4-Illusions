@@ -46,6 +46,7 @@ public class GestionBarreAnxiete : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
 
         audioSource = GetComponent<AudioSource>();
+        stressTotal = 0;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -69,7 +70,7 @@ public class GestionBarreAnxiete : MonoBehaviour
         else
         {
             float sommeStress = 0;
-            pauseProgBarre = false;
+            pauseProgBarre = false | GameManager.Instance.allowGameLoop;
             foreach (KeyValuePair<int, StressPointEntry> entry in collectionStressPoints)
             {
                 sommeStress += entry.Value.valeurStress;

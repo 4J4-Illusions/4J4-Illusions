@@ -67,7 +67,7 @@ namespace Utils
                     break;
                 case TypeInteraction.Calibration:
                     // active l'état en mode calibration, l'overlay de calibration et empêche le joueur de bouger
-                    GameManager.Instance.InCalibInterac = true;
+                    GameManager.Instance.inCalibInterac = true;
                     GameManager.Instance.overlayCalibration.SetActive(true);
                     ControlesPersonnage.canMove = false;
                     break;
