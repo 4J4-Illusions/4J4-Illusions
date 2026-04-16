@@ -7,7 +7,6 @@ public class MonstreForet : MonoBehaviour
     public float vitesseMonstre = .1f;
     public float incrementDureeDeplacement = 5;
 
-    bool canMove = false;
     Vector3 dernierePosOnde;
     float dureeDeplacement = 0;
 
@@ -48,7 +47,6 @@ public class MonstreForet : MonoBehaviour
     /// <param name="targetPos"></param>
     void PermettreBouger(Vector3 targetPos)
     {
-        canMove = true;
         dernierePosOnde = targetPos;
         Debug.Log(dernierePosOnde);
         dureeDeplacement += incrementDureeDeplacement;
@@ -58,7 +56,6 @@ public class MonstreForet : MonoBehaviour
     /// </summary>
     void ArreterBouger()
     {
-        canMove = false;
     }
     /// <summary>
     /// Met à jour la position du monstre en direction de la position cible.

@@ -1,6 +1,8 @@
 using Globals;
 using UnityEngine;
 using System.Linq;
+using System;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,6 +12,12 @@ public class AudioManager : MonoBehaviour
     [Header("Affectation inspecteur"), Space]
     public AudioClip[] clipsAmbience;
     public AudioClip[] clipsSFX;
+    [Header("Accès pour autres scripts"), Space]
+    [Range(0, 1)] public float volumeGeneral;
+    [Range(0, 1)] public float volumeJeu, volumeMusique;
+
+    // évènements
+    public static Action OnAudioSettingsChange;
 
     void Awake()
     {
@@ -25,6 +33,11 @@ public class AudioManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        Parametres.OnSettingsChange += (KeyValuePair<string, string> kvp) => { if (kvp.Key.StartsWith("Audio-")) Debug.Log("update audio"); };
     }
 
 
