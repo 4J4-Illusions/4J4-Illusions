@@ -70,7 +70,7 @@ public class GestionBarreAnxiete : MonoBehaviour
         else
         {
             float sommeStress = 0;
-            pauseProgBarre = false | GameManager.Instance.allowGameLoop;
+            pauseProgBarre = false | !GameManager.Instance.allowGameLoop;
             foreach (KeyValuePair<int, StressPointEntry> entry in collectionStressPoints)
             {
                 sommeStress += entry.Value.valeurStress;
@@ -89,8 +89,8 @@ public class GestionBarreAnxiete : MonoBehaviour
             instantEntriesToUpdate.Clear();
 
             finalProgBarre = (!pauseProgBarre) ? (-progressionBarre / 10) : 0;
-            //if(finalProgBarre >= 0) Debug.Log(finalProgBarre);
             stressTotal += (sommeStress > 0) ? sommeStress : finalProgBarre;
+            Debug.Log(stressTotal);
         }
         audioSource.volume = vfxVignette.intensite = imgBarre.fillAmount = stressTotal;
         vitesseAnimCoeur = 1 + stressTotal * 4;
