@@ -31,7 +31,7 @@ public class ControlesPersonnage : MonoBehaviour
     Rigidbody rigidBody;
     InputAction mouvementAction, rotationAction, courseAction, interactionAction;
     Vector3 mouvementFinal, rotationFinale;
-    int indexModifCourse = 0;
+    int indexModifCourse = 0, refAudsrc;
     TypeInteraction DefaultInterac = 0;
     RaycastHit hit;
     AudioSource audsrc;
@@ -112,8 +112,9 @@ public class ControlesPersonnage : MonoBehaviour
         // controlle du son de marche selon son mouvement
         if (isMoving && !audsrc.isPlaying)
         {
-            audsrc.volume = AudioManager.Instance.SetClipVolume(AudioManager.Instance.GetClipCategory(audsrc.clip));
-            audsrc.Play();
+            //audsrc.volume = AudioManager.Instance.SetClipVolume(AudioManager.Instance.GetClipCategory(audsrc.clip));
+            //audsrc.Play();
+            audsrc = AudioManager.Instance.JouerSon(CategorieSon.Ambience, audsrc.clip);
         }
         else if (!isMoving && audsrc.isPlaying)
         {

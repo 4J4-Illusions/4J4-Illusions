@@ -48,7 +48,7 @@ public class MonstreForet : MonoBehaviour
     void PermettreBouger(Vector3 targetPos)
     {
         dernierePosOnde = targetPos;
-        Debug.Log(dernierePosOnde);
+        //Debug.Log(dernierePosOnde);
         dureeDeplacement += incrementDureeDeplacement;
     }
     /// <summary>

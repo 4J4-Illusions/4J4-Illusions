@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public ControlesPersonnage playerScript;
 
-    // evenements
+    // évènements
     public static Action OnGameOver;
 
     void Awake()
@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
         Cursor.lockState = CursorLockMode.Locked;
+
+        listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
     }
 
     private void Start()
@@ -52,6 +54,8 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<ControlesPersonnage>();
+
+        // donne un ordre de complétion aléatoire aux lampadaires
         Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
     }
     private void OnEnable()

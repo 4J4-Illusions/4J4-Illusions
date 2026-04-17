@@ -1,8 +1,8 @@
 using Globals;
 using UnityEngine;
-using System.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,14 +10,18 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
 
     [Header("Affectation inspecteur"), Space]
-    public AudioClip[] clipsAmbience;
-    public AudioClip[] clipsSFX;
-    [Header("Accès pour autres scripts"), Space]
-    [Range(0, 1)] public float volumeGeneral = 1;
-    [Range(0, 1)] public float volumeJeu = 1, volumeMusique = 1;
+    public List<AudioClip> clipsAmbience;
+    public List<AudioClip> clipsSFX;
 
     // évènements
     public static Action OnAudioSettingsChange;
+
+    float volumeGeneral = 1; // volume général
+    float volumeJeu = 1; // volume sfx
+    float volumeMusique = 1; // volume ambience
+    List<AudioSource> listeAudsrcs;
+    List<AudioClip> listeClips;
+    AudioSource audsrc;
 
     void Awake()
     {
@@ -33,6 +37,8 @@ public class AudioManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        audsrc = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -63,8 +69,7 @@ public class AudioManager : MonoBehaviour
     /// <returns>La valeur de volume</returns>
     public float SetClipVolume(CategorieSon categSon)
     {
-        float volumeCategorie = float.Parse(Parametres.Instance.dictParametres[(categSon == CategorieSon.Ambience) ? "Audio-Musique" : "Audio-Jeu"]) / 100;
-        //float volumeGeneral = float.Parse(Parametres.Instance.dictParametres["Audio-General"]) / 100;
+        float volumeCategorie = (categSon == CategorieSon.Ambience) ? volumeMusique : volumeJeu;
         return volumeCategorie * volumeGeneral;
     }
     /// <summary>
@@ -76,19 +81,61 @@ public class AudioManager : MonoBehaviour
     {
         CategorieSon categSon = GetClipCategory(clip);
 
-        float volumeCategorie = float.Parse(Parametres.Instance.dictParametres[(categSon == CategorieSon.Ambience) ? "Audio-Musique" : "Audio-Jeu"]) / 100;
-        //float volumeGeneral = float.Parse(Parametres.Instance.dictParametres["Audio-General"]) / 100;
+        float volumeCategorie = (categSon == CategorieSon.Ambience) ? volumeMusique : volumeJeu;
         return volumeCategorie * volumeGeneral;
     }
+    /// <summary>
+    /// Calcule le volume en fonction de la catégorie de volume (général, jeu ou musique), puis met à jour la variable de volume correspondante avec la valeur donnée.
+    /// </summary>
+    /// <param name="categVolume">La catégorie de volume à mettre à jour</param>
+    /// <param name="valeur">La nouvelle valeur de volume</param>
     void CalculVolumeFinal(string categVolume, string valeur)
     {
         //Debug.Log(categVolume);
         //Debug.Log(valeur);
         float valeurConvertie = float.Parse(valeur) / 100;
 
-        if(categVolume == "General") volumeGeneral = valeurConvertie;
-        else if(categVolume == "Jeu") volumeJeu = valeurConvertie;
+        if (categVolume == "General") volumeGeneral = valeurConvertie;
+        else if (categVolume == "Jeu") volumeJeu = valeurConvertie;
         else volumeMusique = valeurConvertie;
         //Debug.Log($"Valeurs volumes:    General-{volumeGeneral}    Jeu-{volumeJeu}    Musique-{volumeMusique}");
+    }
+    /// <summary>
+    /// Joue un clip en fonction de sa catégorie. Si le clip est un son d'ambience, l'associe à un AudioSource dédié (en créant un nouveau si nécessaire) et le joue.
+    /// </summary>
+    /// <param name="categ">La catégorie du clip</param>
+    /// <param name="clip">Le clip</param>
+    /// <returns>Si le clip est un son d'ambience, retourne l'AudioSource associé, sinon retourne null</returns>
+    public AudioSource JouerSon(CategorieSon categ, AudioClip clip)
+    {
+        Debug.Log("Jouer son");
+        if (categ == CategorieSon.SFX) audsrc.PlayOneShot(clip);
+        else
+        {
+            Debug.Log("Son d'ambience");
+
+            // check si un AudioSource existe déjà pour ce clip d'ambience
+            listeAudsrcs = GetComponents<AudioSource>().ToList();
+            listeClips = listeAudsrcs.Select(aud => aud.clip).ToList();
+            foreach (AudioSource source in listeAudsrcs)
+            {
+                if (source.clip == clip)
+                {
+                    source.Play();
+                    return source;
+                }
+            }
+
+            // si le clip n'a pas d'AudioSource associé, en créer un nouveau
+            AudioSource nouvAudsrc = gameObject.AddComponent<AudioSource>();
+            listeAudsrcs.Add(nouvAudsrc);
+            nouvAudsrc.playOnAwake = false;
+            nouvAudsrc.loop = true;
+            nouvAudsrc.clip = clip;
+            nouvAudsrc.volume = SetClipVolume(CategorieSon.Ambience);
+            nouvAudsrc.Play();
+            return nouvAudsrc;
+        }
+        return null;
     }
 }

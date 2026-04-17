@@ -38,7 +38,6 @@ public class LienSliderEtNombre : MonoBehaviour
         string paramKeyAudio = "Audio-" + slider.name[12..]; // extrait la partie du nom du slider après "SliderAudio"
         //Debug.Log(paramKeyAudio);
         KeyValuePair<string, string> kvpAudio = new(paramKeyAudio, valeurInt.ToString());
-        //Parametres.Instance.dictParametres[paramKeyAudio] = valeurInt.ToString();
         Parametres.Instance.UpdateParametres(kvpAudio);
         //Debug.Log($"Paramètre {paramKeyAudio} mis à jour: {valeurInt}");
         //Debug.Log($"Valeur dans le dictionnaire: {Parametres.Instance.dictParametres[paramKeyAudio]}");

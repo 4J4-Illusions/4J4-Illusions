@@ -2866,42 +2866,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: clipsSFX.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: 'clipsSFX.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 46fcc6c8c1624ab41b2459ff17f01e4c, type: 3}
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: 'clipsSFX.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 3b15935741cd0064f87e9c42d6e459d6, type: 3}
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: 'clipsSFX.Array.data[2]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 773e1d338de3c8b4cbd9506a056a9135, type: 3}
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: 'clipsSFX.Array.data[3]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 773e1d338de3c8b4cbd9506a056a9135, type: 3}
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: clipsAmbience.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: 'clipsAmbience.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: be9e4e58c10d83243b28d8c8c58ac571, type: 3}
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: 'clipsAmbience.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 8e3b784d2a6c90e4e9828a4874efceb2, type: 3}
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: 'clipsAmbience.Array.data[2]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 53d47d29f956f1f4191d9019f6932628, type: 3}
     - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
