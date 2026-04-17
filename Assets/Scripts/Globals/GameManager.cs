@@ -84,8 +84,7 @@ public class GameManager : MonoBehaviour
     {
         ControlesPersonnage.canMove = allowGameLoop = !enPause;
 
-        if (enPause) Cursor.lockState = CursorLockMode.None;
-        else Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
     }
     /// <summary>
     /// Retourne au menu principal

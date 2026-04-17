@@ -47,7 +47,8 @@ public class ScriptMenuPauseDepuisInterface : MonoBehaviour
         if (settingsUI != null)
             settingsUI.SetActive(false);
 
-        Time.timeScale = 1f; // reprend le jeu
+        //Time.timeScale = 1f; // reprend le jeu
         OnMenuPause.Invoke(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

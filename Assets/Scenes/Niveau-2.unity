@@ -428,11 +428,12 @@ MonoBehaviour:
   - {fileID: 114449528}
   - {fileID: 523534114}
   overlayCalibration: {fileID: 0}
-  player: {fileID: 243681788}
   stageJeu: 2
-  InCalibInterac: 0
+  inCalibInterac: 0
   gameOver: 0
+  allowGameLoop: 1
   indexLampCour: 0
+  player: {fileID: 243681788}
   playerScript: {fileID: 0}
 --- !u!4 &232862299
 Transform:
