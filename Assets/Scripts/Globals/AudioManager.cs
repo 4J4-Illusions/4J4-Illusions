@@ -13,8 +13,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] clipsAmbience;
     public AudioClip[] clipsSFX;
     [Header("Accès pour autres scripts"), Space]
-    [Range(0, 1)] public float volumeGeneral;
-    [Range(0, 1)] public float volumeJeu, volumeMusique;
+    [Range(0, 1)] public float volumeGeneral = 1;
+    [Range(0, 1)] public float volumeJeu = 1, volumeMusique = 1;
 
     // évènements
     public static Action OnAudioSettingsChange;
@@ -37,7 +37,11 @@ public class AudioManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Parametres.OnSettingsChange += (KeyValuePair<string, string> kvp) => { if (kvp.Key.StartsWith("Audio-")) Debug.Log("update audio"); };
+        Parametres.OnSettingsChange += (KeyValuePair<string, string> kvp) => { if (kvp.Key.StartsWith("Audio-")) CalculVolumeFinal(kvp.Key[6..], kvp.Value); };
+    }
+    private void OnDisable()
+    {
+        Parametres.OnSettingsChange -= (KeyValuePair<string, string> kvp) => { if (kvp.Key.StartsWith("Audio-")) CalculVolumeFinal(kvp.Key[6..], kvp.Value); };
     }
 
 
@@ -60,7 +64,7 @@ public class AudioManager : MonoBehaviour
     public float SetClipVolume(CategorieSon categSon)
     {
         float volumeCategorie = float.Parse(Parametres.Instance.dictParametres[(categSon == CategorieSon.Ambience) ? "Audio-Musique" : "Audio-Jeu"]) / 100;
-        float volumeGeneral = float.Parse(Parametres.Instance.dictParametres["Audio-General"]) / 100;
+        //float volumeGeneral = float.Parse(Parametres.Instance.dictParametres["Audio-General"]) / 100;
         return volumeCategorie * volumeGeneral;
     }
     /// <summary>
@@ -73,7 +77,18 @@ public class AudioManager : MonoBehaviour
         CategorieSon categSon = GetClipCategory(clip);
 
         float volumeCategorie = float.Parse(Parametres.Instance.dictParametres[(categSon == CategorieSon.Ambience) ? "Audio-Musique" : "Audio-Jeu"]) / 100;
-        float volumeGeneral = float.Parse(Parametres.Instance.dictParametres["Audio-General"]) / 100;
+        //float volumeGeneral = float.Parse(Parametres.Instance.dictParametres["Audio-General"]) / 100;
         return volumeCategorie * volumeGeneral;
+    }
+    void CalculVolumeFinal(string categVolume, string valeur)
+    {
+        //Debug.Log(categVolume);
+        //Debug.Log(valeur);
+        float valeurConvertie = float.Parse(valeur) / 100;
+
+        if(categVolume == "General") volumeGeneral = valeurConvertie;
+        else if(categVolume == "Jeu") volumeJeu = valeurConvertie;
+        else volumeMusique = valeurConvertie;
+        //Debug.Log($"Valeurs volumes:    General-{volumeGeneral}    Jeu-{volumeJeu}    Musique-{volumeMusique}");
     }
 }
