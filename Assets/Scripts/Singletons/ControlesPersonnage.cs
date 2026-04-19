@@ -40,7 +40,7 @@ public class ControlesPersonnage : MonoBehaviour
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
-        audsrc = GetComponent<AudioSource>();
+        //audsrc = GetComponent<AudioSource>();
         mouvementAction = InputSystem.actions.FindAction("Player/Move");
         rotationAction = InputSystem.actions.FindAction("Player/Look");
         courseAction = InputSystem.actions.FindAction("Player/Sprint");
@@ -49,10 +49,10 @@ public class ControlesPersonnage : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ondeSonore = ondeSonore.transform.GetChild(0).gameObject;
         cameraJoueur.transform.position = transform.position + ajustementPosCam;
         animPerso = transform.Find("Model").GetComponent<Animator>();
         //Debug.Log(animPerso.transform.name);
+        audsrc = GetComponent<AudioManagerConnect>().audsrc;
 
         // active les elements de debogage
         if (debugMode)

@@ -45,7 +45,6 @@ public class GestionBarreAnxiete : MonoBehaviour
         Instance = this;
         //DontDestroyOnLoad(gameObject);
 
-        //audsrc = GetComponent<AudioSource>();
         stressTotal = 0;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,8 +52,7 @@ public class GestionBarreAnxiete : MonoBehaviour
     {
         imgBarre = conteneurBarre.transform.GetChild(0).GetComponent<Image>();
         vfxVignette = GameManager.Instance.player.GetComponentInChildren<VolumeVignette>();
-        audsrc = AudioManager.Instance.JouerSon(CategorieSon.Ambience, GetComponent<AudioSource>().clip);
-        audsrc.volume = 0;
+        audsrc = GetComponent<AudioManagerConnect>().audsrc;
     }
     // Update is called once per frame
     void Update()

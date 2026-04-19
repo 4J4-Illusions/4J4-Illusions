@@ -42,9 +42,9 @@ namespace Utils
                             GameManager.Instance.listeLampadaires[GameManager.Instance.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
 
                         AudioSource ondeAudsrc = obj.GetComponent<AudioSource>();
-                        ondeAudsrc.volume = AudioManager.Instance.SetAudioVolume(ondeAudsrc.clip);
-                        ondeAudsrc.Play();
-                        //AudioManager.Instance.JouerSon(CategorieSon.SFX, obj.GetComponent<AudioSource>().clip);
+                        //ondeAudsrc.volume = AudioManager.Instance.SetAudioVolume(ondeAudsrc.clip);
+                        //ondeAudsrc.Play();
+                        AudioManager.Instance.JouerSon(CategorieSon.SFX, ondeAudsrc.clip, ondeAudsrc);
                     }
                     break;
                 case TypeInteraction.Lampadaire:

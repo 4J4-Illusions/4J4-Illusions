@@ -15,8 +15,7 @@ public class AudioManager : MonoBehaviour
     /// les numéros dans les noms de variables correspondent à l'étape du jeu à laquelle les clips sont associés selon l'enum <see cref="StageJeu"/>
     /// </summary>
     public List<AudioClip>
-        ambience1, ambience2, ambience3, ambience4,
-        sfx0, sfx1, sfx2, sfx3, sfx4;
+        ambience1, ambience2, ambience3, ambience4;
 
     // évènements
     public static Action OnAudioSettingsChange;
@@ -25,8 +24,7 @@ public class AudioManager : MonoBehaviour
     float volumeJeu = 1; // volume sfx
     float volumeMusique = 1; // volume ambience
     AudioClip[] clipsAmbience;
-    AudioClip[] clipsSFX;
-    List<AudioSource> listeAudsrcs = new();
+    readonly List<AudioSource> listeAudsrcs = new();
     List<AudioClip> listeClips;
     AudioSource audsrc;
 
@@ -47,11 +45,10 @@ public class AudioManager : MonoBehaviour
 
         audsrc = gameObject.AddComponent<AudioSource>();
         clipsAmbience = new[] { ambience0, ambience1, ambience2, ambience3, ambience4 }.SelectMany(clip => clip).ToArray();
-        foreach (var item in clipsAmbience)
+        foreach (AudioClip clip in clipsAmbience)
         {
-            JouerSon(CategorieSon.Ambience, item);
+            JouerSon(CategorieSon.Ambience, clip);
         }
-        clipsSFX = new[] { sfx0, sfx1, sfx2, sfx3, sfx4 }.SelectMany(clip => clip).ToArray();
     }
     private void OnEnable()
     {
@@ -111,24 +108,33 @@ public class AudioManager : MonoBehaviour
         else if (categVolume == "Jeu") volumeJeu = valeurConvertie;
         else volumeMusique = valeurConvertie;
         //Debug.Log($"Valeurs volumes:    General-{volumeGeneral}    Jeu-{volumeJeu}    Musique-{volumeMusique}");
+
+        // met à jour dynamiquement les sons d'ambience
+        foreach (AudioSource aud in listeAudsrcs)
+        {
+            aud.volume = volumeGeneral * volumeMusique;
+        }
     }
     /// <summary>
     /// Joue un clip en fonction de sa catégorie. Si le clip est un son d'ambience, l'associe à un AudioSource dédié (en créant un nouveau si nécessaire) et le joue.
     /// </summary>
     /// <param name="categ">La catégorie du clip</param>
     /// <param name="clip">Le clip</param>
+    /// <param name="refAudsrc">Une référence à un <see cref="AudioSource"/> déjà éxistant pour copier ses valeurs</param>
     /// <returns>Si le clip est un son d'ambience, retourne l'AudioSource associé, sinon retourne null</returns>
-    public AudioSource JouerSon(CategorieSon categ, AudioClip clip)
+    public AudioSource JouerSon(CategorieSon categ, AudioClip clip, AudioSource refAudsrc = null)
     {
-        Debug.Log("Jouer son");
+        //Debug.Log("Jouer son");
+        //Debug.Log(clip.name);
         if (categ == CategorieSon.SFX)
         {
+            if (refAudsrc != null) audsrc.pitch = refAudsrc.pitch;
             audsrc.volume = SetAudioVolume(CategorieSon.Ambience);
             audsrc.PlayOneShot(clip);
         }
         else
         {
-            Debug.Log("Son d'ambience");
+            //Debug.Log("Son d'ambience");
 
             // check si un AudioSource existe déjà pour ce clip d'ambience
             //listeAudsrcs = GetComponents<AudioSource>().ToList();
@@ -137,7 +143,7 @@ public class AudioManager : MonoBehaviour
             {
                 if (source != null && source.clip == clip)
                 {
-                    source.volume = SetAudioVolume(CategorieSon.Ambience);
+                    source.volume = (refAudsrc != null) ? refAudsrc.volume : SetAudioVolume(CategorieSon.Ambience);
                     source.Play();
                     return source;
                 }
@@ -148,7 +154,7 @@ public class AudioManager : MonoBehaviour
             listeAudsrcs.Add(nouvAudsrc);
             nouvAudsrc.loop = true;
             nouvAudsrc.clip = clip;
-            nouvAudsrc.volume = SetAudioVolume(CategorieSon.Ambience);
+            nouvAudsrc.volume = (refAudsrc != null) ? refAudsrc.volume : SetAudioVolume(CategorieSon.Ambience);
             nouvAudsrc.Play();
             return nouvAudsrc;
         }
