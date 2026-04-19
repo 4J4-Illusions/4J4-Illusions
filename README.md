@@ -4,6 +4,8 @@ projet de création de jeu en équipe pour le cours 4J4
 
 
 
+
+
 ## Stack technologique
 
 - Unity 6.3 LTS (6000.3.7f1)
@@ -70,9 +72,25 @@ projet de création de jeu en équipe pour le cours 4J4
 - Les méthodes personnalisées devraient se retrouver après les méthodes propres à la Classe `MonoBehaviour`
 
 
-Nomenclature:
+#### Nomenclature:
 
 - Le nom des classes devraient être en PascalCase
 - Le nom des variables devraient généralement être en camelCase
     - Le nom des variables constantes devraient être en SCREAMING_SNAKE_CASE
     - Le nom des évènements devraient être en PascalCase et devraient toujours commencer par `On`. Ex: `OnEyeContact`
+
+
+
+## Implémentation
+
+### AudioManager
+La classe `AudioManager` est le moyen officiel de gérer les sons d'ambience. Un clip est enregistré quand la méthode `JouerSon` est appelée puisqu'elle crée un composant `AudioSource` sur le `GameObject` auquel est rattaché le script et retourne une référence vers ce composant.
+
+Pour associer un son qui est gére par un autre script (pour le volume, par exemple):
+- Attacher le script `AudioManagerConnect` au même `GameObject`
+- Récupérer `AudioManagerConnect.audsrc` dans l'autre script pour avoir la nouvelle instance d'`AudioSource` qui contient le clip souhaitée
+- **ATTENTION** `AudioManagerConnect` s'attend à avoir l'`AudioSource` de base sur le même `GameObject` que lui et le supprime après avoir créé une nouvelle instance sur l'`AudioManager`
+
+Pour lancer un son d'ambience dès le chargement de la scène:
+- Lier le fichier source dans l'`Array` correspondant à la scène avec l'inspecteur
+- **ATTENTION** Le numéro à la fin du nom de la variable correspond à l'étape de jeu selon l'enum `StageJeu`
