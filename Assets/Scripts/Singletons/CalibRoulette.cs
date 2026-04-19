@@ -21,13 +21,11 @@ public class CalibRoulette : MonoBehaviour
         rectPointeur = pointeur.GetComponent<RectTransform>();
         rectPointeur.localEulerAngles = new Vector3(0, 0, ROTAT_OFFSET);
     }
-
     // Update is called once per frame
     void Update()
     {
         rectPointeur.Rotate(0, 0, vitRotation);
     }
-
     void OnEnable()
     {
         vitRotation = Random.Range(rangeVitRot[0], rangeVitRot[1]);

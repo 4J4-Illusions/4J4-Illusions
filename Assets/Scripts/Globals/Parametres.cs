@@ -35,6 +35,10 @@ public class Parametres : MonoBehaviour
 
 
 
+    /// <summary>
+    /// Met à jour la valeur d'un paramètre dans le dictionnaire et déclenche l'évènement de changement de paramètre.
+    /// </summary>
+    /// <param name="kvp">La paire de clé-valeur du paramètre</param>
     public void UpdateParametres(KeyValuePair<string, string> kvp)
     {
         dictParametres[kvp.Key] = kvp.Value;

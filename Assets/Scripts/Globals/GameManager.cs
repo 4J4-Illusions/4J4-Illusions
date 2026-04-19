@@ -47,7 +47,6 @@ public class GameManager : MonoBehaviour
 
         listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
     }
-
     private void Start()
     {
         stageJeu = (StageJeu) SceneManager.GetActiveScene().buildIndex;

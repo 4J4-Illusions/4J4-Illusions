@@ -28,7 +28,7 @@ public class GestionBarreAnxiete : MonoBehaviour
     readonly Dictionary<int, StressPointEntry> instantEntriesToUpdate = new();
     bool pauseProgBarre = false;
     VolumeVignette vfxVignette;
-    AudioSource audioSource;
+    AudioSource audsrc;
 
     void Awake()
     {
@@ -45,17 +45,17 @@ public class GestionBarreAnxiete : MonoBehaviour
         Instance = this;
         //DontDestroyOnLoad(gameObject);
 
-        audioSource = GetComponent<AudioSource>();
+        //audsrc = GetComponent<AudioSource>();
         stressTotal = 0;
     }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         imgBarre = conteneurBarre.transform.GetChild(0).GetComponent<Image>();
         vfxVignette = GameManager.Instance.player.GetComponentInChildren<VolumeVignette>();
+        audsrc = AudioManager.Instance.JouerSon(CategorieSon.Ambience, GetComponent<AudioSource>().clip);
+        audsrc.volume = 0;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -93,7 +93,8 @@ public class GestionBarreAnxiete : MonoBehaviour
             else stressTotal += 0;
             //Debug.Log(stressTotal);
         }
-        audioSource.volume = vfxVignette.intensite = imgBarre.fillAmount = stressTotal;
+        vfxVignette.intensite = imgBarre.fillAmount = stressTotal;
+        audsrc.volume = stressTotal * AudioManager.Instance.SetAudioVolume(CategorieSon.Ambience);
         vitesseAnimCoeur = 1 + stressTotal * 4;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
 
@@ -102,7 +103,6 @@ public class GestionBarreAnxiete : MonoBehaviour
             Gameplay.Jumpscare();
         }
     }
-
     private void OnEnable()
     {
         GameManager.OnGameOver += CriseDePanique;

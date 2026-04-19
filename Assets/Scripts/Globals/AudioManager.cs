@@ -10,8 +10,13 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
 
     [Header("Affectation inspecteur"), Space]
-    public List<AudioClip> clipsAmbience;
-    public List<AudioClip> clipsSFX;
+    public List<AudioClip> ambience0;
+    /// <summary>
+    /// les numéros dans les noms de variables correspondent à l'étape du jeu à laquelle les clips sont associés selon l'enum <see cref="StageJeu"/>
+    /// </summary>
+    public List<AudioClip>
+        ambience1, ambience2, ambience3, ambience4,
+        sfx0, sfx1, sfx2, sfx3, sfx4;
 
     // évènements
     public static Action OnAudioSettingsChange;
@@ -19,7 +24,9 @@ public class AudioManager : MonoBehaviour
     float volumeGeneral = 1; // volume général
     float volumeJeu = 1; // volume sfx
     float volumeMusique = 1; // volume ambience
-    List<AudioSource> listeAudsrcs;
+    AudioClip[] clipsAmbience;
+    AudioClip[] clipsSFX;
+    List<AudioSource> listeAudsrcs = new();
     List<AudioClip> listeClips;
     AudioSource audsrc;
 
@@ -38,9 +45,14 @@ public class AudioManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        audsrc = GetComponent<AudioSource>();
+        audsrc = gameObject.AddComponent<AudioSource>();
+        clipsAmbience = new[] { ambience0, ambience1, ambience2, ambience3, ambience4 }.SelectMany(clip => clip).ToArray();
+        foreach (var item in clipsAmbience)
+        {
+            JouerSon(CategorieSon.Ambience, item);
+        }
+        clipsSFX = new[] { sfx0, sfx1, sfx2, sfx3, sfx4 }.SelectMany(clip => clip).ToArray();
     }
-
     private void OnEnable()
     {
         Parametres.OnSettingsChange += (KeyValuePair<string, string> kvp) => { if (kvp.Key.StartsWith("Audio-")) CalculVolumeFinal(kvp.Key[6..], kvp.Value); };
@@ -67,7 +79,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     /// <param name="categSon">La catégorie du son</param>
     /// <returns>La valeur de volume</returns>
-    public float SetClipVolume(CategorieSon categSon)
+    public float SetAudioVolume(CategorieSon categSon)
     {
         float volumeCategorie = (categSon == CategorieSon.Ambience) ? volumeMusique : volumeJeu;
         return volumeCategorie * volumeGeneral;
@@ -77,7 +89,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     /// <param name="clip">Le clip dont la catégorie sera determinée</param>
     /// <returns>La valeur de volume</returns>
-    public float SetClipVolume(AudioClip clip)
+    public float SetAudioVolume(AudioClip clip)
     {
         CategorieSon categSon = GetClipCategory(clip);
 
@@ -109,18 +121,23 @@ public class AudioManager : MonoBehaviour
     public AudioSource JouerSon(CategorieSon categ, AudioClip clip)
     {
         Debug.Log("Jouer son");
-        if (categ == CategorieSon.SFX) audsrc.PlayOneShot(clip);
+        if (categ == CategorieSon.SFX)
+        {
+            audsrc.volume = SetAudioVolume(CategorieSon.Ambience);
+            audsrc.PlayOneShot(clip);
+        }
         else
         {
             Debug.Log("Son d'ambience");
 
             // check si un AudioSource existe déjà pour ce clip d'ambience
-            listeAudsrcs = GetComponents<AudioSource>().ToList();
-            listeClips = listeAudsrcs.Select(aud => aud.clip).ToList();
+            //listeAudsrcs = GetComponents<AudioSource>().ToList();
+            listeClips = listeAudsrcs.Select(aud => (aud != null) ? aud.clip : null).ToList();
             foreach (AudioSource source in listeAudsrcs)
             {
-                if (source.clip == clip)
+                if (source != null && source.clip == clip)
                 {
+                    source.volume = SetAudioVolume(CategorieSon.Ambience);
                     source.Play();
                     return source;
                 }
@@ -129,10 +146,9 @@ public class AudioManager : MonoBehaviour
             // si le clip n'a pas d'AudioSource associé, en créer un nouveau
             AudioSource nouvAudsrc = gameObject.AddComponent<AudioSource>();
             listeAudsrcs.Add(nouvAudsrc);
-            nouvAudsrc.playOnAwake = false;
             nouvAudsrc.loop = true;
             nouvAudsrc.clip = clip;
-            nouvAudsrc.volume = SetClipVolume(CategorieSon.Ambience);
+            nouvAudsrc.volume = SetAudioVolume(CategorieSon.Ambience);
             nouvAudsrc.Play();
             return nouvAudsrc;
         }

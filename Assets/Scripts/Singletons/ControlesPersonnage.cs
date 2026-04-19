@@ -31,7 +31,7 @@ public class ControlesPersonnage : MonoBehaviour
     Rigidbody rigidBody;
     InputAction mouvementAction, rotationAction, courseAction, interactionAction;
     Vector3 mouvementFinal, rotationFinale;
-    int indexModifCourse = 0, refAudsrc;
+    int indexModifCourse = 0;
     TypeInteraction DefaultInterac = 0;
     RaycastHit hit;
     AudioSource audsrc;
@@ -46,7 +46,6 @@ public class ControlesPersonnage : MonoBehaviour
         courseAction = InputSystem.actions.FindAction("Player/Sprint");
         interactionAction = InputSystem.actions.FindAction("Player/Interact");
     }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -76,7 +75,6 @@ public class ControlesPersonnage : MonoBehaviour
             DefaultInterac = TypeInteraction.Onde;
         }
     }
-
     void Update()
     {
         // calcul mouvement et rotation selon le input du clavier et de la souris
@@ -124,13 +122,11 @@ public class ControlesPersonnage : MonoBehaviour
         // gestion des animations
         GererAnimations();
     }
-
     void FixedUpdate()
     {
         // applique mouvement au joueur
         rigidBody.linearVelocity = mouvementFinal;
     }
-
     private void OnEnable()
     {
         // abonement évènement
@@ -198,6 +194,9 @@ public class ControlesPersonnage : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Gère les animations du personnage en fonction de son état de mouvement et de course.
+    /// </summary>
     void GererAnimations()
     {
         animPerso.SetBool("isMoving", isMoving);

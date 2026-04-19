@@ -13,7 +13,6 @@ public class AnimationPlaqueBriquet : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-
     private void OnEnable()
     {
         Gameplay.OnInteraction += TriggerAnimationFeu;

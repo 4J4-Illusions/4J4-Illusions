@@ -23,7 +23,6 @@ public class CameraJoueur : MonoBehaviour
         POSITION_Y_INITIALE = transform.localPosition.y;
         Debug.Log($"Limities du bobbing: [base, variation] = [{POSITION_Y_INITIALE}, {POSITION_Y_INITIALE - variationBobbing}]");
     }
-
     private void Start()
     {
         player = transform.parent.GetComponent<ControlesPersonnage>();
@@ -34,7 +33,6 @@ public class CameraJoueur : MonoBehaviour
             GetComponent<Camera>().depthTextureMode = DepthTextureMode.Depth;
         }
     }
-
     // Update is called once per frame
     void Update()
     {

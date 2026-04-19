@@ -32,7 +32,6 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
         indicUIDimensions = indicateurUI.GetComponent<RectTransform>().rect.width + indicateurUI.GetComponent<Outline>().effectDistance.x;
         //Debug.Log(indicUIDimensions);
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -53,12 +52,10 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
             }
         }
     }
-
     private void OnEnable()
     {
         Invoke(nameof(DesactiveIndicateur), 3f);
     }
-
     private void OnDisable()
     {
         indicateurUI.SetActive(false);

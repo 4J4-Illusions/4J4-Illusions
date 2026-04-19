@@ -27,7 +27,6 @@ public class VolumeVignette : MonoBehaviour
 
         vignette.color = new ColorParameter(Color.red, true);
     }
-
     // Update is called once per frame
     void Update()
     {

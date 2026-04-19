@@ -29,7 +29,6 @@ public class MonstreForet : MonoBehaviour
         //    //enabled = false;
         //}
     }
-
     private void OnEnable()
     {
         ControlesPersonnage.OnPlayerOnde += PermettreBouger;

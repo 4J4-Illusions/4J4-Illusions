@@ -8,7 +8,7 @@ namespace Utils
 {
     public class Gameplay
     {
-        // evenements
+        // évènements
         public static Action<TypeInteraction> OnInteraction;
 
 
@@ -42,8 +42,9 @@ namespace Utils
                             GameManager.Instance.listeLampadaires[GameManager.Instance.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
 
                         AudioSource ondeAudsrc = obj.GetComponent<AudioSource>();
-                        ondeAudsrc.volume = AudioManager.Instance.SetClipVolume(ondeAudsrc.clip);
+                        ondeAudsrc.volume = AudioManager.Instance.SetAudioVolume(ondeAudsrc.clip);
                         ondeAudsrc.Play();
+                        //AudioManager.Instance.JouerSon(CategorieSon.SFX, obj.GetComponent<AudioSource>().clip);
                     }
                     break;
                 case TypeInteraction.Lampadaire:
@@ -58,7 +59,8 @@ namespace Utils
                         obj.transform.Find("Lampadaire/Final_Candle1/PointLightLampadaire").gameObject.SetActive(true);
 
                         GameManager.Instance.indexLampCour++;
-                        // si tous les lampadaires sont allumés, lance la fin de partie
+
+                        // si tous les lampadaires sont allumés, termine la partie
                         if (GameManager.Instance.indexLampCour == 5)
                         {
                             GameManager.Instance.FinDePartie();

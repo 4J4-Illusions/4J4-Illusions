@@ -20,7 +20,6 @@ public class StressPoint : MonoBehaviour
         valeurDict.pauseProgBarre = true;
         GestionBarreAnxiete.collectionStressPoints.Add(GetInstanceID(), valeurDict);
     }
-
     private void Update()
     {
         // récupère la distance entre le joueur et le point de stress
@@ -58,12 +57,10 @@ public class StressPoint : MonoBehaviour
         //Debug.Log($"GameObject: {gameObject.name}    Dictionnary value: {valeurDict}");
         GestionBarreAnxiete.collectionStressPoints[GetInstanceID()] = valeurDict;
     }
-
     private void OnDisable()
     {
         GestionBarreAnxiete.collectionStressPoints.Remove(GetInstanceID());
     }
-
     private void OnDestroy()
     {
         GestionBarreAnxiete.collectionStressPoints.Remove(GetInstanceID());
