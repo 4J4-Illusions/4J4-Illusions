@@ -165,8 +165,8 @@ public class ControlesPersonnage : MonoBehaviour
                     objInter.Interaction();
 
                     // joue l'animation de briquet si l'interaction concerne un lampadaire
-                    if (objInter.typeInterac == TypeInteraction.Lampadaire) animPerso.SetTrigger("triggerBriquet");
-                    
+                    if (objInter.typeInterac == TypeInteraction.Lampadaire) { Debug.Log("Animer briquet"); animPerso.SetTrigger("triggerBriquet"); }
+
                     return;
                 }
             }

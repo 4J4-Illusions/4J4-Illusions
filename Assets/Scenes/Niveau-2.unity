@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.066037714, g: 0.06261123, b: 0.06261123, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.2
@@ -170,6 +170,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 02b835fa6390fa446a2eb66723a57f3b, type: 3}
       propertyPath: m_Name
       value: Vyktor_Squelettes
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02b835fa6390fa446a2eb66723a57f3b, type: 3}
+      propertyPath: m_TagString
+      value: Monstre
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -917,6 +921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vyktor_Squelettes_05
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02b835fa6390fa446a2eb66723a57f3b, type: 3}
+      propertyPath: m_TagString
+      value: Monstre
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1550,6 +1558,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vyktor_Squelettes_04
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02b835fa6390fa446a2eb66723a57f3b, type: 3}
+      propertyPath: m_TagString
+      value: Monstre
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2120,6 +2132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vyktor_Squelettes_02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02b835fa6390fa446a2eb66723a57f3b, type: 3}
+      propertyPath: m_TagString
+      value: Monstre
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2318,6 +2334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vyktor_Squelettes_01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02b835fa6390fa446a2eb66723a57f3b, type: 3}
+      propertyPath: m_TagString
+      value: Monstre
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2502,7 +2522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f323442b88e1e5e4596d6a3dcd9e797d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.3899994
+      value: 6.18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f323442b88e1e5e4596d6a3dcd9e797d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2604,6 +2624,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 02b835fa6390fa446a2eb66723a57f3b, type: 3}
       propertyPath: m_Name
       value: Vyktor_Squelettes_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02b835fa6390fa446a2eb66723a57f3b, type: 3}
+      propertyPath: m_TagString
+      value: Monstre
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2910,6 +2934,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19eff25d7bd5d8f439284a0306012119, type: 3}
+--- !u!1001 &6193970063916033315
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3949945312549819857, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 136.92134
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949945312549819857, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949945312549819857, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 59.071945
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949945312549819857, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949945312549819857, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949945312549819857, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949945312549819857, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949945312549819857, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949945312549819857, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949945312549819857, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439096748172906347, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_Name
+      value: CleAMolette
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
 --- !u!1001 &8010543066552353970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2988,3 +3069,4 @@ SceneRoots:
   - {fileID: 4559909832040852693}
   - {fileID: 373207958}
   - {fileID: 534675030}
+  - {fileID: 6193970063916033315}

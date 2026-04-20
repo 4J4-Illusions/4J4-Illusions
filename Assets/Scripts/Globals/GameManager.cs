@@ -20,11 +20,12 @@ public class GameManager : MonoBehaviour
         gameOver, allowGameLoop = true, /*états*/
         objectifComplete, niveauComplete /*progression de niveau*/;
     public int indexLampCour = 0;
-    public GameObject player;
+    public GameObject player, recompense;
     public ControlesPersonnage playerScript;
 
     // évènements
-    public static Action OnGameOver;
+    public static Action OnGameOver, OnLevelProgress, OnLevelComplete;
+    public static Action<StageJeu> OnObjectiveComplete;
 
     void Awake()
     {
@@ -48,7 +49,6 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         Cursor.lockState = CursorLockMode.Locked;
 
-        listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
         objectifComplete = niveauComplete = false;
     }
     private void Start()
@@ -58,16 +58,24 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<ControlesPersonnage>();
 
-        // donne un ordre de complétion aléatoire aux lampadaires
+        listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
+        // ordre aléatoire aux lampadaires
         Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
+
+        recompense = GameObject.FindWithTag("Recompense");
+        recompense.SetActive(false);
     }
     private void OnEnable()
     {
+        // abonnement évènements
         ScriptMenuPauseDepuisInterface.OnMenuPause += GestionPause;
+        OnObjectiveComplete += ObjectifComplete;
     }
     private void OnDisable()
     {
+        // désabonnements évènements
         ScriptMenuPauseDepuisInterface.OnMenuPause -= GestionPause;
+        OnObjectiveComplete -= ObjectifComplete;
     }
 
 
@@ -75,7 +83,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Lance l'évènement de fin de partie, qui peut être écouté par d'autres scripts pour déclencher des actions spécifiques à la fin du jeu (ex: afficher un écran de fin, arrêter les mouvements du joueur, etc.).
     /// </summary>
-    public void FinDePartie()
+    void FinDePartie()
     {
         OnGameOver.Invoke();
         GestionPause(true);
@@ -99,5 +107,54 @@ public class GameManager : MonoBehaviour
     void RetourMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    /// <summary>
+    /// Lance la séquence de jumpscare, qui correspond à la fin du jeu.
+    /// </summary>
+    public void Jumpscare()
+    {
+        FinDePartie();
+    }
+    public void ProgressionObjectifNiveau(StageJeu stage)
+    {
+        switch (stage)
+        {
+            case StageJeu.Desert:
+                break;
+            case StageJeu.Foret:
+                indexLampCour++;
+
+                // si tous les lampadaires sont allumés, l'objectif est complété
+                if (indexLampCour == 5) { objectifComplete = true; OnObjectiveComplete.Invoke(stage); }
+                break;
+            case StageJeu.Theatre:
+                break;
+        }
+
+        //OnLevelProgress.Invoke();
+    }
+    void ObjectifComplete(StageJeu stage)
+    {
+        recompense.SetActive(true);
+
+        switch (stage)
+        {
+            case StageJeu.Desert:
+                break;
+            case StageJeu.Foret:
+                foreach(GameObject monstre in GameObject.FindGameObjectsWithTag("Monstre"))
+                {
+                    Destroy(monstre);
+                }
+                break;
+            case StageJeu.Theatre:
+                break;
+        }
+    }
+
+    public void NiveauTermine()
+    {
+        niveauComplete = true;
+        //OnLevelComplete.Invoke();
     }
 }

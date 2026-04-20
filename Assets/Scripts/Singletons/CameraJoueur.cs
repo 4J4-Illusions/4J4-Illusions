@@ -21,7 +21,7 @@ public class CameraJoueur : MonoBehaviour
     private void Awake()
     {
         POSITION_Y_INITIALE = transform.localPosition.y;
-        Debug.Log($"Limities du bobbing: [base, variation] = [{POSITION_Y_INITIALE}, {POSITION_Y_INITIALE - variationBobbing}]");
+        //Debug.Log($"Limities du bobbing: [base, variation] = [{POSITION_Y_INITIALE}, {POSITION_Y_INITIALE - variationBobbing}]");
     }
     private void Start()
     {

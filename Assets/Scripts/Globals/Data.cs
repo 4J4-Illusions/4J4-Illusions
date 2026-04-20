@@ -13,7 +13,8 @@ namespace Globals
         Onde,
         Lampadaire,
         Calibration,
-        CalibrationStop
+        CalibrationStop,
+        Recompense
     }
     /// <summary>
     /// Décrit les différentes étapes du jeu.

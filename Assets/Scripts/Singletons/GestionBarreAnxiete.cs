@@ -89,6 +89,7 @@ public class GestionBarreAnxiete : MonoBehaviour
             finalProgBarre = (!pauseProgBarre) ? (-progressionBarre / 10) : 0;
             if(GameManager.Instance.allowGameLoop) stressTotal += (sommeStress > 0) ? sommeStress : finalProgBarre;
             else stressTotal += 0;
+            stressTotal = MathF.Min(MathF.Max(stressTotal, 0), 1);
             //Debug.Log(stressTotal);
         }
         vfxVignette.intensite = imgBarre.fillAmount = stressTotal;
@@ -98,7 +99,7 @@ public class GestionBarreAnxiete : MonoBehaviour
 
         if (stressTotal >= 1)
         {
-            Gameplay.Jumpscare();
+            GameManager.Instance.Jumpscare();
         }
     }
     private void OnEnable()
