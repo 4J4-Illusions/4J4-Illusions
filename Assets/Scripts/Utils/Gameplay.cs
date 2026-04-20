@@ -63,7 +63,8 @@ namespace Utils
                         // si tous les lampadaires sont allumés, termine la partie
                         if (GameManager.Instance.indexLampCour == 5)
                         {
-                            GameManager.Instance.FinDePartie();
+                            //GameManager.Instance.FinDePartie();
+                            GameManager.Instance.objectifComplete = true;
                         }
                     }
                     break;

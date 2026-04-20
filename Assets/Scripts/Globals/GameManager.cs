@@ -15,7 +15,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Accès pour autres scripts"), Space]
     public StageJeu stageJeu = 0;
-    public bool inCalibInterac, gameOver, allowGameLoop = true;
+    public bool
+        inCalibInterac, modeObtentionItem, /*modes*/
+        gameOver, allowGameLoop = true, /*états*/
+        objectifComplete, niveauComplete /*progression de niveau*/;
     public int indexLampCour = 0;
     public GameObject player;
     public ControlesPersonnage playerScript;
@@ -46,10 +49,11 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
+        objectifComplete = niveauComplete = false;
     }
     private void Start()
     {
-        stageJeu = (StageJeu) SceneManager.GetActiveScene().buildIndex;
+        stageJeu = (StageJeu)SceneManager.GetActiveScene().buildIndex;
 
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<ControlesPersonnage>();
