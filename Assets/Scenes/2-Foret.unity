@@ -3145,6 +3145,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CleAMolette
       objectReference: {fileID: 0}
+    - target: {fileID: 4439096748172906347, guid: df0343b861d86b845ae167ad417e18ea, type: 3}
+      propertyPath: m_TagString
+      value: Recompense
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

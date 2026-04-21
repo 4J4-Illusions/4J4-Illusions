@@ -54,17 +54,14 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<ControlesPersonnage>();
 
-        objectifComplete = niveauComplete = false;
-
-    }
-    private void Start()
-    {
         listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
         // ordre aléatoire aux lampadaires
         Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
 
         recompense = GameObject.FindWithTag("Recompense");
         recompense.SetActive(false);
+
+        objectifComplete = niveauComplete = false;
     }
     private void OnEnable()
     {
