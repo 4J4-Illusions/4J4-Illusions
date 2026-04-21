@@ -4706,7 +4706,7 @@ GameObject:
   - component: {fileID: 3496758720445411072}
   - component: {fileID: 3526730518357656768}
   m_Layer: 5
-  m_Name: CanvaMenuPause
+  m_Name: CanvasMenuPause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

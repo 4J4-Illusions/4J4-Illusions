@@ -70,12 +70,14 @@ public class GameManager : MonoBehaviour
         // abonnement évènements
         ScriptMenuPauseDepuisInterface.OnMenuPause += GestionPause;
         OnObjectiveComplete += ObjectifComplete;
+        OnLevelComplete += TransitionNiveau;
     }
     private void OnDisable()
     {
         // désabonnements évènements
         ScriptMenuPauseDepuisInterface.OnMenuPause -= GestionPause;
         OnObjectiveComplete -= ObjectifComplete;
+        OnLevelComplete -= TransitionNiveau;
     }
 
 
@@ -155,6 +157,10 @@ public class GameManager : MonoBehaviour
     public void NiveauTermine()
     {
         niveauComplete = true;
-        //OnLevelComplete.Invoke();
+        OnLevelComplete.Invoke();
+    }
+    void TransitionNiveau()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

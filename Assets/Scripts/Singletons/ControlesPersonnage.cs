@@ -19,10 +19,7 @@ public class ControlesPersonnage : MonoBehaviour
     [Range(1f, 5f)] public float porteeInteraction = 2f;
     public float[] multiplicateurMouvement = new float[2] { 1f, 1.5f };
     public Vector3 ajustementPosCam = new(0, .5f, 0);
-    [Header("Paramétrage des options de debug")]
-    public bool debugMode = false;
-    public bool debugPortee, debugStage;
-    public StageJeu debugStageJeu = 0;
+
     // gestions, trackage et acces pour autres scripts
     public static bool isRunning, isMoving, canMove = true;
     // evenements
@@ -54,22 +51,6 @@ public class ControlesPersonnage : MonoBehaviour
         //Debug.Log(animPerso.transform.name);
         audsrc = GetComponent<AudioManagerConnect>().audsrc;
 
-        // active les elements de debogage
-        if (debugMode)
-        {
-            if (debugPortee)
-            {
-                indicateurPorteeInterac.gameObject.SetActive(true);
-                indicateurPorteeInterac.material = new Material(Shader.Find("Sprites/Default"));
-                indicateurPorteeInterac.startColor = Color.red;
-                indicateurPorteeInterac.endColor = Color.rebeccaPurple;
-            }
-            if (debugStage)
-            {
-                GameManager.Instance.stageJeu = debugStageJeu;
-            }
-        }
-
         if (GameManager.Instance.stageJeu == StageJeu.Foret)
         {
             DefaultInterac = TypeInteraction.Onde;
@@ -85,16 +66,6 @@ public class ControlesPersonnage : MonoBehaviour
         // applique rotation a camera et joueur
         cameraJoueur.GetComponent<CameraJoueur>().rotationFinale = rotationFinale;
         transform.Rotate(0, rotationFinale.y, 0);
-
-        // pour le debogage
-        if (debugMode)
-        {
-            if (debugPortee)
-            {
-                indicateurPorteeInterac.SetPosition(0, transform.position);
-                indicateurPorteeInterac.SetPosition(1, cameraJoueur.transform.position + cameraJoueur.transform.forward * porteeInteraction);
-            }
-        }
 
         // obtention des etats
         isMoving = mouvementFinal != Vector3.zero;

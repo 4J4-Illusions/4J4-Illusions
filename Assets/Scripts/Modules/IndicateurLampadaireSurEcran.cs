@@ -11,9 +11,6 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
     [Header("Ajustement inspecteur"), Space]
     public Vector3 ajustPosIndic;
     public float fixDecalageY = 0;
-    [Header("Paramétrage des options de debug")]
-    public bool debugMode = false;
-    public bool debugRay, debugIndicPerm;
 
     Vector3 posConvertie2d, canvasDimensions;
     // float au lieu de vector2 parce que l'indicateur est carre
@@ -23,11 +20,6 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (debugMode)
-        {
-            if (debugIndicPerm) indicateurUI.SetActive(true);
-        }
-
         canvasDimensions = canvas.GetComponent<RectTransform>().rect.size;
         indicUIDimensions = indicateurUI.GetComponent<RectTransform>().rect.width + indicateurUI.GetComponent<Outline>().effectDistance.x;
         //Debug.Log(indicUIDimensions);
@@ -42,15 +34,6 @@ public class IndicateurLampadaireSurEcran : MonoBehaviour
         indicateurUI.GetComponent<RectTransform>().anchoredPosition = KeepInsideBorders(posConvertie2d);
         //indicateurUI.GetComponent<RectTransform>().anchoredPosition = posConvertie2d;
         //Debug.Log("Position finale indicateur: " + indicateurUI.GetComponent<RectTransform>().anchoredPosition);
-
-        if (debugMode)
-        {
-            if (debugRay)
-            {
-                Ray camRay = Camera.main.ScreenPointToRay(posConvertie2d);
-                Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.red);
-            }
-        }
     }
     private void OnEnable()
     {

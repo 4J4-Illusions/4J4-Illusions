@@ -179,9 +179,6 @@ MonoBehaviour:
   cameraJoueur: {fileID: 0}
   ajustPosIndic: {x: 0, y: 3, z: 0}
   fixDecalageY: 0
-  debugMode: 0
-  debugRay: 0
-  debugIndicPerm: 0
 --- !u!114 &7099595490559416976
 MonoBehaviour:
   m_ObjectHideFlags: 0
