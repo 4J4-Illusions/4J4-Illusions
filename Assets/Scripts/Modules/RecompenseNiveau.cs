@@ -17,10 +17,15 @@ public class RecompenseNiveau : MonoBehaviour
             Random.Range(-valeurRotation, valeurRotation));
 
         GameObject particule = Instantiate(prefabParticuleRecompense, transform.position, Quaternion.identity);
+        particule.transform.localScale = Vector3.one;
+        Debug.Log(particule.transform.localScale);
         particule.transform.SetParent(transform);
         GameObject lumiere = new("PointLightRecompense");
         lumiere.transform.position = transform.position;
-        lumiere.AddComponent<Light>().type = LightType.Point;
+        Light lightLum = lumiere.AddComponent<Light>();
+        lightLum.type = LightType.Point;
+        lightLum.range = transform.localScale.x;
+        lightLum.intensity = transform.localScale.x / 10;
         lumiere.transform.SetParent(transform);
     }
     // Update is called once per frame

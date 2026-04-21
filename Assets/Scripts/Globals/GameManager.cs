@@ -49,15 +49,16 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         Cursor.lockState = CursorLockMode.Locked;
 
-        objectifComplete = niveauComplete = false;
-    }
-    private void Start()
-    {
         stageJeu = (StageJeu)SceneManager.GetActiveScene().buildIndex;
 
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<ControlesPersonnage>();
 
+        objectifComplete = niveauComplete = false;
+
+    }
+    private void Start()
+    {
         listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
         // ordre aléatoire aux lampadaires
         Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));

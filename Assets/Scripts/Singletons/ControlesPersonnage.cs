@@ -10,8 +10,6 @@ public class ControlesPersonnage : MonoBehaviour
     public GameObject cameraJoueur;
     public GameObject texteInteraction, ondeSonore;
     public ScriptMenuPauseDepuisInterface controllerMenu;
-    [Header("Gameobjects utilisés pour le déboggage")]
-    public LineRenderer indicateurPorteeInterac;
 
     [Header("Ajustement inspecteur"), Space]
     [Range(0f, 10f)] public float vitesseMouvement = 5f;
