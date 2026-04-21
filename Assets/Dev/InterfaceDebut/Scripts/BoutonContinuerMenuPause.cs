@@ -12,7 +12,6 @@ public class GestionCanvas : MonoBehaviour
 
     public void OuvrirCanvas()
     {
-
-        rideaux.OuvrirRideaux();
+        if(rideaux != null) rideaux.OuvrirRideaux();
     }
 }

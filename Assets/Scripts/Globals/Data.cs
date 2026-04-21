@@ -13,7 +13,8 @@ namespace Globals
         Onde,
         Lampadaire,
         Calibration,
-        CalibrationStop
+        CalibrationStop,
+        Recompense
     }
     /// <summary>
     /// Décrit les différentes étapes du jeu.
@@ -44,6 +45,11 @@ namespace Globals
         /// Au lieu de continuellement augmenter le stress, empêche plutôt la diminution naturelle tant que le joueur est à portée.
         /// </summary>
         Instant
+    }
+    public enum CategorieSon
+    {
+        Ambience,
+        SFX
     }
 
 

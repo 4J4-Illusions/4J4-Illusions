@@ -6,26 +6,33 @@ public class CameraJoueur : MonoBehaviour
 {
     [Header("Ajustement inspecteur"), Space]
     public int[] limitesFOV = new int[2] { 60, 90 };
-    public float[] limitesBobbing = new float[2] { .5f, .75f };
     public float vitesseChangementFOV = 1;
     public float vitesseBobbing = .1f;
+    public float variationBobbing = .1f;
     [Header("Accès publique pour autres scripts"), Space]
     public Vector3 rotationFinale = new(0, 0, 0);
 
     int targetFOV;
     float targetBobbing;
     ControlesPersonnage player;
+    // constantes
+    float POSITION_Y_INITIALE;
 
+    private void Awake()
+    {
+        POSITION_Y_INITIALE = transform.localPosition.y;
+        //Debug.Log($"Limities du bobbing: [base, variation] = [{POSITION_Y_INITIALE}, {POSITION_Y_INITIALE - variationBobbing}]");
+    }
     private void Start()
     {
         player = transform.parent.GetComponent<ControlesPersonnage>();
 
-        if(GameManager.Instance.stageJeu == StageJeu.Foret)
+        // active le mode de rendu de la profondeur pour le niveau de la foret (pour l'effet d'onde sonore)
+        if (GameManager.Instance.stageJeu == StageJeu.Foret)
         {
             GetComponent<Camera>().depthTextureMode = DepthTextureMode.Depth;
         }
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -48,7 +55,7 @@ public class CameraJoueur : MonoBehaviour
         if (ControlesPersonnage.isMoving) transform.localPosition = new(0, Mathf.MoveTowards(transform.localPosition.y, targetBobbing, vitesseBobbing), .2f);
         else transform.localPosition = player.ajustementPosCam;
 
-        if (transform.localPosition.y == limitesBobbing[0]) targetBobbing = limitesBobbing[1];
-        else if (transform.localPosition.y == limitesBobbing[1]) targetBobbing = limitesBobbing[0];
+        if (transform.localPosition.y >= POSITION_Y_INITIALE) targetBobbing = POSITION_Y_INITIALE - variationBobbing;
+        else if (transform.localPosition.y <= POSITION_Y_INITIALE - variationBobbing) targetBobbing = POSITION_Y_INITIALE;
     }
 }

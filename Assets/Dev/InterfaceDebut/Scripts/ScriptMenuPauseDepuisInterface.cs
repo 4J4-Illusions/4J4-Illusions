@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class ScriptMenuPauseDepuisInterface : MonoBehaviour
 {
     [Header("Menu Paramètres UI")]
     public GameObject settingsUI;       // Glisse ton panel Paramètres ici
     public float delayBeforeOpen = 2f;  // délai après le clic
+
+    // evenements
+    public static Action<bool> OnMenuPause;
 
     void Start()
     {
@@ -34,6 +38,7 @@ public class ScriptMenuPauseDepuisInterface : MonoBehaviour
             settingsUI.SetActive(true);
 
         //Time.timeScale = 0f; // pause le jeu
+        OnMenuPause.Invoke(true);
     }
 
     // Ferme le menu et reprend le jeu
@@ -42,6 +47,8 @@ public class ScriptMenuPauseDepuisInterface : MonoBehaviour
         if (settingsUI != null)
             settingsUI.SetActive(false);
 
-        Time.timeScale = 1f; // reprend le jeu
+        //Time.timeScale = 1f; // reprend le jeu
+        OnMenuPause.Invoke(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

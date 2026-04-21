@@ -12,6 +12,7 @@ public class CalibRoulette : MonoBehaviour
     RectTransform rectPointeur;
     float[] sectionRouletteAToucher = new float[2];
     const float ROTAT_OFFSET = 200;
+    // constantes
     const int RANGE_ZONE_ROULETTE = 40, RANGE_ECART_ROULETTE = 20;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,13 +21,11 @@ public class CalibRoulette : MonoBehaviour
         rectPointeur = pointeur.GetComponent<RectTransform>();
         rectPointeur.localEulerAngles = new Vector3(0, 0, ROTAT_OFFSET);
     }
-
     // Update is called once per frame
     void Update()
     {
         rectPointeur.Rotate(0, 0, vitRotation);
     }
-
     void OnEnable()
     {
         vitRotation = Random.Range(rangeVitRot[0], rangeVitRot[1]);
@@ -65,7 +64,7 @@ public class CalibRoulette : MonoBehaviour
     /// </summary>
     void FinInteracCalib()
     {
-        GameManager.Instance.InCalibInterac = false;
+        GameManager.Instance.inCalibInterac = false;
         ControlesPersonnage.canMove = true;
         gameObject.SetActive(false);
     }

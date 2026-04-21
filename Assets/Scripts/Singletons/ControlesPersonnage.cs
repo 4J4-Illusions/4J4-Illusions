@@ -9,6 +9,7 @@ public class ControlesPersonnage : MonoBehaviour
     [Header("Affectation inspecteur"), Space]
     public GameObject cameraJoueur;
     public GameObject texteInteraction, ondeSonore;
+    public ScriptMenuPauseDepuisInterface controllerMenu;
     [Header("Gameobjects utilisés pour le déboggage")]
     public LineRenderer indicateurPorteeInterac;
 
@@ -16,7 +17,7 @@ public class ControlesPersonnage : MonoBehaviour
     [Range(0f, 10f)] public float vitesseMouvement = 5f;
     [Range(0f, 3f)] public float vitesseRotation = .1f;
     [Range(1f, 5f)] public float porteeInteraction = 2f;
-    public float[] multiplicateurMouvement = new float[2] {1f, 1.5f};
+    public float[] multiplicateurMouvement = new float[2] { 1f, 1.5f };
     public Vector3 ajustementPosCam = new(0, .5f, 0);
     [Header("Paramétrage des options de debug")]
     public bool debugMode = false;
@@ -33,23 +34,25 @@ public class ControlesPersonnage : MonoBehaviour
     int indexModifCourse = 0;
     TypeInteraction DefaultInterac = 0;
     RaycastHit hit;
-    AudioSource audioSource;
+    AudioSource audsrc;
+    Animator animPerso;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+        //audsrc = GetComponent<AudioSource>();
         mouvementAction = InputSystem.actions.FindAction("Player/Move");
         rotationAction = InputSystem.actions.FindAction("Player/Look");
         courseAction = InputSystem.actions.FindAction("Player/Sprint");
         interactionAction = InputSystem.actions.FindAction("Player/Interact");
     }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ondeSonore = ondeSonore.transform.GetChild(0).gameObject;
         cameraJoueur.transform.position = transform.position + ajustementPosCam;
+        animPerso = transform.Find("Model").GetComponent<Animator>();
+        //Debug.Log(animPerso.transform.name);
+        audsrc = GetComponent<AudioManagerConnect>().audsrc;
 
         // active les elements de debogage
         if (debugMode)
@@ -67,16 +70,15 @@ public class ControlesPersonnage : MonoBehaviour
             }
         }
 
-        if(GameManager.Instance.stageJeu == StageJeu.Foret)
+        if (GameManager.Instance.stageJeu == StageJeu.Foret)
         {
             DefaultInterac = TypeInteraction.Onde;
         }
     }
-
     void Update()
     {
         // calcul mouvement et rotation selon le input du clavier et de la souris
-        mouvementFinal = multiplicateurMouvement[indexModifCourse] * vitesseMouvement * 
+        mouvementFinal = multiplicateurMouvement[indexModifCourse] * vitesseMouvement *
             (transform.forward * mouvementAction.ReadValue<Vector2>().y + transform.right * mouvementAction.ReadValue<Vector2>().x);
         rotationFinale = new Vector3(-rotationAction.ReadValue<Vector2>().y, rotationAction.ReadValue<Vector2>().x, 0) * vitesseRotation;
         if (!canMove) mouvementFinal = rotationFinale *= 0;
@@ -100,36 +102,40 @@ public class ControlesPersonnage : MonoBehaviour
 
         // appliquer ou non le modificateur de vitesse
         indexModifCourse = isRunning ? 1 : 0;
-        audioSource.pitch = multiplicateurMouvement[indexModifCourse];
+        audsrc.pitch = multiplicateurMouvement[indexModifCourse];
 
         // decide comment se fera l'appel de la methode qui gere les interactions
         HandleInteractionInput();
 
-        if (isMoving && !audioSource.isPlaying)
+        // controlle du son de marche selon son mouvement
+        if (isMoving && !audsrc.isPlaying)
         {
-            audioSource.Play();
+            //audsrc.volume = AudioManager.Instance.SetClipVolume(AudioManager.Instance.GetClipCategory(audsrc.clip));
+            //audsrc.Play();
+            audsrc = AudioManager.Instance.JouerSon(CategorieSon.Ambience, audsrc.clip);
         }
-        else if(!isMoving && audioSource.isPlaying)
+        else if (!isMoving && audsrc.isPlaying)
         {
-            audioSource.Stop();
+            audsrc.Stop();
         }
-    }
 
+        // gestion des animations
+        GererAnimations();
+    }
     void FixedUpdate()
     {
         // applique mouvement au joueur
         rigidBody.linearVelocity = mouvementFinal;
     }
-
     private void OnEnable()
     {
         // abonement évènement
-        Gameplay.OnInteraction += (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(ondeSonore.transform.position); };
+        Gameplay.OnInteraction += (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(transform.position); };
     }
     private void OnDisable()
     {
         // désabonnement évènement
-        Gameplay.OnInteraction -= (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(ondeSonore.transform.position); };
+        Gameplay.OnInteraction -= (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(transform.position); };
     }
 
 
@@ -139,21 +145,28 @@ public class ControlesPersonnage : MonoBehaviour
     /// </summary>
     void HandleInteractionInput()
     {
+        // ouverture du menu de pause
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            if (controllerMenu.settingsUI.activeSelf) controllerMenu.CloseSettings();
+            else controllerMenu.OpenSettingsWithDelay();
+            return;
+        }
+
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
-        if (Physics.Raycast(transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.InCalibInterac)
+        if (Physics.Raycast(transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.inCalibInterac)
         {
             //Debug.Log(hit.transform.gameObject.name);
             if (hit.transform.gameObject.TryGetComponent<ObjetInteractif>(out ObjetInteractif objInter))
             {
                 texteInteraction.SetActive(true);
-                /*if (GameManager.Instance.InCalibInterac)
-                {
-                    Gameplay.Interaction(TypeInteraction.CalibrationStop);
-                }
-                else */
                 if (interactionAction.WasPressedThisFrame())
                 {
                     objInter.Interaction();
+
+                    // joue l'animation de briquet si l'interaction concerne un lampadaire
+                    if (objInter.typeInterac == TypeInteraction.Lampadaire) { Debug.Log("Animer briquet"); animPerso.SetTrigger("triggerBriquet"); }
+
                     return;
                 }
             }
@@ -164,14 +177,14 @@ public class ControlesPersonnage : MonoBehaviour
         }
 
         // interactions standard (sans passer directemenr par un objet interactif)
-        if (interactionAction.WasPressedThisFrame() && (hit.collider == null || GameManager.Instance.InCalibInterac))
+        if (interactionAction.WasPressedThisFrame() && (hit.collider == null || GameManager.Instance.inCalibInterac))
         {
             //Debug.Log("Interaction hors objet interactif");
-            if (GameManager.Instance.InCalibInterac)
+            if (GameManager.Instance.inCalibInterac)
             {
                 Gameplay.Interaction(TypeInteraction.CalibrationStop);
             }
-            else if(GameManager.Instance.stageJeu == StageJeu.Foret)
+            else if (GameManager.Instance.stageJeu == StageJeu.Foret)
             {
                 Gameplay.Interaction(DefaultInterac, ondeSonore);
             }
@@ -180,5 +193,13 @@ public class ControlesPersonnage : MonoBehaviour
                 Gameplay.Interaction(DefaultInterac);
             }
         }
+    }
+    /// <summary>
+    /// Gère les animations du personnage en fonction de son état de mouvement et de course.
+    /// </summary>
+    void GererAnimations()
+    {
+        animPerso.SetBool("isMoving", isMoving);
+        animPerso.SetBool("isRunning", isRunning);
     }
 }
