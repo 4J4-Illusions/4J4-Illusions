@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     [Header("Affectation inspecteur"), Space]
     public GameObject[] listeLampadaires = new GameObject[5];
     public GameObject overlayCalibration;
+    public GameObject modelePapier;
+    public GameObject[] listeBoutsPapier = new GameObject[5];
+    public Vector3 distancePapierDeCam;
 
     [Header("Accès pour autres scripts"), Space]
     public StageJeu stageJeu = 0;
@@ -20,7 +23,7 @@ public class GameManager : MonoBehaviour
         gameOver, allowGameLoop = true, /*états*/
         objectifComplete, niveauComplete /*progression de niveau*/;
     public int indexLampCour = 0;
-    public GameObject player, recompense;
+    public GameObject player, recompense, cameraJoueur;
     public ControlesPersonnage playerScript;
 
     // évènements
@@ -52,6 +55,7 @@ public class GameManager : MonoBehaviour
         stageJeu = (StageJeu)SceneManager.GetActiveScene().buildIndex;
 
         player = GameObject.FindWithTag("Player");
+        cameraJoueur = player.transform.Find("CameraJoueur").gameObject;
         playerScript = player.GetComponent<ControlesPersonnage>();
 
         listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
@@ -62,6 +66,16 @@ public class GameManager : MonoBehaviour
         recompense.SetActive(false);
 
         objectifComplete = niveauComplete = false;
+
+        modelePapier = Instantiate(modelePapier, cameraJoueur.transform.position, Quaternion.identity);
+        modelePapier.transform.SetParent(cameraJoueur.transform);
+        modelePapier.transform.localPosition = distancePapierDeCam;
+        modelePapier.transform.rotation = Quaternion.Euler(-90, 0, 0);
+        for (int i = 0; i < modelePapier.transform.childCount; i++)
+        {
+            //Debug.Log(prefabModelePapier.transform.GetChild(i).name);
+            listeBoutsPapier[i] = modelePapier.transform.GetChild(i).gameObject;
+        }
     }
     private void OnEnable()
     {
