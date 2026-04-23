@@ -32,6 +32,7 @@ namespace Utils
                         {
                             papier.GetComponent<MeshRenderer>().material = GameManager.Instance.matPapier;
                             Destroy(obj);
+                            GameManager.Instance.AvancerObjectifNiveau(StageJeu.Desert);
                             break;
                         }
                     }
@@ -65,7 +66,7 @@ namespace Utils
                         // active la lumiere
                         obj.transform.Find("Lampadaire/Final_Candle1/PointLightLampadaire").gameObject.SetActive(true);
 
-                        GameManager.Instance.ProgressionObjectifNiveau(StageJeu.Foret);
+                        GameManager.Instance.AvancerObjectifNiveau(StageJeu.Foret);
                     }
                     break;
                 case TypeInteraction.Calibration:
@@ -79,7 +80,7 @@ namespace Utils
                     GameManager.Instance.overlayCalibration.GetComponent<CalibRoulette>().StopRoulette();
                     break;
                 case TypeInteraction.Recompense:
-                    GameManager.Instance.NiveauTermine();
+                    GameManager.Instance.TerminerNiveau();
                     break;
             }
 

@@ -31,16 +31,11 @@ public class ControlesPersonnage : MonoBehaviour
     RaycastHit hit;
     AudioSource audsrc;
     Animator animPerso;
-    LineRenderer lineRenderer;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         //audsrc = GetComponent<AudioSource>();
-        lineRenderer = transform.Find("Line").GetComponent<LineRenderer>();
-        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startColor = Color.red;
-        lineRenderer.endColor = Color.white;
 
         mouvementAction = InputSystem.actions.FindAction("Player/Move");
         rotationAction = InputSystem.actions.FindAction("Player/Look");
@@ -96,10 +91,6 @@ public class ControlesPersonnage : MonoBehaviour
 
         // gestion des animations
         GererAnimations();
-
-        lineRenderer.SetPositions(new Vector3[] { 
-            transform.position,
-            cameraJoueur.transform.position + cameraJoueur.transform.forward * porteeInteraction });
     }
     void FixedUpdate()
     {
@@ -133,8 +124,10 @@ public class ControlesPersonnage : MonoBehaviour
         }
 
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
+        Debug.DrawRay(cameraJoueur.transform.position, cameraJoueur.transform.forward * porteeInteraction, Color.red);
         if (Physics.Raycast(cameraJoueur.transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.inCalibInterac)
         {
+            Debug.DrawLine(cameraJoueur.transform.position, hit.point, Color.red);
             //Debug.Log(hit.transform.gameObject.name);
             if (hit.transform.gameObject.TryGetComponent<ObjetInteractif>(out ObjetInteractif objInter))
             {

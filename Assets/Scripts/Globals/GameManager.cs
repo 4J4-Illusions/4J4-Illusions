@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         inCalibInterac, modeObtentionItem, /*modes*/
         gameOver, allowGameLoop = true, /*états*/
         objectifComplete, niveauComplete /*progression de niveau*/;
-    public int indexLampCour = 0;
+    public int indexLampCour, progressionBoutsPapier;
     public GameObject player, recompense, cameraJoueur;
     public ControlesPersonnage playerScript;
 
@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
         cameraJoueur = player.transform.Find("CameraJoueur").gameObject;
         playerScript = player.GetComponent<ControlesPersonnage>();
 
+        indexLampCour = progressionBoutsPapier = 0;
+
         listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
         // ordre aléatoire aux lampadaires
         Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
@@ -77,14 +79,14 @@ public class GameManager : MonoBehaviour
     {
         // abonnement évènements
         ScriptMenuPauseDepuisInterface.OnMenuPause += GestionPause;
-        OnObjectiveComplete += ObjectifComplete;
+        OnObjectiveComplete += CompleterObjectif;
         OnLevelComplete += TransitionNiveau;
     }
     private void OnDisable()
     {
         // désabonnements évènements
         ScriptMenuPauseDepuisInterface.OnMenuPause -= GestionPause;
-        OnObjectiveComplete -= ObjectifComplete;
+        OnObjectiveComplete -= CompleterObjectif;
         OnLevelComplete -= TransitionNiveau;
     }
 
@@ -125,11 +127,15 @@ public class GameManager : MonoBehaviour
     {
         FinDePartie();
     }
-    public void ProgressionObjectifNiveau(StageJeu stage)
+    public void AvancerObjectifNiveau(StageJeu stage)
     {
         switch (stage)
         {
             case StageJeu.Desert:
+                progressionBoutsPapier++;
+
+                // si tous les bouts de papier sont récoltés, l'objectif est complété
+                if (progressionBoutsPapier == 5) { objectifComplete = true; OnObjectiveComplete.Invoke(stage); }
                 break;
             case StageJeu.Foret:
                 indexLampCour++;
@@ -143,7 +149,7 @@ public class GameManager : MonoBehaviour
 
         //OnLevelProgress.Invoke();
     }
-    void ObjectifComplete(StageJeu stage)
+    void CompleterObjectif(StageJeu stage)
     {
         recompense.SetActive(true);
 
@@ -161,8 +167,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-
-    public void NiveauTermine()
+    public void TerminerNiveau()
     {
         niveauComplete = true;
         OnLevelComplete.Invoke();
