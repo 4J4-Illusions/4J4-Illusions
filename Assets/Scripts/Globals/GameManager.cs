@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     [Header("Affectation inspecteur"), Space]
     public GameObject[] listeLampadaires = new GameObject[5];
     public GameObject overlayCalibration;
+    public GameObject modelePapier;
+    public GameObject[] listeBoutsPapier = new GameObject[5];
+    public Material matPapier;
 
     [Header("Accès pour autres scripts"), Space]
     public StageJeu stageJeu = 0;
@@ -19,8 +22,8 @@ public class GameManager : MonoBehaviour
         inCalibInterac, modeObtentionItem, /*modes*/
         gameOver, allowGameLoop = true, /*états*/
         objectifComplete, niveauComplete /*progression de niveau*/;
-    public int indexLampCour = 0;
-    public GameObject player, recompense;
+    public int indexLampCour, progressionBoutsPapier;
+    public GameObject player, recompense, cameraJoueur;
     public ControlesPersonnage playerScript;
 
     // évènements
@@ -49,14 +52,13 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         Cursor.lockState = CursorLockMode.Locked;
 
-        objectifComplete = niveauComplete = false;
-    }
-    private void Start()
-    {
         stageJeu = (StageJeu)SceneManager.GetActiveScene().buildIndex;
 
         player = GameObject.FindWithTag("Player");
+        cameraJoueur = player.transform.Find("CameraJoueur").gameObject;
         playerScript = player.GetComponent<ControlesPersonnage>();
+
+        indexLampCour = progressionBoutsPapier = 0;
 
         listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
         // ordre aléatoire aux lampadaires
@@ -64,18 +66,28 @@ public class GameManager : MonoBehaviour
 
         recompense = GameObject.FindWithTag("Recompense");
         recompense.SetActive(false);
+
+        objectifComplete = niveauComplete = false;
+
+        for (int i = 0; i < modelePapier.transform.childCount; i++)
+        {
+            //Debug.Log(prefabModelePapier.transform.GetChild(i).name);
+            listeBoutsPapier[i] = modelePapier.transform.GetChild(i).gameObject;
+        }
     }
     private void OnEnable()
     {
         // abonnement évènements
         ScriptMenuPauseDepuisInterface.OnMenuPause += GestionPause;
-        OnObjectiveComplete += ObjectifComplete;
+        OnObjectiveComplete += CompleterObjectif;
+        OnLevelComplete += TransitionNiveau;
     }
     private void OnDisable()
     {
         // désabonnements évènements
         ScriptMenuPauseDepuisInterface.OnMenuPause -= GestionPause;
-        OnObjectiveComplete -= ObjectifComplete;
+        OnObjectiveComplete -= CompleterObjectif;
+        OnLevelComplete -= TransitionNiveau;
     }
 
 
@@ -115,11 +127,15 @@ public class GameManager : MonoBehaviour
     {
         FinDePartie();
     }
-    public void ProgressionObjectifNiveau(StageJeu stage)
+    public void AvancerObjectifNiveau(StageJeu stage)
     {
         switch (stage)
         {
             case StageJeu.Desert:
+                progressionBoutsPapier++;
+
+                // si tous les bouts de papier sont récoltés, l'objectif est complété
+                if (progressionBoutsPapier == 5) { objectifComplete = true; OnObjectiveComplete.Invoke(stage); }
                 break;
             case StageJeu.Foret:
                 indexLampCour++;
@@ -133,7 +149,7 @@ public class GameManager : MonoBehaviour
 
         //OnLevelProgress.Invoke();
     }
-    void ObjectifComplete(StageJeu stage)
+    void CompleterObjectif(StageJeu stage)
     {
         recompense.SetActive(true);
 
@@ -151,10 +167,13 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-
-    public void NiveauTermine()
+    public void TerminerNiveau()
     {
         niveauComplete = true;
-        //OnLevelComplete.Invoke();
+        OnLevelComplete.Invoke();
+    }
+    void TransitionNiveau()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

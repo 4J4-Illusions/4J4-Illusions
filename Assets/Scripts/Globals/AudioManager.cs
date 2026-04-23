@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        audsrc = gameObject.AddComponent<AudioSource>();
+        audsrc = GetComponent<AudioSource>();
         clipsAmbience = new[] { ambience0, ambience1, ambience2, ambience3, ambience4 }.SelectMany(clip => clip).ToArray();
         foreach (AudioClip clip in clipsAmbience)
         {

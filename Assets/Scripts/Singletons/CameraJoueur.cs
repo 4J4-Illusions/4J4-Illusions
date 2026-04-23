@@ -6,9 +6,11 @@ public class CameraJoueur : MonoBehaviour
 {
     [Header("Ajustement inspecteur"), Space]
     public int[] limitesFOV = new int[2] { 60, 90 };
-    public float vitesseChangementFOV = 1;
-    public float vitesseBobbing = .1f;
-    public float variationBobbing = .1f;
+    public float 
+        vitesseChangementFOV = 1,
+        vitesseBobbing = .1f,
+        variationBobbing = .1f;
+    public bool allowBobbing;
     [Header("Accès publique pour autres scripts"), Space]
     public Vector3 rotationFinale = new(0, 0, 0);
 
@@ -52,10 +54,13 @@ public class CameraJoueur : MonoBehaviour
         GetComponent<Camera>().fieldOfView = Mathf.MoveTowards(GetComponent<Camera>().fieldOfView, targetFOV, vitesseChangementFOV);
 
         // effet de bobbing (mvt bond naturel de la tete quand on marche)
-        if (ControlesPersonnage.isMoving) transform.localPosition = new(0, Mathf.MoveTowards(transform.localPosition.y, targetBobbing, vitesseBobbing), .2f);
-        else transform.localPosition = player.ajustementPosCam;
+        if (allowBobbing)
+        {
+            if (ControlesPersonnage.isMoving) transform.localPosition = new(0, Mathf.MoveTowards(transform.localPosition.y, targetBobbing, vitesseBobbing), .2f);
+            else transform.localPosition = player.ajustementPosCam;
 
-        if (transform.localPosition.y >= POSITION_Y_INITIALE) targetBobbing = POSITION_Y_INITIALE - variationBobbing;
-        else if (transform.localPosition.y <= POSITION_Y_INITIALE - variationBobbing) targetBobbing = POSITION_Y_INITIALE;
+            if (transform.localPosition.y >= POSITION_Y_INITIALE) targetBobbing = POSITION_Y_INITIALE - variationBobbing;
+            else if (transform.localPosition.y <= POSITION_Y_INITIALE - variationBobbing) targetBobbing = POSITION_Y_INITIALE;
+        }
     }
 }
