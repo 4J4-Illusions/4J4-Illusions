@@ -124,7 +124,7 @@ public class ControlesPersonnage : MonoBehaviour
         }
 
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
-        Debug.DrawRay(cameraJoueur.transform.position, cameraJoueur.transform.forward * porteeInteraction, Color.red);
+        //Debug.DrawRay(cameraJoueur.transform.position, cameraJoueur.transform.forward * porteeInteraction, Color.red);
         if (Physics.Raycast(cameraJoueur.transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.inCalibInterac)
         {
             Debug.DrawLine(cameraJoueur.transform.position, hit.point, Color.red);

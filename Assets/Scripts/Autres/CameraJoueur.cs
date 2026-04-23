@@ -1,5 +1,7 @@
 using Globals;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(Camera))]
 public class CameraJoueur : MonoBehaviour
@@ -13,6 +15,7 @@ public class CameraJoueur : MonoBehaviour
     public bool allowBobbing;
     [Header("Accès publique pour autres scripts"), Space]
     public Vector3 rotationFinale = new(0, 0, 0);
+    public Volume volume;
 
     int targetFOV;
     float targetBobbing;
@@ -22,8 +25,10 @@ public class CameraJoueur : MonoBehaviour
 
     private void Awake()
     {
+        GetComponent<Camera>().GetUniversalAdditionalCameraData().renderPostProcessing = true;
         POSITION_Y_INITIALE = transform.localPosition.y;
         //Debug.Log($"Limities du bobbing: [base, variation] = [{POSITION_Y_INITIALE}, {POSITION_Y_INITIALE - variationBobbing}]");
+        volume = GetComponent<Volume>();
     }
     private void Start()
     {

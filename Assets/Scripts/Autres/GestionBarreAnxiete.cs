@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using Utils;
 
@@ -27,7 +28,7 @@ public class GestionBarreAnxiete : MonoBehaviour
     float vitesseAnimCoeur = 1, finalProgBarre;
     readonly Dictionary<int, StressPointEntry> instantEntriesToUpdate = new();
     bool pauseProgBarre = false;
-    VolumeVignette vfxVignette;
+    Volume volume;
     AudioSource audsrc;
 
     void Awake()
@@ -51,7 +52,7 @@ public class GestionBarreAnxiete : MonoBehaviour
     void Start()
     {
         imgBarre = conteneurBarre.transform.GetChild(0).GetComponent<Image>();
-        vfxVignette = GameManager.Instance.player.GetComponentInChildren<VolumeVignette>();
+        volume = GameManager.Instance.cameraJoueur.GetComponent<Volume>();
         audsrc = GetComponent<AudioManagerConnect>().audsrc;
     }
     // Update is called once per frame
@@ -92,7 +93,7 @@ public class GestionBarreAnxiete : MonoBehaviour
             stressTotal = MathF.Min(MathF.Max(stressTotal, 0), 1);
             //Debug.Log(stressTotal);
         }
-        vfxVignette.intensite = imgBarre.fillAmount = stressTotal;
+        volume.weight = imgBarre.fillAmount = stressTotal;
         audsrc.volume = stressTotal * AudioManager.Instance.SetAudioVolume(CategorieSon.Ambience);
         vitesseAnimCoeur = 1 + stressTotal * 4;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);

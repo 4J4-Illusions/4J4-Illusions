@@ -5,16 +5,14 @@ using UnityEngine.Rendering.Universal;
 public class VolumeVignette : MonoBehaviour
 {
     [Header("Accès publique pour autres scripts"), Space]
-    public float intensite;
+    public float intensite = .5f;
 
-    Volume volume;
     VolumeProfile profile;
     Vignette vignette;
 
     private void Awake()
     {
-        volume = GetComponent<Volume>();
-        profile = volume.profile;
+        profile = GetComponent<Volume>().profile;
 
         if (!profile.TryGet<Vignette>(out vignette))
         {
@@ -30,9 +28,9 @@ public class VolumeVignette : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(volume != null)
+        if(vignette != null)
         {
-            volume.weight = intensite;
+            vignette.intensity = new ClampedFloatParameter(intensite, 0, 1, true);
         }
     }
 }

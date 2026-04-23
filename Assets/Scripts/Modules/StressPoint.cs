@@ -4,7 +4,7 @@ using UnityEngine;
 public class StressPoint : MonoBehaviour
 {
     [Header("Affectation inspecteur"), Space]
-    [Range(0, 100)] public float porteeStress = 50;
+    public float porteeStress = 50;
     public float[] intervalleValeursStressPourcent = new float[2] { 0, 1f };
     public TypeStress type;
 
