@@ -26,6 +26,15 @@ namespace Utils
                     if (obj != null) Destroy(obj);
                     break;
                 case TypeInteraction.Papier:
+                    foreach (GameObject papier in GameManager.Instance.listeBoutsPapier)
+                    {
+                        if (papier.name == obj.name)
+                        {
+                            papier.GetComponent<MeshRenderer>().material = GameManager.Instance.matPapier;
+                            Destroy(obj);
+                            break;
+                        }
+                    }
                     break;
                 case TypeInteraction.Parler:
                     break;

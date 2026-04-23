@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject overlayCalibration;
     public GameObject modelePapier;
     public GameObject[] listeBoutsPapier = new GameObject[5];
-    public Vector3 distancePapierDeCam;
+    public Material matPapier;
 
     [Header("Accès pour autres scripts"), Space]
     public StageJeu stageJeu = 0;
@@ -67,10 +67,6 @@ public class GameManager : MonoBehaviour
 
         objectifComplete = niveauComplete = false;
 
-        modelePapier = Instantiate(modelePapier, cameraJoueur.transform.position, Quaternion.identity);
-        modelePapier.transform.SetParent(cameraJoueur.transform);
-        modelePapier.transform.localPosition = distancePapierDeCam;
-        modelePapier.transform.rotation = Quaternion.Euler(-90, 0, 0);
         for (int i = 0; i < modelePapier.transform.childCount; i++)
         {
             //Debug.Log(prefabModelePapier.transform.GetChild(i).name);

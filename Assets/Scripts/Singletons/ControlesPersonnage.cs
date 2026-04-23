@@ -12,11 +12,11 @@ public class ControlesPersonnage : MonoBehaviour
     public ScriptMenuPauseDepuisInterface controllerMenu;
 
     [Header("Ajustement inspecteur"), Space]
-    [Range(0f, 10f)] public float vitesseMouvement = 5f;
-    [Range(0f, 3f)] public float vitesseRotation = .1f;
-    [Range(1f, 5f)] public float porteeInteraction = 2f;
+    public float vitesseMouvement = 5f;
+    public float vitesseRotation = .1f;
+    public float porteeInteraction = 2f;
     public float[] multiplicateurMouvement = new float[2] { 1f, 1.5f };
-    public Vector3 ajustementPosCam = new(0, .5f, 0);
+    public Vector3 ajustementPosCam = new(0, .6f, .2f);
 
     // gestions, trackage et acces pour autres scripts
     public static bool isRunning, isMoving, canMove = true;
@@ -31,11 +31,17 @@ public class ControlesPersonnage : MonoBehaviour
     RaycastHit hit;
     AudioSource audsrc;
     Animator animPerso;
+    LineRenderer lineRenderer;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         //audsrc = GetComponent<AudioSource>();
+        lineRenderer = transform.Find("Line").GetComponent<LineRenderer>();
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.startColor = Color.red;
+        lineRenderer.endColor = Color.white;
+
         mouvementAction = InputSystem.actions.FindAction("Player/Move");
         rotationAction = InputSystem.actions.FindAction("Player/Look");
         courseAction = InputSystem.actions.FindAction("Player/Sprint");
@@ -44,7 +50,7 @@ public class ControlesPersonnage : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        cameraJoueur.transform.position = transform.position + ajustementPosCam;
+        cameraJoueur.transform.localPosition = ajustementPosCam;
         animPerso = transform.Find("Model").GetComponent<Animator>();
         //Debug.Log(animPerso.transform.name);
         audsrc = GetComponent<AudioManagerConnect>().audsrc;
@@ -90,6 +96,10 @@ public class ControlesPersonnage : MonoBehaviour
 
         // gestion des animations
         GererAnimations();
+
+        lineRenderer.SetPositions(new Vector3[] { 
+            transform.position,
+            cameraJoueur.transform.position + cameraJoueur.transform.forward * porteeInteraction });
     }
     void FixedUpdate()
     {
@@ -123,7 +133,7 @@ public class ControlesPersonnage : MonoBehaviour
         }
 
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
-        if (Physics.Raycast(transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.inCalibInterac)
+        if (Physics.Raycast(cameraJoueur.transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.inCalibInterac)
         {
             //Debug.Log(hit.transform.gameObject.name);
             if (hit.transform.gameObject.TryGetComponent<ObjetInteractif>(out ObjetInteractif objInter))
