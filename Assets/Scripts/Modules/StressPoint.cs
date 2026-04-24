@@ -32,6 +32,7 @@ public class StressPoint : MonoBehaviour
             if (type == TypeStress.Proportionnel)
             {
                 inRange = true;
+                // calcul du stress proportonnellement à la distance
                 calculValeurStress = Mathf.Clamp(
                     (1 - Mathf.Clamp(distance / porteeStress, 0, 1)) * intervalleValeursStressPourcent[1],
                     intervalleValeursStressPourcent[0],

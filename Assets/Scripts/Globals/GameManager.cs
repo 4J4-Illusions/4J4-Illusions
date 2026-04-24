@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        //OnLevelProgress.Invoke();
+        OnLevelProgress.Invoke();
     }
     void CompleterObjectif(StageJeu stage)
     {

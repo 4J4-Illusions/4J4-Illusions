@@ -1,7 +1,6 @@
 using System;
 using Globals;
 using UnityEngine;
-using UnityEngine.UI;
 using static UnityEngine.Object;
 
 namespace Utils
