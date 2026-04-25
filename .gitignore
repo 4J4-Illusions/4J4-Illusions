@@ -75,5 +75,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Autres ignores
-Assets/Fonts/UnfinishedScreamRegular SDF.asset
-Assets/Fonts/*.asset
+# Assets/Fonts/*.asset

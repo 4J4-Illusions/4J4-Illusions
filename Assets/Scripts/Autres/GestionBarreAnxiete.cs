@@ -82,7 +82,7 @@ public class GestionBarreAnxiete : MonoBehaviour
                     instantEntriesToUpdate.Add(entry.Key, updatedValue);
                 }
             }
-            Debug.Log("somme stres: " + sommeStress);
+            //Debug.Log("somme stres: " + sommeStress);
             foreach (KeyValuePair<int, StressPointEntry> instantEntry in instantEntriesToUpdate)
             {
                 collectionStressPoints[instantEntry.Key] = instantEntry.Value;
@@ -94,7 +94,7 @@ public class GestionBarreAnxiete : MonoBehaviour
             if(GameManager.Instance.allowGameLoop) stressTotal += (sommeStress > 0) ? sommeStress : finalProgBarre;
             else stressTotal += 0;
             stressTotal = MathF.Min(MathF.Max(stressTotal, 0), 1);
-            Debug.Log("stress total: " + stressTotal);
+            //Debug.Log("stress total: " + stressTotal);
         }
         volume.weight = imgBarre.fillAmount = stressTotal;
         audsrc.volume = stressTotal * AudioManager.Instance.SetAudioVolume(CategorieSon.Ambience);

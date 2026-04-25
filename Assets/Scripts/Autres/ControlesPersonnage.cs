@@ -21,7 +21,7 @@ public class ControlesPersonnage : MonoBehaviour
     // gestions, trackage et acces pour autres scripts
     public static bool isRunning, isMoving, canMove = true;
     // evenements
-    public static Action<Vector3> OnPlayerOnde;
+    public static Action OnPlayerOnde;
 
     Rigidbody rigidBody;
     InputAction mouvementAction, rotationAction, courseAction, interactionAction;
@@ -60,6 +60,7 @@ public class ControlesPersonnage : MonoBehaviour
         // calcul mouvement et rotation selon le input du clavier et de la souris
         mouvementFinal = multiplicateurMouvement[indexModifCourse] * vitesseMouvement *
             (transform.forward * mouvementAction.ReadValue<Vector2>().y + transform.right * mouvementAction.ReadValue<Vector2>().x);
+        //Debug.Log(mouvementFinal);
         rotationFinale = new Vector3(-rotationAction.ReadValue<Vector2>().y, rotationAction.ReadValue<Vector2>().x, 0) * vitesseRotation;
         if (!canMove) mouvementFinal = rotationFinale *= 0;
         // applique rotation a camera et joueur
@@ -95,17 +96,17 @@ public class ControlesPersonnage : MonoBehaviour
     void FixedUpdate()
     {
         // applique mouvement au joueur
-        rigidBody.linearVelocity = mouvementFinal;
+        rigidBody.linearVelocity = new Vector3(mouvementFinal.x, rigidBody.linearVelocity.y, mouvementFinal.z);
     }
     private void OnEnable()
     {
         // abonement évènement
-        Gameplay.OnInteraction += (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(transform.position); };
+        Gameplay.OnInteraction += (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(); };
     }
     private void OnDisable()
     {
         // désabonnement évènement
-        Gameplay.OnInteraction -= (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(transform.position); };
+        Gameplay.OnInteraction -= (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(); };
     }
 
 
