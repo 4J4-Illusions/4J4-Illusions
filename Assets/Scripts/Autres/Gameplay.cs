@@ -1,7 +1,6 @@
 using System;
 using Globals;
 using UnityEngine;
-using UnityEngine.UI;
 using static UnityEngine.Object;
 
 namespace Utils
@@ -61,10 +60,9 @@ namespace Utils
                     {
                         // detruit le component ObjectInteractif pour arreter la détection par le raycast du joueur sans empêcher les collisions
                         Destroy(obj.GetComponent<ObjetInteractif>());
-                        // fait jouer la particule
-                        obj.transform.Find("Lampadaire/Final_Candle1/ParticuleFeuLumiere").GetComponent<ParticleSystem>().Play();
-                        // active la lumiere
-                        obj.transform.Find("Lampadaire/Final_Candle1/PointLightLampadaire").gameObject.SetActive(true);
+                        // active parent contenant lumiere et particule
+                        // fait jouer la particule et active la lumiere
+                        obj.transform.Find("Lampadaire/Final_Candle1").gameObject.SetActive(true);
 
                         GameManager.Instance.AvancerObjectifNiveau(StageJeu.Foret);
                     }

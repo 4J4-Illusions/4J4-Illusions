@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using Utils;
 
@@ -18,6 +19,7 @@ public class GestionBarreAnxiete : MonoBehaviour
 
     [Header("Ajustement inspecteur"), Space]
     public bool modeProgBarre = false;
+    public float reductionStressSoulagement = .25f;
     [Range(0, 1)] public float progressionBarre = .001f;
     // gestions, trackage et acces pour autres scripts
     public static Dictionary<int, StressPointEntry> collectionStressPoints = new();
@@ -27,7 +29,7 @@ public class GestionBarreAnxiete : MonoBehaviour
     float vitesseAnimCoeur = 1, finalProgBarre;
     readonly Dictionary<int, StressPointEntry> instantEntriesToUpdate = new();
     bool pauseProgBarre = false;
-    VolumeVignette vfxVignette;
+    Volume volume;
     AudioSource audsrc;
 
     void Awake()
@@ -51,7 +53,7 @@ public class GestionBarreAnxiete : MonoBehaviour
     void Start()
     {
         imgBarre = conteneurBarre.transform.GetChild(0).GetComponent<Image>();
-        vfxVignette = GameManager.Instance.player.GetComponentInChildren<VolumeVignette>();
+        volume = GameManager.Instance.cameraJoueur.GetComponent<Volume>();
         audsrc = GetComponent<AudioManagerConnect>().audsrc;
     }
     // Update is called once per frame
@@ -80,6 +82,7 @@ public class GestionBarreAnxiete : MonoBehaviour
                     instantEntriesToUpdate.Add(entry.Key, updatedValue);
                 }
             }
+            //Debug.Log("somme stres: " + sommeStress);
             foreach (KeyValuePair<int, StressPointEntry> instantEntry in instantEntriesToUpdate)
             {
                 collectionStressPoints[instantEntry.Key] = instantEntry.Value;
@@ -87,12 +90,13 @@ public class GestionBarreAnxiete : MonoBehaviour
             instantEntriesToUpdate.Clear();
 
             finalProgBarre = (!pauseProgBarre) ? (-progressionBarre / 10) : 0;
-            if(GameManager.Instance.allowGameLoop) stressTotal += (sommeStress > 0) ? sommeStress : finalProgBarre;
+            //Debug.Log("final prog barre: " + finalProgBarre);
+            if(GameManager.Instance.allowGameLoop) stressTotal += (sommeStress > .00001) ? sommeStress : finalProgBarre;
             else stressTotal += 0;
             stressTotal = MathF.Min(MathF.Max(stressTotal, 0), 1);
-            //Debug.Log(stressTotal);
+            //Debug.Log("stress total: " + stressTotal);
         }
-        vfxVignette.intensite = imgBarre.fillAmount = stressTotal;
+        volume.weight = imgBarre.fillAmount = stressTotal;
         audsrc.volume = stressTotal * AudioManager.Instance.SetAudioVolume(CategorieSon.Ambience);
         vitesseAnimCoeur = 1 + stressTotal * 4;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
@@ -105,10 +109,12 @@ public class GestionBarreAnxiete : MonoBehaviour
     private void OnEnable()
     {
         GameManager.OnGameOver += CriseDePanique;
+        GameManager.OnLevelProgress += Soulagement;
     }
     private void OnDisable()
     {
         GameManager.OnGameOver -= CriseDePanique;
+        GameManager.OnLevelProgress -= Soulagement;
     }
 
 
@@ -122,5 +128,9 @@ public class GestionBarreAnxiete : MonoBehaviour
         texteGameOver.SetActive(true);
 
         enabled = false;
+    }
+    void Soulagement()
+    {
+        stressTotal -= reductionStressSoulagement;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class StressPoint : MonoBehaviour
 {
     [Header("Affectation inspecteur"), Space]
-    [Range(0, 100)] public float porteeStress = 50;
+    public float porteeStress = 50;
     public float[] intervalleValeursStressPourcent = new float[2] { 0, 1f };
     public TypeStress type;
 
@@ -32,6 +32,7 @@ public class StressPoint : MonoBehaviour
             if (type == TypeStress.Proportionnel)
             {
                 inRange = true;
+                // calcul du stress proportonnellement à la distance
                 calculValeurStress = Mathf.Clamp(
                     (1 - Mathf.Clamp(distance / porteeStress, 0, 1)) * intervalleValeursStressPourcent[1],
                     intervalleValeursStressPourcent[0],
