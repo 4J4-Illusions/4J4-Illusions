@@ -76,3 +76,5 @@ crashlytics-build.properties
 
 # Autres ignores
 # Assets/Fonts/*.asset
+Assets/_Recovery
+Assets/_Recovery.meta

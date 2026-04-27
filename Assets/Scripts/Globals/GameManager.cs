@@ -3,26 +3,36 @@ using Globals;
 using System;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
+using UnityEngine.Splines;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class GameManager : MonoBehaviour
 {
     // référence statique pour accéder aux propriététs du singleton
     public static GameManager Instance { get; private set; }
 
-    [Header("Affectation inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
     public GameObject[] listeLampadaires = new GameObject[5];
     public GameObject overlayCalibration;
     public GameObject modelePapier;
     public GameObject[] listeBoutsPapier = new GameObject[5];
     public Material matPapier;
 
-    [Header("Accès pour autres scripts"), Space]
+    [Header("Accès pour autres scripts"), Space(30)]
     public StageJeu stageJeu = 0;
-    public bool
-        inCalibInterac, modeObtentionItem, /*modes*/
-        gameOver, allowGameLoop = true, /*états*/
-        objectifComplete, niveauComplete /*progression de niveau*/;
-    public int indexLampCour, progressionBoutsPapier;
+    [Header("Modes")]
+    public bool inCalibInterac;
+    public bool modeObtentionItem;
+    [Header("États")]
+    public bool gameOver;
+    public bool allowGameLoop = true;
+    [Header("Progression des niveaux")]
+    public bool objectifComplete;
+    public bool niveauComplete;
+    public int indexLampCour;
+    public int progressionBoutsPapier;
     public GameObject player, recompense, cameraJoueur;
     public ControlesPersonnage playerScript;
 
@@ -158,7 +168,7 @@ public class GameManager : MonoBehaviour
             case StageJeu.Desert:
                 break;
             case StageJeu.Foret:
-                foreach(GameObject monstre in GameObject.FindGameObjectsWithTag("Monstre"))
+                foreach (GameObject monstre in GameObject.FindGameObjectsWithTag("Monstre"))
                 {
                     Destroy(monstre);
                 }
