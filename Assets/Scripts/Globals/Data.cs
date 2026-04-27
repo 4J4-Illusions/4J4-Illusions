@@ -13,7 +13,8 @@ namespace Globals
         Onde,
         Lampadaire,
         Calibration,
-        CalibrationStop
+        CalibrationStop,
+        Recompense
     }
     /// <summary>
     /// Décrit les différentes étapes du jeu.
@@ -45,6 +46,11 @@ namespace Globals
         /// </summary>
         Instant
     }
+    public enum CategorieSon
+    {
+        Ambience,
+        SFX
+    }
 
 
 
@@ -62,6 +68,16 @@ namespace Globals
         public override readonly string ToString()
         {
             return $"Valeur Stresss: {valeurStress}    Type: {type}    Pause Barre Prog?: {pauseProgBarre}";
+        }
+    }
+    public struct VariationSelonBase
+    {
+        public float valeurBase;
+        public float variation;
+
+        public override readonly string ToString()
+        {
+            return $"Valeur base: {valeurBase}    Variation: {variation}";
         }
     }
 }
