@@ -10,6 +10,7 @@ public class SpawnerFoulePassante : MonoBehaviour
     public List<SplineContainer> cheminsFoulePassante;
 
     float cooldownEntreFoulePassante = 5;
+    SplineAnimate splanim;
 
     private void Awake()
     {
@@ -22,8 +23,9 @@ public class SpawnerFoulePassante : MonoBehaviour
         {
             GameObject instanceFoulePassante = Instantiate(prefabFoulePassante);
             instanceFoulePassante.transform.SetParent(foule.transform.Find("FoulePassante"));
-            instanceFoulePassante.GetComponent<SplineAnimate>().Container = cheminsFoulePassante[i];
-            instanceFoulePassante.GetComponent<SplineAnimate>().Play();
+            splanim = instanceFoulePassante.GetComponent<SplineAnimate>();
+            splanim.Container = cheminsFoulePassante[i];
+            splanim.Play();
         }
     }
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class SpawnerFoulePassante : MonoBehaviour
             if (cooldownEntreFoulePassante > 0) cooldownEntreFoulePassante -= Time.deltaTime;
             else
             {
-                cooldownEntreFoulePassante = Random.Range(5f, 10f);
+                cooldownEntreFoulePassante = Random.Range(3f, 7f);
                 CreerFoulePassanteSurCheminRandom();
             }
         }
@@ -44,11 +46,14 @@ public class SpawnerFoulePassante : MonoBehaviour
 
     void CreerFoulePassanteSurCheminRandom()
     {
-        int indexCheminRandom = Random.Range(0, cheminsFoulePassante.Count);
-
-        GameObject instanceFoulePassante = Instantiate(prefabFoulePassante);
-        instanceFoulePassante.transform.SetParent(foule.transform.Find("FoulePassante"));
-        instanceFoulePassante.GetComponent<SplineAnimate>().Container = cheminsFoulePassante[indexCheminRandom];
-        instanceFoulePassante.GetComponent<SplineAnimate>().Play();
+        for (int i = 0; i < cheminsFoulePassante.Count; i++)
+        {
+            GameObject instanceFoulePassante = Instantiate(prefabFoulePassante);
+            instanceFoulePassante.transform.SetParent(foule.transform.Find("FoulePassante"));
+            splanim = instanceFoulePassante.GetComponent<SplineAnimate>();
+            splanim.Container = cheminsFoulePassante[i];
+            splanim.Duration = Random.Range(20f, 50f);
+            splanim.Play();
+        }
     }
 }

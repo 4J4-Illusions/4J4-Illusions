@@ -91,7 +91,7 @@ public class GestionBarreAnxiete : MonoBehaviour
 
             finalProgBarre = (!pauseProgBarre) ? (-progressionBarre / 10) : 0;
             //Debug.Log("final prog barre: " + finalProgBarre);
-            if(GameManager.Instance.allowGameLoop) stressTotal += (sommeStress > 0) ? sommeStress : finalProgBarre;
+            if(GameManager.Instance.allowGameLoop) stressTotal += (sommeStress > .00001) ? sommeStress : finalProgBarre;
             else stressTotal += 0;
             stressTotal = MathF.Min(MathF.Max(stressTotal, 0), 1);
             //Debug.Log("stress total: " + stressTotal);
