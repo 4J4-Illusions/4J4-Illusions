@@ -1,0 +1,916 @@
+fileFormatVersion: 2
+guid: 5786eb231c369f84a9a71f91f5f8e63c
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: b77fa64b6d6842e488f060518f58b0a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: openPBR_shader1
+    second: {fileID: 2100000, guid: 5d3216774c2d6884187a96dbc5adc576, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Foule_F_Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foule_F_Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Foule_Female(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_Female
+      parentName: Foule_Female(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Body
+      parentName: Foule_Female
+      position: {x: -0, y: 0.6325475, z: 0.08750269}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface20
+      parentName: Body
+      position: {x: -0, y: -0.6325475, z: -0.08750269}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface21
+      parentName: Body
+      position: {x: -0, y: -0.6325475, z: -0.08750269}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Feet
+      parentName: Body
+      position: {x: -0, y: -0.6325475, z: -0.08750269}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Outfit
+      parentName: Foule_Female
+      position: {x: -0, y: 0.6499506, z: 0.062165268}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Collar
+      parentName: Outfit
+      position: {x: -0, y: -0.6499506, z: -0.062165268}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dress
+      parentName: Outfit
+      position: {x: -0, y: -0.6499506, z: -0.062165268}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Sandals
+      parentName: Outfit
+      position: {x: -0, y: -0.6499506, z: -0.062165268}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mask
+      parentName: Outfit
+      position: {x: -0, y: -0.6499506, z: -0.062165268}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rings
+      parentName: Outfit
+      position: {x: -0, y: -0.6499506, z: -0.062165268}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hair
+      parentName: Outfit
+      position: {x: -0, y: -0.6499506, z: -0.062165268}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_Reference
+      parentName: Foule_Female(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_Hips
+      parentName: Foule_F_Reference
+      position: {x: 0, y: 0.6785251, z: -0.001954384}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftUpLeg
+      parentName: Foule_F_Hips
+      position: {x: -0.06052779, y: -0.05426056, z: 0.001954384}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftLeg
+      parentName: Foule_F_LeftUpLeg
+      position: {x: 0.002054386, y: -0.31263363, z: 0.026270948}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftFoot
+      parentName: Foule_F_LeftLeg
+      position: {x: -0.008354869, y: -0.2496122, z: -0.0071811303}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftToeBase
+      parentName: Foule_F_LeftFoot
+      position: {x: -0.000000057220458, y: -0.043836225, z: 0.090683036}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightUpLeg
+      parentName: Foule_F_Hips
+      position: {x: 0.06052779, y: -0.05426056, z: 0.001954384}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightLeg
+      parentName: Foule_F_RightUpLeg
+      position: {x: -0.002054386, y: -0.31263363, z: 0.026270948}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightFoot
+      parentName: Foule_F_RightLeg
+      position: {x: 0.008354869, y: -0.2496122, z: -0.0071811303}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightToeBase
+      parentName: Foule_F_RightFoot
+      position: {x: 0.000000057220458, y: -0.043836225, z: 0.090683036}
+      rotation: {x: 0, y: -0.00004189127, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_Spine
+      parentName: Foule_F_Hips
+      position: {x: -0, y: 0.064262465, z: 0.016744621}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_Spine1
+      parentName: Foule_F_Spine
+      position: {x: -0, y: 0.1084745, z: -0.014790237}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_Spine2
+      parentName: Foule_F_Spine1
+      position: {x: -0, y: 0.1084745, z: -0.013809915}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftShoulder
+      parentName: Foule_F_Spine2
+      position: {x: -0.049000006, y: 0.04388733, z: 0.013809915}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftArm
+      parentName: Foule_F_LeftShoulder
+      position: {x: -0.07272497, y: -0.021998595, z: -0.0028640002}
+      rotation: {x: 0.013973664, y: -0.04012703, z: -0.41037056, w: 0.9109284}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftForeArm
+      parentName: Foule_F_LeftArm
+      position: {x: -0.115257785, y: -0.13567178, z: 0.021759402}
+      rotation: {x: 0.21405336, y: -0.1894608, z: -0.0021863389, w: 0.9582698}
+      scale: {x: 0.99999946, y: 0.9999994, z: 0.9999994}
+    - name: Foule_F_LeftHand
+      parentName: Foule_F_LeftForeArm
+      position: {x: -0.08083883, y: -0.09066535, z: 0.10070586}
+      rotation: {x: 0, y: 0, z: 0.00017966329, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandIndex1
+      parentName: Foule_F_LeftHand
+      position: {x: -0.014873714, y: -0.034450784, z: 0.05863591}
+      rotation: {x: 0, y: -0, z: -0.00035932657, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandIndex2
+      parentName: Foule_F_LeftHandIndex1
+      position: {x: -0.0067391335, y: -0.01317946, z: 0.01788655}
+      rotation: {x: -0.025932861, y: -0.072553, z: -0.04920023, w: 0.99581265}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandIndex3
+      parentName: Foule_F_LeftHandIndex2
+      position: {x: -0.0008733246, y: -0.011783908, z: 0.013689984}
+      rotation: {x: -0.0074621337, y: 0.11639236, z: -0.0065621496, w: 0.9931537}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandIndex4
+      parentName: Foule_F_LeftHandIndex3
+      position: {x: -0.002137156, y: -0.010218031, z: 0.009959122}
+      rotation: {x: 0.000028292692, y: -0.35836795, z: 0.00012316088, w: 0.9335804}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandPinky1
+      parentName: Foule_F_LeftHand
+      position: {x: -0.034856934, y: -0.052725095, z: 0.024718165}
+      rotation: {x: -0.078865804, y: 0.049359176, z: 0.0008779382, w: 0.99566215}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandPinky2
+      parentName: Foule_F_LeftHandPinky1
+      position: {x: -0.006011486, y: -0.009740735, z: 0.0051088887}
+      rotation: {x: -0.04755333, y: -0.023416935, z: -0.10017763, w: 0.9935567}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandPinky3
+      parentName: Foule_F_LeftHandPinky2
+      position: {x: -0.002998098, y: -0.011919901, z: 0.004188309}
+      rotation: {x: 0.009605783, y: -0.007856018, z: -0.015901087, w: 0.99979657}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandPinky4
+      parentName: Foule_F_LeftHandPinky3
+      position: {x: -0.0014944152, y: -0.010789492, z: 0.004540944}
+      rotation: {x: 0, y: 0, z: 0.0003194951, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandThumb1
+      parentName: Foule_F_LeftHand
+      position: {x: 0.009816961, y: -0.018305315, z: 0.041840505}
+      rotation: {x: -0.10143984, y: -0.045639943, z: 0.0027437003, w: 0.99379045}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandThumb2
+      parentName: Foule_F_LeftHandThumb1
+      position: {x: 0.003141877, y: -0.006053749, z: 0.013590029}
+      rotation: {x: -0.01922334, y: -0.023162987, z: -0.005431312, w: 0.99953216}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandThumb3
+      parentName: Foule_F_LeftHandThumb2
+      position: {x: 0.003979376, y: -0.006002184, z: 0.010618292}
+      rotation: {x: 0, y: -0, z: -0.0003619259, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandThumb4
+      parentName: Foule_F_LeftHandThumb3
+      position: {x: 0.0046498207, y: -0.008211386, z: 0.012384101}
+      rotation: {x: 0, y: 0, z: 0.00020045797, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandMiddle1
+      parentName: Foule_F_LeftHand
+      position: {x: -0.027361717, y: -0.044943366, z: 0.050354894}
+      rotation: {x: 0, y: -0, z: -0.00035932657, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandMiddle2
+      parentName: Foule_F_LeftHandMiddle1
+      position: {x: -0.0062992265, y: -0.013885907, z: 0.012356447}
+      rotation: {x: 0.00472369, y: -0.041922882, z: -0.04420838, w: 0.9981312}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandMiddle3
+      parentName: Foule_F_LeftHandMiddle2
+      position: {x: -0.00239145, y: -0.013692475, z: 0.012593363}
+      rotation: {x: -0.044454932, y: 0.018974427, z: 0.011602915, w: 0.99876386}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandMiddle4
+      parentName: Foule_F_LeftHandMiddle3
+      position: {x: -0.0035500582, y: -0.014466408, z: 0.009476429}
+      rotation: {x: 0.000000027934007, y: -0.000653015, z: 0.00017966329, w: 0.99999976}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandRing1
+      parentName: Foule_F_LeftHand
+      position: {x: -0.033836372, y: -0.050998602, z: 0.03866306}
+      rotation: {x: 0.0060093985, y: 0.06518119, z: 0.061094627, w: 0.99598336}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandRing2
+      parentName: Foule_F_LeftHandRing1
+      position: {x: -0.0130166, y: -0.009508564, z: 0.011353804}
+      rotation: {x: -0.21051848, y: -0.1330558, z: -0.35234302, w: 0.9021267}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandRing3
+      parentName: Foule_F_LeftHandRing2
+      position: {x: 0.0011768927, y: -0.016939562, z: 0.0056811958}
+      rotation: {x: 0.072794594, y: 0.045179453, z: 0.11856318, w: 0.9892435}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_LeftHandRing4
+      parentName: Foule_F_LeftHandRing3
+      position: {x: -0.004084246, y: -0.014108781, z: 0.007835382}
+      rotation: {x: 0.000000027935537, y: -0.0006530507, z: 0.00017966329, w: 0.99999976}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightShoulder
+      parentName: Foule_F_Spine2
+      position: {x: 0.049000006, y: 0.04388733, z: 0.013809915}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightArm
+      parentName: Foule_F_RightShoulder
+      position: {x: 0.07272497, y: -0.021998595, z: -0.0028640002}
+      rotation: {x: 0.023825658, y: 0.05349568, z: 0.40615034, w: 0.9119279}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightForeArm
+      parentName: Foule_F_RightArm
+      position: {x: 0.11526158, y: -0.13566858, z: 0.021759404}
+      rotation: {x: 0.17780772, y: 0.23360278, z: -0.024147026, w: 0.9556313}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHand
+      parentName: Foule_F_RightForeArm
+      position: {x: 0.08082125, y: -0.090680934, z: 0.100705795}
+      rotation: {x: 0, y: -0, z: -0.0005664825, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandIndex1
+      parentName: Foule_F_RightHand
+      position: {x: 0.01489373, y: -0.034442127, z: 0.058635917}
+      rotation: {x: 0, y: 0, z: 0.0011329646, w: 0.99999934}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandIndex2
+      parentName: Foule_F_RightHandIndex1
+      position: {x: 0.006726347, y: -0.013185993, z: 0.01788654}
+      rotation: {x: -0.0242152, y: 0.03775134, z: 0.049106184, w: 0.99778605}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandIndex3
+      parentName: Foule_F_RightHandIndex2
+      position: {x: 0.0018376501, y: -0.011782583, z: 0.013595313}
+      rotation: {x: -0.00853278, y: 0.12733223, z: 0.0059566787, w: 0.99180555}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandIndex4
+      parentName: Foule_F_RightHandIndex3
+      position: {x: -0.00210461, y: -0.010217545, z: 0.009966564}
+      rotation: {x: -0.00008625856, y: -0.35837898, z: -0.0005574302, w: 0.93357605}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandMiddle1
+      parentName: Foule_F_RightHand
+      position: {x: 0.027387802, y: -0.044927437, z: 0.050354864}
+      rotation: {x: 0, y: 0, z: 0.0011329646, w: 0.99999934}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandMiddle2
+      parentName: Foule_F_RightHandMiddle1
+      position: {x: 0.006285798, y: -0.013892016, z: 0.012356465}
+      rotation: {x: 0.0054774145, y: 0.024465868, z: 0.043156385, w: 0.9987537}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandMiddle3
+      parentName: Foule_F_RightHandMiddle2
+      position: {x: 0.0028435418, y: -0.013690145, z: 0.012501591}
+      rotation: {x: -0.043317188, y: 0.103100985, z: -0.014665212, w: 0.9936191}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandMiddle4
+      parentName: Foule_F_RightHandMiddle3
+      position: {x: 0.0014900448, y: -0.014468136, z: 0.0100068115}
+      rotation: {x: -0.00008625856, y: -0.35837898, z: -0.0005574302, w: 0.93357605}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandPinky1
+      parentName: Foule_F_RightHand
+      position: {x: 0.034887493, y: -0.05270492, z: 0.024718175}
+      rotation: {x: -0.07887584, y: -0.049345024, z: -0.00010815488, w: 0.99566245}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandPinky2
+      parentName: Foule_F_RightHandPinky1
+      position: {x: 0.006002075, y: -0.009746481, z: 0.005108864}
+      rotation: {x: -0.04581504, y: 0.0060730563, z: 0.100052774, w: 0.9939082}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandPinky3
+      parentName: Foule_F_RightHandPinky2
+      position: {x: 0.00315355, y: -0.011917138, z: 0.004080736}
+      rotation: {x: 0.008137645, y: 0.12964329, z: 0.01731664, w: 0.9913761}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandPinky4
+      parentName: Foule_F_RightHandPinky3
+      position: {x: 0.0005136819, y: -0.010789862, z: 0.0047518956}
+      rotation: {x: -0.0000901404, y: -0.358379, z: -0.00033504734, w: 0.93357617}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandThumb1
+      parentName: Foule_F_RightHand
+      position: {x: -0.009806319, y: -0.018310959, z: 0.04184049}
+      rotation: {x: -0.06870968, y: 0.021607546, z: -0.005123951, w: 0.9973895}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandThumb2
+      parentName: Foule_F_RightHandThumb1
+      position: {x: -0.0031477634, y: -0.0060507474, z: 0.01359003}
+      rotation: {x: -0.019222317, y: 0.023159167, z: 0.0044630677, w: 0.99953705}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandThumb3
+      parentName: Foule_F_RightHandThumb2
+      position: {x: -0.003973532, y: -0.006006045, z: 0.010618316}
+      rotation: {x: 0, y: 0, z: 0.0011277106, w: 0.9999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandThumb4
+      parentName: Foule_F_RightHandThumb3
+      position: {x: -0.004654502, y: -0.008208789, z: 0.012384087}
+      rotation: {x: 0, y: -0, z: -0.0005278653, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandRing1
+      parentName: Foule_F_RightHand
+      position: {x: 0.033865973, y: -0.05097895, z: 0.038663056}
+      rotation: {x: 0.0059957188, y: -0.065180674, z: -0.060321834, w: 0.99603057}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandRing2
+      parentName: Foule_F_RightHandRing1
+      position: {x: 0.0130073745, y: -0.009521176, z: 0.011353803}
+      rotation: {x: -0.20434171, y: 0.11725743, z: 0.35509905, w: 0.9046546}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandRing3
+      parentName: Foule_F_RightHandRing2
+      position: {x: -0.00096115406, y: -0.016940683, z: 0.005718308}
+      rotation: {x: 0.08282698, y: 0.0759592, z: -0.11098459, w: 0.98744744}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_RightHandRing4
+      parentName: Foule_F_RightHandRing3
+      position: {x: 0.0023545637, y: -0.014110821, z: 0.008513039}
+      rotation: {x: -0.00008625856, y: -0.35837898, z: -0.0005574302, w: 0.93357605}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_Neck
+      parentName: Foule_F_Spine2
+      position: {x: -0.00034401976, y: 0.08287903, z: 0.016440216}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Foule_F_Head
+      parentName: Foule_F_Neck
+      position: {x: 0.00034401976, y: 0.09783707, z: 0.01441027}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
