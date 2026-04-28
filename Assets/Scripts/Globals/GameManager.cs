@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        QueteCompteur.Ajouter(1);
         OnLevelProgress.Invoke();
     }
     void CompleterObjectif(StageJeu stage)

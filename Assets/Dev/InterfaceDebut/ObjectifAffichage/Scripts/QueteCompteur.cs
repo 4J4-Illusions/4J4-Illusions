@@ -1,22 +1,22 @@
+using System;
 using UnityEngine;
 
 public class QueteCompteur : MonoBehaviour
 {
     public string nomQuete = "Objectif";
-    public int valeurActuelle = 0;
-    public int valeurMax = 5;
+    public static int valeurActuelle = 0;
+    public static int valeurMax = 5;
 
-    public delegate void OnValeurChange();
-    public event OnValeurChange onValeurChange;
+    public static event Action OnValeurChange;
 
-    public void Ajouter(int montant)
+    public static void Ajouter(int montant)
     {
         valeurActuelle += montant;
 
         if (valeurActuelle > valeurMax)
             valeurActuelle = valeurMax;
 
-        onValeurChange?.Invoke();
+        OnValeurChange?.Invoke();
     }
 
     public string GetTexte()

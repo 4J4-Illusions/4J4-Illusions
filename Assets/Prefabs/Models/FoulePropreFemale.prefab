@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Foule_Female
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1505b174c22e09343b13808c4969d7bf, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

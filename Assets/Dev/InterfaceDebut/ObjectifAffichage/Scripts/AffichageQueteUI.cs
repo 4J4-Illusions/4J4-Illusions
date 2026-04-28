@@ -13,9 +13,6 @@ public class AffichageQueteUI : MonoBehaviour
     void Start()
     {
         SetEtat(false);
-
-        if (quete != null)
-            quete.onValeurChange += MettreAJourTextes;
     }
 
     void Update()
@@ -29,6 +26,16 @@ public class AffichageQueteUI : MonoBehaviour
                 MettreAJourTextes();
         }
     }
+    private void OnEnable()
+    {
+        QueteCompteur.OnValeurChange += MettreAJourTextes;
+    }
+    private void OnDisable()
+    {
+        QueteCompteur.OnValeurChange -= MettreAJourTextes;
+    }
+
+
 
     void SetEtat(bool value)
     {
