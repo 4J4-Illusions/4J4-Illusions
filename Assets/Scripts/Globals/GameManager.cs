@@ -118,8 +118,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Jumpscare()
     {
-        jumpscareImage.SetActive(true);
-        AudioManager.Instance.JouerSon(CategorieSon.SFX, sonJumpscare);
+        if(stageJeu == StageJeu.Foret)
+        {
+            jumpscareImage.SetActive(true);
+            AudioManager.Instance.JouerSon(CategorieSon.SFX, sonJumpscare);
+        }
 
         FinDePartie();
     }
@@ -178,7 +181,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Chargement de la scène: " + scene.name);
 
         // affectations valeurs générales importantes
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         stageJeu = (StageJeu)scene.buildIndex;
 
         // affectations éléments de la hiérarchie

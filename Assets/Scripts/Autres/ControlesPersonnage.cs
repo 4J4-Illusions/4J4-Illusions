@@ -49,6 +49,7 @@ public class ControlesPersonnage : MonoBehaviour
         animPerso = transform.Find("Model").GetComponent<Animator>();
         //Debug.Log(animPerso.transform.name);
         audsrc = GetComponent<AudioManagerConnect>().audsrc;
+        //Debug.Log(audsrc);
 
         if (GameManager.Instance.stageJeu == StageJeu.Foret)
         {
@@ -73,6 +74,11 @@ public class ControlesPersonnage : MonoBehaviour
 
         // appliquer ou non le modificateur de vitesse
         indexModifCourse = isRunning ? 1 : 0;
+        // s'assure que audio source est pas null
+        if(audsrc == null)
+        {
+            audsrc = GetComponent<AudioManagerConnect>().audsrc;
+        }
         audsrc.pitch = multiplicateurMouvement[indexModifCourse];
 
         // decide comment se fera l'appel de la methode qui gere les interactions
@@ -125,8 +131,12 @@ public class ControlesPersonnage : MonoBehaviour
         }
 
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
-        //Debug.DrawRay(cameraJoueur.transform.position, cameraJoueur.transform.forward * porteeInteraction, Color.red);
-        if (Physics.Raycast(cameraJoueur.transform.position, cameraJoueur.transform.forward, out hit, porteeInteraction) && !GameManager.Instance.inCalibInterac)
+        Debug.DrawRay(cameraJoueur.transform.position, cameraJoueur.transform.forward * porteeInteraction, Color.red);
+        if (Physics.Raycast(
+            origin: cameraJoueur.transform.position,
+            direction: cameraJoueur.transform.forward,
+            hitInfo: out hit,
+            maxDistance: porteeInteraction) && !GameManager.Instance.inCalibInterac)
         {
             Debug.DrawLine(cameraJoueur.transform.position, hit.point, Color.red);
             //Debug.Log(hit.transform.gameObject.name);

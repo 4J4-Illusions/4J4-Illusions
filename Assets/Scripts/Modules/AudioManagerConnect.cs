@@ -10,6 +10,7 @@ public class AudioManagerConnect : MonoBehaviour
     {
         audsrc = GetComponent<AudioSource>();
         //audsrc = AudioManager.Instance.JouerSon(CategorieSon.Ambience, audsrc.clip, audsrc);
+        //Destroy(GetComponent<AudioSource>());
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

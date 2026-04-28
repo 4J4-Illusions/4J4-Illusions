@@ -49,6 +49,5 @@ public class ScriptMenuPauseDepuisInterface : MonoBehaviour
 
         //Time.timeScale = 1f; // reprend le jeu
         OnMenuPause.Invoke(false);
-        Cursor.lockState = CursorLockMode.Locked;
     }
 }

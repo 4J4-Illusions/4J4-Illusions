@@ -2716,6 +2716,10 @@ PrefabInstance:
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: 0e875c3638e91a442b2aa3614b6967d0, type: 3}
+    - target: {fileID: 4769504333819233900, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5313433800481762951, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
       propertyPath: m_Name
       value: PersonnageJoueur

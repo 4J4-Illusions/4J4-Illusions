@@ -10201,9 +10201,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: ambience0.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
       propertyPath: ambience2.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: 'ambience0.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 231bc55fe874e4843b2d236c2589ab5c, type: 3}
     - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
       propertyPath: m_LocalPosition.x
       value: 479.78418
