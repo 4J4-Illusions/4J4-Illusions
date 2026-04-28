@@ -56,6 +56,7 @@ MonoBehaviour:
   animCoeur: {fileID: 399714026731670684}
   texteGameOver: {fileID: 0}
   modeProgBarre: 0
+  reductionStressSoulagement: 0.25
   progressionBarre: 0.01
 --- !u!82 &1423337415008941435
 AudioSource:
@@ -166,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50667778b4d6e94daafd0c7967374c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManagerConnect
+  audsrc: {fileID: 0}
 --- !u!1 &2545866732705249789
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 508844921, guid: 7f8283aea92e2a148bb4c4002c54b553, type: 3}
+  m_Sprite: {fileID: 319026511, guid: f05cbfcc21609e344be09660c3b25752, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

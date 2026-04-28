@@ -5,11 +5,6 @@ public class FouleFixe : MonoBehaviour
     [Header("Accès pour autres scripts"), Space(30)]
     public float cooldownEnleverTexte = 0;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
     // Update is called once per frame
     void Update()
     {

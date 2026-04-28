@@ -15640,10 +15640,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1676926041851755806, guid: 5897bd3ca4bcf8d40be61c5d0e7a6818, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4407786941010258251, guid: 5897bd3ca4bcf8d40be61c5d0e7a6818, type: 3}
       propertyPath: m_Name
       value: CanvasHUD
@@ -15652,26 +15648,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4689502490755855808, guid: 5897bd3ca4bcf8d40be61c5d0e7a6818, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4689502490755855808, guid: 5897bd3ca4bcf8d40be61c5d0e7a6818, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4689502490755855808, guid: 5897bd3ca4bcf8d40be61c5d0e7a6818, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4689502490755855808, guid: 5897bd3ca4bcf8d40be61c5d0e7a6818, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4689502490755855808, guid: 5897bd3ca4bcf8d40be61c5d0e7a6818, type: 3}
-      propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 7048893062775956830, guid: 5897bd3ca4bcf8d40be61c5d0e7a6818, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: f06bab539baecb849997e5177bcac7d6, type: 3}
     - target: {fileID: 8188979654602834147, guid: 5897bd3ca4bcf8d40be61c5d0e7a6818, type: 3}
       propertyPath: texteGameOver
       value: 

@@ -42,6 +42,6 @@ public class Parametres : MonoBehaviour
     public void UpdateParametres(KeyValuePair<string, string> kvp)
     {
         dictParametres[kvp.Key] = kvp.Value;
-        OnSettingsChange(kvp);
+        OnSettingsChange.Invoke(kvp);
     }
 }
