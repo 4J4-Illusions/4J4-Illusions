@@ -12,9 +12,7 @@ public class QueteCompteur : MonoBehaviour
     public static void Ajouter(int montant)
     {
         valeurActuelle += montant;
-
-        if (valeurActuelle > valeurMax)
-            valeurActuelle = valeurMax;
+        valeurActuelle = Mathf.Clamp(valeurActuelle, 0, valeurMax);
 
         OnValeurChange?.Invoke();
     }

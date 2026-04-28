@@ -44,17 +44,20 @@ public class SpawnerFoulePassante : MonoBehaviour
 
 
 
+    /// <summary>
+    /// Crée une nouvelle instance de foule passante sur un chemin aléatoire
+    /// </summary>
     void CreerFoulePassanteSurCheminRandom()
     {
         //for (int i = 0; i < cheminsFoulePassante.Count; i++)
         //{
-        int indexRandom = Random.Range(0, cheminsFoulePassante.Count);
+        int indexCheminRandom = Random.Range(0, cheminsFoulePassante.Count);
 
         GameObject instanceFoulePassante = Instantiate(prefabFoulePassante);
         instanceFoulePassante.transform.SetParent(foule.transform.Find("FoulePassante"));
         splanim = instanceFoulePassante.GetComponent<SplineAnimate>();
         //splanim.Container = cheminsFoulePassante[i];
-        splanim.Container = cheminsFoulePassante[indexRandom];
+        splanim.Container = cheminsFoulePassante[indexCheminRandom];
         splanim.Duration = Random.Range(20f, 50f);
         splanim.Play();
         //}

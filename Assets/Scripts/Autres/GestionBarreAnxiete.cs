@@ -1,11 +1,9 @@
 using Globals;
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
-using Utils;
 
 public class GestionBarreAnxiete : MonoBehaviour
 {
@@ -129,6 +127,9 @@ public class GestionBarreAnxiete : MonoBehaviour
 
         enabled = false;
     }
+    /// <summary>
+    /// Réduit le niveau de stress du joueur
+    /// </summary>
     void Soulagement()
     {
         stressTotal -= reductionStressSoulagement;

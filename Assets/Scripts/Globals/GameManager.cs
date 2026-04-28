@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Jumpscare()
     {
-        if(stageJeu == StageJeu.Foret)
+        if (stageJeu == StageJeu.Foret)
         {
             jumpscareImage.SetActive(true);
             AudioManager.Instance.JouerSon(CategorieSon.SFX, sonJumpscare);
@@ -126,6 +126,10 @@ public class GameManager : MonoBehaviour
 
         FinDePartie();
     }
+    /// <summary>
+    /// Éxécute la logique de progression de l'objectif du niveau en fonction du stage de jeu actuel.
+    /// </summary>
+    /// <param name="stage">Le stage courant</param>
     public void AvancerObjectifNiveau(StageJeu stage)
     {
         switch (stage)
@@ -149,6 +153,10 @@ public class GameManager : MonoBehaviour
         QueteCompteur.Ajouter(1);
         OnLevelProgress.Invoke();
     }
+    /// <summary>
+    /// Éxécute la logique de complétion de l'objectif du niveau en fonction du stage de jeu actuel.
+    /// </summary>
+    /// <param name="stage">Le stage courant</param>
     void CompleterObjectif(StageJeu stage)
     {
         recompense.SetActive(true);
@@ -167,15 +175,27 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+    /// <summary>
+    /// Complète le niveau an llançant l'évènement de complétion de niveau.
+    /// </summary>
     public void TerminerNiveau()
     {
         niveauComplete = true;
         OnLevelComplete.Invoke();
     }
+    /// <summary>
+    /// Fait la transition vers le niveau suivant.
+    /// </summary>
     void TransitionNiveau()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log(SceneManager.sceneCountInBuildSettings);
     }
+    /// <summary>
+    /// Initialisation des propriétés de gameManager à chaque chargement de scène.
+    /// </summary>
+    /// <param name="scene">La scène chargée</param>
+    /// <param name="mode">Le mode de chargement de la scène</param>
     void Initialisation(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Chargement de la scène: " + scene.name);
@@ -183,6 +203,8 @@ public class GameManager : MonoBehaviour
         // affectations valeurs générales importantes
         Cursor.lockState = CursorLockMode.Locked;
         stageJeu = (StageJeu)scene.buildIndex;
+        // reset du compteur de quête
+        QueteCompteur.Ajouter(-5);
 
         // affectations éléments de la hiérarchie
         player = GameObject.FindWithTag("Player");

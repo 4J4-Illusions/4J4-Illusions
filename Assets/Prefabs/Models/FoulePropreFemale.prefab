@@ -136,17 +136,52 @@ PrefabInstance:
       propertyPath: m_Name
       value: Foule_Female
       objectReference: {fileID: 0}
+    - target: {fileID: 5236673439241668463, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+      propertyPath: m_Name
+      value: Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728800556148500022, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+      propertyPath: m_RootBone
+      value: 
+      objectReference: {fileID: 8123609028228943312}
     - target: {fileID: 5866666021909216657, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1505b174c22e09343b13808c4969d7bf, type: 2}
+    - target: {fileID: 5872528564939372944, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+      propertyPath: m_RootBone
+      value: 
+      objectReference: {fileID: 1371003516012348178}
+    - target: {fileID: 8239694804232174098, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+      propertyPath: m_RootBone
+      value: 
+      objectReference: {fileID: 1606995086169245225}
+    - target: {fileID: 8525680977156116862, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+      propertyPath: m_Name
+      value: Torso
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+--- !u!4 &1371003516012348178 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5281658050376989591, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+  m_PrefabInstance: {fileID: 2717095076496459643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1606995086169245225 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5478560674879487662, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+  m_PrefabInstance: {fileID: 2717095076496459643}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2467892258321834128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+  m_PrefabInstance: {fileID: 2717095076496459643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8123609028228943312 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6127662746326977195, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
   m_PrefabInstance: {fileID: 2717095076496459643}
   m_PrefabAsset: {fileID: 0}

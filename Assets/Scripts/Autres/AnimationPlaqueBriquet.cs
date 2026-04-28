@@ -1,6 +1,5 @@
 using Globals;
 using UnityEngine;
-using Utils;
 
 public class AnimationPlaqueBriquet : MonoBehaviour
 {

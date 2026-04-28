@@ -1,28 +1,56 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class FouleFixe : MonoBehaviour
 {
-    [Header("Accès pour autres scripts"), Space(30)]
-    public float cooldownEnleverTexte = 0;
+    GameObject tete, rootTete;
+    float dureeTempsProche, distance;
+
+    private void Awake()
+    {
+        tete = transform.Find("Foule_Female/Foule_Female/Body/Head").gameObject;
+        //Debug.Log(tete, tete);
+        rootTete = tete.GetComponent<SkinnedMeshRenderer>().rootBone.gameObject;
+        //Debug.Log(rootTete, rootTete);
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(cooldownEnleverTexte > 0)
+        distance = Vector3.Distance(transform.position, GameManager.Instance.player.transform.position);
+        Debug.Log("distance: " + distance, this);
+
+        if(distance <= 25)
         {
-            cooldownEnleverTexte -= Time.deltaTime;
-            cooldownEnleverTexte = Mathf.Max(cooldownEnleverTexte, 0);
+            dureeTempsProche += Time.deltaTime;
+            Debug.Log("dur�e temps proche: " + dureeTempsProche, this);
         }
         else
         {
-            EnleverTexte(transform.Find("TexteFoule").gameObject);
+            dureeTempsProche = Mathf.Max(dureeTempsProche - Time.deltaTime, 0);
+        }
+
+        if(dureeTempsProche >= 5)
+        {
+            FixerJoueur();
         }
     }
 
 
 
-    public void EnleverTexte(GameObject texte)
+    void FixerJoueur()
     {
-        texte.SetActive(false);
+        Debug.Log("regarde joueur");
+        Vector3 lookAtPos = GameManager.Instance.player.transform.position;
+        lookAtPos.y = 0;
+        //rootTete.transform.LookAt(lookAtPos);
+        //transform.LookAt(lookAtPos);
+        Quaternion lookAtRot = Quaternion.LookRotation(transform.position - GameManager.Instance.player.transform.position);
+        lookAtRot.x = lookAtRot.z = 0;
+        transform.rotation = lookAtRot;
     }
 }

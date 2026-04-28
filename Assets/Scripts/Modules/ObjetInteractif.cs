@@ -1,6 +1,5 @@
 using UnityEngine;
 using Globals;
-using Utils;
 
 public class ObjetInteractif : MonoBehaviour
 {

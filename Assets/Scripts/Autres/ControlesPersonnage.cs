@@ -2,7 +2,6 @@ using Globals;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Utils;
 
 public class ControlesPersonnage : MonoBehaviour
 {
@@ -131,7 +130,7 @@ public class ControlesPersonnage : MonoBehaviour
         }
 
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
-        Debug.DrawRay(cameraJoueur.transform.position, cameraJoueur.transform.forward * porteeInteraction, Color.red);
+        //Debug.DrawRay(cameraJoueur.transform.position, cameraJoueur.transform.forward * porteeInteraction, Color.red);
         if (Physics.Raycast(
             origin: cameraJoueur.transform.position,
             direction: cameraJoueur.transform.forward,
