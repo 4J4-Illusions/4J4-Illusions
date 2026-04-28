@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2906086112836623742
 Transform:
   m_ObjectHideFlags: 0
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 1103429802399688306}
   m_Layer: 0
   m_Name: LampadaireFinal
-  m_TagString: Lampadaire
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -344,6 +344,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d1c419de3e7fdc045883032ff2ea8cd0, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1078941676576850525, guid: d1c419de3e7fdc045883032ff2ea8cd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1c419de3e7fdc045883032ff2ea8cd0, type: 3}
       propertyPath: m_Name

@@ -3,10 +3,6 @@ using Globals;
 using System;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
-using UnityEngine.Splines;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,10 +10,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [Header("Affectation inspecteur"), Space(30)]
-    public GameObject[] listeLampadaires = new GameObject[5];
+    [Header("Hiérarchie")]
     public GameObject overlayCalibration;
     public GameObject modelePapier;
-    public GameObject[] listeBoutsPapier = new GameObject[5];
+    [Header("Projet")]
     public Material matPapier;
 
     [Header("Accès pour autres scripts"), Space(30)]
@@ -33,7 +29,12 @@ public class GameManager : MonoBehaviour
     public bool niveauComplete;
     public int indexLampCour;
     public int progressionBoutsPapier;
-    public GameObject player, recompense, cameraJoueur;
+    public GameObject[] listeLampadaires = new GameObject[5];
+    public GameObject[] listeBoutsPapier = new GameObject[5];
+    [Header("Autres")]
+    public GameObject player;
+    public GameObject recompense;
+    public GameObject cameraJoueur;
     public ControlesPersonnage playerScript;
 
     // évènements
@@ -60,30 +61,8 @@ public class GameManager : MonoBehaviour
         // inclus un de fps et l'encrage de la souris
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
-        Cursor.lockState = CursorLockMode.Locked;
 
-        stageJeu = (StageJeu)SceneManager.GetActiveScene().buildIndex;
-
-        player = GameObject.FindWithTag("Player");
-        cameraJoueur = player.transform.Find("CameraJoueur").gameObject;
-        playerScript = player.GetComponent<ControlesPersonnage>();
-
-        indexLampCour = progressionBoutsPapier = 0;
-
-        listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
-        // ordre aléatoire aux lampadaires
-        Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
-
-        recompense = GameObject.FindWithTag("Recompense");
-        recompense.SetActive(false);
-
-        objectifComplete = niveauComplete = false;
-
-        for (int i = 0; i < modelePapier.transform.childCount; i++)
-        {
-            //Debug.Log(prefabModelePapier.transform.GetChild(i).name);
-            listeBoutsPapier[i] = modelePapier.transform.GetChild(i).gameObject;
-        }
+        //Initialisation(SceneManager.GetActiveScene(), LoadSceneMode.Single);
     }
     private void OnEnable()
     {
@@ -91,6 +70,7 @@ public class GameManager : MonoBehaviour
         ScriptMenuPauseDepuisInterface.OnMenuPause += GestionPause;
         OnObjectiveComplete += CompleterObjectif;
         OnLevelComplete += TransitionNiveau;
+        SceneManager.sceneLoaded += Initialisation;
     }
     private void OnDisable()
     {
@@ -98,6 +78,7 @@ public class GameManager : MonoBehaviour
         ScriptMenuPauseDepuisInterface.OnMenuPause -= GestionPause;
         OnObjectiveComplete -= CompleterObjectif;
         OnLevelComplete -= TransitionNiveau;
+        SceneManager.sceneLoaded -= Initialisation;
     }
 
 
@@ -109,7 +90,7 @@ public class GameManager : MonoBehaviour
     {
         OnGameOver.Invoke();
         GestionPause(true);
-        Invoke(nameof(RetourMenu), 5f);
+        Invoke(nameof(Recommencer), 5f);
     }
     /// <summary>
     /// Met le jeu dans un état de pause ou de reprise en fonction de la valeur du paramètre "enPause".
@@ -126,9 +107,9 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Retourne au menu principal
     /// </summary>
-    void RetourMenu()
+    void Recommencer()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     /// <summary>
     /// Lance la séquence de jumpscare, qui correspond à la fin du jeu.
@@ -157,6 +138,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        QueteCompteur.Ajouter(1);
         OnLevelProgress.Invoke();
     }
     void CompleterObjectif(StageJeu stage)
@@ -185,5 +167,48 @@ public class GameManager : MonoBehaviour
     void TransitionNiveau()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    void Initialisation(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Chargement de la scène: " + scene.name);
+
+        // affectations valeurs générales importantes
+        Cursor.lockState = CursorLockMode.Locked;
+        stageJeu = (StageJeu)scene.buildIndex;
+
+        // affectations éléments de la hiérarchie
+        player = GameObject.FindWithTag("Player");
+        cameraJoueur = player.transform.Find("CameraJoueur").gameObject;
+        playerScript = player.GetComponent<ControlesPersonnage>();
+        recompense = GameObject.FindWithTag("Recompense");
+        //Debug.Log(GameObject.FindWithTag("Recompense"));
+        //Debug.Log(Time.realtimeSinceStartup);
+        //Debug.Log(recompense.name);
+        if (recompense != null) recompense.SetActive(false);
+
+        // reset les compteurs et états
+        indexLampCour = progressionBoutsPapier = 0;
+        objectifComplete = niveauComplete = gameOver = false;
+        allowGameLoop = true;
+
+        // autres initialisation selon le stage de jeu
+        switch (stageJeu)
+        {
+            case StageJeu.Desert:
+                modelePapier = cameraJoueur.transform.Find("PapiersACompleter").gameObject;
+                for (int i = 0; i < modelePapier.transform.childCount; i++)
+                {
+                    //Debug.Log(prefabModelePapier.transform.GetChild(i).name);
+                    listeBoutsPapier[i] = modelePapier.transform.GetChild(i).gameObject;
+                }
+                break;
+            case StageJeu.Foret:
+                listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
+                // ordre aléatoire aux lampadaires
+                Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
+                break;
+            case StageJeu.Theatre:
+                break;
+        }
     }
 }

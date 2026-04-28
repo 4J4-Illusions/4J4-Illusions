@@ -1,5 +1,6 @@
 using System;
 using Globals;
+using TMPro;
 using UnityEngine;
 using static UnityEngine.Object;
 
@@ -37,6 +38,11 @@ namespace Utils
                     }
                     break;
                 case TypeInteraction.Parler:
+                    //GameObject texte = obj.transform.Find("TexteFoule").gameObject;
+                    //GameObject texte = obj.transform.parent.Find("TexteFoule").gameObject;
+                    //obj.transform.Find("TexteFoule").gameObject.SetActive(true);
+                    obj.transform.parent.Find("TexteFoule").gameObject.SetActive(true);
+                    obj.transform.parent.GetComponent<FouleFixe>().cooldownEnleverTexte += 3;
                     break;
                 case TypeInteraction.Onde:
                     // fait jouer animation onde quand elle ne joue pas presentement
@@ -60,10 +66,9 @@ namespace Utils
                     {
                         // detruit le component ObjectInteractif pour arreter la détection par le raycast du joueur sans empêcher les collisions
                         Destroy(obj.GetComponent<ObjetInteractif>());
-                        // fait jouer la particule
-                        obj.transform.Find("Lampadaire/Final_Candle1/ParticuleFeuLumiere").GetComponent<ParticleSystem>().Play();
-                        // active la lumiere
-                        obj.transform.Find("Lampadaire/Final_Candle1/PointLightLampadaire").gameObject.SetActive(true);
+                        // active parent contenant lumiere et particule
+                        // fait jouer la particule et active la lumiere
+                        obj.transform.Find("Lampadaire/Final_Candle1").gameObject.SetActive(true);
 
                         GameManager.Instance.AvancerObjectifNiveau(StageJeu.Foret);
                     }

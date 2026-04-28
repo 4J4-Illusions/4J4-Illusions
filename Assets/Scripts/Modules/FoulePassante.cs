@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Splines;
 
-public class Foule : MonoBehaviour
+public class FoulePassante : MonoBehaviour
 {
     SplineAnimate splanim;
 

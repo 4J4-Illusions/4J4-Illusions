@@ -20,7 +20,6 @@ public class CameraJoueur : MonoBehaviour
     int targetFOV;
     float targetBobbing;
     ControlesPersonnage player;
-    GameObject papiersACompleter;
     // constantes
     float POSITION_Y_INITIALE;
 
@@ -30,9 +29,6 @@ public class CameraJoueur : MonoBehaviour
         POSITION_Y_INITIALE = transform.localPosition.y;
         //Debug.Log($"Limities du bobbing: [base, variation] = [{POSITION_Y_INITIALE}, {POSITION_Y_INITIALE - variationBobbing}]");
         volume = GetComponent<Volume>();
-
-        // bouts de papier à compléter pour niveau 1
-        if (transform.childCount > 0 && transform.GetChild(0).name == "PapiersACompleter") papiersACompleter = transform.GetChild(0).gameObject;
     }
     private void Start()
     {
@@ -61,15 +57,6 @@ public class CameraJoueur : MonoBehaviour
         // changement champ de vision si le joueur cours ou pas
         targetFOV = (ControlesPersonnage.isRunning) ? limitesFOV[1] : limitesFOV[0];
         GetComponent<Camera>().fieldOfView = Mathf.MoveTowards(GetComponent<Camera>().fieldOfView, targetFOV, vitesseChangementFOV);
-        // change distance des bouts de papier à compléter quand FOV change (camera overlay)
-        if(papiersACompleter != null)
-        {
-            papiersACompleter.transform.localPosition = new Vector3(
-                .275f, 
-                -.085f, 
-                Mathf.MoveTowards(papiersACompleter.transform.localPosition.z, (ControlesPersonnage.isRunning) ? .24f : .3f, .025f));
-            transform.GetChild(1).GetComponent<Camera>().fieldOfView = Mathf.MoveTowards(transform.GetChild(1).GetComponent<Camera>().fieldOfView, targetFOV, vitesseChangementFOV);
-        }
 
         // effet de bobbing (mvt bond naturel de la tete quand on marche)
         if (allowBobbing)

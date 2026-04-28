@@ -1724,9 +1724,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Charg\xE9e de projet: Sara\nDirectrice Artistique: Prinnie\nDirection
-    Technique: Pharly\nDirectrice Technique: Clarence\nDirecteur Technique: Juba
-    Ameziane\n\n\n"
+  m_text: "Charg\xE9e de projet: Sara Haimeur\nDirectrice Artistique: Prinnie Ly\nDirection
+    Technique: Pharly Bazile\nDirectrice d'int\xE9gration: Clarence Ouimet\nDirecteur
+    d'int\xE9gration: Juba Ameziane\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
   m_sharedMaterial: {fileID: -7160043981165570180, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
@@ -3881,6 +3881,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &598588875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 598588877}
+  - component: {fileID: 598588876}
+  m_Layer: 0
+  m_Name: Parametres
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &598588876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598588875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285b14db617280f4da0e369f19cff82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Parametres
+--- !u!4 &598588877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598588875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 479.78418, y: 0, z: 415.6431}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &617984590
 GameObject:
   m_ObjectHideFlags: 0
@@ -10148,6 +10192,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376484316}
   m_CullTransparentMesh: 1
+--- !u!1001 &1385729227
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: ambience2.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 479.78418
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 415.6431
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298096177813893457, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
+      propertyPath: m_Name
+      value: AudioManager_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
 --- !u!1 &1410316057
 GameObject:
   m_ObjectHideFlags: 0
@@ -15786,9 +15891,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Charg\xE9e de projet: Sara\nDirectrice Artistique: Prinnie\nDirection
-    Technique: Pharly\nDirectrice Technique: Clarence\nDirecteur Technique: Juba
-    Ameziane"
+  m_text: "Charg\xE9e de projet: Sara Haimeur\nDirectrice Artistique: Prinnie Ly\nDirection
+    Technique: Pharly Bazile\nDirectrice d'int\xE9gration: Clarence Ouimet\nDirecteur
+    d'int\xE9gration: Juba Ameziane"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
   m_sharedMaterial: {fileID: -7160043981165570180, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
@@ -16290,3 +16395,5 @@ SceneRoots:
   - {fileID: 2077266797}
   - {fileID: 325840428}
   - {fileID: 1210348310}
+  - {fileID: 598588877}
+  - {fileID: 1385729227}

@@ -105,10 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808cdfe48bb082045b6915fd596705af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StressPoint
-  porteeStress: 100
+  porteeStress: 25
   intervalleValeursStressPourcent:
   - 0
-  - 0.01
+  - 1
   type: 0
   inRange: 0
 --- !u!114 &606459148087918385
