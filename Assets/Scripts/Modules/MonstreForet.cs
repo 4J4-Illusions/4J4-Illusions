@@ -7,8 +7,7 @@ public class MonstreForet : MonoBehaviour
     public float vitesseMonstreParSeconde = 1f;
     public float incrementDureeDeplacement = 5;
 
-    Vector3 dernierePosOnde;
-    float dureeDeplacement = 0;
+    float dureeDeplacement = 0, distance;
     NavMeshAgent agent;
 
     private void Awake()
@@ -23,7 +22,12 @@ public class MonstreForet : MonoBehaviour
             //Debug.Log("can move");
             AllerVersJoueur();
             dureeDeplacement -= Time.deltaTime;
-            //transform.position = Vector3.MoveTowards(transform.position, dernierePosOnde, vitesseMonstre);
+
+            distance = Vector3.Distance(transform.position, GameManager.Instance.player.transform.position);
+            if (distance <= 2)
+            {
+                GameManager.Instance.Jumpscare();
+            }
         }
         else
         {
@@ -55,18 +59,9 @@ public class MonstreForet : MonoBehaviour
     /// <param name="targetPos"></param>
     void PermettreBouger()
     {
-        //dernierePosOnde = targetPos;
-        //Debug.Log(dernierePosOnde);
         dureeDeplacement += incrementDureeDeplacement;
 
         agent.speed = vitesseMonstreParSeconde;
-    }
-    /// <summary>
-    /// Méthode qui arrête le déplacement du monstre.
-    /// </summary>
-    void ArreterBouger()
-    {
-        agent.speed = 0;
     }
     /// <summary>
     /// Met à jour la position du monstre en direction de la position cible.
@@ -74,7 +69,6 @@ public class MonstreForet : MonoBehaviour
     /// <param name="targetPos"></param>
     void AllerVersJoueur()
     {
-        //transform.position = Vector3.MoveTowards(transform.position, targetPos, vitesseMonstre);
         agent.SetDestination(GameManager.Instance.player.transform.position);
     }
 }

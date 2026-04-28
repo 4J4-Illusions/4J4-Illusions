@@ -13,8 +13,10 @@ public class GameManager : MonoBehaviour
     [Header("Hiérarchie")]
     public GameObject overlayCalibration;
     public GameObject modelePapier;
+    public GameObject jumpscareImage;
     [Header("Projet")]
     public Material matPapier;
+    public AudioClip sonJumpscare;
 
     [Header("Accès pour autres scripts"), Space(30)]
     public StageJeu stageJeu = 0;
@@ -116,6 +118,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Jumpscare()
     {
+        jumpscareImage.SetActive(true);
+        AudioManager.Instance.JouerSon(CategorieSon.SFX, sonJumpscare);
+
         FinDePartie();
     }
     public void AvancerObjectifNiveau(StageJeu stage)
@@ -203,6 +208,8 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case StageJeu.Foret:
+                jumpscareImage = GameObject.FindWithTag("Jumpscare");
+                jumpscareImage.SetActive(false);
                 listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
                 // ordre aléatoire aux lampadaires
                 Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
