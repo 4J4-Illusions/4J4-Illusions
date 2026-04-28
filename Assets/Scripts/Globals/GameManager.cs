@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Chargement de la scène: " + scene.name);
 
         // affectations valeurs générales importantes
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         stageJeu = (StageJeu)scene.buildIndex;
 
         // affectations éléments de la hiérarchie
