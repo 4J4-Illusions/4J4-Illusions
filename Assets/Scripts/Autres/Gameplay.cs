@@ -1,5 +1,6 @@
 using System;
 using Globals;
+using TMPro;
 using UnityEngine;
 using static UnityEngine.Object;
 
@@ -37,6 +38,11 @@ namespace Utils
                     }
                     break;
                 case TypeInteraction.Parler:
+                    //GameObject texte = obj.transform.Find("TexteFoule").gameObject;
+                    //GameObject texte = obj.transform.parent.Find("TexteFoule").gameObject;
+                    //obj.transform.Find("TexteFoule").gameObject.SetActive(true);
+                    obj.transform.parent.Find("TexteFoule").gameObject.SetActive(true);
+                    obj.transform.parent.GetComponent<FouleFixe>().cooldownEnleverTexte += 3;
                     break;
                 case TypeInteraction.Onde:
                     // fait jouer animation onde quand elle ne joue pas presentement
