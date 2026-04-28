@@ -1724,9 +1724,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Charg\xE9e de projet: Sara\nDirectrice Artistique: Prinnie\nDirection
-    Technique: Pharly\nDirectrice Technique: Clarence\nDirecteur Technique: Juba
-    Ameziane\n\n\n"
+  m_text: "Charg\xE9e de projet: Sara Haimeur\nDirectrice Artistique: Prinnie Ly\nDirection
+    Technique: Pharly Bazile\nDirectrice d'int\xE9gration: Clarence Ouimet\nDirecteur
+    d'int\xE9gration: Juba Ameziane\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
   m_sharedMaterial: {fileID: -7160043981165570180, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
@@ -15786,9 +15786,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Charg\xE9e de projet: Sara\nDirectrice Artistique: Prinnie\nDirection
-    Technique: Pharly\nDirectrice Technique: Clarence\nDirecteur Technique: Juba
-    Ameziane"
+  m_text: "Charg\xE9e de projet: Sara Haimeur\nDirectrice Artistique: Prinnie Ly\nDirection
+    Technique: Pharly Bazile\nDirectrice d'int\xE9gration: Clarence Ouimet\nDirecteur
+    d'int\xE9gration: Juba Ameziane"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
   m_sharedMaterial: {fileID: -7160043981165570180, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
