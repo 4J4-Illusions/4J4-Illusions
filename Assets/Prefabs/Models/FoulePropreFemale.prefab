@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 568174181529836441}
   - component: {fileID: 1724578188765042996}
   - component: {fileID: 5786457117610620414}
-  - component: {fileID: 2245387087388287403}
   m_Layer: 0
   m_Name: FoulePropreFemale
   m_TagString: Untagged
@@ -83,6 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4433faf9533b47c479ab18c0db41671b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FouleFixe
+  vitesseRotation: 1
 --- !u!114 &5786457117610620414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,19 +101,6 @@ MonoBehaviour:
   - 0.01
   type: 0
   inRange: 0
---- !u!114 &2245387087388287403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349187333619292000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38dd766899eae334a90bb88690614fca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IndiceBoutPapier
-  cooldownEnleverTexte: 0
 --- !u!1001 &2717095076496459643
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,13 +10,14 @@ public class IndiceBoutPapier : MonoBehaviour
     {
         if(cooldownEnleverTexte > 0)
         {
+            //Debug.Log(cooldownEnleverTexte);
             cooldownEnleverTexte -= Time.deltaTime;
             cooldownEnleverTexte = Mathf.Max(cooldownEnleverTexte, 0);
         }
         else
         {
             //EnleverTexte(transform.Find("TexteFoule").gameObject);
-            EnleverTexte(transform.parent.Find("TexteFoule").gameObject);
+            transform.Find("TexteFoule").gameObject.SetActive(false);
         }
     }
 

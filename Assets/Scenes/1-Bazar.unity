@@ -5688,7 +5688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560151351605379423, guid: 0443df66cf1990f4e816eb56ad272300, type: 3}
       propertyPath: nomQuete
-      value: "R\xE9cup\xE9rer les bouts de papier"
+      value: Recuperer les bouts de papier
       objectReference: {fileID: 0}
     - target: {fileID: 6425533485849389505, guid: 0443df66cf1990f4e816eb56ad272300, type: 3}
       propertyPath: m_Pivot.x
@@ -6677,7 +6677,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645370824}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38dd766899eae334a90bb88690614fca, type: 3}
   m_Name: 

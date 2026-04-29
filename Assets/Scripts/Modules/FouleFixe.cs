@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class FouleFixe : MonoBehaviour
 {
+    [Header("Affectation inspecteur"), Space(30)]
+    public float vitesseRotation;
+
     Transform tete, rootTete;
     float dureeTempsProche, distance;
     bool enTrainFixer;
-    StressPoint point;
-    Transform target;
+    StressPoint strpt;
     Animator anim;
 
     private void Awake()
@@ -15,12 +17,8 @@ public class FouleFixe : MonoBehaviour
         //Debug.Log(tete, tete);
         rootTete = tete.GetComponent<SkinnedMeshRenderer>().rootBone;
         //Debug.Log(rootTete, rootTete);
-        point = GetComponent<StressPoint>();
+        strpt = GetComponent<StressPoint>();
         anim = transform.GetChild(0).GetComponent<Animator>();
-    }
-    private void Start()
-    {
-        target = GameManager.Instance.player.transform;
     }
     // Update is called once per frame
     void Update()
@@ -43,7 +41,7 @@ public class FouleFixe : MonoBehaviour
         dureeTempsProche = Mathf.Clamp(dureeTempsProche, 0, 5);
 
         enTrainFixer = (dureeTempsProche >= 5);
-        point.intervalleValeursStressPourcent[1] = (enTrainFixer) ? .02f : .01f;
+        strpt.intervalleValeursStressPourcent[1] = (enTrainFixer) ? .02f : .01f;
     }
     private void LateUpdate()
     {
@@ -51,25 +49,16 @@ public class FouleFixe : MonoBehaviour
         {
             FixerJoueur();
         }
+        else
+        {
+        }
     }
-    /*
-     * Test avec Inverse Kinematics (skawwy)
-     */
-    //private void OnAnimatorIK(int layerIndex)
-    //{
-    //    if(anim && target)
-    //    {
-    //        Debug.Log("looking respectfully");
-    //        anim.SetLayerWeight(layerIndex, 1);
-    //        anim.SetLookAtPosition(target.position);
-    //    }
-    //}
 
 
 
     void FixerJoueur()
     {
-        //Debug.Log("regarde joueur");
+        Debug.Log("regarde joueur");
         Vector3 lookAtPos = GameManager.Instance.player.transform.position;
         lookAtPos.y = 0;
         //rootTete.transform.LookAt(lookAtPos);
@@ -85,6 +74,9 @@ public class FouleFixe : MonoBehaviour
         /*
          * Tourner bone tete
          */
-        rootTete.rotation = lookAtRot;
+        //rootTete.rotation = lookAtRot;
+        //Debug.Log(Quaternion.Slerp(rootTete.rotation, lookAtRot, vitesseRotation * Time.deltaTime).eulerAngles);
+        rootTete.rotation = Quaternion.Slerp(rootTete.rotation, lookAtRot, vitesseRotation * Time.deltaTime);
+        //rootTete.rotation = Quaternion.RotateTowards(rootTete.rotation, lookAtRot, vitesseRotation * Time.deltaTime);
     }
 }
