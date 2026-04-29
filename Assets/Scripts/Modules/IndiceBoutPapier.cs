@@ -15,7 +15,8 @@ public class IndiceBoutPapier : MonoBehaviour
         }
         else
         {
-            EnleverTexte(transform.Find("TexteFoule").gameObject);
+            //EnleverTexte(transform.Find("TexteFoule").gameObject);
+            EnleverTexte(transform.parent.Find("TexteFoule").gameObject);
         }
     }
 
