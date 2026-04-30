@@ -235,6 +235,7 @@ public class GameManager : MonoBehaviour
             case StageJeu.Foret:
                 jumpscareImage = GameObject.FindWithTag("Jumpscare");
                 jumpscareImage.SetActive(false);
+                jumpscareImage.transform.localScale = Vector3.one;
                 listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
                 // ordre aléatoire aux lampadaires
                 Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
