@@ -1,0 +1,1010 @@
+fileFormatVersion: 2
+guid: 35063a9b1e4c96946b6976e51a9d21cc
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Vyktor_Ctrl_Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Vyktor_Ctrl_Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: test anim hold(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_HipsEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.0028085064, y: 0.6471223, z: 0.0027421205}
+      rotation: {x: -0.0000000054195017, y: -3.3184874e-25, z: 3.3184876e-25, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftAnkleEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.06167089, y: 0.01760746, z: 0.0027105259}
+      rotation: {x: 1.6653345e-16, y: -2.0816682e-16, z: 7.632783e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightAnkleEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.06167104, y: 0.017607383, z: 0.0027105378}
+      rotation: {x: -1.179612e-16, y: -8.326673e-17, z: 6.9388946e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftWristEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.19634432, y: 0.5927168, z: 0.009945681}
+      rotation: {x: -0.00000040934398, y: 0.000000296042, z: 0.6311935, w: 0.7756254}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightWristEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.14670958, y: 0.8806354, z: 0.21327266}
+      rotation: {x: 0.51285744, y: 0.5931109, z: 0.39363885, w: -0.4798387}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftKneeEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.06348572, y: 0.3996022, z: 0.020335937}
+      rotation: {x: 0.0005117547, y: -0.0000019787833, z: -0.0000012425498, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightKneeEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.059856188, y: 0.39960232, z: 0.020338548}
+      rotation: {x: 0.0005150184, y: -0.0000018837122, z: -0.0000012765271, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftElbowEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.15825062, y: 0.8173487, z: -0.0059952294}
+      rotation: {x: -0.000007739029, y: 0.000008739346, z: 0.63118947, w: 0.7756287}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightElbowEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.15837325, y: 0.8158917, z: -0.007892709}
+      rotation: {x: 0.5069308, y: 0.59817076, z: 0.38499677, w: -0.48681659}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_ChestOriginEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.000099613695, y: 0.75815076, z: -0.00046595273}
+      rotation: {x: -0.00000072703887, y: -1.2342231e-22, z: -1.11022256e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_ChestEndEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.0005092621, y: 1.002664, z: 0.00029376269}
+      rotation: {x: -0.0000007269792, y: 0.000000006204095, z: 0.0000000022162605, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftFootEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.07778455, y: -0.027140364, z: 0.1110212}
+      rotation: {x: 3.469142e-32, y: -0, z: -1.2246467e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightFootEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.0777847, y: -0.027140416, z: 0.111021176}
+      rotation: {x: 3.469142e-32, y: -0, z: -1.2246467e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftShoulderEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.12266096, y: 0.9895028, z: 0.00029378175}
+      rotation: {x: 0.000079017824, y: -0.000087836575, z: 0.63128704, w: 0.7755493}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightShoulderEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.122461714, y: 0.9895028, z: 0.00029378186}
+      rotation: {x: 0.000093793926, y: 0.00008234978, z: -0.63271916, w: 0.77438134}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_HeadEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.00009954742, y: 1.140861, z: 0.04540558}
+      rotation: {x: -0.000018261302, y: 0.000000003058925, z: -0.0000000068212294, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHipEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.0644794, y: 0.6471223, z: 0.0027421205}
+      rotation: {x: -0.0002677565, y: -0.0000027103326, z: 0.000002890354, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHipEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.058862388, y: 0.6471223, z: 0.0027421205}
+      rotation: {x: -0.0003114635, y: -0.0000027457236, z: 0.0000029608436, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandThumbEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.16675842, y: 0.53048116, z: 0.07715847}
+      rotation: {x: -0.0000004079301, y: 0.00000031071312, z: 0.63119316, w: 0.7756257}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandIndexEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.17920032, y: 0.47431257, z: 0.060819563}
+      rotation: {x: -0.00000041407387, y: 0.00000029534425, z: 0.63119316, w: 0.7756257}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandMiddleEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.1753252, y: 0.46178374, z: 0.034677923}
+      rotation: {x: -0.00000041258568, y: 0.00000029357133, z: 0.63119316, w: 0.7756257}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandRingEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.17487846, y: 0.46648002, z: 0.010933327}
+      rotation: {x: -0.00000041359203, y: 0.00000028548007, z: 0.63119316, w: 0.7756257}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandPinkyEffector
+      parentName: test anim hold(Clone)
+      position: {x: -0.17120025, y: 0.4864001, z: -0.0061565298}
+      rotation: {x: -0.00000041271252, y: 0.00000029526782, z: 0.6311932, w: 0.77562565}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandThumbEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.089953914, y: 0.94600075, z: 0.25733033}
+      rotation: {x: -0.49460045, y: -0.54476964, z: -0.3879434, w: 0.5550643}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandIndexEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.09339819, y: 0.9459902, z: 0.31220835}
+      rotation: {x: 0.5128575, y: 0.59311086, z: 0.39363894, w: -0.47983864}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandMiddleEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.091725945, y: 0.92225254, z: 0.3292113}
+      rotation: {x: 0.5128575, y: 0.59311086, z: 0.39363894, w: -0.47983864}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandRingEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.09685609, y: 0.8986021, z: 0.32984596}
+      rotation: {x: 0.51285744, y: 0.59311086, z: 0.39363888, w: -0.4798387}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandPinkyEffector
+      parentName: test anim hold(Clone)
+      position: {x: 0.10116751, y: 0.87792486, z: 0.31383768}
+      rotation: {x: 0.51285756, y: 0.59311086, z: 0.393639, w: -0.47983864}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_Hips
+      parentName: test anim hold(Clone)
+      position: {x: -0.0000000011920923, y: 0.73852044, z: -0.0035792415}
+      rotation: {x: -0.00000031051457, y: -1.9013533e-23, z: 1.9013533e-23, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftUpLeg
+      parentName: Vyktor_Ctrl_Hips
+      position: {x: -0.064479515, y: -0.044010628, z: 0.006321349}
+      rotation: {x: -0.00026744598, y: -0.000002710148, z: 0.000002890825, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftLeg
+      parentName: Vyktor_Ctrl_LeftUpLeg
+      position: {x: 0.0009929707, y: -0.247548, z: 0.017200546}
+      rotation: {x: 0.00077951106, y: 0.00000073040223, z: -0.00000413482, w: 0.9999997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftFoot
+      parentName: Vyktor_Ctrl_LeftLeg
+      position: {x: 0.0018155389, y: -0.38201338, z: -0.017231999}
+      rotation: {x: -0.0005117548, y: 0.0000019787826, z: 0.000001242552, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftToeBase
+      parentName: Vyktor_Ctrl_LeftFoot
+      position: {x: -0.01611368, y: -0.0447479, z: 0.10831084}
+      rotation: {x: 2.2365468e-32, y: -0, z: -1.2246467e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightUpLeg
+      parentName: Vyktor_Ctrl_Hips
+      position: {x: 0.058862504, y: -0.044010628, z: 0.006321349}
+      rotation: {x: -0.000311153, y: -0.0000027455392, z: 0.000002961315, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightLeg
+      parentName: Vyktor_Ctrl_RightUpLeg
+      position: {x: 0.0009929707, y: -0.247548, z: 0.017200546}
+      rotation: {x: 0.0008264819, y: 0.00000086088403, z: -0.0000042393713, w: 0.9999997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightFoot
+      parentName: Vyktor_Ctrl_RightLeg
+      position: {x: 0.0018155341, y: -0.38201338, z: -0.017231999}
+      rotation: {x: -0.00051501807, y: 0.0000018837108, z: 0.000001276531, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightToeBase
+      parentName: Vyktor_Ctrl_RightFoot
+      position: {x: 0.01611368, y: -0.0447479, z: 0.10831084}
+      rotation: {x: 2.2365468e-32, y: -0, z: -1.2246467e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_Spine
+      parentName: Vyktor_Ctrl_Hips
+      position: {x: -0.00009961265, y: 0.06701791, z: 0.0031133424}
+      rotation: {x: -0.0000004165243, y: 9.04522e-18, z: 1.1083801e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_Spine1
+      parentName: Vyktor_Ctrl_Spine
+      position: {x: -0, y: 0.10404238, z: -0.0042418297}
+      rotation: {x: 1.637518e-16, y: -7.1882604e-17, z: 2.9056618e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_Spine2
+      parentName: Vyktor_Ctrl_Spine1
+      position: {x: -0.00083632424, y: 0.10913699, z: -0.018156063}
+      rotation: {x: -6.027487e-18, y: -4.1373152e-16, z: -2.7148422e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftShoulder
+      parentName: Vyktor_Ctrl_Spine2
+      position: {x: -0.039870057, y: 0.031334005, z: 0.023157965}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftArm
+      parentName: Vyktor_Ctrl_LeftShoulder
+      position: {x: -0.08185523, y: -0.013161167, z: 1.04083406e-19}
+      rotation: {x: 0.014406099, y: 0.017570859, z: 0.009431807, w: 0.9996974}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftForeArm
+      parentName: Vyktor_Ctrl_LeftArm
+      position: {x: -0.17579564, y: -0.00009811404, z: -0.006253266}
+      rotation: {x: -0.00000318326, y: -0.016524237, z: -0.0087566115, w: 0.9998252}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHand
+      parentName: Vyktor_Ctrl_LeftForeArm
+      position: {x: -0.22768655, y: -0.008345872, z: 0.015936337}
+      rotation: {x: -0.002979439, y: -0.0013153943, z: -0.043243747, w: 0.9990593}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandThumb1
+      parentName: Vyktor_Ctrl_LeftHand
+      position: {x: -0.028711174, y: -0.012501453, z: 0.035422817}
+      rotation: {x: -0.17022276, y: 0.037749935, z: -0.100243025, w: 0.97956645}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandThumb2
+      parentName: Vyktor_Ctrl_LeftHandThumb1
+      position: {x: -0.00835354, y: -0.010862658, z: 0.0100944545}
+      rotation: {x: 0.0045875153, y: 0.00093675754, z: 0.0048043653, w: 0.9999776}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandThumb3
+      parentName: Vyktor_Ctrl_LeftHandThumb2
+      position: {x: -0.009043276, y: -0.009420931, z: 0.010471961}
+      rotation: {x: 6.9111383e-15, y: -7.6328114e-16, z: -0.00000040852885, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandThumb4
+      parentName: Vyktor_Ctrl_LeftHandThumb3
+      position: {x: -0.0088178655, y: -0.008829348, z: 0.011223523}
+      rotation: {x: -2.7755576e-17, y: -5.551115e-17, z: 5.551115e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandIndex1
+      parentName: Vyktor_Ctrl_LeftHand
+      position: {x: -0.074051686, y: -0.019583974, z: 0.0339729}
+      rotation: {x: 0.0022601176, y: -0.0143810585, z: -0.008991067, w: 0.9998536}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandIndex2
+      parentName: Vyktor_Ctrl_LeftHandIndex1
+      position: {x: -0.0137768965, y: -0.0058072675, z: 0.005825444}
+      rotation: {x: -0.0011474206, y: -0.0022412385, z: -0.0049478915, w: 0.99998456}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandIndex3
+      parentName: Vyktor_Ctrl_LeftHandIndex2
+      position: {x: -0.012765392, y: -0.0069095627, z: 0.006090151}
+      rotation: {x: -0.015172008, y: 0.007392966, z: -0.023414453, w: 0.9995834}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandIndex4
+      parentName: Vyktor_Ctrl_LeftHandIndex3
+      position: {x: -0.011856844, y: -0.008544085, z: 0.004985267}
+      rotation: {x: 1.5265567e-16, y: -4.1633363e-17, z: -6.9388946e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandMiddle1
+      parentName: Vyktor_Ctrl_LeftHand
+      position: {x: -0.077708684, y: -0.022756657, z: 0.01686491}
+      rotation: {x: -4.3715032e-16, y: -8.326674e-17, z: 0.00000001816656, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandMiddle2
+      parentName: Vyktor_Ctrl_LeftHandMiddle1
+      position: {x: -0.014886973, y: -0.0057942974, z: 0.0023680548}
+      rotation: {x: -0.0047357716, y: -0.003029709, z: -0.037184905, w: 0.9992926}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandMiddle3
+      parentName: Vyktor_Ctrl_LeftHandMiddle2
+      position: {x: -0.016593479, y: -0.009670031, z: 0.0029012018}
+      rotation: {x: 1.5681904e-15, y: 1.137978e-15, z: -0.00000040852885, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandMiddle4
+      parentName: Vyktor_Ctrl_LeftHandMiddle3
+      position: {x: -0.014741749, y: -0.00896393, z: 0.00259795}
+      rotation: {x: -4.1633363e-17, y: 8.326673e-17, z: 4.510281e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandRing1
+      parentName: Vyktor_Ctrl_LeftHand
+      position: {x: -0.077182636, y: -0.02463471, z: 0.0013469794}
+      rotation: {x: -0.016992232, y: 0.04307844, z: -0.02016749, w: 0.99872357}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandRing2
+      parentName: Vyktor_Ctrl_LeftHandRing1
+      position: {x: -0.015241016, y: -0.0062824264, z: -0.0005780698}
+      rotation: {x: 0.0019189448, y: -0.0021649294, z: -0.02706553, w: 0.9996295}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandRing3
+      parentName: Vyktor_Ctrl_LeftHandRing2
+      position: {x: -0.013408778, y: -0.0077719893, z: -0.00032901057}
+      rotation: {x: -8.847092e-17, y: -5.2041668e-17, z: -0.00000040852888, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandRing4
+      parentName: Vyktor_Ctrl_LeftHandRing3
+      position: {x: -0.013409351, y: -0.007978975, z: 0.0005476202}
+      rotation: {x: 5.2041704e-18, y: -6.938894e-18, z: -4.391019e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandPinky1
+      parentName: Vyktor_Ctrl_LeftHand
+      position: {x: -0.07211881, y: -0.02639466, z: -0.012598234}
+      rotation: {x: -0.036732774, y: 0.091049194, z: -0.046396982, w: 0.99408656}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandPinky2
+      parentName: Vyktor_Ctrl_LeftHandPinky1
+      position: {x: -0.010776674, y: -0.0051549543, z: -0.0015840335}
+      rotation: {x: 0.017299706, y: -0.006951345, z: -0.09507351, w: 0.9952957}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandPinky3
+      parentName: Vyktor_Ctrl_LeftHandPinky2
+      position: {x: -0.008502237, y: -0.0073429886, z: -0.0010101928}
+      rotation: {x: 2.70617e-16, y: 3.0184178e-16, z: -0.00000040852888, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_LeftHandPinky4
+      parentName: Vyktor_Ctrl_LeftHandPinky3
+      position: {x: -0.0075921267, y: -0.0073294085, z: -0.0009098645}
+      rotation: {x: -2.4286129e-17, y: 6.938894e-18, z: 2.5587171e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightShoulder
+      parentName: Vyktor_Ctrl_Spine2
+      position: {x: 0.040723424, y: 0.031334005, z: 0.023157965}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightArm
+      parentName: Vyktor_Ctrl_RightShoulder
+      position: {x: 0.08267451, y: -0.013161167, z: -1.3877787e-19}
+      rotation: {x: 0.018637182, y: -0.022659365, z: -0.011506406, w: 0.9995034}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightForeArm
+      parentName: Vyktor_Ctrl_RightArm
+      position: {x: 0.17728727, y: 0.0005763246, z: -0.008148402}
+      rotation: {x: -0.020256449, y: 0.05160637, z: 0.024962546, w: 0.99815005}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHand
+      parentName: Vyktor_Ctrl_RightForeArm
+      position: {x: 0.23027126, y: -0.0064640064, z: 0.013241798}
+      rotation: {x: -0.016815186, y: -0.0005234217, z: 0.056103595, w: 0.99828327}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandThumb1
+      parentName: Vyktor_Ctrl_RightHand
+      position: {x: 0.030189177, y: -0.018516392, z: 0.036794797}
+      rotation: {x: -0.15006565, y: -0.07609006, z: 0.07555038, w: 0.98284423}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandThumb2
+      parentName: Vyktor_Ctrl_RightHandThumb1
+      position: {x: 0.008741152, y: -0.00937462, z: 0.007920915}
+      rotation: {x: 0.031689487, y: 0.072078764, z: 0.046308294, w: 0.9958193}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandThumb3
+      parentName: Vyktor_Ctrl_RightHandThumb2
+      position: {x: 0.0070859543, y: -0.009767916, z: 0.010354736}
+      rotation: {x: 0.00000010816712, y: 0.00000005069808, z: 0.00000009738752, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandThumb4
+      parentName: Vyktor_Ctrl_RightHandThumb3
+      position: {x: 0.008183519, y: -0.009111102, z: 0.01062103}
+      rotation: {x: -0.00000012092336, y: -0.000000013844092, z: -0.00000013565862, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandIndex1
+      parentName: Vyktor_Ctrl_RightHand
+      position: {x: 0.07394552, y: -0.021904606, z: 0.032765675}
+      rotation: {x: 0.0026492777, y: 0.014118738, z: 0.0092942985, w: 0.9998536}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandIndex2
+      parentName: Vyktor_Ctrl_RightHandIndex1
+      position: {x: 0.013706783, y: -0.0062265024, z: 0.0055514416}
+      rotation: {x: -0.001053971, y: 0.0021526099, z: 0.0050166287, w: 0.9999846}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandIndex3
+      parentName: Vyktor_Ctrl_RightHandIndex2
+      position: {x: 0.012674793, y: -0.00731331, z: 0.0058010397}
+      rotation: {x: -0.015099045, y: -0.0076142834, z: 0.023390912, w: 0.9995834}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandIndex4
+      parentName: Vyktor_Ctrl_RightHandIndex3
+      position: {x: 0.011721385, y: -0.00890259, z: 0.004668242}
+      rotation: {x: -1.3877788e-17, y: -2.7755576e-17, z: -2.94903e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandMiddle1
+      parentName: Vyktor_Ctrl_RightHand
+      position: {x: 0.07737005, y: -0.024756704, z: 0.015553438}
+      rotation: {x: 1.0408341e-17, y: -1.3877788e-17, z: -1.7997756e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandMiddle2
+      parentName: Vyktor_Ctrl_RightHandMiddle1
+      position: {x: 0.0147835575, y: -0.00615677, z: 0.0020842222}
+      rotation: {x: -0.0043133385, y: 0.0022683858, z: 0.03729574, w: 0.9992925}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandMiddle3
+      parentName: Vyktor_Ctrl_RightHandMiddle2
+      position: {x: 0.016412968, y: -0.010078661, z: 0.0025111919}
+      rotation: {x: 6.938894e-18, y: -6.938894e-18, z: 2.3418767e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandMiddle4
+      parentName: Vyktor_Ctrl_RightHandMiddle3
+      position: {x: 0.014573749, y: -0.009327166, z: 0.0022429163}
+      rotation: {x: -1.3877788e-17, y: -2.0816682e-17, z: -3.7296555e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandRing1
+      parentName: Vyktor_Ctrl_RightHand
+      position: {x: 0.07665529, y: -0.026264273, z: 0.0000026685004}
+      rotation: {x: -0.017702004, y: -0.043168906, z: 0.019345291, w: 0.9987237}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandRing2
+      parentName: Vyktor_Ctrl_RightHandRing1
+      position: {x: 0.015098842, y: -0.0065839402, z: -0.00087573606}
+      rotation: {x: 0.0022248407, y: 0.001498553, z: 0.02709283, w: 0.9996293}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandRing3
+      parentName: Vyktor_Ctrl_RightHandRing2
+      position: {x: 0.013238109, y: -0.008040468, z: -0.00064236386}
+      rotation: {x: 3.035766e-18, y: -4.336809e-18, z: -2.7437091e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandRing4
+      parentName: Vyktor_Ctrl_RightHandRing3
+      position: {x: 0.013242763, y: -0.008267519, z: 0.00022924638}
+      rotation: {x: 4.3368087e-19, y: 3.6225797e-35, z: 8.3531e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandPinky1
+      parentName: Vyktor_Ctrl_RightHand
+      position: {x: 0.07142156, y: -0.027595451, z: -0.013927332}
+      rotation: {x: -0.03819639, y: -0.09131041, z: 0.04466629, w: 0.9940867}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandPinky2
+      parentName: Vyktor_Ctrl_RightHandPinky1
+      position: {x: 0.010649836, y: -0.0053406535, z: -0.0018104652}
+      rotation: {x: 0.018356116, y: 0.0043896567, z: 0.095029235, w: 0.9952955}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandPinky3
+      parentName: Vyktor_Ctrl_RightHandPinky2
+      position: {x: 0.008335382, y: -0.0074934405, z: -0.0012639406}
+      rotation: {x: -6.938894e-18, y: -1.3877788e-17, z: -2.8536199e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_RightHandPinky4
+      parentName: Vyktor_Ctrl_RightHandPinky3
+      position: {x: 0.0074267215, y: -0.007463228, z: -0.0011541417}
+      rotation: {x: 1.3877788e-17, y: -6.938894e-18, z: 1.3444107e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_Neck
+      parentName: Vyktor_Ctrl_Spine2
+      position: {x: 0.00083632424, y: 0.0869079, z: 0.031045714}
+      rotation: {x: -0.000017534261, y: 0.00000017561683, z: -0.0000003897836, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vyktor_Ctrl_Head
+      parentName: Vyktor_Ctrl_Neck
+      position: {x: -0, y: 0.08262552, z: 0.03722808}
+      rotation: {x: 3.0616168e-17, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
