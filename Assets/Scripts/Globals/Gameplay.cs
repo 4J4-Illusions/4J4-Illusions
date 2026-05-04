@@ -74,12 +74,12 @@ namespace Globals
                 case TypeInteraction.Calibration:
                     // active l'état en mode calibration, l'overlay de calibration et empêche le joueur de bouger
                     GameManager.Instance.inCalibInterac = true;
-                    GameManager.Instance.overlayCalibration.SetActive(true);
+                    GameManager.Instance.calibOverlay.SetActive(true);
                     ControlesPersonnage.canMove = false;
                     break;
                 case TypeInteraction.CalibrationStop:
                     // stop la roulette de calibration, cachant l'overlay par conséquent
-                    GameManager.Instance.overlayCalibration.GetComponent<CalibRoulette>().StopRoulette();
+                    GameManager.Instance.calibOverlay.GetComponent<CalibRoulette>().StopRoulette();
                     break;
                 case TypeInteraction.Recompense:
                     GameManager.Instance.TerminerNiveau();

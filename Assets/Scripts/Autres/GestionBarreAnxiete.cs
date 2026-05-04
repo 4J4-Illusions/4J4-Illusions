@@ -17,7 +17,6 @@ public class GestionBarreAnxiete : MonoBehaviour
 
     [Header("Ajustement inspecteur"), Space]
     public bool modeProgBarre = false;
-    public float reductionStressSoulagement = .25f;
     [Range(0, 1)] public float progressionBarre = .001f;
     // gestions, trackage et acces pour autres scripts
     public static Dictionary<int, StressPointEntry> collectionStressPoints = new();
@@ -45,6 +44,11 @@ public class GestionBarreAnxiete : MonoBehaviour
         Instance = this;
         //DontDestroyOnLoad(gameObject);
 
+        if (GameManager.Instance.stageJeu == StageJeu.Theatre)
+        {
+            modeProgBarre = true;
+            stressTotal = 1;
+        }
         stressTotal = 0;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -89,7 +93,7 @@ public class GestionBarreAnxiete : MonoBehaviour
 
             finalProgBarre = (!pauseProgBarre) ? (-progressionBarre / 10) : 0;
             //Debug.Log("final prog barre: " + finalProgBarre);
-            if(GameManager.Instance.allowGameLoop) stressTotal += (sommeStress > .00001) ? sommeStress : finalProgBarre;
+            if (GameManager.Instance.allowGameLoop) stressTotal += (sommeStress > .00001) ? sommeStress : finalProgBarre;
             else stressTotal += 0;
             stressTotal = MathF.Min(MathF.Max(stressTotal, 0), 1);
             //Debug.Log("stress total: " + stressTotal);
@@ -99,10 +103,7 @@ public class GestionBarreAnxiete : MonoBehaviour
         vitesseAnimCoeur = 1 + stressTotal * 4;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
 
-        if (stressTotal >= 1)
-        {
-            GameManager.Instance.Jumpscare();
-        }
+        if (stressTotal >= 1 && GameManager.Instance.stageJeu != StageJeu.Theatre) GameManager.Instance.Jumpscare();
     }
     private void OnEnable()
     {
@@ -130,8 +131,8 @@ public class GestionBarreAnxiete : MonoBehaviour
     /// <summary>
     /// Réduit le niveau de stress du joueur
     /// </summary>
-    void Soulagement()
+    void Soulagement(float valeurSoulagement = 0)
     {
-        stressTotal -= reductionStressSoulagement;
+        stressTotal -= valeurSoulagement;
     }
 }
