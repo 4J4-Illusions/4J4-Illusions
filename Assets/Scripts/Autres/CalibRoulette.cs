@@ -1,3 +1,4 @@
+using Globals;
 using UnityEngine;
 
 public class CalibRoulette : MonoBehaviour
@@ -51,6 +52,7 @@ public class CalibRoulette : MonoBehaviour
             rotAvecOffset <= sectionRouletteAToucher[1])
         {
             Debug.Log("Calibration reussie!");
+            GameManager.Instance.AvancerObjectifNiveau(StageJeu.Theatre);
         }
         else
         {

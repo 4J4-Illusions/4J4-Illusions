@@ -44,11 +44,6 @@ public class GestionBarreAnxiete : MonoBehaviour
         Instance = this;
         //DontDestroyOnLoad(gameObject);
 
-        if (GameManager.Instance.stageJeu == StageJeu.Theatre)
-        {
-            modeProgBarre = true;
-            stressTotal = 1;
-        }
         stressTotal = 0;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -57,6 +52,12 @@ public class GestionBarreAnxiete : MonoBehaviour
         imgBarre = conteneurBarre.transform.GetChild(0).GetComponent<Image>();
         volume = GameManager.Instance.cameraJoueur.GetComponent<Volume>();
         audsrc = GetComponent<AudioManagerConnect>().audsrc;
+
+        if (GameManager.Instance.stageJeu == StageJeu.Theatre)
+        {
+            modeProgBarre = true;
+            stressTotal = 1;
+        }
     }
     // Update is called once per frame
     void Update()
