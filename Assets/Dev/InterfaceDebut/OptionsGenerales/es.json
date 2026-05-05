@@ -1,0 +1,33 @@
+{
+  "items": [
+    { "key": "MENU_CIRCULAIRE_CONTINUER", "value": "Continuar" },
+    { "key": "MENU_CIRCULAIRE_SAUVEGARDER", "value": "Guardar" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES", "value": "Controles" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE", "value": "Gráfico" },
+    { "key": "MENU_CIRCULAIRE_AUDIO", "value": "Audio" },
+    { "key": "MENU_CIRCULAIRE_LANGUE", "value": "Idioma" },
+    { "key": "MENU_CIRCULAIRE_INTERFACES", "value": "Interfaces" },
+    { "key": "MENU_CIRCULAIRE_CREDITS", "value": "Créditos" },
+    { "key": "MENU_CIRCULAIRE_QUITTER", "value": "Salir" },
+    { "key": "MENU_CIRCULAIRE_CONTINUER_TEXTE", "value": "¿Continuar la partida?" },
+    { "key": "MENU_CIRCULAIRE_SAUVEGARDER_TEXTE", "value": "¡Guardar o seleccionar una partida guardada!" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES_DEPLACEMENTS", "value": "Movimientos" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES_INTERACTIONS", "value": "Interacciones" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES_CAMERA", "value": "Cámara" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE_QUALITEGENERALE", "value": "Calidad general" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE_OMBRES", "value": "Sombras" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE_RESOLUTION", "value": "Resolución" },
+
+    { "key": "MENU_CIRCULAIRE_AUDIO_GENERAL", "value": "General" },
+    { "key": "MENU_CIRCULAIRE_AUDIO_JEU", "value": "Juego" },
+    { "key": "MENU_CIRCULAIRE_AUDIO_MUSIQUE", "value": "Música" },
+    { "key": "MENU_CIRCULAIRE_LANGUE_TEXTE", "value": "Selección de idioma" },
+
+    { "key": "MENU_CIRCULAIRE_CREDITS_TEXTE","value": "Jefa de proyecto: Sara Haimeur \nDirectora artística: Prinnie Ly \nDirector técnico: Pharly Bazile \nDirectora de integración: Clarence Ouimet \nDirector de integración: Juba Ameziane"},
+    { "key": "MENU_CIRCULAIRE_QUITTER_TEXTE", "value": "¿Realmente quieres salir?" },
+
+    { "key": "TEXTE_DIALOGUE_UN", "value": "¿Quieres jugar a un juego conmigo?" },
+    { "key": "TEXTE_DIALOGUE_DEUX", "value": "Ya dije... quieres... jugar... a... un... juego... conmigo." },
+    { "key": "TEXTE_DIALOGUE_TROIS", "value": "¡JUEGA AL JUEGO!!!" }
+  ]
+}

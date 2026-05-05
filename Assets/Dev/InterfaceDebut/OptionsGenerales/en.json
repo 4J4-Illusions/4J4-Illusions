@@ -1,0 +1,34 @@
+{
+  "items": [
+    { "key": "MENU_CIRCULAIRE_CONTINUER", "value": "Continue" },
+    { "key": "MENU_CIRCULAIRE_SAUVEGARDER", "value": "Save" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES", "value": "Controls" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE", "value": "Graphics" },
+    { "key": "MENU_CIRCULAIRE_AUDIO", "value": "Audio" },
+    { "key": "MENU_CIRCULAIRE_LANGUE", "value": "Language" },
+    { "key": "MENU_CIRCULAIRE_INTERFACES", "value": "Interface" },
+    { "key": "MENU_CIRCULAIRE_CREDITS", "value": "Credits" },
+    { "key": "MENU_CIRCULAIRE_QUITTER", "value": "Quit" },
+    { "key": "MENU_CIRCULAIRE_CONTINUER_TEXTE", "value": "Continue the game?" },
+    { "key": "MENU_CIRCULAIRE_SAUVEGARDER_TEXTE", "value": "Save or select a pre-existing save!" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES_DEPLACEMENTS", "value": "Movements" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES_INTERACTIONS", "value": "Interactions" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES_CAMERA", "value": "Camera" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE_QUALITEGENERALE", "value": "General Quality" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE_OMBRES", "value": "Shadows" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE_RESOLUTION", "value": "Resolution" },
+
+
+    { "key": "MENU_CIRCULAIRE_AUDIO_GENERAL", "value": "General" },
+    { "key": "MENU_CIRCULAIRE_AUDIO_JEU", "value": "Game" },
+    { "key": "MENU_CIRCULAIRE_AUDIO_MUSIQUE", "value": "Music" },
+    { "key": "MENU_CIRCULAIRE_LANGUE_TEXTE", "value": "Chosse a language" },
+
+    { "key": "MENU_CIRCULAIRE_CREDITS_TEXTE", "value": "Project Manager: Sara Haimeur \nArtistic Director: Prinnie Ly \nTechnical Director: Pharly Bazile \nIntegration Director: Clarence Ouimet \nIntegration Director: Juba Ameziane" },
+    { "key": "MENU_CIRCULAIRE_QUITTER_TEXTE", "value": "Do you really want to quit?" },
+
+    { "key": "TEXTE_DIALOGUE_UN", "value": "Do you want to play a game with me?" },
+    { "key": "TEXTE_DIALOGUE_DEUX", "value": "I said... Do. You. Want. To. Play. A. Game. With. Me." },
+    { "key": "TEXTE_DIALOGUE_TROIS", "value": "PLAY THE DAMN GAME!!!" }
+  ]
+}
