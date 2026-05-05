@@ -1,6 +1,7 @@
 using Globals;
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class ControlesPersonnage : MonoBehaviour
@@ -30,11 +31,13 @@ public class ControlesPersonnage : MonoBehaviour
     RaycastHit hit;
     AudioSource audsrc;
     Animator animPerso;
+    NavMeshAgent agent;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         //audsrc = GetComponent<AudioSource>();
+        agent = GetComponent<NavMeshAgent>();
 
         mouvementAction = InputSystem.actions.FindAction("Player/Move");
         rotationAction = InputSystem.actions.FindAction("Player/Look");
@@ -101,7 +104,11 @@ public class ControlesPersonnage : MonoBehaviour
     void FixedUpdate()
     {
         // applique mouvement au joueur
-        rigidBody.linearVelocity = new Vector3(mouvementFinal.x, rigidBody.linearVelocity.y, mouvementFinal.z);
+        if(agent != null)
+        {
+            agent.Move(new Vector3(mouvementFinal.x, 0, mouvementFinal.z) * Time.deltaTime);
+        }
+        else rigidBody.linearVelocity = new Vector3(mouvementFinal.x, rigidBody.linearVelocity.y, mouvementFinal.z);
     }
     private void OnEnable()
     {
@@ -137,7 +144,6 @@ public class ControlesPersonnage : MonoBehaviour
             hitInfo: out hit,
             maxDistance: porteeInteraction) && !GameManager.Instance.inCalibInterac)
         {
-            Debug.DrawLine(cameraJoueur.transform.position, hit.point, Color.red);
             //Debug.Log(hit.transform.gameObject.name);
             if (hit.transform.gameObject.TryGetComponent<ObjetInteractif>(out ObjetInteractif objInter))
             {

@@ -70,14 +70,4 @@ namespace Globals
             return $"Valeur Stresss: {valeurStress}    Type: {type}    Pause Barre Prog?: {pauseProgBarre}";
         }
     }
-    public struct VariationSelonBase
-    {
-        public float valeurBase;
-        public float variation;
-
-        public override readonly string ToString()
-        {
-            return $"Valeur base: {valeurBase}    Variation: {variation}";
-        }
-    }
 }

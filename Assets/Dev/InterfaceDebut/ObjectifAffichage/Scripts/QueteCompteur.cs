@@ -17,6 +17,11 @@ public class QueteCompteur : MonoBehaviour
         OnValeurChange?.Invoke();
     }
 
+    public static void ResetCompteur()
+    {
+        Ajouter(-valeurMax);
+    }
+
     public string GetTexte()
     {
         return nomQuete + " : " + valeurActuelle + " / " + valeurMax;

@@ -9,6 +9,7 @@ TagManager:
   - Monstre
   - CheminFoulePassante
   - Jumpscare
+  - CalibOverlay
   layers:
   - Default
   - TransparentFX

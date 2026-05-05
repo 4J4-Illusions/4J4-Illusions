@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Affectation inspecteur"), Space(30)]
     [Header("Hiérarchie")]
-    public GameObject overlayCalibration;
+    public GameObject calibOverlay;
     public GameObject modelePapier;
     public GameObject jumpscareImage;
     [Header("Projet")]
@@ -40,7 +40,8 @@ public class GameManager : MonoBehaviour
     public ControlesPersonnage playerScript;
 
     // évènements
-    public static Action OnGameOver, OnLevelProgress, OnLevelComplete;
+    public static Action OnGameOver, OnLevelComplete;
+    public static Action<float> OnLevelProgress;
     public static Action<StageJeu> OnObjectiveComplete;
 
     void Awake()
@@ -151,7 +152,8 @@ public class GameManager : MonoBehaviour
         }
 
         QueteCompteur.Ajouter(1);
-        OnLevelProgress.Invoke();
+        if(stage == StageJeu.Theatre) OnLevelProgress.Invoke(.05f);
+        else OnLevelProgress.Invoke(.25f);
     }
     /// <summary>
     /// Éxécute la logique de complétion de l'objectif du niveau en fonction du stage de jeu actuel.
@@ -204,7 +206,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         stageJeu = (StageJeu)scene.buildIndex;
         // reset du compteur de quête
-        QueteCompteur.Ajouter(-5);
+        QueteCompteur.ResetCompteur();
 
         // affectations éléments de la hiérarchie
         player = GameObject.FindWithTag("Player");
@@ -235,11 +237,13 @@ public class GameManager : MonoBehaviour
             case StageJeu.Foret:
                 jumpscareImage = GameObject.FindWithTag("Jumpscare");
                 jumpscareImage.SetActive(false);
+                jumpscareImage.transform.localScale = Vector3.one;
                 listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
                 // ordre aléatoire aux lampadaires
                 Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
                 break;
             case StageJeu.Theatre:
+                calibOverlay = GameObject.FindWithTag("CalibOverlay");
                 break;
         }
     }

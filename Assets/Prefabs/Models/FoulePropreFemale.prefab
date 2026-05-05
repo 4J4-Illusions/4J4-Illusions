@@ -165,6 +165,26 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5478560674879487662, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00034179687
+      objectReference: {fileID: 0}
+    - target: {fileID: -5478560674879487662, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.082879
+      objectReference: {fileID: 0}
+    - target: {fileID: -5478560674879487662, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.016441751
+      objectReference: {fileID: 0}
+    - target: {fileID: -5478560674879487662, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5478560674879487662, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5786eb231c369f84a9a71f91f5f8e63c, type: 3}
       propertyPath: m_Name
       value: Foule_Female
