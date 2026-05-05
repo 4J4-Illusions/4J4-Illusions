@@ -24,10 +24,12 @@ namespace Globals
                     if (obj != null) Destroy(obj);
                     break;
                 case TypeInteraction.Papier:
+                    // check la liste des bouts de papier pour trouver celui qui correspond à l'objet interagi
                     foreach (GameObject papier in GameManager.Instance.listeBoutsPapier)
                     {
                         if (papier.name == obj.name)
                         {
+                            // change son matériel pour le rendre visible et détruit l'objet interagi
                             papier.GetComponent<MeshRenderer>().material = GameManager.Instance.matPapier;
                             Destroy(obj);
                             GameManager.Instance.AvancerObjectifNiveau(StageJeu.Desert);

@@ -133,6 +133,8 @@ public class GameManager : MonoBehaviour
     /// <param name="stage">Le stage courant</param>
     public void AvancerObjectifNiveau(StageJeu stage)
     {
+        Debug.Log("L'objectif progresse");
+
         switch (stage)
         {
             case StageJeu.Desert:
@@ -152,7 +154,7 @@ public class GameManager : MonoBehaviour
         }
 
         QueteCompteur.Ajouter(1);
-        if(stage == StageJeu.Theatre) OnLevelProgress.Invoke(.05f);
+        if (stage == StageJeu.Theatre) OnLevelProgress.Invoke(.05f);
         else OnLevelProgress.Invoke(.25f);
     }
     /// <summary>
@@ -190,8 +192,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void TransitionNiveau()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Debug.Log(SceneManager.sceneCountInBuildSettings);
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else SceneManager.LoadScene(0);
+        //Debug.Log(SceneManager.sceneCountInBuildSettings);
     }
     /// <summary>
     /// Initialisation des propriétés de gameManager à chaque chargement de scène.
@@ -203,7 +209,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Chargement de la scène: " + scene.name);
 
         // affectations valeurs générales importantes
-        Cursor.lockState = CursorLockMode.Locked;
+        if (scene.buildIndex != 0) Cursor.lockState = CursorLockMode.Locked;
         stageJeu = (StageJeu)scene.buildIndex;
         // reset du compteur de quête
         QueteCompteur.ResetCompteur();
@@ -244,6 +250,8 @@ public class GameManager : MonoBehaviour
                 break;
             case StageJeu.Theatre:
                 calibOverlay = GameObject.FindWithTag("CalibOverlay");
+                calibOverlay.SetActive(false);
+                calibOverlay.transform.localScale = Vector3.one;
                 break;
         }
     }
