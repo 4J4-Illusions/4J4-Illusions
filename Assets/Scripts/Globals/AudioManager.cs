@@ -52,11 +52,11 @@ public class AudioManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        Parametres.OnSettingsChange += (KeyValuePair<string, string> kvp) => { if (kvp.Key.StartsWith("Audio-")) CalculVolumeFinal(kvp.Key[6..], kvp.Value); };
+        Parametres.OnSettingsChange += (string key, string value) => { if (key.StartsWith("Audio-")) CalculVolumeFinal(key[6..], value); };
     }
     private void OnDisable()
     {
-        Parametres.OnSettingsChange -= (KeyValuePair<string, string> kvp) => { if (kvp.Key.StartsWith("Audio-")) CalculVolumeFinal(kvp.Key[6..], kvp.Value); };
+        Parametres.OnSettingsChange -= (string key, string value) => { if (key.StartsWith("Audio-")) CalculVolumeFinal(key[6..], value); };
     }
 
 

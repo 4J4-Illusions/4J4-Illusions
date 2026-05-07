@@ -2632,6 +2632,10 @@ PrefabInstance:
       propertyPath: texteInteraction
       value: 
       objectReference: {fileID: 2102280601}
+    - target: {fileID: 1128569196814898588, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1568875386147487604, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
       propertyPath: m_LocalPosition.x
       value: 486.49
