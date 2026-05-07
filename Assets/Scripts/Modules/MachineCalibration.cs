@@ -40,10 +40,17 @@ public class MachineCalibration : MonoBehaviour
     /// <summary>
     /// Joue l'animation de la machine qui se répare et désactive le collider pour empêcher l'interaction jusqu'à ce qu'elle se casse à nouveau
     /// </summary>
-    void RepairMachine()
+    public void SuccessfulRepairMachine()
     {
         collision.enabled = false;
         anim.SetTrigger("TriggerRepair");
         cooldown = Random.Range(15, 30);
+        //cooldown = Random.Range(1, 3);
+    }
+    public void FailedRepairMachine()
+    {
+        collision.enabled = false;
+        cooldown = Random.Range(20, 40);
+        //cooldown = Random.Range(2, 4);
     }
 }

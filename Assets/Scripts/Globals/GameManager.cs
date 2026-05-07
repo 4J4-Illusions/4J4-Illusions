@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
     {
         ControlesPersonnage.canMove = allowGameLoop = !enPause;
 
-        Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
+        if (stageJeu != StageJeu.Intro) Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
     }
     /// <summary>
     /// Retourne au menu principal
@@ -209,25 +209,33 @@ public class GameManager : MonoBehaviour
         Debug.Log("Chargement de la scène: " + scene.name);
 
         // affectations valeurs générales importantes
-        if (scene.buildIndex != 0) Cursor.lockState = CursorLockMode.Locked;
         stageJeu = (StageJeu)scene.buildIndex;
         // reset du compteur de quête
         QueteCompteur.ResetCompteur();
-
-        // affectations éléments de la hiérarchie
-        player = GameObject.FindWithTag("Player");
-        cameraJoueur = player.transform.Find("CameraJoueur").gameObject;
-        playerScript = player.GetComponent<ControlesPersonnage>();
-        recompense = GameObject.FindWithTag("Recompense");
-        //Debug.Log(GameObject.FindWithTag("Recompense"));
-        //Debug.Log(Time.realtimeSinceStartup);
-        //Debug.Log(recompense.name);
-        if (recompense != null) recompense.SetActive(false);
 
         // reset les compteurs et états
         indexLampCour = progressionBoutsPapier = 0;
         objectifComplete = niveauComplete = gameOver = false;
         allowGameLoop = true;
+
+
+        // affections quand la scene est pas celle d'intro
+        if (scene.buildIndex != 0)
+        {
+            // affectations valeurs générales importantes
+            Cursor.lockState = CursorLockMode.Locked;
+
+            // affectations éléments de la hiérarchie
+            player = GameObject.FindWithTag("Player");
+            cameraJoueur = player.transform.Find("CameraJoueur").gameObject;
+            playerScript = player.GetComponent<ControlesPersonnage>();
+            recompense = GameObject.FindWithTag("Recompense");
+            //Debug.Log(GameObject.FindWithTag("Recompense"));
+            //Debug.Log(Time.realtimeSinceStartup);
+            //Debug.Log(recompense.name);
+            if (recompense != null) recompense.SetActive(false);
+        }
+
 
         // autres initialisation selon le stage de jeu
         switch (stageJeu)

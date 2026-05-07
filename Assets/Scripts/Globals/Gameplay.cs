@@ -77,6 +77,7 @@ namespace Globals
                     // active l'état en mode calibration, l'overlay de calibration et empêche le joueur de bouger
                     GameManager.Instance.inCalibInterac = true;
                     GameManager.Instance.calibOverlay.SetActive(true);
+                    GameManager.Instance.calibOverlay.GetComponent<CalibRoulette>().machineCalibration = obj;
                     ControlesPersonnage.canMove = false;
                     break;
                 case TypeInteraction.CalibrationStop:

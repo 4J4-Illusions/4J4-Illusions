@@ -8,6 +8,8 @@ public class CalibRoulette : MonoBehaviour
     public GameObject pointeur;
     [Header("Ajustement inspecteur"), Space]
     public float[] rangeVitRot = new float[2] { -10f, -5f };
+    [Header("Accès pour autres scripts"), Space(30)]
+    public GameObject machineCalibration;
 
     float vitRotation;
     RectTransform rectPointeur;
@@ -53,10 +55,12 @@ public class CalibRoulette : MonoBehaviour
         {
             Debug.Log("Calibration reussie!");
             GameManager.Instance.AvancerObjectifNiveau(StageJeu.Theatre);
+            machineCalibration.GetComponent<MachineCalibration>().SuccessfulRepairMachine();
         }
         else
         {
             Debug.Log("Calibration ratee...");
+            machineCalibration.GetComponent<MachineCalibration>().FailedRepairMachine();
         }
 
         Invoke(nameof(FinInteracCalib), 2);
