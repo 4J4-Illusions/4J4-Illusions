@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-100)]
 public class LanguageManager : MonoBehaviour
 {
     public static LanguageManager Instance;
@@ -25,12 +26,17 @@ public class LanguageManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadLanguage(currentLanguage);
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    // 🔥 IMPORTANT : on charge APRES que les UI existent
+    private void Start()
+    {
+        LoadLanguage(currentLanguage);
     }
 
     public void LoadLanguage(Language lang)
@@ -62,8 +68,13 @@ public class LanguageManager : MonoBehaviour
             translations[item.key] = item.value;
         }
 
-        // 🔥 NOTIFY TOUT LE MONDE
+        // 🔥 SAFE EVENT
         OnLanguageChanged?.Invoke();
+    }
+
+    public void SetLanguage(Language lang)
+    {
+        LoadLanguage(lang);
     }
 
     public string Get(string key)

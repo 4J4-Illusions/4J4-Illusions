@@ -1,24 +1,33 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
 public class LocalizedText : MonoBehaviour
 {
     public string key;
-    public TextMeshProUGUI text;
+    private TextMeshProUGUI text;
 
     private void Awake()
     {
-        if (text == null)
-            text = GetComponent<TextMeshProUGUI>();
+        text = GetComponent<TextMeshProUGUI>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        LanguageManager.Instance.OnLanguageChanged += UpdateText;
-        UpdateText();
+        StartCoroutine(Init());
     }
 
-    private void OnDisable()
+    private IEnumerator Init()
+    {
+        while (LanguageManager.Instance == null)
+            yield return null;
+
+        LanguageManager.Instance.OnLanguageChanged += UpdateText;
+
+        UpdateText(); // sync immédiate
+    }
+
+    private void OnDestroy()
     {
         if (LanguageManager.Instance != null)
             LanguageManager.Instance.OnLanguageChanged -= UpdateText;
@@ -26,6 +35,9 @@ public class LocalizedText : MonoBehaviour
 
     public void UpdateText()
     {
+        if (LanguageManager.Instance == null || text == null)
+            return;
+
         text.text = LanguageManager.Instance.Get(key);
     }
 }

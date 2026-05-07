@@ -22,7 +22,7 @@
     { "key": "MENU_CIRCULAIRE_AUDIO_GENERAL", "value": "General" },
     { "key": "MENU_CIRCULAIRE_AUDIO_JEU", "value": "Game" },
     { "key": "MENU_CIRCULAIRE_AUDIO_MUSIQUE", "value": "Music" },
-    { "key": "MENU_CIRCULAIRE_LANGUE_TEXTE", "value": "Chosse a language" },
+    { "key": "MENU_CIRCULAIRE_LANGUE_TEXTE", "value": "Choose a language" },
 
     { "key": "MENU_CIRCULAIRE_CREDITS_TEXTE", "value": "Project Manager: Sara Haimeur \nArtistic Director: Prinnie Ly \nTechnical Director: Pharly Bazile \nIntegration Director: Clarence Ouimet \nIntegration Director: Juba Ameziane" },
     { "key": "MENU_CIRCULAIRE_QUITTER_TEXTE", "value": "Do you really want to quit?" },

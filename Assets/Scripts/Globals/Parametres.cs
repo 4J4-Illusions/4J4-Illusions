@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Parametres : MonoBehaviour
 {
-    // référence statique pour accéder aux propriététs du singleton
+    // rï¿½fï¿½rence statique pour accï¿½der aux propriï¿½tï¿½ts du singleton
     public static Parametres Instance { get; private set; }
 
-    [Header("Accès pour autres scripts"), Space]
+    [Header("Accï¿½s pour autres scripts"), Space]
     public Dictionary<string, string> dictParametres = new();
 
-    // évènements
+    // ï¿½vï¿½nements
     public static Action<KeyValuePair<string, string>> OnSettingsChange;
 
     void Awake()
     {
         /*
          * setup du singleton
-         * trouvé sur ce lien:
+         * trouvï¿½ sur ce lien:
          * https://gamedev.stackexchange.com/questions/116009/in-unity-how-do-i-correctly-implement-the-singleton-pattern
         */
         if (Instance != null && Instance != this)
@@ -36,12 +36,12 @@ public class Parametres : MonoBehaviour
 
 
     /// <summary>
-    /// Met à jour la valeur d'un paramètre dans le dictionnaire et déclenche l'évènement de changement de paramètre.
+    /// Met ï¿½ jour la valeur d'un paramï¿½tre dans le dictionnaire et dï¿½clenche l'ï¿½vï¿½nement de changement de paramï¿½tre.
     /// </summary>
-    /// <param name="kvp">La paire de clé-valeur du paramètre</param>
+    /// <param name="kvp">La paire de clï¿½-valeur du paramï¿½tre</param>
     public void UpdateParametres(KeyValuePair<string, string> kvp)
     {
         dictParametres[kvp.Key] = kvp.Value;
-        OnSettingsChange.Invoke(kvp);
+        //OnSettingsChange.Invoke(kvp);
     }
 }
