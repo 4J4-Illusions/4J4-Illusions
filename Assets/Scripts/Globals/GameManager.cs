@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
     {
         ControlesPersonnage.canMove = allowGameLoop = !enPause;
 
-        Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
+        if (stageJeu != StageJeu.Intro) Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
     }
     /// <summary>
     /// Retourne au menu principal
@@ -133,6 +133,8 @@ public class GameManager : MonoBehaviour
     /// <param name="stage">Le stage courant</param>
     public void AvancerObjectifNiveau(StageJeu stage)
     {
+        Debug.Log("L'objectif progresse");
+
         switch (stage)
         {
             case StageJeu.Desert:
@@ -152,7 +154,7 @@ public class GameManager : MonoBehaviour
         }
 
         QueteCompteur.Ajouter(1);
-        if(stage == StageJeu.Theatre) OnLevelProgress.Invoke(.05f);
+        if (stage == StageJeu.Theatre) OnLevelProgress.Invoke(.05f);
         else OnLevelProgress.Invoke(.25f);
     }
     /// <summary>
@@ -190,8 +192,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void TransitionNiveau()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Debug.Log(SceneManager.sceneCountInBuildSettings);
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else SceneManager.LoadScene(0);
+        //Debug.Log(SceneManager.sceneCountInBuildSettings);
     }
     /// <summary>
     /// Initialisation des propriétés de gameManager à chaque chargement de scène.
@@ -203,25 +209,33 @@ public class GameManager : MonoBehaviour
         Debug.Log("Chargement de la scène: " + scene.name);
 
         // affectations valeurs générales importantes
-        Cursor.lockState = CursorLockMode.Locked;
         stageJeu = (StageJeu)scene.buildIndex;
         // reset du compteur de quête
         QueteCompteur.ResetCompteur();
-
-        // affectations éléments de la hiérarchie
-        player = GameObject.FindWithTag("Player");
-        cameraJoueur = player.transform.Find("CameraJoueur").gameObject;
-        playerScript = player.GetComponent<ControlesPersonnage>();
-        recompense = GameObject.FindWithTag("Recompense");
-        //Debug.Log(GameObject.FindWithTag("Recompense"));
-        //Debug.Log(Time.realtimeSinceStartup);
-        //Debug.Log(recompense.name);
-        if (recompense != null) recompense.SetActive(false);
 
         // reset les compteurs et états
         indexLampCour = progressionBoutsPapier = 0;
         objectifComplete = niveauComplete = gameOver = false;
         allowGameLoop = true;
+
+
+        // affections quand la scene est pas celle d'intro
+        if (scene.buildIndex != 0)
+        {
+            // affectations valeurs générales importantes
+            Cursor.lockState = CursorLockMode.Locked;
+
+            // affectations éléments de la hiérarchie
+            player = GameObject.FindWithTag("Player");
+            cameraJoueur = player.transform.Find("CameraJoueur").gameObject;
+            playerScript = player.GetComponent<ControlesPersonnage>();
+            recompense = GameObject.FindWithTag("Recompense");
+            //Debug.Log(GameObject.FindWithTag("Recompense"));
+            //Debug.Log(Time.realtimeSinceStartup);
+            //Debug.Log(recompense.name);
+            if (recompense != null) recompense.SetActive(false);
+        }
+
 
         // autres initialisation selon le stage de jeu
         switch (stageJeu)
@@ -244,6 +258,8 @@ public class GameManager : MonoBehaviour
                 break;
             case StageJeu.Theatre:
                 calibOverlay = GameObject.FindWithTag("CalibOverlay");
+                calibOverlay.SetActive(false);
+                calibOverlay.transform.localScale = Vector3.one;
                 break;
         }
     }

@@ -57,6 +57,8 @@ public class GestionBarreAnxiete : MonoBehaviour
         {
             modeProgBarre = true;
             stressTotal = 1;
+            progressionBarre *= -1;
+            Debug.Log(progressionBarre);
         }
     }
     // Update is called once per frame
@@ -64,11 +66,7 @@ public class GestionBarreAnxiete : MonoBehaviour
     {
         if (modeProgBarre)
         {
-            if (stressTotal < 1)
-            {
-                //Debug.Log("Increasing...");
-                stressTotal += progressionBarre;
-            }
+            stressTotal += progressionBarre;
         }
         else
         {
@@ -96,15 +94,17 @@ public class GestionBarreAnxiete : MonoBehaviour
             //Debug.Log("final prog barre: " + finalProgBarre);
             if (GameManager.Instance.allowGameLoop) stressTotal += (sommeStress > .00001) ? sommeStress : finalProgBarre;
             else stressTotal += 0;
-            stressTotal = MathF.Min(MathF.Max(stressTotal, 0), 1);
-            //Debug.Log("stress total: " + stressTotal);
         }
+        stressTotal = Mathf.Clamp(stressTotal, 0, 1);
+        //Debug.Log("stress total: " + stressTotal);
+
         volume.weight = imgBarre.fillAmount = stressTotal;
         audsrc.volume = stressTotal * AudioManager.Instance.SetAudioVolume(CategorieSon.Ambience);
         vitesseAnimCoeur = 1 + stressTotal * 4;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
 
-        if (stressTotal >= 1 && GameManager.Instance.stageJeu != StageJeu.Theatre) GameManager.Instance.Jumpscare();
+        if (stressTotal == 1 && GameManager.Instance.stageJeu != StageJeu.Theatre) GameManager.Instance.Jumpscare();
+        else if(stressTotal == 0 && GameManager.Instance.stageJeu == StageJeu.Theatre) GameManager.Instance.TerminerNiveau();
     }
     private void OnEnable()
     {
@@ -134,6 +134,7 @@ public class GestionBarreAnxiete : MonoBehaviour
     /// </summary>
     void Soulagement(float valeurSoulagement = 0)
     {
+        Debug.Log($"Soulagement d'une valeur de: {valeurSoulagement} ({valeurSoulagement * 100}%)");
         stressTotal -= valeurSoulagement;
     }
 }
