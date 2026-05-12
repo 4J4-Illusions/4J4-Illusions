@@ -52,11 +52,11 @@ public class AudioManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        Parametres.OnSettingsChange += (string key, string value) => { if (key.StartsWith("Audio-")) CalculVolumeFinal(key[6..], value); };
+        Parametres.OnSettingsChange += (string key, object value) => { if (key.StartsWith("Audio-")) CalculVolumeFinal(key[6..], value); };
     }
     private void OnDisable()
     {
-        Parametres.OnSettingsChange -= (string key, string value) => { if (key.StartsWith("Audio-")) CalculVolumeFinal(key[6..], value); };
+        Parametres.OnSettingsChange -= (string key, object value) => { if (key.StartsWith("Audio-")) CalculVolumeFinal(key[6..], value); };
     }
 
 
@@ -98,11 +98,11 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     /// <param name="categVolume">La catégorie de volume à mettre à jour</param>
     /// <param name="valeur">La nouvelle valeur de volume</param>
-    void CalculVolumeFinal(string categVolume, string valeur)
+    void CalculVolumeFinal(string categVolume, object valeur)
     {
         //Debug.Log(categVolume);
         //Debug.Log(valeur);
-        float valeurConvertie = float.Parse(valeur) / 100;
+        float valeurConvertie = float.Parse((string) valeur) / 100;
 
         if (categVolume == "General") volumeGeneral = valeurConvertie;
         else if (categVolume == "Jeu") volumeJeu = valeurConvertie;
