@@ -38,9 +38,6 @@ namespace Globals
                     }
                     break;
                 case TypeInteraction.Parler:
-                    //GameObject texte = obj.transform.Find("TexteFoule").gameObject;
-                    //GameObject texte = obj.transform.parent.Find("TexteFoule").gameObject;
-                    //obj.transform.Find("TexteFoule").gameObject.SetActive(true);
                     obj.transform.parent.Find("TexteFoule").gameObject.SetActive(true);
                     obj.transform.parent.GetComponent<IndiceBoutPapier>().cooldownEnleverTexte += 3;
                     break;

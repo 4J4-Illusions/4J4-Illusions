@@ -1,3 +1,4 @@
+using Globals;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -36,7 +37,7 @@ public class Parametres : MonoBehaviour
     // évènements
     public static Action<string, object> OnSettingsChange;
 
-    string pathSave;
+    string fileName = "settings.json", filePath;
     SettingsData parametresDonnees = new();
 
     void Awake()
@@ -54,7 +55,7 @@ public class Parametres : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        pathSave = Path.Combine(Application.persistentDataPath, "settings.json");
+        filePath = Path.Combine(Application.persistentDataPath, fileName);
     }
     private void Start()
     {
@@ -83,12 +84,11 @@ public class Parametres : MonoBehaviour
     void SauvegarderParametres()
     {
         // IO pour sauvegarde
-        FichierIO.Create(pathSave, JsonUtility.ToJson(parametresDonnees));
-        //File.WriteAllText(pathSave, JsonUtility.ToJson(parametresDonnees));
+        FichierIO.Create(filePath, JsonUtility.ToJson(parametresDonnees));
 
-        if (File.Exists(pathSave))
+        if (File.Exists(filePath))
         {
-            Debug.Log($"fichier \'settings.json\' éxiste:\n{pathSave}");
+            Debug.Log($"fichier \'settings.json\' éxiste:\n{filePath}");
             //var fileData = FichierIO.Read<SettingsData>(pathSave);
             //Debug.Log(fileData);
             //foreach (var item in fileData.GetType().GetFields())
@@ -135,12 +135,6 @@ public class SettingsData
             {
                 throw new ArgumentException("Field is undefined", nameof(key));
             }
-
-            // adaptation selon stackoverflow
-            // Source - https://stackoverflow.com/a/1089130
-            // Posted by LBushkin, modified by community. See post 'Timeline' for change history
-            // Retrieved 2026-05-11, License - CC BY-SA 3.0
-            //field.SetValue(this, Convert.ChangeType(value, field.FieldType), null);
         }
     }
 }

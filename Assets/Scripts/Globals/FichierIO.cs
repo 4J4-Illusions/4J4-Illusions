@@ -2,36 +2,39 @@
 using System.IO;
 using UnityEngine;
 
-public static class FichierIO
+namespace Globals
 {
-    public static void Create(string path, string data)
+    public static class FichierIO
     {
-        File.WriteAllText(path, data);
+        public static void Create(string path, string data)
+        {
+            File.WriteAllText(path, data);
+        }
+        public static T Read<T>(string path)
+        {
+            if (File.Exists(path))
+            {
+                Debug.Log($"fichier \'settings.json\' éxiste:\n{path}");
+                return JsonUtility.FromJson<T>(File.ReadAllText(path));
+            }
+            else
+            {
+                throw new FileNotFoundException();
+            }
+        }
+        public static object Read(string path, Type type)
+        {
+            if (File.Exists(path))
+            {
+                Debug.Log($"fichier \'settings.json\' éxiste:\n{path}");
+                return JsonUtility.FromJson(File.ReadAllText(path), type);
+            }
+            else
+            {
+                throw new FileNotFoundException();
+            }
+        }
+        public static void Update() { }
+        public static void Delete() { }
     }
-    public static T Read<T>(string path)
-    {
-        if (File.Exists(path))
-        {
-            Debug.Log($"fichier \'settings.json\' éxiste:\n{path}");
-            return JsonUtility.FromJson<T>(File.ReadAllText(path));
-        }
-        else
-        {
-            throw new FileNotFoundException();
-        }
-    }
-    public static object Read(string path, Type type)
-    {
-        if (File.Exists(path))
-        {
-            Debug.Log($"fichier \'settings.json\' éxiste:\n{path}");
-            return JsonUtility.FromJson(File.ReadAllText(path), type);
-        }
-        else
-        {
-            throw new FileNotFoundException();
-        }
-    }
-    public static void Update() { }
-    public static void Delete() { }
 }
