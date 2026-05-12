@@ -9670,6 +9670,7 @@ GameObject:
   - component: {fileID: 1343485697}
   - component: {fileID: 1343485699}
   - component: {fileID: 1343485698}
+  - component: {fileID: 1343485700}
   m_Layer: 5
   m_Name: Titre
   m_TagString: Untagged
@@ -9716,7 +9717,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choix de la langue
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
   m_sharedMaterial: {fileID: -7160043981165570180, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
@@ -9796,6 +9797,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343485696}
   m_CullTransparentMesh: 1
+--- !u!114 &1343485700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343485696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c4c0cd08bac2747b895494d3dfdb22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: MENU_CIRCULAIRE_LANGUE_TEXTE
 --- !u!1 &1362379159
 GameObject:
   m_ObjectHideFlags: 0
@@ -10727,6 +10741,7 @@ GameObject:
   - component: {fileID: 1485553654}
   - component: {fileID: 1485553656}
   - component: {fileID: 1485553655}
+  - component: {fileID: 1485553657}
   m_Layer: 5
   m_Name: TitreBackground
   m_TagString: Untagged
@@ -10773,7 +10788,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choix de la langue
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
   m_sharedMaterial: {fileID: -7160043981165570180, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
@@ -10853,6 +10868,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485553653}
   m_CullTransparentMesh: 1
+--- !u!114 &1485553657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485553653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c4c0cd08bac2747b895494d3dfdb22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: MENU_CIRCULAIRE_LANGUE_TEXTE
 --- !u!1 &1498393994
 GameObject:
   m_ObjectHideFlags: 0
@@ -10927,6 +10955,7 @@ MonoBehaviour:
   - "Fran\xE7ais"
   - English
   - Espanol
+  languages: 000000000200000001000000
 --- !u!1 &1499336037
 GameObject:
   m_ObjectHideFlags: 0
@@ -14845,7 +14874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1930306675
 MonoBehaviour:
   m_ObjectHideFlags: 0
