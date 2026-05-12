@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections.Generic;
 
 public class LienSliderEtNombre : MonoBehaviour
 {
@@ -35,10 +34,9 @@ public class LienSliderEtNombre : MonoBehaviour
         background.text = valeurTexte;
 
         // sauvegarde dans le dictionnaire de paramètres
-        string paramKeyAudio = "Audio-" + slider.name[12..]; // extrait la partie du nom du slider après "SliderAudio"
+        string paramKeyAudio = "Audio_" + slider.name[12..]; // extrait la partie du nom du slider après "SliderAudio"
         //Debug.Log(paramKeyAudio);
-        KeyValuePair<string, string> kvpAudio = new(paramKeyAudio, valeurInt.ToString());
-        Parametres.Instance.UpdateParametres(kvpAudio);
+        Parametres.Instance.UpdateParametres(paramKeyAudio, valeurInt);
         //Debug.Log($"Paramètre {paramKeyAudio} mis à jour: {valeurInt}");
         //Debug.Log($"Valeur dans le dictionnaire: {Parametres.Instance.dictParametres[paramKeyAudio]}");
     }

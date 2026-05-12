@@ -2701,7 +2701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1759363103}
   m_Layer: 0
-  m_Name: CheminEntre1Et2
+  m_Name: Chemin1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
