@@ -78,7 +78,7 @@ public class Parametres : MonoBehaviour
         //Debug.Log(dictParametres[key]);
 
         SauvegarderParametres();
-        OnSettingsChange.Invoke(key, value);
+        OnSettingsChange?.Invoke(key, value);
     }
     void SauvegarderParametres()
     {
