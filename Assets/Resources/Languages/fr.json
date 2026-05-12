@@ -1,0 +1,34 @@
+{
+  "items": [
+    { "key": "MENU_CIRCULAIRE_CONTINUER", "value": "Continuer" },
+    { "key": "MENU_CIRCULAIRE_SAUVEGARDER", "value": "Sauvegarder" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES", "value": "Commandes" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE", "value": "Graphique" },
+    { "key": "MENU_CIRCULAIRE_AUDIO", "value": "Audio" },
+    { "key": "MENU_CIRCULAIRE_LANGUE", "value": "Langue" },
+    { "key": "MENU_CIRCULAIRE_INTERFACES", "value": "Interfaces" },
+    { "key": "MENU_CIRCULAIRE_CREDITS", "value": "Credits" },
+    { "key": "MENU_CIRCULAIRE_QUITTER", "value": "Quitter" },
+    { "key": "MENU_CIRCULAIRE_CONTINUER_TEXTE", "value": "Continuer la partie?" },
+    { "key": "MENU_CIRCULAIRE_SAUVEGARDER_TEXTE", "value": "Sauvegarder ou bien selectionner une sauvegarde!" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES_DEPLACEMENTS", "value": "Deplacements" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES_INTERACTIONS", "value": "Interactions" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES_CAMERA", "value": "Camera" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE_QUALITEGENERALE", "value": "Qualité générale" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE_OMBRES", "value": "Ombres" },
+    { "key": "MENU_CIRCULAIRE_GRAPHIQUE_RESOLUTION", "value": "Résolution" },
+
+
+    { "key": "MENU_CIRCULAIRE_AUDIO_GENERAL", "value": "General" },
+    { "key": "MENU_CIRCULAIRE_AUDIO_JEU", "value": "Jeu" },
+    { "key": "MENU_CIRCULAIRE_AUDIO_MUSIQUE", "value": "Musique" },
+    { "key": "MENU_CIRCULAIRE_LANGUE_TEXTE", "value": "Choix de la langue" },
+
+    { "key": "MENU_CIRCULAIRE_CREDITS_TEXTE", "value": "Chargée de projet: Sara Haimeur \nDirectrice Artistique: Prinnie Ly \nDirecteur Technique: Pharly Bazile \nDirectrice d'integration: Clarence Ouimet \nDirecteur d'integration: Juba Ameziane" },
+    { "key": "MENU_CIRCULAIRE_QUITTER_TEXTE", "value": "Voulez-vous vraiment quitter?" },
+
+    { "key": "TEXTE_DIALOGUE_UN", "value": "Veux-tu jouer a un jeu avec moi?" },
+    { "key": "TEXTE_DIALOGUE_DEUX", "value": "J'ai dit... veux. tu. jouer. a. un. jeu. avec. moi." },
+    { "key": "TEXTE_DIALOGUE_TROIS", "value": "JOUE AU JEU!!!" }
+  ]
+}

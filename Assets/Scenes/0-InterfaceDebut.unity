@@ -796,6 +796,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81571118}
   m_CullTransparentMesh: 1
+--- !u!1 &88336835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 88336837}
+  - component: {fileID: 88336836}
+  m_Layer: 0
+  m_Name: LanguageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &88336836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88336835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1c398be7f56f040a8f45c5095868e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanguageManager
+  currentLanguage: 0
+--- !u!4 &88336837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88336835}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &131217792
 GameObject:
   m_ObjectHideFlags: 0
@@ -4163,8 +4208,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1498393996}
-        m_TargetAssemblyTypeName: ChangementOptionsAvecBoutons, Assembly-CSharp
+      - m_Target: {fileID: 1498393997}
+        m_TargetAssemblyTypeName: ChangementOptionsAvecBoutonsLangue, Assembly-CSharp
         m_MethodName: Precedent
         m_Mode: 1
         m_Arguments:
@@ -9625,6 +9670,7 @@ GameObject:
   - component: {fileID: 1343485697}
   - component: {fileID: 1343485699}
   - component: {fileID: 1343485698}
+  - component: {fileID: 1343485700}
   m_Layer: 5
   m_Name: Titre
   m_TagString: Untagged
@@ -9671,7 +9717,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choix de la langue
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
   m_sharedMaterial: {fileID: -7160043981165570180, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
@@ -9751,6 +9797,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343485696}
   m_CullTransparentMesh: 1
+--- !u!114 &1343485700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343485696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c4c0cd08bac2747b895494d3dfdb22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: MENU_CIRCULAIRE_LANGUE_TEXTE
 --- !u!1 &1362379159
 GameObject:
   m_ObjectHideFlags: 0
@@ -10682,6 +10741,7 @@ GameObject:
   - component: {fileID: 1485553654}
   - component: {fileID: 1485553656}
   - component: {fileID: 1485553655}
+  - component: {fileID: 1485553657}
   m_Layer: 5
   m_Name: TitreBackground
   m_TagString: Untagged
@@ -10728,7 +10788,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choix de la langue
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
   m_sharedMaterial: {fileID: -7160043981165570180, guid: 308d20ba75b97854a81c5e15701ad4fb, type: 2}
@@ -10808,6 +10868,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485553653}
   m_CullTransparentMesh: 1
+--- !u!114 &1485553657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485553653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c4c0cd08bac2747b895494d3dfdb22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  key: MENU_CIRCULAIRE_LANGUE_TEXTE
 --- !u!1 &1498393994
 GameObject:
   m_ObjectHideFlags: 0
@@ -10818,6 +10891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1498393995}
   - component: {fileID: 1498393996}
+  - component: {fileID: 1498393997}
   m_Layer: 5
   m_Name: OptionsLangueEmpty
   m_TagString: Untagged
@@ -10854,7 +10928,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498393994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c84438f59026504e8156be37ed7c8e8, type: 3}
   m_Name: 
@@ -10864,6 +10938,24 @@ MonoBehaviour:
   - "Fran\xE7ais"
   - Anglais
   - Espagnol
+--- !u!114 &1498393997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498393994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04330d12f4c9b03479029342e6b20dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangementOptionsAvecBoutonsLangue
+  texteOption: {fileID: 741653545}
+  optionKeys:
+  - "Fran\xE7ais"
+  - English
+  - Espanol
+  languages: 000000000200000001000000
 --- !u!1 &1499336037
 GameObject:
   m_ObjectHideFlags: 0
@@ -11475,8 +11567,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1498393996}
-        m_TargetAssemblyTypeName: ChangementOptionsAvecBoutons, Assembly-CSharp
+      - m_Target: {fileID: 1498393997}
+        m_TargetAssemblyTypeName: ChangementOptionsAvecBoutonsLangue, Assembly-CSharp
         m_MethodName: Suivant
         m_Mode: 1
         m_Arguments:
@@ -14782,7 +14874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1930306675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16117,6 +16209,7 @@ SceneRoots:
   - {fileID: 1548350075}
   - {fileID: 1307084636}
   - {fileID: 1930306678}
+  - {fileID: 88336837}
   - {fileID: 1153222204}
   - {fileID: 2077266797}
   - {fileID: 325840428}
