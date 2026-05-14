@@ -6,21 +6,19 @@ using UnityEngine.InputSystem;
 
 public class ControlesPersonnage : MonoBehaviour
 {
-    [Header("Affectation inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
+    [Header("Hiérarchie")]
     public GameObject cameraJoueur;
     public GameObject texteInteraction, ondeSonore;
     public ScriptMenuPauseDepuisInterface controllerMenu;
-
-    [Header("Ajustement inspecteur"), Space]
-    public float vitesseMouvement = 5f;
-    public float vitesseRotation = .1f;
-    public float porteeInteraction = 2f;
+    [Header("Ajustement inspecteur")]
+    public float vitesseMouvement = 5f,
+        vitesseRotation = .1f,
+        porteeInteraction = 2f;
     public float[] multiplicateurMouvement = new float[2] { 1f, 1.5f };
     public Vector3 ajustementPosCam = new(0, .6f, .2f);
 
-    // gestions, trackage et acces pour autres scripts
     public static bool isRunning, isMoving, canMove = true;
-    // evenements
     public static Action OnPlayerOnde;
 
     Rigidbody rigidBody;
@@ -77,7 +75,7 @@ public class ControlesPersonnage : MonoBehaviour
         // appliquer ou non le modificateur de vitesse
         indexModifCourse = isRunning ? 1 : 0;
         // s'assure que audio source est pas null
-        if(audsrc == null)
+        if (audsrc == null)
         {
             audsrc = GetComponent<AudioManagerConnect>().audsrc;
         }
@@ -104,7 +102,7 @@ public class ControlesPersonnage : MonoBehaviour
     void FixedUpdate()
     {
         // applique mouvement au joueur
-        if(agent != null)
+        if (agent != null)
         {
             agent.Move(new Vector3(mouvementFinal.x, 0, mouvementFinal.z) * Time.deltaTime);
         }
@@ -142,7 +140,7 @@ public class ControlesPersonnage : MonoBehaviour
             origin: cameraJoueur.transform.position,
             direction: cameraJoueur.transform.forward,
             hitInfo: out hit,
-            maxDistance: porteeInteraction) && !GameManager.Instance.inCalibInterac)
+            maxDistance: porteeInteraction) && !CalibrationManager.inCalibrationInteraction)
         {
             //Debug.Log(hit.transform.gameObject.name);
             if (hit.transform.gameObject.TryGetComponent<ObjetInteractif>(out ObjetInteractif objInter))
@@ -169,10 +167,10 @@ public class ControlesPersonnage : MonoBehaviour
         }
 
         // interactions standard (sans passer directemenr par un objet interactif)
-        if (interactionAction.WasPressedThisFrame() && (hit.collider == null || GameManager.Instance.inCalibInterac))
+        if (interactionAction.WasPressedThisFrame() && (hit.collider == null || CalibrationManager.inCalibrationInteraction))
         {
             //Debug.Log("Interaction hors objet interactif");
-            if (GameManager.Instance.inCalibInterac)
+            if (CalibrationManager.inCalibrationInteraction)
             {
                 Gameplay.Interaction(TypeInteraction.CalibrationStop);
             }

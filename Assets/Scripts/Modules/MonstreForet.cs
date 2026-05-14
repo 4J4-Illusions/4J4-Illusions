@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class MonstreForet : MonoBehaviour
 {
-    [Header("Ajustement inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
     public float vitesseMonstreParSeconde = 1f;
     public float incrementDureeDeplacement = 5;
 

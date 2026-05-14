@@ -39,8 +39,8 @@ public class ScriptMenuPauseDepuisInterface : MonoBehaviour
             settingsUI.SetActive(true);
 
         //Time.timeScale = 0f; // pause le jeu
-        OnMenuPause.Invoke(true);
         inMenu = true;
+        OnMenuPause.Invoke(true);
     }
 
     // Ferme le menu et reprend le jeu
@@ -50,7 +50,7 @@ public class ScriptMenuPauseDepuisInterface : MonoBehaviour
             settingsUI.SetActive(false);
 
         //Time.timeScale = 1f; // reprend le jeu
-        OnMenuPause.Invoke(false);
         inMenu = false;
+        OnMenuPause.Invoke(false);
     }
 }

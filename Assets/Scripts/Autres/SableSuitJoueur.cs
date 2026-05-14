@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SableSuitJoueur : MonoBehaviour
 {
-    [Header("Affectation inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
     public Vector3 positionAjustement;
 
     // Update is called once per frame

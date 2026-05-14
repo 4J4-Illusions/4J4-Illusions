@@ -10,15 +10,15 @@ public class GestionBarreAnxiete : MonoBehaviour
     // référence statique pour accéder aux propriététs du singleton
     public static GestionBarreAnxiete Instance;
 
-    [Header("Affectation inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
+    [Header("Hiérarchie")]
     public GameObject conteneurBarre;
     public Animator animCoeur;
     public GameObject texteGameOver;
-
-    [Header("Ajustement inspecteur"), Space]
+    [Header("Ajustement inspecteur")]
     public bool modeProgBarre = false;
     [Range(0, 1)] public float progressionBarre = .001f;
-    // gestions, trackage et acces pour autres scripts
+
     public static Dictionary<int, StressPointEntry> collectionStressPoints = new();
     public static float stressTotal;
 

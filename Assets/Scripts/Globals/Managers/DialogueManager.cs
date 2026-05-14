@@ -10,7 +10,6 @@ public class DialogueManager : MonoBehaviour
     [Header("Affectation inspecteur"), Space(30)]
     [TextArea] public string[] textesDialogue;
     public string titreDialogue = "Jean-Michel";
-
     [Header("Hiérarchie")]
     public GameObject overlayDialogue;
     public TextMeshProUGUI zoneTexteDialogue;

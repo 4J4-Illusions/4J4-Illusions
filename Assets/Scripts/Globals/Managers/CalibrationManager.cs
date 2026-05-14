@@ -3,19 +3,22 @@ using UnityEngine;
 
 public class CalibrationManager : MonoBehaviour
 {
-    [Header("Affectation inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
+    [Header("Hiérarchie")]
     public GameObject background;
     public GameObject pointeur;
-    [Header("Ajustement inspecteur"), Space]
+    [Header("Ajustement inspecteur")]
     public float[] rangeVitRot = new float[2] { -10f, -5f };
+
     [Header("Accès pour autres scripts"), Space(30)]
     public GameObject machineCalibration;
+    public static bool inCalibrationInteraction = false;
 
     float vitRotation;
     RectTransform rectPointeur;
     float[] sectionRouletteAToucher = new float[2];
+
     const float ROTAT_OFFSET = 200;
-    // constantes
     const int RANGE_ZONE_ROULETTE = 45;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -70,7 +73,7 @@ public class CalibrationManager : MonoBehaviour
     /// </summary>
     void FinInteracCalib()
     {
-        GameManager.Instance.inCalibInterac = false;
+        inCalibrationInteraction = false;
         ControlesPersonnage.canMove = true;
         gameObject.SetActive(false);
     }

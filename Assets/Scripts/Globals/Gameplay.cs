@@ -7,7 +7,6 @@ namespace Globals
 {
     public class Gameplay
     {
-        // évènements
         public static Action<TypeInteraction> OnInteraction;
 
 
@@ -48,6 +47,7 @@ namespace Globals
                     }
                     else
                     {
+                        // solution temporaire pour récuprérer textes tant que les dialogues officiels ne sont pas encore prêts
                         DialogueManager.Instance.textesDialogue = new string[] { obj.transform.parent.Find("TexteFoule").GetComponent<TextMeshPro>().text };
                         DialogueManager.Instance.ToggleOverlayDialogue(true);
                     }
@@ -86,7 +86,7 @@ namespace Globals
                 case TypeInteraction.Calibration:
                     // active l'état en mode calibration, l'overlay de calibration et empêche le joueur de bouger
 
-                    GameManager.Instance.inCalibInterac = true;
+                    CalibrationManager.inCalibrationInteraction = true;
                     GameManager.Instance.calibOverlay.SetActive(true);
                     GameManager.Instance.calibOverlay.GetComponent<CalibrationManager>().machineCalibration = obj;
                     ControlesPersonnage.canMove = false;
@@ -102,7 +102,7 @@ namespace Globals
             }
 
             GameManager.Instance.player.GetComponent<ControlesPersonnage>().texteInteraction.SetActive(false);
-            OnInteraction.Invoke(typeInteraction);
+            OnInteraction?.Invoke(typeInteraction);
         }
     }
 }

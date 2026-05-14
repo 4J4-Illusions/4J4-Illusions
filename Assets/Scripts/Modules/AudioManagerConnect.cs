@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AudioManagerConnect : MonoBehaviour
 {
-    [Header("Accès pour autres scripts"), Space]
+    [Header("Accès pour autres scripts"), Space(30)]
     public AudioSource audsrc;
 
     private void Awake()

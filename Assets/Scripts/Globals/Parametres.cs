@@ -10,7 +10,7 @@ public class Parametres : MonoBehaviour
     // référence statique pour accéder aux propriététs du singleton
     public static Parametres Instance { get; private set; }
 
-    [Header("Accès pour autres scripts"), Space]
+    [Header("Accès pour autres scripts"), Space(30)]
     public Dictionary<string, object> dictParametres = new();
 
     public enum Langue

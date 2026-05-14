@@ -9,23 +9,20 @@ public class AudioManager : MonoBehaviour
     // référence statique pour accéder aux propriététs du singleton
     public static AudioManager Instance { get; private set; }
 
-    [Header("Affectation inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
     public List<AudioClip> ambience0;
     /// <summary>
     /// les numéros dans les noms de variables correspondent à l'étape du jeu à laquelle les clips sont associés selon l'enum <see cref="StageJeu"/>
     /// </summary>
-    public List<AudioClip>
-        ambience1, ambience2, ambience3, ambience4;
+    public List<AudioClip> ambience1, ambience2, ambience3, ambience4;
 
-    // évènements
     public static Action OnAudioSettingsChange;
 
     float volumeGeneral = 1; // volume général
     float volumeJeu = 1; // volume sfx
-    float volumeMusique = 1; // volume ambience
+    float volumeMusique = 1; // volume ambience (musique en arrière-plan)
     AudioClip[] clipsAmbience;
     readonly List<AudioSource> listeAudsrcs = new();
-    List<AudioClip> listeClips;
     AudioSource audsrc;
 
     void Awake()
@@ -138,7 +135,6 @@ public class AudioManager : MonoBehaviour
 
             // check si un AudioSource existe déjà pour ce clip d'ambience
             //listeAudsrcs = GetComponents<AudioSource>().ToList();
-            listeClips = listeAudsrcs.Select(aud => (aud != null) ? aud.clip : null).ToList();
             foreach (AudioSource source in listeAudsrcs)
             {
                 if (source != null && source.clip == clip)

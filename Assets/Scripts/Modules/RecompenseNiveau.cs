@@ -3,7 +3,7 @@ using LightType = UnityEngine.LightType;
 
 public class RecompenseNiveau : MonoBehaviour
 {
-    [Header("Affectation inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
     public float valeurRotation = 3f;
     public GameObject prefabParticuleRecompense;
 

@@ -12,8 +12,7 @@ public class GameManager : MonoBehaviour
     [Header("Affectation inspecteur"), Space(30)]
     [Header("Hiérarchie")]
     public GameObject calibOverlay;
-    public GameObject modelePapier;
-    public GameObject jumpscareImage;
+    public GameObject modelePapier, jumpscareImage;
     [Header("Projet")]
     public Material matPapier;
     public AudioClip sonJumpscare;
@@ -21,7 +20,6 @@ public class GameManager : MonoBehaviour
     [Header("Accès pour autres scripts"), Space(30)]
     public StageJeu stageJeu = 0;
     [Header("Modes")]
-    public bool inCalibInterac;
     public bool modeObtentionItem;
     [Header("États")]
     public bool gameOver;
@@ -29,17 +27,13 @@ public class GameManager : MonoBehaviour
     [Header("Progression des niveaux")]
     public bool objectifComplete;
     public bool niveauComplete;
-    public int indexLampCour;
-    public int progressionBoutsPapier;
-    public GameObject[] listeLampadaires = new GameObject[5];
-    public GameObject[] listeBoutsPapier = new GameObject[5];
+    public int indexLampCour, progressionBoutsPapier;
+    public GameObject[] listeLampadaires = new GameObject[5],
+        listeBoutsPapier = new GameObject[5];
     [Header("Autres")]
-    public GameObject player;
-    public GameObject recompense;
-    public GameObject cameraJoueur;
+    public GameObject player, recompense, cameraJoueur;
     public ControlesPersonnage playerScript;
 
-    // évènements
     public static Action OnGameOver, OnLevelComplete;
     public static Action<float> OnLevelProgress;
     public static Action<StageJeu> OnObjectiveComplete;
@@ -93,7 +87,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void FinDePartie()
     {
-        OnGameOver.Invoke();
+        OnGameOver?.Invoke();
         GestionPause(true);
         Invoke(nameof(Recommencer), 5f);
     }
@@ -110,6 +104,7 @@ public class GameManager : MonoBehaviour
             ScriptMenuPauseDepuisInterface.inMenu |
             DialogueManager.inDialogue
             );
+        Debug.Log(enPause);
 
         ControlesPersonnage.canMove = allowGameLoop = !enPause;
 
@@ -149,21 +144,21 @@ public class GameManager : MonoBehaviour
                 progressionBoutsPapier++;
 
                 // si tous les bouts de papier sont récoltés, l'objectif est complété
-                if (progressionBoutsPapier == 5) { objectifComplete = true; OnObjectiveComplete.Invoke(stage); }
+                if (progressionBoutsPapier == 5) { objectifComplete = true; OnObjectiveComplete?.Invoke(stage); }
                 break;
             case StageJeu.Foret:
                 indexLampCour++;
 
                 // si tous les lampadaires sont allumés, l'objectif est complété
-                if (indexLampCour == 5) { objectifComplete = true; OnObjectiveComplete.Invoke(stage); }
+                if (indexLampCour == 5) { objectifComplete = true; OnObjectiveComplete?.Invoke(stage); }
                 break;
             case StageJeu.Theatre:
                 break;
         }
 
         QueteCompteur.Ajouter(1);
-        if (stage == StageJeu.Theatre) OnLevelProgress.Invoke(.05f);
-        else OnLevelProgress.Invoke(.25f);
+        if (stage == StageJeu.Theatre) OnLevelProgress?.Invoke(.05f);
+        else OnLevelProgress?.Invoke(.25f);
     }
     /// <summary>
     /// Éxécute la logique de complétion de l'objectif du niveau en fonction du stage de jeu actuel.
@@ -193,7 +188,7 @@ public class GameManager : MonoBehaviour
     public void TerminerNiveau()
     {
         niveauComplete = true;
-        OnLevelComplete.Invoke();
+        OnLevelComplete?.Invoke();
     }
     /// <summary>
     /// Fait la transition vers le niveau suivant.
