@@ -99,6 +99,9 @@ public class Parametres : MonoBehaviour
     }
 }
 
+/// <summary>
+/// Encapsule les données des paramètres du jeu, avec des champs correspondant à chaque paramètre. Permet de sérialiser et désérialiser facilement les données de paramètres en JSON.
+/// </summary>
 [Serializable]
 public class SettingsData
 {
@@ -137,4 +140,18 @@ public class SettingsData
             }
         }
     }
+}
+/// <summary>
+/// Représente les différentes résolutions d'affichage disponibles pour le jeu, avec des chaînes de caractères formatées en "largeurxhauteur".
+/// </summary>
+public static class DisplayResolutions
+{
+    public static string QuarterHighDefinition = "960x540";
+    public static string HighDefinition = "1280x720";
+    public static string HighDefinitionPlus = "1600x900";
+    public static string FullHighDefinition = "1920x1080";
+    public static string UltraWideFullHighDefinition = "2560x1080";
+    public static string QuadHighDefinition = "2560x1440";
+    public static string FourKUltraHighDefinition = "3840x2160";
+    public static string EightKUltraHighDefinition = "7680x4320";
 }

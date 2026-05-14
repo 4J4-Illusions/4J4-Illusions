@@ -59,7 +59,12 @@ public class GameManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
 
-        //Initialisation(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+        Resolution[] resolutions = Screen.resolutions;
+        foreach (var item in resolutions)
+        {
+            Debug.Log(item);
+            Debug.Log($"ratio: {(float)item.width / (float)item.height}");
+        }
     }
     private void OnEnable()
     {
