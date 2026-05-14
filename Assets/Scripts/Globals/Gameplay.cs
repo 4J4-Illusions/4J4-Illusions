@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using static UnityEngine.Object;
 
@@ -25,6 +26,7 @@ namespace Globals
                     break;
                 case TypeInteraction.Papier:
                     // check la liste des bouts de papier pour trouver celui qui correspond à l'objet interagi
+
                     foreach (GameObject papier in GameManager.Instance.listeBoutsPapier)
                     {
                         if (papier.name == obj.name)
@@ -37,13 +39,23 @@ namespace Globals
                         }
                     }
                     break;
-                case TypeInteraction.Parler:
-                    obj.transform.parent.Find("TexteFoule").gameObject.SetActive(true);
-                    obj.transform.parent.GetComponent<IndiceBoutPapier>().cooldownEnleverTexte += 3;
+                case TypeInteraction.Dialogue:
+                    // fait progresser le dialogue si l'overlay de dialogue est actif, sinon l'active
+
+                    if (DialogueManager.inDialogue)
+                    {
+                        DialogueManager.Instance.ProgresserDialogue();
+                    }
+                    else
+                    {
+                        DialogueManager.Instance.textesDialogue = new string[] { obj.transform.parent.Find("TexteFoule").GetComponent<TextMeshPro>().text };
+                        DialogueManager.Instance.ToggleOverlayDialogue(true);
+                    }
                     break;
                 case TypeInteraction.Onde:
                     // fait jouer animation onde quand elle ne joue pas presentement
                     // active script indicateur lampadaire
+
                     if (obj.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Default"))
                     {
                         // donner position du joueur à l'onde
@@ -59,6 +71,7 @@ namespace Globals
                     break;
                 case TypeInteraction.Lampadaire:
                     // check si le lampadaire est le bon dans l'ordre choisi aléatoirement
+
                     if (obj == GameManager.Instance.listeLampadaires[GameManager.Instance.indexLampCour])
                     {
                         // detruit le component ObjectInteractif pour arreter la détection par le raycast du joueur sans empêcher les collisions
@@ -72,14 +85,16 @@ namespace Globals
                     break;
                 case TypeInteraction.Calibration:
                     // active l'état en mode calibration, l'overlay de calibration et empêche le joueur de bouger
+
                     GameManager.Instance.inCalibInterac = true;
                     GameManager.Instance.calibOverlay.SetActive(true);
-                    GameManager.Instance.calibOverlay.GetComponent<CalibRoulette>().machineCalibration = obj;
+                    GameManager.Instance.calibOverlay.GetComponent<CalibrationManager>().machineCalibration = obj;
                     ControlesPersonnage.canMove = false;
                     break;
                 case TypeInteraction.CalibrationStop:
                     // stop la roulette de calibration, cachant l'overlay par conséquent
-                    GameManager.Instance.calibOverlay.GetComponent<CalibRoulette>().StopRoulette();
+
+                    GameManager.Instance.calibOverlay.GetComponent<CalibrationManager>().StopRoulette();
                     break;
                 case TypeInteraction.Recompense:
                     GameManager.Instance.TerminerNiveau();

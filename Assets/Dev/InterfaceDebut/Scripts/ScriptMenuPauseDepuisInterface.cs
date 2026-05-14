@@ -8,6 +8,7 @@ public class ScriptMenuPauseDepuisInterface : MonoBehaviour
     public GameObject settingsUI;       // Glisse ton panel Paramètres ici
     public float delayBeforeOpen = 2f;  // délai après le clic
 
+    public static bool inMenu = false;
     // evenements
     public static Action<bool> OnMenuPause;
 
@@ -39,6 +40,7 @@ public class ScriptMenuPauseDepuisInterface : MonoBehaviour
 
         //Time.timeScale = 0f; // pause le jeu
         OnMenuPause.Invoke(true);
+        inMenu = true;
     }
 
     // Ferme le menu et reprend le jeu
@@ -49,5 +51,6 @@ public class ScriptMenuPauseDepuisInterface : MonoBehaviour
 
         //Time.timeScale = 1f; // reprend le jeu
         OnMenuPause.Invoke(false);
+        inMenu = false;
     }
 }

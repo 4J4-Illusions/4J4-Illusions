@@ -1,7 +1,7 @@
 using Globals;
 using UnityEngine;
 
-public class CalibRoulette : MonoBehaviour
+public class CalibrationManager : MonoBehaviour
 {
     [Header("Affectation inspecteur"), Space]
     public GameObject background;

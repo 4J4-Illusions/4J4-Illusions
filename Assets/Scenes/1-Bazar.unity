@@ -3843,27 +3843,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8505429282924986080, guid: 11e3612d3f8c37144a094049eced224e, type: 3}
   m_PrefabInstance: {fileID: 403387813}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &412094117 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2394214787073219317, guid: d0059be423470a941a950dc826487a0e, type: 3}
-  m_PrefabInstance: {fileID: 2102280600}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &412094118 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1545890182788356694, guid: d0059be423470a941a950dc826487a0e, type: 3}
-  m_PrefabInstance: {fileID: 2102280600}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &412094119 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6493633147633882295, guid: d0059be423470a941a950dc826487a0e, type: 3}
-  m_PrefabInstance: {fileID: 2102280600}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &412124832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6584,7 +6563,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645370824}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38dd766899eae334a90bb88690614fca, type: 3}
   m_Name: 
@@ -14441,22 +14420,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3165279727033521969, guid: 32b4f8578e825ac4bb89ca6b594d3246, type: 3}
+      propertyPath: overlayDialogue
+      value: 
+      objectReference: {fileID: 2102280603}
     - target: {fileID: 5985288889214688249, guid: 32b4f8578e825ac4bb89ca6b594d3246, type: 3}
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6277402893014314405, guid: 32b4f8578e825ac4bb89ca6b594d3246, type: 3}
-      propertyPath: boutonNon
-      value: 
-      objectReference: {fileID: 412094118}
-    - target: {fileID: 6277402893014314405, guid: 32b4f8578e825ac4bb89ca6b594d3246, type: 3}
-      propertyPath: canvasParent
-      value: 
-      objectReference: {fileID: 412094117}
-    - target: {fileID: 6277402893014314405, guid: 32b4f8578e825ac4bb89ca6b594d3246, type: 3}
-      propertyPath: dialogueText
-      value: 
-      objectReference: {fileID: 412094119}
     - target: {fileID: 8154929828911030511, guid: 32b4f8578e825ac4bb89ca6b594d3246, type: 3}
       propertyPath: m_LocalPosition.x
       value: 233.82324
@@ -17077,6 +17048,11 @@ GameObject:
 --- !u!224 &2102280602 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6186812930378935911, guid: d0059be423470a941a950dc826487a0e, type: 3}
+  m_PrefabInstance: {fileID: 2102280600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2102280603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1142461826321292218, guid: d0059be423470a941a950dc826487a0e, type: 3}
   m_PrefabInstance: {fileID: 2102280600}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2111032496

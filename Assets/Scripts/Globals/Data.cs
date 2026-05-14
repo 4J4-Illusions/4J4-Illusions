@@ -9,7 +9,7 @@ namespace Globals
     {
         None,
         Papier,
-        Parler,
+        Dialogue,
         Onde,
         Lampadaire,
         Calibration,

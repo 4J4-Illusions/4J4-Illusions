@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
     {
         // abonnement évènements
         ScriptMenuPauseDepuisInterface.OnMenuPause += GestionPause;
+        DialogueManager.OnDialogueInteraction += GestionPause;
         OnObjectiveComplete += CompleterObjectif;
         OnLevelComplete += TransitionNiveau;
         SceneManager.sceneLoaded += Initialisation;
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
     {
         // désabonnements évènements
         ScriptMenuPauseDepuisInterface.OnMenuPause -= GestionPause;
+        DialogueManager.OnDialogueInteraction -= GestionPause;
         OnObjectiveComplete -= CompleterObjectif;
         OnLevelComplete -= TransitionNiveau;
         SceneManager.sceneLoaded -= Initialisation;
@@ -103,6 +105,12 @@ public class GameManager : MonoBehaviour
     /// <param name="enPause">La valeur de pause</param>
     void GestionPause(bool enPause)
     {
+        // recalcul l'état de pause pour s'assurer que toutes les sources de pause sont prises en compte
+        enPause = (
+            ScriptMenuPauseDepuisInterface.inMenu |
+            DialogueManager.inDialogue
+            );
+
         ControlesPersonnage.canMove = allowGameLoop = !enPause;
 
         if (stageJeu != StageJeu.Intro) Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;

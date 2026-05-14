@@ -176,6 +176,10 @@ public class ControlesPersonnage : MonoBehaviour
             {
                 Gameplay.Interaction(TypeInteraction.CalibrationStop);
             }
+            else if (DialogueManager.inDialogue)
+            {
+                Gameplay.Interaction(TypeInteraction.Dialogue);
+            }
             else if (GameManager.Instance.stageJeu == StageJeu.Foret)
             {
                 Gameplay.Interaction(DefaultInterac, ondeSonore);

@@ -88,7 +88,7 @@ public class Parametres : MonoBehaviour
 
         if (File.Exists(filePath))
         {
-            Debug.Log($"fichier \'settings.json\' éxiste:\n{filePath}");
+            //Debug.Log($"fichier \'settings.json\' éxiste:\n{filePath}");
             //var fileData = FichierIO.Read<SettingsData>(pathSave);
             //Debug.Log(fileData);
             //foreach (var item in fileData.GetType().GetFields())

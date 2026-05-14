@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8154929828911030511}
-  - component: {fileID: 6277402893014314405}
+  - component: {fileID: 3165279727033521969}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -25,14 +25,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5985288889214688249}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 274.54343, y: 163.3394, z: 60.58105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6277402893014314405
+--- !u!114 &3165279727033521969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,15 +41,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5985288889214688249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db65e843370326049b449c0b0554bc66, type: 3}
+  m_Script: {fileID: 11500000, guid: bc8f695ce7110fb46a9c0599520c02a0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueBoucle
-  dialogueText: {fileID: 0}
-  boutonNon: {fileID: 0}
-  boutonOuiPrefab: {fileID: 7783102507220755594, guid: b59c0d041ce3c39488b4fc72738922fd, type: 3}
-  canvasParent: {fileID: 0}
-  dialogues:
-  - Veux tu jouer a un jeuavec moi?
-  - J'ai dit.... veux. tu. jouer. a. un. jeu. avec. moi.
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Globals.DialogueManager
+  textesDialogue:
+  - Veux tu jouer a un jeu avec moi?
+  - J'ai dit.... veux. tu. jouer. a. un. jeu. avec. moi..?
   - JOUE AU JEU!!!
-  spawnInterval: 0.3
+  titreDialogue: Jean-Michel
+  overlayDialogue: {fileID: 0}
+  zoneTexteDialogue: {fileID: 0}
