@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Partie Termin\xE9e"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 615859415c0bbdf4f9f5b4dff025c046, type: 2}
+  m_sharedMaterial: {fileID: 5708795939908172645, guid: 615859415c0bbdf4f9f5b4dff025c046, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -386,8 +386,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "E" to interact
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 615859415c0bbdf4f9f5b4dff025c046, type: 2}
+  m_sharedMaterial: {fileID: 5708795939908172645, guid: 615859415c0bbdf4f9f5b4dff025c046, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -464,6 +464,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6186812930378935911}
     m_Modifications:
+    - target: {fileID: 15352086272853079, guid: 6100ebb0d7727354da26e558e6aefe6b, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 15352086272853079, guid: 6100ebb0d7727354da26e558e6aefe6b, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 615859415c0bbdf4f9f5b4dff025c046, type: 2}
+    - target: {fileID: 15352086272853079, guid: 6100ebb0d7727354da26e558e6aefe6b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5708795939908172645, guid: 615859415c0bbdf4f9f5b4dff025c046, type: 2}
     - target: {fileID: 1403018977441427433, guid: 6100ebb0d7727354da26e558e6aefe6b, type: 3}
       propertyPath: m_Name
       value: TacheCalibrationOverlay

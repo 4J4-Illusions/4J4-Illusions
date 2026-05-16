@@ -1,7 +1,8 @@
 using System;
-using TMPro;
 using UnityEngine;
 using static UnityEngine.Object;
+using QuickType;
+using System.IO;
 
 namespace Globals
 {
@@ -17,7 +18,7 @@ namespace Globals
         /// <param name="obj">Le GameObject qui sera affecté (si applicable)</param>
         public static void Interaction(TypeInteraction typeInteraction, GameObject obj = null)
         {
-            Debug.Log($"Gestion de l'interaction de type {typeInteraction} pour l'objet {obj}");
+            //Debug.Log($"Gestion de l'interaction de type {typeInteraction} pour l'objet {obj}");
             switch (typeInteraction)
             {
                 case TypeInteraction.None:
@@ -47,9 +48,19 @@ namespace Globals
                     }
                     else
                     {
-                        // solution temporaire pour récuprérer textes tant que les dialogues officiels ne sont pas encore prêts
-                        DialogueManager.Instance.textesDialogue = new string[] { obj.transform.parent.Find("TexteFoule").GetComponent<TextMeshPro>().text };
-                        DialogueManager.Instance.ToggleOverlayDialogue(true);
+                        string filePath = Path.Combine(Application.streamingAssetsPath, "Data", "Dialogues.json");
+                        if (File.Exists(filePath))
+                        {
+                            string jsonString = File.ReadAllText(filePath);
+                            var dialogues = Dialogues.FromJson(jsonString);
+                            //Debug.Log(obj.transform.GetSiblingIndex());
+                            DialogueManager.Instance.textesDialogue = dialogues.Desert[obj.transform.GetSiblingIndex()];
+                            DialogueManager.Instance.ToggleOverlayDialogue(true);
+                        }
+                        else
+                        {
+                            throw new FileNotFoundException();
+                        }
                     }
                     break;
                 case TypeInteraction.Onde:

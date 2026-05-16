@@ -59,12 +59,12 @@ public class GameManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
 
-        Resolution[] resolutions = Screen.resolutions;
-        foreach (var item in resolutions)
-        {
-            Debug.Log(item);
-            Debug.Log($"ratio: {(float)item.width / (float)item.height}");
-        }
+        //Resolution[] resolutions = Screen.resolutions;
+        //foreach (var item in resolutions)
+        //{
+        //    Debug.Log(item);
+        //    Debug.Log($"ratio: {(float)item.width / (float)item.height}");
+        //}
     }
     private void OnEnable()
     {
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
             ScriptMenuPauseDepuisInterface.inMenu |
             DialogueManager.inDialogue
             );
-        Debug.Log(enPause);
+        //Debug.Log(enPause);
 
         ControlesPersonnage.canMove = allowGameLoop = !enPause;
 
