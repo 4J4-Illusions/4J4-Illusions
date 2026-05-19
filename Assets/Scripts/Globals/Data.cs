@@ -21,6 +21,7 @@ namespace Globals
     /// </summary>
     public enum StageJeu
     {
+        Menu,
         Intro,
         Desert,
         Foret,

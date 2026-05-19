@@ -1,0 +1,314 @@
+{
+  "prelude": [
+    {
+      "id": "prelude_001",
+      "personnage": "Vyktor",
+      "fr": "C’est quoi ce bruit? Je devrais aller vérifier.",
+      "en": "What is this noise? I should go check."
+    },
+    {
+      "id": "prelude_002",
+      "personnage": "Vyktor",
+      "fr": "Je ne me rappelle même pas de m’être endormi.",
+      "en": "I don’t even remember falling asleep."
+    },
+    {
+      "id": "prelude_003",
+      "personnage": "Vyktor",
+      "fr": "Ummmm… Tout a l’air normal. Je devrais juste vérifier si la porte d’entrée est fermée.",
+      "en": "Ummmm… Everything looks normal. I should just go check if the entrance door is locked."
+    },
+    {
+      "id": "prelude_004",
+      "personnage": "Vyktor",
+      "fr": "Hein? C’est ouvert? Je croyais l’avoir fermée.",
+      "en": "Huh? It’s open? I thought I closed it."
+    },
+    {
+      "id": "prelude_005",
+      "personnage": "????",
+      "fr": "HAHAHAHHAHAHHAHAH",
+      "en": "HAHAHAHHAHAHHAHAH"
+    },
+    {
+      "id": "prelude_006",
+      "personnage": "Vyktor",
+      "fr": "Mais c’est qui ça? Il y a un intrus?",
+      "en": "Who is that? Is there an intruder?"
+    },
+    {
+      "id": "prelude_007",
+      "personnage": "????",
+      "fr": "HAHAHAHHAHA oh uh- oh enfin tu m’as trouvé. Ça t’a pris du temps… Je savais que c’était facile de rentrer, mais pas aussi facile.",
+      "en": "HAHAHAHAH oh uh- oh about time you found me. I knew it would be easy to sneak in hahaha, but not that easy."
+    },
+    {
+      "id": "prelude_008",
+      "personnage": "Vyktor",
+      "fr": "Vous n’avez pas le droit d’être ici, monsieur.",
+      "en": "You’re not allowed to be here, sir."
+    },
+    {
+      "id": "prelude_009",
+      "personnage": "Alaric",
+      "fr": "Alaric. N’avez-vous donc pas de manière, Vyktor?",
+      "en": "Alaric. Do you not have any manners, Vyktor?"
+    },
+    {
+      "id": "prelude_010",
+      "personnage": "Vyktor",
+      "fr": "Mais comment connaissez-vous mon nom? Qui êtes-vous?",
+      "en": "How do you know my name? Who are you?"
+    },
+    {
+      "id": "prelude_011",
+      "personnage": "Alaric",
+      "fr": "Je vous ai dit. Alaric. HAHAHAHHAHAHAHHA. Je suis juste venu ici pour jouer à un jeu.",
+      "en": "I told you. Alaric. HAHAHAHHAHAHA. I’m just here to play a game."
+    },
+    {
+      "id": "prelude_012",
+      "personnage": "Vyktor",
+      "fr": "Un jeu..? Je ne sais pas ce que vous avez consommé, “Alaric”, mais ceci est un théâtre. Vous pouvez jouer à vos jeux quelque part d’autre.",
+      "en": "A game? I don’t know what you smoked, “Alaric”, but this is a theater. You can take your games elsewhere."
+    },
+    {
+      "id": "prelude_013",
+      "personnage": "Alaric",
+      "fr": "Mais voyons donc. Je sais où je suis. Je suis venu pour jouer avec toi HAHAHAHHAHA. Tu es sûr que ce n’est pas toi qui as consommé quelque chose? HAHAHAHAH",
+      "en": "Oh come on. I know where I am. I’m here to play a game with you HAHAHAHAHHAH. Are you sure you’re not the one who smoked something? HAHAHHAHAHA"
+    },
+    {
+      "id": "prelude_choix_001",
+      "type": "choix",
+      "personnage": "Vyktor",
+      "fr": "Je n’ai rien consommé et je ne veux pas jouer à un jeu.",
+      "en": "I didn’t smoke anything and I don’t wanna play a game."
+    },
+    {
+      "id": "prelude_014",
+      "personnage": "Alaric",
+      "fr": "TU VAS JOUER UN JEU.",
+      "en": "YOU’RE GOING TO PLAY THIS GAME WITH ME."
+    },
+    {
+      "id": "prelude_choix_002",
+      "type": "choix",
+      "personnage": "Vyktor",
+      "fr": "C’est quoi ce jeu?",
+      "en": "What’s the game?"
+    },
+    {
+      "id": "prelude_015",
+      "personnage": "Alaric",
+      "fr": "C’est simple. Je te donne un objectif et tu dois le compléter.",
+      "en": "It’s simple. I give you a task and you complete it."
+    },
+    {
+      "id": "prelude_016",
+      "personnage": "Vyktor",
+      "fr": "Quel objectif?",
+      "en": "What task?"
+    },
+    {
+      "id": "prelude_017",
+      "personnage": "Alaric",
+      "fr": "Tu verras.",
+      "en": "You’ll see."
+    },
+    {
+      "id": "prelude_choix_003",
+      "type": "choix",
+      "personnage": "system",
+      "fr": "Veux-tu jouer?",
+      "en": "Do you want to play?"
+    },
+    {
+      "id": "prelude_018",
+      "personnage": "Alaric",
+      "fr": "Tu crois vraiment avoir le choix?",
+      "en": "You really think you got a choice?"
+    }
+  ],
+  "niveau_1": [
+    {
+      "id": "niveau_1_001",
+      "personnage": "Alaric",
+      "fr": "Ton premier jeu est simple. Tu es perdu… dans une foule. Trouve-moi. Mais fais attention… plus tu cherches… plus ils vont se rapprocher. Et ils n’aiment pas être regardés.",
+      "en": "Your first game is simple. You’re lost in a crowd. Find me. But be careful, the more you look, the closer they’ll get, and they don’t like being looked at."
+    },
+    {
+      "id": "niveau_1_002",
+      "personnage": "Vyktor",
+      "fr": "…ok. Juste le trouver. C’est tout.",
+      "en": "…Ok. I just have to find him. That’s it."
+    },
+    {
+      "id": "niveau_1_003",
+      "personnage": "Vyktor",
+      "fr": "Pourquoi ils me fixent comme ça…?",
+      "en": "Why are they all looking at me like that?"
+    },
+    {
+      "id": "niveau_1_004",
+      "personnage": "Vyktor",
+      "fr": "Il y a trop de monde… je n’arrive pas à voir.",
+      "en": "There are too many people. I can’t see."
+    },
+    {
+      "id": "niveau_1_005",
+      "personnage": "Vyktor",
+      "fr": "Respire… respire…",
+      "en": "Just breathe… just breathe…"
+    },
+    {
+      "id": "niveau_1_006",
+      "personnage": "Vyktor",
+      "fr": "Je n’aime pas ça… je n’aime vraiment pas ça…",
+      "en": "I don’t like this… I really don’t like this…"
+    }
+  ],
+  "niveau_2": [
+    {
+      "id": "niveau_2_001",
+      "personnage": "Alaric",
+      "fr": "Deuxième jeu. Tu es dans le noir. Tu veux sortir? Alors allume les 5 lampadaires… dans le bon ordre. Tu as accès à des ondes lumineuses qui te permettent de voir les alentours pendant quelques secondes. Mais ces ondes font du bruit. Et ce bruit attire des choses… Bonne chanceeee.",
+      "en": "Second game. You’re in the dark. You want to leave? Then light up the 5 lamps in the right order. You have access to light waves that allow you to see your surroundings for a few seconds. But these waves make noise. And this noise attracts things… Good luck!"
+    },
+    {
+      "id": "niveau_2_002",
+      "personnage": "Vyktor",
+      "fr": "…je ne vois rien.",
+      "en": "…I can’t see anything."
+    },
+    {
+      "id": "niveau_2_003",
+      "personnage": "Vyktor",
+      "fr": "Ok… les lampes. Il faut juste suivre l’ordre.",
+      "en": "Ok… the lamps. I just have to follow the order."
+    },
+    {
+      "id": "niveau_2_004",
+      "personnage": "Vyktor",
+      "fr": "Ça marche… mais c’est trop bruyant…",
+      "en": "It works… but it’s too loud…"
+    },
+    {
+      "id": "niveau_2_005",
+      "personnage": "Vyktor",
+      "fr": "Ok, il y a clairement quelque chose ici.",
+      "en": "Ok, there’s clearly something here."
+    },
+    {
+      "id": "niveau_2_006",
+      "personnage": "Vyktor",
+      "fr": "J’entends des trucs bouger…",
+      "en": "I’m hearing something moving…"
+    },
+    {
+      "id": "niveau_2_007",
+      "personnage": "Vyktor",
+      "fr": "Encore une… juste une…",
+      "en": "One more… just one…"
+    }
+  ],
+  "niveau_3": [
+    {
+      "id": "niveau_3_001",
+      "personnage": "Alaric",
+      "fr": "Dernier jeu. Tu veux partir, pas vrai? Alors ouvre la sortie. Tu as 5 machines. Active-les toutes… et la porte s’ouvrira. Mais cette fois… je joue avec toi. HAHAHAHAHAHAHAH",
+      "en": "Last game. You want to leave, right? Then open the exit door. You have 5 machines. Activate them all… and the door will open. But this time… I’ll play with you. HAHAHAHAHAH"
+    },
+    {
+      "id": "niveau_3_002",
+      "personnage": "Vyktor",
+      "fr": "Il faut activer les machines.",
+      "en": "I have to activate the machines."
+    },
+    {
+      "id": "niveau_3_003",
+      "personnage": "Vyktor",
+      "fr": "C’est tout.",
+      "en": "That’s it."
+    },
+    {
+      "id": "niveau_3_004",
+      "personnage": "Vyktor",
+      "fr": "Il est là.",
+      "en": "He’s here."
+    },
+    {
+      "id": "niveau_3_005",
+      "personnage": "Vyktor",
+      "fr": "Plus vite… plus vite…",
+      "en": "Faster… faster…"
+    },
+    {
+      "id": "niveau_3_006",
+      "personnage": "Vyktor",
+      "fr": "Il est juste derrière moi…",
+      "en": "He’s just behind me…"
+    },
+    {
+      "id": "niveau_3_007",
+      "personnage": "Alaric",
+      "fr": "Mais pourquoi tu es aussi lent? HAHAHAHHAHA",
+      "en": "Why are you so slow? HAHAHHAHAHHAHAH"
+    },
+    {
+      "id": "niveau_3_008",
+      "personnage": "Alaric",
+      "fr": "Est-ce que je devrais te donner une longueur d’avance? HAHAHAHAHHA Tu es vraiment lent.",
+      "en": "Should I give you a head start? HAHAHAHHAHA, because you’re really slow."
+    },
+    {
+      "id": "niveau_3_009",
+      "personnage": "Alaric",
+      "fr": "C’est qui qui a réellement fumé quelque chose? HAHAHAHHAHA",
+      "en": "Who is it that really smoked something? HAHAHAHHAHA"
+    },
+    {
+      "id": "niveau_3_010",
+      "personnage": "Alaric",
+      "fr": "Oh non, je vois des choses bizarres. Je pense que je deviens fou. HAHAHAHAHAHAHAH",
+      "en": "Oh no, I keep seeing weird things. I think I’m going crazy. HAHAHAHAHAH"
+    }
+  ],
+  "desert": [
+    {
+      "id": "desert_indice_001",
+      "type": "indice",
+      "personnage": "Foule",
+      "fr": "J’ai vu un bout de papier traîner près de la Maison du nord-est. Personne ne regarde vraiment là-bas.",
+      "en": "I saw a piece of paper lying near the northeastern house. No one really looks over there."
+    },
+    {
+      "id": "desert_indice_002",
+      "type": "indice",
+      "personnage": "Foule",
+      "fr": "Dans la zone cloturée, il y a quelque chose qui dépasse du sable. Ça ressemble à un papier plié.",
+      "en": "In the fenced area, something is sticking out of the sand. It looks like a folded piece of paper."
+    },
+    {
+      "id": "desert_indice_003",
+      "type": "indice",
+      "personnage": "Foule",
+      "fr": "Cherche près de l’Eau. Le vent a sûrement poussé un morceau jusque-là.",
+      "en": "Look near the water. The wind probably pushed a piece over there."
+    },
+    {
+      "id": "desert_indice_004",
+      "type": "indice",
+      "personnage": "Foule",
+      "fr": "Il y a un papier en train de sécher, à coté. Je l’ai vu bouger quand le vent s’est levé.",
+      "en": "There’s a paper drying nearby. I saw it move when the wind picked up."
+    },
+    {
+      "id": "desert_indice_005",
+      "type": "indice",
+      "personnage": "Foule",
+      "fr": "Derrière l'endroit d'arrivée, quelqu’un a laissé un morceau par terre. Tu devrais aller voir.",
+      "en": "Behind the arrival area, someone left a piece on the ground. You should go check."
+    }
+  ]
+}

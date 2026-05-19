@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
 
         ControlesPersonnage.canMove = allowGameLoop = !enPause;
 
-        if (stageJeu != StageJeu.Intro) Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
+        if (stageJeu != StageJeu.Intro || stageJeu != StageJeu.Menu) Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
     }
     /// <summary>
     /// Retourne au menu principal

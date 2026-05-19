@@ -16651,7 +16651,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
       propertyPath: ambience2.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
       propertyPath: 'ambience2.Array.data[1]'

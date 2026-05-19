@@ -10,11 +10,11 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
 
     [Header("Affectation inspecteur"), Space(30)]
-    public List<AudioClip> ambience0;
+    public List<AudioClip> ambienceMenu;
     /// <summary>
     /// les numéros dans les noms de variables correspondent à l'étape du jeu à laquelle les clips sont associés selon l'enum <see cref="StageJeu"/>
     /// </summary>
-    public List<AudioClip> ambience1, ambience2, ambience3, ambience4;
+    public List<AudioClip> ambienceIntro, ambienceDesert, ambienceForet, ambienceTheatre;
 
     public static Action OnAudioSettingsChange;
 
@@ -41,10 +41,31 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         audsrc = GetComponent<AudioSource>();
-        clipsAmbience = new[] { ambience0, ambience1, ambience2, ambience3, ambience4 }.SelectMany(clip => clip).ToArray();
+        clipsAmbience = new[] { ambienceMenu, ambienceIntro, ambienceDesert, ambienceForet, ambienceTheatre }.SelectMany(clip => clip).ToArray();
+    }
+    private void Start()
+    {
         foreach (AudioClip clip in clipsAmbience)
         {
-            JouerSon(CategorieSon.Ambience, clip);
+            //JouerSon(CategorieSon.Ambience, clip);
+            switch (GameManager.Instance.stageJeu)
+            {
+                case StageJeu.Menu:
+                    if (ambienceMenu.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
+                    break;
+                case StageJeu.Intro:
+                    if (ambienceIntro.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
+                    break;
+                case StageJeu.Desert:
+                    if (ambienceDesert.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
+                    break;
+                case StageJeu.Foret:
+                    if (ambienceForet.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
+                    break;
+                case StageJeu.Theatre:
+                    if (ambienceTheatre.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
+                    break;
+            }
         }
     }
     private void OnEnable()
@@ -99,7 +120,7 @@ public class AudioManager : MonoBehaviour
     {
         //Debug.Log(categVolume);
         //Debug.Log(valeur);
-        float valeurConvertie = float.Parse((string) valeur) / 100;
+        float valeurConvertie = float.Parse((string)valeur) / 100;
 
         if (categVolume == "General") volumeGeneral = valeurConvertie;
         else if (categVolume == "Jeu") volumeJeu = valeurConvertie;
