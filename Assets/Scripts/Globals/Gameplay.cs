@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
 using static UnityEngine.Object;
-using QuickType;
+//using QuickType;
+using QuickType1;
 using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Globals
 {
@@ -54,7 +57,11 @@ namespace Globals
                             string jsonString = File.ReadAllText(filePath);
                             var dialogues = Dialogues.FromJson(jsonString);
                             //Debug.Log(obj.transform.GetSiblingIndex());
-                            DialogueManager.Instance.textesDialogue = dialogues.Desert[obj.transform.GetSiblingIndex()];
+                            //DialogueManager.Instance.textesDialogue = dialogues.Desert[obj.transform.GetSiblingIndex()];
+                            Debug.Log(dialogues.Niveau2);
+                            Debug.Log(dialogues.Niveau2[obj.transform.GetSiblingIndex()]);
+                            Debug.Log(dialogues.Niveau2[obj.transform.GetSiblingIndex()].Fr);
+                            DialogueManager.Instance.textesDialogue = new[] { dialogues.Niveau2[obj.transform.GetSiblingIndex()].Fr };
                             DialogueManager.Instance.ToggleOverlayDialogue(true);
                         }
                         else
