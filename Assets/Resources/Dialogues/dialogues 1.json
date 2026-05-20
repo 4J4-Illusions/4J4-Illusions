@@ -27,7 +27,7 @@
       },
       {
         "id": "prelude_005",
-        "personnage": "?????",
+        "personnage": "????",
         "fr": "HAHAHAHHAHAHHAHAH",
         "en": "HAHAHAHHAHAHHAHAH"
       },
@@ -39,7 +39,7 @@
       },
       {
         "id": "prelude_007",
-        "personnage": "?????",
+        "personnage": "????",
         "fr": "HAHAHAHHAHA oh uh- oh enfin tu m’as trouvé. Ça t’a pris du temps… Je savais que c’était facile de rentrer, mais pas aussi facile.",
         "en": "HAHAHAHAH oh uh- oh about time you found me. I knew it would be easy to sneak in hahaha, but not that easy."
       },
@@ -106,7 +106,7 @@
       },
       {
         "id": "prelude_018",
-        "personnage": "Alaric",
+        "personnage": "system",
         "fr": "Veux-tu jouer?",
         "en": "Do you want to play?",
         "contientChoix": true
@@ -191,33 +191,38 @@
     "indices": [
       {
         "id": "desert_indice_001",
+        "type": "indice",
         "personnage": "Foule",
         "fr": "J’ai vu un bout de papier traîner près de la Maison du nord-est. Personne ne regarde vraiment là-bas.",
         "en": "I saw a piece of paper lying near the northeastern house. No one really looks over there."
       },
       {
         "id": "desert_indice_002",
+        "type": "indice",
         "personnage": "Foule",
-        "fr": "Dans la zone cloturée, il y a quelque chose à côté d'une fenêtre. C'et tout sale.",
-        "en": "In the fenced area, there's something next to a window. It's dirty."
+        "fr": "Dans la zone cloturée, il y a quelque chose qui dépasse du sable. Ça ressemble à un papier plié.",
+        "en": "In the fenced area, something is sticking out of the sand. It looks like a folded piece of paper."
       },
       {
         "id": "desert_indice_003",
+        "type": "indice",
         "personnage": "Foule",
         "fr": "Cherche près de l’Eau. Le vent a sûrement poussé un morceau jusque-là.",
         "en": "Look near the water. The wind probably pushed a piece over there."
       },
       {
         "id": "desert_indice_004",
+        "type": "indice",
         "personnage": "Foule",
         "fr": "Il y a un papier en train de sécher, à coté. Je l’ai vu bouger quand le vent s’est levé.",
         "en": "There’s a paper drying nearby. I saw it move when the wind picked up."
       },
       {
         "id": "desert_indice_005",
+        "type": "indice",
         "personnage": "Foule",
-        "fr": "Derrière l'endroit d'arrivée, quelqu’un a laissé un morceau n'importe comment. Tu devrais aller voir.",
-        "en": "Behind the arrival area, someone left a piece randomly. You should go and take a look."
+        "fr": "Derrière l'endroit d'arrivée, quelqu’un a laissé un morceau par terre. Tu devrais aller voir.",
+        "en": "Behind the arrival area, someone left a piece on the ground. You should go check."
       }
     ]
   },

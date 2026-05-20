@@ -6,7 +6,7 @@
 //
 //    var dialogues = Dialogues.FromJson(jsonString);
 
-namespace QuickType1
+namespace QuickType
 {
     using System;
     using System.Collections.Generic;
@@ -53,9 +53,6 @@ namespace QuickType1
         [JsonProperty("en")]
         public string En { get; set; }
 
-        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-        public string Type { get; set; }
-
         [JsonProperty("contientChoix", NullValueHandling = NullValueHandling.Ignore)]
         public bool? ContientChoix { get; set; }
     }
@@ -87,7 +84,7 @@ namespace QuickType1
         public string Cible { get; set; }
     }
 
-    public enum Personnage { Alaric, Empty, Foule, System, Vyktor };
+    public enum Personnage { Alaric, Empty, Foule, Vyktor };
 
     public partial class Dialogues
     {
@@ -123,7 +120,7 @@ namespace QuickType1
             var value = serializer.Deserialize<string>(reader);
             switch (value)
             {
-                case "????":
+                case "?????":
                     return Personnage.Empty;
                 case "Alaric":
                     return Personnage.Alaric;
@@ -131,8 +128,6 @@ namespace QuickType1
                     return Personnage.Foule;
                 case "Vyktor":
                     return Personnage.Vyktor;
-                case "system":
-                    return Personnage.System;
             }
             throw new Exception("Cannot unmarshal type Personnage");
         }
@@ -148,7 +143,7 @@ namespace QuickType1
             switch (value)
             {
                 case Personnage.Empty:
-                    serializer.Serialize(writer, "????");
+                    serializer.Serialize(writer, "?????");
                     return;
                 case Personnage.Alaric:
                     serializer.Serialize(writer, "Alaric");
@@ -158,9 +153,6 @@ namespace QuickType1
                     return;
                 case Personnage.Vyktor:
                     serializer.Serialize(writer, "Vyktor");
-                    return;
-                case Personnage.System:
-                    serializer.Serialize(writer, "system");
                     return;
             }
             throw new Exception("Cannot marshal type Personnage");
