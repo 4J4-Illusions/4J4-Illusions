@@ -134,7 +134,7 @@ public class GestionBarreAnxiete : MonoBehaviour
     /// </summary>
     void Soulagement(float valeurSoulagement = 0)
     {
-        Debug.Log($"Soulagement d'une valeur de: {valeurSoulagement} ({valeurSoulagement * 100}%)");
+        //Debug.Log($"Soulagement d'une valeur de: {valeurSoulagement} ({valeurSoulagement * 100}%)");
         stressTotal -= valeurSoulagement;
     }
 }

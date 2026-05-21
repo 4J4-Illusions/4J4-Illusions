@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
         // recalcul l'état de pause pour s'assurer que toutes les sources de pause sont prises en compte
         enPause = (
             ScriptMenuPauseDepuisInterface.inMenu |
-            DialogueManager.inDialogue
+            DialogueManager.Instance.inDialogue
             );
         //Debug.Log(enPause);
 
@@ -171,6 +171,7 @@ public class GameManager : MonoBehaviour
     /// <param name="stage">Le stage courant</param>
     void CompleterObjectif(StageJeu stage)
     {
+        Debug.Log("L'objectif est complété");
         recompense.SetActive(true);
 
         switch (stage)

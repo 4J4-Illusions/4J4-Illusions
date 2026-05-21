@@ -78,7 +78,9 @@
         "personnage": "Alaric",
         "fr": "Mais voyons donc. Je sais où je suis. Je suis venu pour jouer avec toi HAHAHAHHAHA. Tu es sûr que ce n’est pas toi qui as consommé quelque chose? HAHAHAHAH",
         "en": "Oh come on. I know where I am. I’m here to play a game with you HAHAHAHAHHAH. Are you sure you’re not the one who smoked something? HAHAHHAHAHA",
-        "contientChoix": true
+        "extraOptions": {
+          "contientChoix": true
+        }
       },
       {
         "id": "prelude_014",
@@ -109,7 +111,9 @@
         "personnage": "Alaric",
         "fr": "Veux-tu jouer?",
         "en": "Do you want to play?",
-        "contientChoix": true
+        "extraOptions": {
+          "contientChoix": true
+        }
       },
       {
         "id": "prelude_019",
@@ -119,28 +123,28 @@
       }
     ],
     "choix": {
-      "prelude_013_0": {
+      "prelude_013_000": {
         "fr": "Je n’ai rien consommé et je ne veux pas jouer à un jeu.",
         "en": "I didn’t smoke anything and I don’t wanna play a game.",
         "estChoix": true,
         "action": "dialogue",
         "cible": "prelude_014"
       },
-      "prelude_013_1": {
+      "prelude_013_001": {
         "fr": "C’est quoi ce jeu?",
         "en": "What’s the game?",
         "estChoix": true,
         "action": "dialogue",
         "cible": "prelude_015"
       },
-      "prelude_018_0": {
+      "prelude_018_000": {
         "fr": "Oui",
         "en": "Yes",
         "estChoix": true,
         "action": "methode",
         "cible": "DialogueBoucle.StopSpawning"
       },
-      "prelude_018_1": {
+      "prelude_018_001": {
         "fr": "Non",
         "en": "No",
         "estChoix": true,
@@ -154,14 +158,17 @@
       {
         "id": "niveau_1_001",
         "personnage": "Alaric",
-        "fr": "Ton premier jeu est simple. Tu es perdu… dans une foule. Trouve-moi. Mais fais attention… plus tu cherches… plus ils vont se rapprocher. Et ils n’aiment pas être regardés.",
-        "en": "Your first game is simple. You’re lost in a crowd. Find me. But be careful, the more you look, the closer they’ll get, and they don’t like being looked at."
+        "fr": "Ton premier jeu est simple. Tu es perdu… dans une foule. Trouve-moi. Mais fais attention… plus tu cherches… plus ils vont te remarquer. Et ils n’aiment pas être regardés.",
+        "en": "Your first game is simple. You’re lost in a crowd. Find me. But be careful… the more you search… the more they will notice you. And they don’t like being looked at."
       },
       {
         "id": "niveau_1_002",
         "personnage": "Vyktor",
         "fr": "…ok. Juste le trouver. C’est tout.",
-        "en": "…Ok. I just have to find him. That’s it."
+        "en": "…Ok. I just have to find him. That’s it.",
+        "extraOptions": {
+          "prochaineCible": "niveau_1_005"
+        }
       },
       {
         "id": "niveau_1_003",
@@ -173,7 +180,10 @@
         "id": "niveau_1_004",
         "personnage": "Vyktor",
         "fr": "Il y a trop de monde… je n’arrive pas à voir.",
-        "en": "There are too many people. I can’t see."
+        "en": "There are too many people. I can’t see.",
+        "extraOptions": {
+          "prochaineCible": ""
+        }
       },
       {
         "id": "niveau_1_005",
@@ -238,7 +248,10 @@
       "id": "niveau_2_003",
       "personnage": "Vyktor",
       "fr": "Ok… les lampes. Il faut juste suivre l’ordre.",
-      "en": "Ok… the lamps. I just have to follow the order."
+      "en": "Ok… the lamps. I just have to follow the order.",
+      "extraOptions": {
+        "prochaineCible": "niveau_2_005"
+      }
     },
     {
       "id": "niveau_2_004",
@@ -256,7 +269,10 @@
       "id": "niveau_2_006",
       "personnage": "Vyktor",
       "fr": "J’entends des trucs bouger…",
-      "en": "I’m hearing something moving…"
+      "en": "I’m hearing something moving…",
+      "extraOptions": {
+        "prochaineCible": ""
+      }
     },
     {
       "id": "niveau_2_007",
@@ -282,7 +298,10 @@
       "id": "niveau_3_003",
       "personnage": "Vyktor",
       "fr": "C’est tout.",
-      "en": "That’s it."
+      "en": "That’s it.",
+      "extraOptions": {
+        "prochaineCible": ""
+      }
     },
     {
       "id": "niveau_3_004",
@@ -318,7 +337,10 @@
       "id": "niveau_3_009",
       "personnage": "Alaric",
       "fr": "C’est qui qui a réellement fumé quelque chose? HAHAHAHHAHA",
-      "en": "Who is it that really smoked something? HAHAHAHHAHA"
+      "en": "Who is it that really smoked something? HAHAHAHHAHA",
+      "extraOptions": {
+        "prochaineCible": ""
+      }
     },
     {
       "id": "niveau_3_010",

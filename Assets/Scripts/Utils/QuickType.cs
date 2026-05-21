@@ -53,6 +53,15 @@ namespace QuickType
         [JsonProperty("en")]
         public string En { get; set; }
 
+        [JsonProperty("extraOptions", NullValueHandling = NullValueHandling.Ignore)]
+        public ExtraOptions ExtraOptions { get; set; }
+    }
+
+    public partial class ExtraOptions
+    {
+        [JsonProperty("prochaineCible", NullValueHandling = NullValueHandling.Ignore)]
+        public string ProchaineCible { get; set; }
+
         [JsonProperty("contientChoix", NullValueHandling = NullValueHandling.Ignore)]
         public bool? ContientChoix { get; set; }
     }

@@ -3,6 +3,7 @@ using UnityEngine;
 using static UnityEngine.Object;
 using QuickType;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Globals
 {
@@ -42,19 +43,20 @@ namespace Globals
                 case TypeInteraction.Dialogue:
                     // fait progresser le dialogue si l'overlay de dialogue est actif, sinon l'active
 
-                    if (DialogueManager.inDialogue)
+                    if (DialogueManager.Instance.inDialogue)
                     {
                         DialogueManager.Instance.ProgresserDialogue();
                     }
                     else
                     {
-                        string filePath = Path.Combine(Application.streamingAssetsPath, "Data", "Dialogues.json");
-                        if (File.Exists(filePath))
+                        if (File.Exists(DialogueManager.Instance.fullPath))
                         {
-                            string jsonString = File.ReadAllText(filePath);
-                            var dialogues = Dialogues.FromJson(jsonString);
+                            //string jsonString = File.ReadAllText(DialogueManager.Instance.fullPath);
+                            //var dialogues = Dialogues.FromJson(jsonString);
                             //Debug.Log(obj.transform.GetSiblingIndex());
-                            DialogueManager.Instance.textesDialogue = new[] { dialogues.Niveau1.Indices[obj.transform.GetSiblingIndex()].Fr };
+                            //DialogueManager.Instance.textesDialogue = new[] { dialogues.Niveau1.Indices[obj.transform.GetSiblingIndex()].Fr };
+                            string tempJsonString = JsonConvert.SerializeObject(new[] { DialogueManager.Instance.tousLesDialogues.Niveau1.Indices[obj.transform.GetSiblingIndex()] });
+                            DialogueManager.Instance.dialogueItems = JsonConvert.DeserializeObject<DialogueItem[]>(tempJsonString);
                             DialogueManager.Instance.ToggleOverlayDialogue(true);
                         }
                         else
@@ -87,6 +89,7 @@ namespace Globals
                     {
                         // detruit le component ObjectInteractif pour arreter la détection par le raycast du joueur sans empêcher les collisions
                         Destroy(obj.GetComponent<ObjetInteractif>());
+
                         // active parent contenant lumiere et particule
                         // fait jouer la particule et active la lumiere
                         obj.transform.Find("Lampadaire/Final_Candle1").gameObject.SetActive(true);
