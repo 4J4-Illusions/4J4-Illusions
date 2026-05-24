@@ -16649,18 +16649,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: ambience2.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: 'ambience2.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 53d47d29f956f1f4191d9019f6932628, type: 3}
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: 'ambience2.Array.data[2]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 8e3b784d2a6c90e4e9828a4874efceb2, type: 3}
     - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

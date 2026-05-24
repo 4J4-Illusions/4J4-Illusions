@@ -174,7 +174,7 @@ public class ControlesPersonnage : MonoBehaviour
             {
                 Gameplay.Interaction(TypeInteraction.CalibrationStop);
             }
-            else if (DialogueManager.Instance.inDialogue)
+            else if (DialogueManager.inDialogue)
             {
                 Gameplay.Interaction(TypeInteraction.Dialogue);
             }

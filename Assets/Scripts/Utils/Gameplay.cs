@@ -43,7 +43,7 @@ namespace Globals
                 case TypeInteraction.Dialogue:
                     // fait progresser le dialogue si l'overlay de dialogue est actif, sinon l'active
 
-                    if (DialogueManager.Instance.inDialogue)
+                    if (DialogueManager.inDialogue)
                     {
                         DialogueManager.Instance.ProgresserDialogue();
                     }

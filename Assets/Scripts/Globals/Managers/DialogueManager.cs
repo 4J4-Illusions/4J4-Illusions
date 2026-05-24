@@ -23,10 +23,10 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI zoneTexteDialogue, zoneTitreDialogue;
 
     [Header("Accès pour autres scripts"), Space(30)]
-    public bool inDialogue = false;
     public string fullPath = "";
     public Dialogues tousLesDialogues;
 
+    public static bool inDialogue = false;
     public static Action<bool> OnDialogueInteraction;
 
     int indexDialogue = 0;

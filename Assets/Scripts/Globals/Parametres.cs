@@ -72,13 +72,15 @@ public class Parametres : MonoBehaviour
     /// <param name="kvp">La paire de clé-valeur du paramètre</param>
     public void UpdateParametres(string key, object value)
     {
+        //Debug.Log($"key: {key}    value: {value}");
+
         dictParametres[key] = value;
         parametresDonnees[key] = value;
         //Debug.Log(dictParametres.Count);
         //Debug.Log(dictParametres[key]);
 
         SauvegarderParametres();
-        OnSettingsChange?.Invoke(key, value);
+        OnSettingsChange.Invoke(key, value);
     }
     void SauvegarderParametres()
     {

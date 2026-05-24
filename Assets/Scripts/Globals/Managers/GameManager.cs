@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
         // recalcul l'état de pause pour s'assurer que toutes les sources de pause sont prises en compte
         enPause = (
             ScriptMenuPauseDepuisInterface.inMenu |
-            DialogueManager.Instance.inDialogue
+            DialogueManager.inDialogue
             );
         //Debug.Log(enPause);
 
