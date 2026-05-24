@@ -112,6 +112,11 @@ public class AudioManager : MonoBehaviour
         CategorieSon categSon = GetClipCategory(clip);
         return SetAudioVolume(categSon);
     }
+    /// <summary>
+    /// Donne une valeur de volume pour un clip audio d'ambience en fonction des paramètres de volume généraux et spécifiques à la catégorie, ainsi que d'une valeur de volume de base propre au clip (permettant de faire des réglages individuels pour chaque clip d'ambience).
+    /// </summary>
+    /// <param name="volumeBase">Volume de base</param>
+    /// <returns>La valeur de volume</returns>
     public float SetAudioVolume(float volumeBase)
     {
         return volumeBase * SetAudioVolume(CategorieSon.Ambience);

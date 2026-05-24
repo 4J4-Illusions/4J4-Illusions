@@ -92,6 +92,7 @@ public class GestionBarreAnxiete : MonoBehaviour
 
             finalProgBarre = (!pauseProgBarre) ? (-progressionBarre / 10) : 0;
             //Debug.Log("final prog barre: " + finalProgBarre);
+            //Debug.Log("can prog barre: " + GameManager.Instance.allowGameLoop);
             if (GameManager.Instance.allowGameLoop) stressTotal += (sommeStress > .00001) ? sommeStress : finalProgBarre;
             else stressTotal += 0;
         }

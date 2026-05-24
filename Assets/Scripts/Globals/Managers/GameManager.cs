@@ -3,6 +3,7 @@ using Globals;
 using System;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -106,12 +107,14 @@ public class GameManager : MonoBehaviour
     {
         // recalcul l'état de pause pour s'assurer que toutes les sources de pause sont prises en compte
         enPause = (
+            enPause |
             ScriptMenuPauseDepuisInterface.inMenu |
             DialogueManager.inDialogue
             );
-        //Debug.Log(enPause);
+        //Debug.Log("enPause: " + enPause);
 
         ControlesPersonnage.canMove = allowGameLoop = !enPause;
+        //Debug.Log("allowGameLoop: " + allowGameLoop);
 
         if (stageJeu != StageJeu.Intro || stageJeu != StageJeu.Menu) Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
     }
@@ -228,12 +231,19 @@ public class GameManager : MonoBehaviour
         allowGameLoop = true;
 
 
-        // affections quand la scene est pas celle d'intro
-        if (scene.buildIndex != 0)
+        // affections quand la scene est pas celle de menu
+        if(scene.buildIndex != 0)
         {
-            // affectations valeurs générales importantes
+            // etat curseur
             Cursor.lockState = CursorLockMode.Locked;
 
+            // boite dialogue
+            //GameObject.Find("DialogueManager");
+            DialogueManager.Instance.SceneLoadedDialogue(stageJeu);
+        }
+        // affections quand la scene est ni celle de menu ni celle d'intro
+        if (!new int[] { 0, 1 }.Contains(scene.buildIndex))
+        {
             // affectations éléments de la hiérarchie
             player = GameObject.FindWithTag("Player");
             cameraJoueur = player.transform.Find("CameraJoueur").gameObject;

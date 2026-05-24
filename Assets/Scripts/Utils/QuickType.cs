@@ -62,6 +62,9 @@ namespace QuickType
         [JsonProperty("prochaineCible", NullValueHandling = NullValueHandling.Ignore)]
         public string ProchaineCible { get; set; }
 
+        [JsonProperty("event", NullValueHandling = NullValueHandling.Ignore)]
+        public string Event { get; set; }
+
         [JsonProperty("contientChoix", NullValueHandling = NullValueHandling.Ignore)]
         public bool? ContientChoix { get; set; }
     }
