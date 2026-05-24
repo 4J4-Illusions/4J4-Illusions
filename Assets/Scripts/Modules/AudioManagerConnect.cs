@@ -1,6 +1,7 @@
 using Globals;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class AudioManagerConnect : MonoBehaviour
 {
     [Header("Accès pour autres scripts"), Space(30)]

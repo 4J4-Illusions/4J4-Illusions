@@ -48,14 +48,14 @@ public class DialogueManager : MonoBehaviour
         fullPath = Path.Combine(Application.streamingAssetsPath, "Data", "Dialogues.json");
         tousLesDialogues = Dialogues.FromJson(File.ReadAllText(fullPath));
     }
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += SceneLoadedDialogue;
-    }
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= SceneLoadedDialogue;
-    }
+    //private void OnEnable()
+    //{
+    //    SceneManager.sceneLoaded += SceneLoadedDialogue;
+    //}
+    //private void OnDisable()
+    //{
+    //    SceneManager.sceneLoaded -= SceneLoadedDialogue;
+    //}
 
 
 
@@ -68,15 +68,22 @@ public class DialogueManager : MonoBehaviour
         //Debug.Log("etatActif: " + etatActif);
         overlayDialogue.SetActive(etatActif);
         inDialogue = etatActif;
-        OnDialogueInteraction?.Invoke(etatActif);
+        OnDialogueInteraction.Invoke(etatActif);
 
         if (etatActif) ProgresserDialogue(indexDialogue);
     }
+    /// <summary>
+    /// Affiche le texte du dialogue actuel dans les zones de texte correspondantes.
+    /// </summary>
+    /// <param name="dialogue">Le dialogue à afficher</param>
     void AfficherTexteDialogue(DialogueItem dialogue)
     {
         zoneTexteDialogue.text = dialogue.Fr;
         zoneTitreDialogue.text = dialogue.Personnage.ToString();
     }
+    /// <summary>
+    /// Conclu l'affichage du dialogue en réinitialisant l'index du dialogue et en fermant l'overlay de dialogue.
+    /// </summary>
     void FinDialogue()
     {
         indexDialogue = 0;
@@ -98,24 +105,30 @@ public class DialogueManager : MonoBehaviour
             FinDialogue();
             return;
         }
-        // gestion comportement selon options extra
-        //if (dialogueItems[indexDialogue].ExtraOptions)
-        GestionOptionsExtra(dialogueItems[indexDialogue].ExtraOptions);
+        else AfficherTexteDialogue(dialogueItems[indexDialogue]);
 
-        AfficherTexteDialogue(dialogueItems[indexDialogue]);
+        // gestion comportement selon options extra
+        //Debug.Log("dialogue id: " + dialogueItems[indexDialogue].Id);
+        GestionOptionsExtra(dialogueItems[indexDialogue].ExtraOptions);
     }
-    void SceneLoadedDialogue(Scene scene, LoadSceneMode mode)
+    /// <summary>
+    /// Gère le dialogue introfuctif de chaque scène en fonction de l'étape du jeu.
+    /// </summary>
+    /// <param name="stageJeu">L'étape actuelle du jeu</param>
+    public void SceneLoadedDialogue(StageJeu stageJeu)
     {
-        StageJeu stageJeu = (StageJeu)scene.buildIndex;
-        Debug.Log("stageJeu: " + stageJeu);
+        //StageJeu stageJeu = (StageJeu)scene.buildIndex;
+        //Debug.Log("stageJeu: " + stageJeu);
 
         if (new StageJeu[] { StageJeu.Intro, StageJeu.Desert, StageJeu.Foret, StageJeu.Theatre }.Contains(stageJeu))
         {
+            // setup de l'overlay de dialogue
             overlayDialogue = GameObject.FindWithTag("DialogueOverlay");
             ToggleOverlayDialogue(false);
             zoneTexteDialogue = overlayDialogue.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
             zoneTitreDialogue = overlayDialogue.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
 
+            // récupère les dialogues correspondants à l'étape du jeu actuelle et les convertit en DialogueItem[]
             object[] dialogues = null;
             switch (stageJeu)
             {
@@ -141,13 +154,42 @@ public class DialogueManager : MonoBehaviour
             ToggleOverlayDialogue(true);
         }
     }
-    void GestionOptionsExtra(ExtraOptions options)
+    /// <summary>
+    /// Cette méthode gère les options supplémentaires associées à un dialogue, permettant d'ajuster le comportement du jeu en fonction des paramètres définis dans les dialogues.
+    /// </summary>
+    /// <param name="options">Les possibles options additionnelles</param>
+    void GestionOptionsExtra(ExtraOptions options = null)
     {
         if (options == null) return;
 
         foreach (var item in options.GetType().GetProperties().Select(prop => prop.Name))
         {
-            Debug.Log(item);
+            //Debug.Log("nom propriete: "+ item);
+            object propValue = options.GetType().GetProperty(item).GetValue(options);
+            //Debug.Log("valeur propriete:" + propValue);
+            switch (item)
+            {
+                case "ProchaineCible":
+                    if (propValue == null) return;
+                    else if ((string)propValue == "") FinDialogue();
+                    else
+                    {
+                        //Debug.Log(((string)propValue));
+                        //Debug.Log(((string)propValue)[^3..]);
+
+                        //ProgresserDialogue(int.Parse(((string)propValue)[^3..]) - 1);
+                        indexDialogue = int.Parse(((string)propValue)[^3..]) - 2;
+                    }
+                    break;
+                case "Event":
+                    switch (propValue)
+                    {
+                        case "OnStartDesertLevel":
+                            GameObject.Find("SpawnerFoulePassante").SetActive(true);
+                            break;
+                    }
+                    break;
+            }
         }
     }
 }

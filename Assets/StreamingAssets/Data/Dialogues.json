@@ -195,7 +195,10 @@
         "id": "niveau_1_006",
         "personnage": "Vyktor",
         "fr": "Je n’aime pas ça… je n’aime vraiment pas ça…",
-        "en": "I don’t like this… I really don’t like this…"
+        "en": "I don’t like this… I really don’t like this…",
+        "extraOptions": {
+          "event": "OnStartDesertLevel"
+        }
       }
     ],
     "indices": [
