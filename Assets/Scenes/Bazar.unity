@@ -5706,6 +5706,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8707653646559875189, guid: f7cfd4c5a64ae1c44916dba2a8e1373d, type: 3}
   m_PrefabInstance: {fileID: 613937073}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &620901196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 157190786716327597, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
+  m_PrefabInstance: {fileID: 666118635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &620901198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620901196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ac84efe7d77d2418ed7d09ff0bccb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecompenseNiveau
+  valeurRotation: 3
+  prefabParticuleRecompense: {fileID: 3409013958770801762, guid: 735db6a26ceee124c9e8a39f9bd09921, type: 3}
 --- !u!1001 &624437794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6375,7 +6394,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4849439531400734206, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_Name
-      value: Briquet
+      value: Recompense
       objectReference: {fileID: 0}
     - target: {fileID: 4849439531400734206, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       propertyPath: m_TagString
@@ -6439,33 +6458,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4849439531400734206, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 666118637}
-    - targetCorrespondingSourceObject: {fileID: 4849439531400734206, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 666118638}
     - targetCorrespondingSourceObject: {fileID: 4849439531400734206, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
       insertIndex: -1
       addedObject: {fileID: 666118640}
+    - targetCorrespondingSourceObject: {fileID: 157190786716327597, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 620901198}
   m_SourcePrefab: {fileID: 100100000, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
 --- !u!1 &666118636 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4849439531400734206, guid: b5688fafaa6e2d2458abc063403dae97, type: 3}
   m_PrefabInstance: {fileID: 666118635}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &666118637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666118636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ac84efe7d77d2418ed7d09ff0bccb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RecompenseNiveau
-  valeurRotation: 3
-  prefabParticuleRecompense: {fileID: 3409013958770801762, guid: 735db6a26ceee124c9e8a39f9bd09921, type: 3}
 --- !u!65 &666118638
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16110,6 +16115,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1657163959}
     m_Modifications:
+    - target: {fileID: 1142461826321292218, guid: d0059be423470a941a950dc826487a0e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3701099282511987094, guid: d0059be423470a941a950dc826487a0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6044632395110200002, guid: d0059be423470a941a950dc826487a0e, type: 3}
       propertyPath: m_Name
       value: CanvasOverlay

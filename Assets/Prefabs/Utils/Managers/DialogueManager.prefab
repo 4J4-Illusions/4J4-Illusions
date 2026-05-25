@@ -44,10 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc8f695ce7110fb46a9c0599520c02a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Globals.DialogueManager
-  textesDialogue:
-  - Veux tu jouer a un jeu avec moi?
-  - J'ai dit.... veux. tu. jouer. a. un. jeu. avec. moi..?
-  - JOUE AU JEU!!!
-  titreDialogue: Jean-Michel
   overlayDialogue: {fileID: 0}
   zoneTexteDialogue: {fileID: 0}
+  zoneTitreDialogue: {fileID: 0}
+  sonUI: {fileID: 8300000, guid: f7aac346acc5f984b864cee750626fda, type: 3}
+  fullPath: 

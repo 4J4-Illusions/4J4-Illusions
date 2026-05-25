@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // renommage de la classe de manière à rester constant à chaque nouvelle création de la classe représantant la structure json des dialogues
 public class DialogueItem : Niveau2 { }
@@ -21,6 +20,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Hiérarchie")]
     public GameObject overlayDialogue;
     public TextMeshProUGUI zoneTexteDialogue, zoneTitreDialogue;
+    [Header("Projet")]
+    public AudioClip sonUI;
 
     [Header("Accès pour autres scripts"), Space(30)]
     public string fullPath = "";
@@ -48,14 +49,6 @@ public class DialogueManager : MonoBehaviour
         fullPath = Path.Combine(Application.streamingAssetsPath, "Data", "Dialogues.json");
         tousLesDialogues = Dialogues.FromJson(File.ReadAllText(fullPath));
     }
-    //private void OnEnable()
-    //{
-    //    SceneManager.sceneLoaded += SceneLoadedDialogue;
-    //}
-    //private void OnDisable()
-    //{
-    //    SceneManager.sceneLoaded -= SceneLoadedDialogue;
-    //}
 
 
 
@@ -100,6 +93,7 @@ public class DialogueManager : MonoBehaviour
         //Debug.Log("indexDialogue: " + indexDialogue);
         //Debug.Log("dialogueItems.Length: " + dialogueItems.Length);
 
+        AudioManager.Instance.JouerSon(CategorieSon.SFX, sonUI);
         if (indexDialogue >= dialogueItems.Length)
         {
             FinDialogue();
