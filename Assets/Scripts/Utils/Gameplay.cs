@@ -51,10 +51,7 @@ namespace Globals
                     {
                         if (File.Exists(DialogueManager.Instance.fullPath))
                         {
-                            //string jsonString = File.ReadAllText(DialogueManager.Instance.fullPath);
-                            //var dialogues = Dialogues.FromJson(jsonString);
                             //Debug.Log(obj.transform.GetSiblingIndex());
-                            //DialogueManager.Instance.textesDialogue = new[] { dialogues.Niveau1.Indices[obj.transform.GetSiblingIndex()].Fr };
                             string tempJsonString = JsonConvert.SerializeObject(new[] { DialogueManager.Instance.tousLesDialogues.Niveau1.Indices[obj.transform.GetSiblingIndex()] });
                             DialogueManager.Instance.dialogueItems = JsonConvert.DeserializeObject<DialogueItem[]>(tempJsonString);
                             DialogueManager.Instance.ToggleOverlayDialogue(true);

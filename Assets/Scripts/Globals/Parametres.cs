@@ -81,8 +81,11 @@ public class Parametres : MonoBehaviour
         //Debug.Log(dictParametres[key]);
 
         SauvegarderParametres();
-        OnSettingsChange.Invoke(key, value);
+        OnSettingsChange?.Invoke(key, value);
     }
+    /// <summary>
+    /// Sauvarde les paramètres actuels dans un fichier JSON à l'aide de la classe <see cref="FichierIO"/>.
+    /// </summary>
     void SauvegarderParametres()
     {
         // IO pour sauvegarde
@@ -111,12 +114,15 @@ public class SettingsData
     public int Audio_Jeu;
     public int Audio_Musique;
 
-    public Parametres.Langue Langue_Langue;
+    public Parametres.Langue Langue_Langue = Parametres.Langue.Francais;
 
-    public Parametres.Graphisme Graphisme_General;
-    public Parametres.Ombres Graphisme_Ombres;
-    public string Graphisme_Resolution;
-    public int Graphisme_FpsCap;
+    public Parametres.Graphisme Graphisme_General = Parametres.Graphisme.Medium;
+    public Parametres.Ombres Graphisme_Ombres = Parametres.Ombres.Hard;
+    public string Graphisme_Resolution = DisplayResolutions.FullHighDefinition;
+    /// <summary>
+    /// Valeur de la limite de FPS pour le jeu. Si la valeur est 0, il n'y a pas de limite de FPS.
+    /// </summary>
+    public int Graphisme_FpsCap = 60;
 
     // Source - https://stackoverflow.com/a/55495158
     // Posted by Christian Gollhardt, modified by community. See post 'Timeline' for change history
