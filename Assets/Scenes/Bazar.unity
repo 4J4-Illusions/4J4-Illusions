@@ -2142,6 +2142,22 @@ PrefabInstance:
       propertyPath: texteInteraction
       value: 
       objectReference: {fileID: 2102280601}
+    - target: {fileID: 640507246225272837, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.033
+      objectReference: {fileID: 0}
+    - target: {fileID: 640507246225272837, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.041
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076230621085453437, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.032
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076230621085453437, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.015
+      objectReference: {fileID: 0}
     - target: {fileID: 1128569196814898588, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2189,6 +2205,34 @@ PrefabInstance:
     - target: {fileID: 5313433800481762951, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
       propertyPath: m_Name
       value: PersonnageJoueur
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450726035279790734, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905352048188363460, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.031
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905352048188363460, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459358592499554766, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.031
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459358592499554766, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574038626699363535, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.033
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574038626699363535, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.036
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -172,8 +172,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 91b1db36d8c18244ea03b2d99c4a0a6c, type: 2}
-  m_sharedMaterial: {fileID: -913104318199325108, guid: 91b1db36d8c18244ea03b2d99c4a0a6c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 17ac4b8fa46b9a9429cb7142e049b24d, type: 2}
+  m_sharedMaterial: {fileID: -223643976125810766, guid: 17ac4b8fa46b9a9429cb7142e049b24d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -406,8 +406,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 91b1db36d8c18244ea03b2d99c4a0a6c, type: 2}
-  m_sharedMaterial: {fileID: -913104318199325108, guid: 91b1db36d8c18244ea03b2d99c4a0a6c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 17ac4b8fa46b9a9429cb7142e049b24d, type: 2}
+  m_sharedMaterial: {fileID: -223643976125810766, guid: 17ac4b8fa46b9a9429cb7142e049b24d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -616,8 +616,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QueteCompteur
   nomQuete: Toucher Pharly
-  valeurActuelle: 0
-  valeurMax: 5
 --- !u!1 &8559641225496516297
 GameObject:
   m_ObjectHideFlags: 0
