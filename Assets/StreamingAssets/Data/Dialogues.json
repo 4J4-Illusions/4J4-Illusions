@@ -260,7 +260,10 @@
       "id": "niveau_2_004",
       "personnage": "Vyktor",
       "fr": "Ça marche… mais c’est trop bruyant…",
-      "en": "It works… but it’s too loud…"
+      "en": "It works… but it’s too loud…",
+      "extraOptions": {
+        "prochaineCible": ""
+      }
     },
     {
       "id": "niveau_2_005",

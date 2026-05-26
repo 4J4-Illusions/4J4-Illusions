@@ -61,7 +61,7 @@ public class DialogueManager : MonoBehaviour
         //Debug.Log("etatActif: " + etatActif);
         overlayDialogue.SetActive(etatActif);
         inDialogue = etatActif;
-        OnDialogueInteraction.Invoke(etatActif);
+        OnDialogueInteraction?.Invoke(etatActif);
 
         if (etatActif) ProgresserDialogue(indexDialogue);
     }
@@ -127,19 +127,19 @@ public class DialogueManager : MonoBehaviour
             switch (stageJeu)
             {
                 case StageJeu.Intro:
-                    Debug.Log("stageJeu = intro");
+                    //Debug.Log("stageJeu = intro");
                     dialogues = tousLesDialogues.Prelude.Dialogues;
                     break;
                 case StageJeu.Desert:
-                    Debug.Log("stageJeu = desert");
+                    //Debug.Log("stageJeu = desert");
                     dialogues = tousLesDialogues.Niveau1.Dialogues;
                     break;
                 case StageJeu.Foret:
-                    Debug.Log("stageJeu = foret");
+                    //Debug.Log("stageJeu = foret");
                     dialogues = tousLesDialogues.Niveau2;
                     break;
                 case StageJeu.Theatre:
-                    Debug.Log("stageJeu = theatre");
+                    //Debug.Log("stageJeu = theatre");
                     dialogues = tousLesDialogues.Niveau3;
                     break;
             }

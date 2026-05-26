@@ -25,7 +25,6 @@ public class ControlesPersonnage : MonoBehaviour
     InputAction mouvementAction, rotationAction, courseAction, interactionAction;
     Vector3 mouvementFinal, rotationFinale;
     int indexModifCourse = 0;
-    TypeInteraction DefaultInterac = 0;
     RaycastHit hit;
     AudioSource audsrc;
     Animator animPerso;
@@ -50,11 +49,6 @@ public class ControlesPersonnage : MonoBehaviour
         //Debug.Log(animPerso.transform.name);
         audsrc = GetComponent<AudioManagerConnect>().audsrc;
         //Debug.Log(audsrc);
-
-        if (GameManager.Instance.stageJeu == StageJeu.Foret)
-        {
-            DefaultInterac = TypeInteraction.Onde;
-        }
     }
     void Update()
     {
@@ -111,12 +105,12 @@ public class ControlesPersonnage : MonoBehaviour
     private void OnEnable()
     {
         // abonement évènement
-        Gameplay.OnInteraction += (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(); };
+        Gameplay.OnInteraction += (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde?.Invoke(); };
     }
     private void OnDisable()
     {
         // désabonnement évènement
-        Gameplay.OnInteraction -= (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde.Invoke(); };
+        Gameplay.OnInteraction -= (TypeInteraction interaction) => { if (interaction == TypeInteraction.Onde) OnPlayerOnde?.Invoke(); };
     }
 
 
@@ -134,6 +128,22 @@ public class ControlesPersonnage : MonoBehaviour
             return;
         }
 
+        // interactions standard (sans passer directemenr par un objet interactif) prioritaires
+        if (interactionAction.WasPressedThisFrame())
+        {
+            //Debug.Log("Interaction hors objet interactif (prioritaire)");
+            if (CalibrationManager.inCalibrationInteraction)
+            {
+                Gameplay.Interaction(TypeInteraction.CalibrationStop);
+                return;
+            }
+            else if (DialogueManager.inDialogue)
+            {
+                Gameplay.Interaction(TypeInteraction.Dialogue);
+                return;
+            }
+        }
+
         // utilisation raycast pour detecter objet interactif dans la portee du joueur
         //Debug.DrawRay(cameraJoueur.transform.position, cameraJoueur.transform.forward * porteeInteraction, Color.red);
         if (Physics.Raycast(
@@ -142,7 +152,7 @@ public class ControlesPersonnage : MonoBehaviour
             hitInfo: out hit,
             maxDistance: porteeInteraction) && !CalibrationManager.inCalibrationInteraction)
         {
-            //Debug.Log(hit.transform.gameObject.name);
+            //Debug.Log("raycast a hit: " + hit.transform.gameObject.name);
             if (hit.transform.gameObject.TryGetComponent<ObjetInteractif>(out ObjetInteractif objInter))
             {
                 texteInteraction.SetActive(true);
@@ -170,21 +180,9 @@ public class ControlesPersonnage : MonoBehaviour
         if (interactionAction.WasPressedThisFrame() && (hit.collider == null || CalibrationManager.inCalibrationInteraction))
         {
             //Debug.Log("Interaction hors objet interactif");
-            if (CalibrationManager.inCalibrationInteraction)
+            if (GameManager.Instance.stageJeu == StageJeu.Foret)
             {
-                Gameplay.Interaction(TypeInteraction.CalibrationStop);
-            }
-            else if (DialogueManager.inDialogue)
-            {
-                Gameplay.Interaction(TypeInteraction.Dialogue);
-            }
-            else if (GameManager.Instance.stageJeu == StageJeu.Foret)
-            {
-                Gameplay.Interaction(DefaultInterac, ondeSonore);
-            }
-            else
-            {
-                Gameplay.Interaction(DefaultInterac);
+                Gameplay.Interaction(TypeInteraction.Onde, ondeSonore);
             }
         }
     }
