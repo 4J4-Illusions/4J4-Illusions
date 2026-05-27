@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AnimationPlaqueBriquet : MonoBehaviour
 {
-    [Header("Ajustement inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
     public ParticleSystem particuleFeuBriquet;
 
     Animator anim;

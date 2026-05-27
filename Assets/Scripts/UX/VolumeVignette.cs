@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 
 public class VolumeVignette : MonoBehaviour
 {
-    [Header("Accès publique pour autres scripts"), Space]
+    [Header("Accès pour autres scripts"), Space(30)]
     public float intensite = .5f;
 
     VolumeProfile profile;

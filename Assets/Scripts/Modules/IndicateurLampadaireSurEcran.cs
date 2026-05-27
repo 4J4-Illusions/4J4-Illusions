@@ -3,18 +3,17 @@ using UnityEngine.UI;
 
 public class IndicateurLampadaireSurEcran : MonoBehaviour
 {
-    [Header("Affectation inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
+    [Header("Hiérarchie")]
     public GameObject canvas;
     public GameObject indicateurUI;
     public Camera cameraJoueur;
-
-    [Header("Ajustement inspecteur"), Space]
+    [Header("Ajustement inspecteur")]
     public Vector3 ajustPosIndic;
     public float fixDecalageY = 0;
 
     Vector3 posConvertie2d, canvasDimensions;
-    // float au lieu de vector2 parce que l'indicateur est carre
-    float indicUIDimensions;
+    float indicUIDimensions; // float au lieu de vector2 parce que l'indicateur est carré
     bool estBonCoteCam;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -6,21 +6,21 @@ using UnityEngine.Rendering.Universal;
 [RequireComponent(typeof(Camera))]
 public class CameraJoueur : MonoBehaviour
 {
-    [Header("Ajustement inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
     public int[] limitesFOV = new int[2] { 60, 90 };
     public float
         vitesseChangementFOV = 1,
         vitesseBobbing = .1f,
         variationBobbing = .1f;
     public bool allowBobbing;
-    [Header("Accès publique pour autres scripts"), Space]
+
+    [Header("Accès pour autres scripts"), Space(30)]
     public Vector3 rotationFinale = new(0, 0, 0);
     public Volume volume;
 
     int targetFOV;
     float targetBobbing;
     ControlesPersonnage player;
-    // constantes
     float POSITION_Y_INITIALE;
 
     private void Awake()

@@ -1,15 +1,15 @@
+using Globals;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-[Serializable]
 public class Parametres : MonoBehaviour
 {
     // référence statique pour accéder aux propriététs du singleton
     public static Parametres Instance { get; private set; }
 
-    [Header("Accès pour autres scripts"), Space]
+    [Header("Accès pour autres scripts"), Space(30)]
     public Dictionary<string, object> dictParametres = new();
 
     public enum Langue
@@ -36,7 +36,7 @@ public class Parametres : MonoBehaviour
     // évènements
     public static Action<string, object> OnSettingsChange;
 
-    string pathSave;
+    string fileName = "settings.json", filePath;
     SettingsData parametresDonnees = new();
 
     void Awake()
@@ -54,7 +54,7 @@ public class Parametres : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        pathSave = Path.Combine(Application.persistentDataPath, "settings.json");
+        filePath = Path.Combine(Application.persistentDataPath, fileName);
     }
     private void Start()
     {
@@ -69,9 +69,12 @@ public class Parametres : MonoBehaviour
     /// <summary>
     /// Met à jour la valeur d'un paramètre dans le dictionnaire et déclenche l'évènement de changement de paramètre.
     /// </summary>
-    /// <param name="kvp">La paire de clé-valeur du paramètre</param>
+    /// <param name="key">La clé du paramètre à mettre à jour</param>
+    /// <param name="value">La valeur</param>
     public void UpdateParametres(string key, object value)
     {
+        //Debug.Log($"key: {key}    value: {value}");
+
         dictParametres[key] = value;
         parametresDonnees[key] = value;
         //Debug.Log(dictParametres.Count);
@@ -80,15 +83,17 @@ public class Parametres : MonoBehaviour
         SauvegarderParametres();
         OnSettingsChange?.Invoke(key, value);
     }
+    /// <summary>
+    /// Sauvarde les paramètres actuels dans un fichier JSON à l'aide de la classe <see cref="FichierIO"/>.
+    /// </summary>
     void SauvegarderParametres()
     {
         // IO pour sauvegarde
-        FichierIO.Create(pathSave, JsonUtility.ToJson(parametresDonnees));
-        //File.WriteAllText(pathSave, JsonUtility.ToJson(parametresDonnees));
+        FichierIO.Create(filePath, JsonUtility.ToJson(parametresDonnees));
 
-        if (File.Exists(pathSave))
+        if (File.Exists(filePath))
         {
-            Debug.Log($"fichier \'settings.json\' éxiste:\n{pathSave}");
+            //Debug.Log($"fichier \'settings.json\' éxiste:\n{filePath}");
             //var fileData = FichierIO.Read<SettingsData>(pathSave);
             //Debug.Log(fileData);
             //foreach (var item in fileData.GetType().GetFields())
@@ -99,6 +104,9 @@ public class Parametres : MonoBehaviour
     }
 }
 
+/// <summary>
+/// Encapsule les données des paramètres du jeu, avec des champs correspondant à chaque paramètre. Permet de sérialiser et désérialiser facilement les données de paramètres en JSON.
+/// </summary>
 [Serializable]
 public class SettingsData
 {
@@ -106,12 +114,15 @@ public class SettingsData
     public int Audio_Jeu;
     public int Audio_Musique;
 
-    public Parametres.Langue Langue_Langue;
+    public Parametres.Langue Langue_Langue = Parametres.Langue.Francais;
 
-    public Parametres.Graphisme Graphisme_General;
-    public Parametres.Ombres Graphisme_Ombres;
-    public string Graphisme_Resolution;
-    public int Graphisme_FpsCap;
+    public Parametres.Graphisme Graphisme_General = Parametres.Graphisme.Medium;
+    public Parametres.Ombres Graphisme_Ombres = Parametres.Ombres.Hard;
+    public string Graphisme_Resolution = DisplayResolutions.FullHighDefinition;
+    /// <summary>
+    /// Valeur de la limite de FPS pour le jeu. Si la valeur est 0, il n'y a pas de limite de FPS.
+    /// </summary>
+    public int Graphisme_FpsCap = 60;
 
     // Source - https://stackoverflow.com/a/55495158
     // Posted by Christian Gollhardt, modified by community. See post 'Timeline' for change history
@@ -135,12 +146,20 @@ public class SettingsData
             {
                 throw new ArgumentException("Field is undefined", nameof(key));
             }
-
-            // adaptation selon stackoverflow
-            // Source - https://stackoverflow.com/a/1089130
-            // Posted by LBushkin, modified by community. See post 'Timeline' for change history
-            // Retrieved 2026-05-11, License - CC BY-SA 3.0
-            //field.SetValue(this, Convert.ChangeType(value, field.FieldType), null);
         }
     }
+}
+/// <summary>
+/// Représente les différentes résolutions d'affichage disponibles pour le jeu, avec des chaînes de caractères formatées en "largeurxhauteur".
+/// </summary>
+public static class DisplayResolutions
+{
+    public static string QuarterHighDefinition = "960x540";
+    public static string HighDefinition = "1280x720";
+    public static string HighDefinitionPlus = "1600x900";
+    public static string FullHighDefinition = "1920x1080";
+    public static string UltraWideFullHighDefinition = "2560x1080";
+    public static string QuadHighDefinition = "2560x1440";
+    public static string FourKUltraHighDefinition = "3840x2160";
+    public static string EightKUltraHighDefinition = "7680x4320";
 }
