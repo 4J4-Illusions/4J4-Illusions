@@ -10413,18 +10413,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasMenuPause
       objectReference: {fileID: 0}
-    - target: {fileID: 3789227454051891593, guid: b037d3243f2aef04e87fbf17bf8c452f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6015691515133026753, guid: b037d3243f2aef04e87fbf17bf8c452f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292612140652246157, guid: b037d3243f2aef04e87fbf17bf8c452f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7796356044638411859, guid: b037d3243f2aef04e87fbf17bf8c452f, type: 3}
       propertyPath: m_Pivot.x
       value: 0

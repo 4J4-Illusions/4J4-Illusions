@@ -1,5 +1,6 @@
 using Globals;
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -155,7 +156,11 @@ public class ControlesPersonnage : MonoBehaviour
             //Debug.Log("raycast a hit: " + hit.transform.gameObject.name);
             if (hit.transform.gameObject.TryGetComponent<ObjetInteractif>(out ObjetInteractif objInter))
             {
+                if (LanguageManager.Instance.currentLanguage == LanguageManager.Language.English)
+                { texteInteraction.GetComponent<TextMeshProUGUI>().text = "Press \"E\" to interact"; }
+                else texteInteraction.GetComponent<TextMeshProUGUI>().text = "Appuyez sur \"E\" pour interagir";
                 texteInteraction.SetActive(true);
+
                 if (interactionAction.WasPressedThisFrame())
                 {
                     objInter.Interaction();

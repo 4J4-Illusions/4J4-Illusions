@@ -1,6 +1,7 @@
 using Globals;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -128,6 +129,10 @@ public class GestionBarreAnxiete : MonoBehaviour
     void CriseDePanique()
     {
         imgBarre.fillAmount = 1;
+
+        if (LanguageManager.Instance.currentLanguage == LanguageManager.Language.English)
+        { texteGameOver.GetComponent<TextMeshProUGUI>().text = "Game Over"; }
+        else texteGameOver.GetComponent<TextMeshProUGUI>().text = "Partie Terminée";
         texteGameOver.SetActive(true);
 
         enabled = false;

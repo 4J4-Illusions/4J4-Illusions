@@ -8859,6 +8859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasMenuPause
       objectReference: {fileID: 0}
+    - target: {fileID: 3789227454051891593, guid: b037d3243f2aef04e87fbf17bf8c452f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7796356044638411859, guid: b037d3243f2aef04e87fbf17bf8c452f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -16088,10 +16092,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2586054917354719383, guid: d0059be423470a941a950dc826487a0e, type: 3}
-      propertyPath: textComponent
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3701099282511987094, guid: d0059be423470a941a950dc826487a0e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -16183,11 +16183,15 @@ PrefabInstance:
     - target: {fileID: 6493633147633882295, guid: d0059be423470a941a950dc826487a0e, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: f361c5e00d3f44441a213455010549b8, type: 2}
     - target: {fileID: 6493633147633882295, guid: d0059be423470a941a950dc826487a0e, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -1016721525815296162, guid: f361c5e00d3f44441a213455010549b8, type: 2}
+    - target: {fileID: 6493633147633882295, guid: d0059be423470a941a950dc826487a0e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8321263392170241950, guid: d0059be423470a941a950dc826487a0e, type: 3}
       propertyPath: m_IsActive
       value: 0

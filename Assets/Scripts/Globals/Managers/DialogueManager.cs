@@ -18,7 +18,6 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance { get; private set; }
 
     [Header("Affectation inspecteur"), Space(30)]
-    [TextArea] public DialogueItem[] dialogueItems;
     [Header("Hiérarchie")]
     public GameObject overlayDialogue;
     public TextMeshProUGUI zoneTexteDialogue, zoneTitreDialogue;
@@ -31,6 +30,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Accès pour autres scripts"), Space(30)]
     public string fullPath = "";
+    public DialogueItem[] dialogueItems;
     public Dialogues tousLesDialogues;
 
     public static bool inDialogue = false;
@@ -80,7 +80,7 @@ public class DialogueManager : MonoBehaviour
         zoneTexteDialogue.text = "";
 
         // Pour chaque caractère dans la ligne de dialogue actuelle
-        foreach(char c in texte)
+        foreach (char c in texte)
         {
             // On ajoute les caractères un par un avec un délai
             zoneTexteDialogue.text += c;
@@ -101,18 +101,19 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeWriter(dialogue.Fr));
 
         // Affichage de l'image du personnage en fonction du nom du personnage dans le dialogue
-        switch (dialogue.Personnage.ToString()) {
+        switch (dialogue.Personnage.ToString())
+        {
             case "Vyktor":
                 zoneImagePersonnage.sprite = imageVyktor;
-            break;
+                break;
 
             case "Alaric":
                 zoneImagePersonnage.sprite = imageAlaric;
-            break;
+                break;
 
             case "Foule":
                 zoneImagePersonnage.sprite = imageAutres;
-            break;
+                break;
         }
     }
     /// <summary>
@@ -135,12 +136,15 @@ public class DialogueManager : MonoBehaviour
         //Debug.Log("dialogueItems.Length: " + dialogueItems.Length);
 
         AudioManager.Instance.JouerSon(CategorieSon.SFX, sonUI);
+
         if (indexDialogue >= dialogueItems.Length)
         {
             FinDialogue();
             return;
         }
         else AfficherTexteDialogue(dialogueItems[indexDialogue]);
+
+        //AudioManager.Instance.JouerSonDialogue(dialogueItems[indexDialogue].Id);
 
         // gestion comportement selon options extra
         //Debug.Log("dialogue id: " + dialogueItems[indexDialogue].Id);

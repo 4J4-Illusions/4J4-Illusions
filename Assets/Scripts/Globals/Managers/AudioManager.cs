@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
     float volumeMusique = 1; // volume ambience (musique en arrière-plan)
     AudioClip[] clipsAmbience;
     readonly List<AudioSource> listeAudsrcs = new();
-    AudioSource audsrc;
+    AudioSource audsrc, audsrcDialogues;
     List<float> sonsBase;
 
     void Awake()
@@ -187,6 +187,10 @@ public class AudioManager : MonoBehaviour
         }
         return null;
     }
+    /// <summary>
+    /// Méthode d'initialisation des sons d'ambience à l'appel de la scène. Permet de jouer les sons d'ambience associés à l'étape du jeu correspondante.
+    /// </summary>
+    /// <param name="stageJeu">L'étape de jeu actuelle</param>
     public void SceneLoadedInit(StageJeu stageJeu)
     {
         foreach (var item in GetComponents<AudioSource>())
@@ -195,6 +199,7 @@ public class AudioManager : MonoBehaviour
         }
 
         audsrc = gameObject.AddComponent<AudioSource>();
+        audsrcDialogues = gameObject.AddComponent<AudioSource>();
         clipsAmbience = new[] { ambienceMenu, ambienceIntro, ambienceDesert, ambienceForet, ambienceTheatre }.SelectMany(clip => clip).ToArray();
         sonsBase = Enumerable.Repeat(1f, clipsAmbience.Length).ToList();
         listeAudsrcs.Clear();
@@ -221,5 +226,25 @@ public class AudioManager : MonoBehaviour
                     break;
             }
         }
+    }
+    public void JouerSonDialogue(string idClip)
+    {
+        idClip = idClip.ToLower().Trim();
+        if (string.IsNullOrEmpty(idClip))
+        {
+            throw new Exception("Id du clip invalide");
+        }
+
+        AudioClip[] listeDeDialoguesACheck = (LanguageManager.Instance.currentLanguage == LanguageManager.Language.English) ? dialoguesEn : dialoguesFr;
+
+        AudioClip leBonDialogue = listeDeDialoguesACheck.FirstOrDefault((dialogue) => dialogue.name == idClip);
+        if (leBonDialogue == null)
+        {
+            throw new Exception($"Aucun dialogue trouvé avec l'id '{idClip}'");
+        }
+
+        audsrcDialogues.clip = leBonDialogue;
+        audsrc.volume = SetAudioVolume(CategorieSon.SFX);
+        audsrcDialogues.Play();
     }
 }
