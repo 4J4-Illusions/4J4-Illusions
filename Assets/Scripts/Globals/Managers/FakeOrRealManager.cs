@@ -40,6 +40,10 @@ public class FakeOrRealManager : MonoBehaviour
 
 
 
+    /// <summary>
+    /// Téléporte le boss Alaric à l'une des positions prédéfinies, en choisissant celui qui est le plus proche du joueur.
+    /// Est aussi accompagné d'un son qui désoriente le joueur.
+    /// </summary>
     void TeleporterAlaric()
     {
         JouerFauxSon();
@@ -53,6 +57,10 @@ public class FakeOrRealManager : MonoBehaviour
 
         boss.GetComponent<BossAlaric>().agent.Warp(transform.GetChild(indexClosestBossTp).position);
     }
+    /// <summary>
+    /// Joue un son de désorientation en changeant aléatoirement la vitesse de lecture du son.
+    /// Peut rarement être joué tout en téléportant le boss, pour ajouter un élément de surprise et de confusion pour le joueur.
+    /// </summary>
     void JouerFauxSon()
     {
         audsrc.pitch = Random.Range(1f, 2f);

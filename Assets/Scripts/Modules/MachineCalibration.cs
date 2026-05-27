@@ -30,7 +30,7 @@ public class MachineCalibration : MonoBehaviour
 
 
     /// <summary>
-    /// Joue l'animation de la machine qui se casse et active le collider pour que le joueur puisse interagir avec la machine
+    /// Joue l'animation de la machine qui se casse et active le collider pour que le joueur puisse interagir avec la machine.
     /// </summary>
     void BreakMachine()
     {
@@ -38,7 +38,7 @@ public class MachineCalibration : MonoBehaviour
         anim.SetTrigger("TriggerBreak");
     }
     /// <summary>
-    /// Joue l'animation de la machine qui se répare et désactive le collider pour empêcher l'interaction jusqu'à ce qu'elle se casse à nouveau
+    /// Joue l'animation de la machine qui se répare et désactive le collider pour empêcher l'interaction jusqu'à ce qu'elle se casse à nouveau.
     /// </summary>
     public void SuccessfulRepairMachine()
     {
@@ -47,6 +47,9 @@ public class MachineCalibration : MonoBehaviour
         cooldown = Random.Range(15, 30);
         //cooldown = Random.Range(1, 3);
     }
+    /// <summary>
+    /// Désactive le collider pour empêcher l'interaction, puis lance un cooldown aléatoire avant que la machine ne se casse à nouveau.
+    /// </summary>
     public void FailedRepairMachine()
     {
         collision.enabled = false;

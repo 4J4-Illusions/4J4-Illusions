@@ -46,6 +46,9 @@ public class BossAlaric : MonoBehaviour
 
 
 
+    /// <summary>
+    /// Met à jour la destination de l'agent de navigation pour qu'il suive la position du joueur.
+    /// </summary>
     void SuivreJoueur()
     {
         agent.destination = GameManager.Instance.player.transform.position;

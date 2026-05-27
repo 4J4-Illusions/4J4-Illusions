@@ -140,6 +140,10 @@ public class GestionBarreAnxiete : MonoBehaviour
         //Debug.Log($"Soulagement d'une valeur de: {valeurSoulagement} ({valeurSoulagement * 100}%)");
         stressTotal -= valeurSoulagement;
     }
+    /// <summary>
+    /// Regroupe différents éléments du jeu qui sont affectés par le niveau de stress du joueur, tels que le volume de la musique d'ambiance, les effets visuels et la vitesse de l'animation du coeur, en fonction de la valeur de stress total.
+    /// </summary>
+    /// <param name="valeur">La valeur à applqieur à ces différents éléments</param>
     public void ModifierIndicateursStress(float valeur)
     {
         volume.weight = valeur;

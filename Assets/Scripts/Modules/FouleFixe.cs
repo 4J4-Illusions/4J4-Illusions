@@ -47,6 +47,9 @@ public class FouleFixe : MonoBehaviour
 
 
 
+    /// <summary>
+    /// CHange la rotation de l'objet pour qu'il regarde le joueur, en ne tournant que sur l'axe y et en utilisant une interpolation pour que la rotation soit fluide.
+    /// </summary>
     void FixerJoueur()
     {
         //Debug.Log("regarde joueur");
@@ -55,6 +58,9 @@ public class FouleFixe : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(transform.rotation, lookAtRot, vitesseRotation * Time.deltaTime);
     }
+    /// <summary>
+    /// Remet la rotation de l'objet à sa rotation de départ, en utilisant une interpolation pour que la rotation soit fluide.
+    /// </summary>
     void RetourRotNomale()
     {
         transform.rotation = Quaternion.Slerp(transform.rotation, rotationParDefaut, vitesseRotation * Time.deltaTime);
