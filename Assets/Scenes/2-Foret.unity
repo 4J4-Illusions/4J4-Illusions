@@ -399,11 +399,11 @@ PrefabInstance:
     - target: {fileID: 2273133068795342592, guid: 0443df66cf1990f4e816eb56ad272300, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 17ac4b8fa46b9a9429cb7142e049b24d, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2273133068795342592, guid: 0443df66cf1990f4e816eb56ad272300, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -223643976125810766, guid: 17ac4b8fa46b9a9429cb7142e049b24d, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2273133068795342592, guid: 0443df66cf1990f4e816eb56ad272300, type: 3}
       propertyPath: m_VerticalAlignment
       value: 512
@@ -547,11 +547,11 @@ PrefabInstance:
     - target: {fileID: 8712823077806548183, guid: 0443df66cf1990f4e816eb56ad272300, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 17ac4b8fa46b9a9429cb7142e049b24d, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8712823077806548183, guid: 0443df66cf1990f4e816eb56ad272300, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -223643976125810766, guid: 17ac4b8fa46b9a9429cb7142e049b24d, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8712823077806548183, guid: 0443df66cf1990f4e816eb56ad272300, type: 3}
       propertyPath: m_VerticalAlignment
       value: 512
@@ -1273,7 +1273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &534675030
 Transform:
   m_ObjectHideFlags: 0
@@ -3241,7 +3241,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 87b2b21abce77134da15ec0505c30b5c, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1918770264 stripped
 Transform:
@@ -4305,6 +4305,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6493633147633882295, guid: d0059be423470a941a950dc826487a0e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6493633147633882295, guid: d0059be423470a941a950dc826487a0e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
