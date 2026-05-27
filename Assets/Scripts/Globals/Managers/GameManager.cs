@@ -128,12 +128,12 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Lance la séquence de jumpscare, qui correspond à la fin du jeu.
     /// </summary>
-    public void Jumpscare()
+    public void Jumpscare(AudioSource aud = null)
     {
-        if (stageJeu == StageJeu.Foret)
+        if (stageJeu == StageJeu.Foret || stageJeu == StageJeu.Theatre)
         {
             jumpscareImage.SetActive(true);
-            AudioManager.Instance.JouerSon(CategorieSon.SFX, sonJumpscare);
+            AudioManager.Instance.JouerSon(CategorieSon.SFX, sonJumpscare, aud);
         }
 
         FinDePartie();
@@ -248,9 +248,9 @@ public class GameManager : MonoBehaviour
             player = GameObject.FindWithTag("Player");
             cameraJoueur = player.transform.Find("CameraJoueur").gameObject;
             playerScript = player.GetComponent<ControlesPersonnage>();
+
+            // recompense de niveau
             recompense = GameObject.FindWithTag("Recompense");
-            //Debug.Log(GameObject.FindWithTag("Recompense"));
-            //Debug.Log(Time.realtimeSinceStartup);
             //Debug.Log(recompense.name);
             if (recompense != null) recompense.SetActive(false);
         }
@@ -260,6 +260,7 @@ public class GameManager : MonoBehaviour
         switch (stageJeu)
         {
             case StageJeu.Desert:
+                // bouts de papier
                 modelePapier = cameraJoueur.transform.Find("PapiersACompleter").gameObject;
                 for (int i = 0; i < modelePapier.transform.childCount; i++)
                 {
@@ -268,17 +269,26 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case StageJeu.Foret:
+                // image jumpscare
                 jumpscareImage = GameObject.FindWithTag("Jumpscare");
                 jumpscareImage.SetActive(false);
                 jumpscareImage.transform.localScale = Vector3.one;
+
+                // liste de lampadaires
                 listeLampadaires = GameObject.FindGameObjectsWithTag("Lampadaire");
                 // ordre aléatoire aux lampadaires
                 Array.Sort(listeLampadaires, (a, b) => Random.Range(-1, 1));
                 break;
             case StageJeu.Theatre:
+                // overlay de calibration
                 calibOverlay = GameObject.FindWithTag("CalibOverlay");
                 calibOverlay.SetActive(false);
                 calibOverlay.transform.localScale = Vector3.one;
+
+                // image jumpscare
+                jumpscareImage = GameObject.FindWithTag("Jumpscare");
+                jumpscareImage.SetActive(false);
+                jumpscareImage.transform.localScale = Vector3.one;
                 break;
         }
     }
