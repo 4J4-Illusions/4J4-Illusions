@@ -4125,26 +4125,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 955213364}
     m_Modifications:
-    - target: {fileID: 2125810017210350343, guid: d0059be423470a941a950dc826487a0e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2125810017210350343, guid: d0059be423470a941a950dc826487a0e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2125810017210350343, guid: d0059be423470a941a950dc826487a0e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2125810017210350343, guid: d0059be423470a941a950dc826487a0e, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3709201214126980826, guid: d0059be423470a941a950dc826487a0e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6044632395110200002, guid: d0059be423470a941a950dc826487a0e, type: 3}
       propertyPath: m_Name
       value: CanvasOverlay
@@ -4228,10 +4208,6 @@ PrefabInstance:
     - target: {fileID: 6186812930378935911, guid: d0059be423470a941a950dc826487a0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6493633147633882295, guid: d0059be423470a941a950dc826487a0e, type: 3}
-      propertyPath: m_fontSize
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -58,7 +58,7 @@ public class GestionBarreAnxiete : MonoBehaviour
             modeProgBarre = true;
             stressTotal = 1;
             progressionBarre *= -1;
-            Debug.Log(progressionBarre);
+            //Debug.Log(progressionBarre);
         }
     }
     // Update is called once per frame
