@@ -99,13 +99,15 @@ public class GestionBarreAnxiete : MonoBehaviour
         stressTotal = Mathf.Clamp(stressTotal, 0, 1);
         //Debug.Log("stress total: " + stressTotal);
 
-        volume.weight = imgBarre.fillAmount = stressTotal;
-        audsrc.volume = stressTotal * AudioManager.Instance.SetAudioVolume(CategorieSon.Ambience);
-        vitesseAnimCoeur = 1 + stressTotal * 4;
+        if (!modeProgBarre)
+        {
+            ModifierIndicateursStress(stressTotal);
+        }
+        imgBarre.fillAmount = stressTotal;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
 
         if (stressTotal == 1 && GameManager.Instance.stageJeu != StageJeu.Theatre) GameManager.Instance.Jumpscare();
-        else if(stressTotal == 0 && GameManager.Instance.stageJeu == StageJeu.Theatre) GameManager.Instance.TerminerNiveau();
+        else if (stressTotal == 0 && GameManager.Instance.stageJeu == StageJeu.Theatre) GameManager.Instance.TerminerNiveau();
     }
     private void OnEnable()
     {
@@ -137,5 +139,11 @@ public class GestionBarreAnxiete : MonoBehaviour
     {
         //Debug.Log($"Soulagement d'une valeur de: {valeurSoulagement} ({valeurSoulagement * 100}%)");
         stressTotal -= valeurSoulagement;
+    }
+    public void ModifierIndicateursStress(float valeur)
+    {
+        volume.weight = valeur;
+        audsrc.volume = valeur * AudioManager.Instance.SetAudioVolume(CategorieSon.Ambience);
+        vitesseAnimCoeur = 1 + valeur * 4;
     }
 }

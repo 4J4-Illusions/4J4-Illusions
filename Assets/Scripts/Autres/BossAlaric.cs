@@ -3,25 +3,24 @@ using UnityEngine.AI;
 
 public class BossAlaric : MonoBehaviour
 {
-    NavMeshAgent agent;
-    GameObject player;
+    [Header("Accès pour autres scripts"), Space(30)]
+    public NavMeshAgent agent;
+
     AudioSource audsrc;
+    float distance, ratioDistanceFinal;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         audsrc = GetComponent<AudioSource>();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        player = GameManager.Instance.player;
-    }
-
     // Update is called once per frame
     void Update()
     {
         SuivreJoueur();
+        distance = Vector3.Distance(transform.position, GameManager.Instance.player.transform.position);
+        ratioDistanceFinal = 1 - ((Mathf.Clamp(distance, 10, 110) - 10) / 100f);
+        GestionBarreAnxiete.Instance.ModifierIndicateursStress(ratioDistanceFinal);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -36,6 +35,6 @@ public class BossAlaric : MonoBehaviour
 
     void SuivreJoueur()
     {
-        agent.destination = player.transform.position;
+        agent.destination = GameManager.Instance.player.transform.position;
     }
 }
