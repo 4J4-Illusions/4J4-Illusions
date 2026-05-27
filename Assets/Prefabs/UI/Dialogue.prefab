@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 6183745952828952080}
   - component: {fileID: 8675954864845700192}
   - component: {fileID: 2548518300567239697}
+  - component: {fileID: 6531239994585751601}
   m_Layer: 5
   m_Name: TexteDialogue
   m_TagString: Untagged
@@ -274,6 +275,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6531239994585751601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815716607717990152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5552e2df92a8934479e2f5372f268f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EffetTypewriter
+  textComponent: {fileID: 2548518300567239697}
+  Lignes: []
+  vitesseLignes: 0.05
 --- !u!1 &1644641427341478870
 GameObject:
   m_ObjectHideFlags: 0

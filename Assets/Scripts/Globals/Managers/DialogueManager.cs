@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using System.Collections;
 
 // renommage de la classe de manière à rester constant à chaque nouvelle création de la classe représantant la structure json des dialogues
 public class DialogueItem : Niveau2 { }
@@ -70,15 +71,36 @@ public class DialogueManager : MonoBehaviour
 
         if (etatActif) ProgresserDialogue(indexDialogue);
     }
+
+    // Coroutine pour faire apparaître le texte lettre par lettre (typewriter)
+    // IEnumerator TypeWriter(string texte)
+    IEnumerator TypeWriter(string texte)
+    {
+        // Réinitialisation du texte
+        zoneTexteDialogue.text = "";
+
+        // Pour chaque caractère dans la ligne de dialogue actuelle
+        foreach(char c in texte)
+        {
+            // On ajoute les caractères un par un avec un délai
+            zoneTexteDialogue.text += c;
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
     /// <summary>
     /// Affiche le texte du dialogue actuel dans les zones de texte correspondantes.
     /// </summary>
     /// <param name="dialogue">Le dialogue à afficher</param>
     void AfficherTexteDialogue(DialogueItem dialogue)
     {
-        zoneTexteDialogue.text = dialogue.Fr;
         zoneTitreDialogue.text = dialogue.Personnage.ToString();
 
+        // Arrêt de toutes les coroutines
+        StopAllCoroutines();
+        // Lancement de la coroutine pour faire apparaître le texte lettre par lettre
+        StartCoroutine(TypeWriter(dialogue.Fr));
+
+        // Affichage de l'image du personnage en fonction du nom du personnage dans le dialogue
         switch (dialogue.Personnage.ToString()) {
             case "Vyktor":
                 zoneImagePersonnage.sprite = imageVyktor;
