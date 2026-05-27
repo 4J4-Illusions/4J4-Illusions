@@ -23,8 +23,8 @@ public class FakeOrRealManager : MonoBehaviour
         }
         else
         {
-            //rngFakeOrReal = Random.Range(1, 10);
-            rngFakeOrReal = Random.Range(7, 20);
+            rngFakeOrReal = Random.Range(1, 10);
+            //rngFakeOrReal = Random.Range(7, 20);
             if (rngFakeOrReal > 7)
             {
                 TeleporterAlaric();
