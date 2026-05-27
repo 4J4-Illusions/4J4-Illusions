@@ -1,3 +1,5 @@
-<Solution>
-  <Project Path="Assembly-CSharp.csproj" Id="43ab27e5-d219-717d-c59d-c5a3382f6f42" />
+﻿<Solution>
+  <Project Path="FastScriptReload.Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="FastScriptReload.Runtime.csproj" />
 </Solution>
