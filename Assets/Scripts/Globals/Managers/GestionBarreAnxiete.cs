@@ -107,7 +107,7 @@ public class GestionBarreAnxiete : MonoBehaviour
         imgBarre.fillAmount = stressTotal;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
 
-        if (stressTotal == 1 && GameManager.Instance.stageJeu == StageJeu.Foret) GameManager.Instance.Jumpscare();
+        if (stressTotal == 1 && GameManager.Instance.stageJeu != StageJeu.Theatre) GameManager.Instance.Jumpscare();
         else if (stressTotal == 0 && GameManager.Instance.stageJeu == StageJeu.Theatre) GameManager.Instance.TerminerNiveau();
     }
     private void OnEnable()
@@ -130,7 +130,7 @@ public class GestionBarreAnxiete : MonoBehaviour
     {
         imgBarre.fillAmount = 1;
 
-        if (LanguageManager.Instance.currentLanguage == LanguageManager.Language.English)
+        if (GameManager.Instance.langue == LanguageManager.Language.English)
         { texteGameOver.GetComponent<TextMeshProUGUI>().text = "Game Over"; }
         else texteGameOver.GetComponent<TextMeshProUGUI>().text = "Partie Terminée";
         texteGameOver.SetActive(true);

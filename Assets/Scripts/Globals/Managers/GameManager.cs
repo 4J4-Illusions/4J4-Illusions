@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     [Header("Autres")]
     public GameObject player, recompense, cameraJoueur;
     public ControlesPersonnage playerScript;
+    public LanguageManager.Language langue = LanguageManager.Language.French;
 
     public static Action OnGameOver, OnLevelComplete;
     public static Action<float> OnLevelProgress;
@@ -223,6 +224,7 @@ public class GameManager : MonoBehaviour
 
         // affectations valeurs générales importantes
         stageJeu = (StageJeu)scene.buildIndex;
+
         // reset du compteur de quête
         QueteCompteur.ResetCompteur();
 
@@ -233,7 +235,7 @@ public class GameManager : MonoBehaviour
 
 
         // affections quand la scene est pas celle de menu
-        if(scene.buildIndex != 0)
+        if (scene.buildIndex != 0)
         {
             // etat curseur
             Cursor.lockState = CursorLockMode.Locked;

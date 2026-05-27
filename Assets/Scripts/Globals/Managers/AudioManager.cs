@@ -125,9 +125,13 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     /// <param name="categ">La catégorie du clip</param>
     /// <param name="clip">Le clip</param>
-    /// <param name="refAudsrc">Une référence à un <see cref="AudioSource"/> déjà éxistant pour copier ses valeurs</param>
+    /// <param name="refAudsrc">Une référence à un <see cref="AudioSource"/> déjà éxistant pour copier ses valeurs de volume et pitch</param>
+    /// <param name="volumeMultiplier">
+    /// Un valeur multiplicative de volume si passer par un <see cref="AudioSource"/> est trop encombrant. 
+    /// S'applque seulement si <paramref name="refAudsrc"/> est nul
+    /// </param>
     /// <returns>Si le clip est un son d'ambience, retourne l'AudioSource associé, sinon retourne null</returns>
-    public AudioSource JouerSon(CategorieSon categ, AudioClip clip, AudioSource refAudsrc = null)
+    public AudioSource JouerSon(CategorieSon categ, AudioClip clip, AudioSource refAudsrc = null, float volumeMultiplier = 1)
     {
         //Debug.Log("Jouer son");
         //Debug.Log(clip.name);
@@ -140,7 +144,7 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
-                audsrc.volume = SetAudioVolume(CategorieSon.SFX);
+                audsrc.volume = volumeMultiplier * SetAudioVolume(CategorieSon.SFX);
             }
             audsrc.PlayOneShot(clip);
         }
@@ -229,22 +233,25 @@ public class AudioManager : MonoBehaviour
     }
     public void JouerSonDialogue(string idClip)
     {
+        //Debug.Log("idClip: " + idClip);
         idClip = idClip.ToLower().Trim();
         if (string.IsNullOrEmpty(idClip))
         {
             throw new Exception("Id du clip invalide");
         }
 
-        AudioClip[] listeDeDialoguesACheck = (LanguageManager.Instance.currentLanguage == LanguageManager.Language.English) ? dialoguesEn : dialoguesFr;
+        AudioClip[] listeDeDialoguesACheck = (GameManager.Instance.langue == LanguageManager.Language.English) ? dialoguesEn : dialoguesFr;
 
         AudioClip leBonDialogue = listeDeDialoguesACheck.FirstOrDefault((dialogue) => dialogue.name == idClip);
         if (leBonDialogue == null)
         {
             throw new Exception($"Aucun dialogue trouvé avec l'id '{idClip}'");
         }
+        //Debug.Log("leBonDialogue: " + leBonDialogue.name);
 
         audsrcDialogues.clip = leBonDialogue;
-        audsrc.volume = SetAudioVolume(CategorieSon.SFX);
+        Debug.Log("audsrcDialogues.clip: " + audsrcDialogues.clip);
+        audsrcDialogues.volume = SetAudioVolume(CategorieSon.SFX);
         audsrcDialogues.Play();
     }
 }

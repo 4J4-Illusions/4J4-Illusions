@@ -98,7 +98,7 @@ public class DialogueManager : MonoBehaviour
         // Arrêt de toutes les coroutines
         StopAllCoroutines();
         // Lancement de la coroutine pour faire apparaître le texte lettre par lettre
-        StartCoroutine(TypeWriter(dialogue.Fr));
+        StartCoroutine(TypeWriter((GameManager.Instance.langue == LanguageManager.Language.English) ? dialogue.En : dialogue.Fr));
 
         // Affichage de l'image du personnage en fonction du nom du personnage dans le dialogue
         switch (dialogue.Personnage.ToString())
@@ -131,8 +131,9 @@ public class DialogueManager : MonoBehaviour
     public void ProgresserDialogue(int targetDialogue = -1)
     {
         //Debug.Log("targetDialogue: " + targetDialogue);
+        Debug.Log("indexDialogue avant: " + indexDialogue);
         indexDialogue = (targetDialogue == -1) ? indexDialogue + 1 : targetDialogue;
-        //Debug.Log("indexDialogue: " + indexDialogue);
+        Debug.Log("indexDialogue apres: " + indexDialogue);
         //Debug.Log("dialogueItems.Length: " + dialogueItems.Length);
 
         AudioManager.Instance.JouerSon(CategorieSon.SFX, sonUI);
@@ -144,7 +145,7 @@ public class DialogueManager : MonoBehaviour
         }
         else AfficherTexteDialogue(dialogueItems[indexDialogue]);
 
-        //AudioManager.Instance.JouerSonDialogue(dialogueItems[indexDialogue].Id);
+        AudioManager.Instance.JouerSonDialogue(dialogueItems[indexDialogue].Id);
 
         // gestion comportement selon options extra
         //Debug.Log("dialogue id: " + dialogueItems[indexDialogue].Id);
@@ -198,6 +199,7 @@ public class DialogueManager : MonoBehaviour
     /// Cette méthode gère les options supplémentaires associées à un dialogue, permettant d'ajuster le comportement du jeu en fonction des paramètres définis dans les dialogues.
     /// </summary>
     /// <param name="options">Les possibles options additionnelles</param>
+    /// <returns>Si le reste de la logique de progression de dialogue doit être sautée au non</returns>
     void GestionOptionsExtra(ExtraOptions options = null)
     {
         if (options == null) return;
@@ -211,7 +213,7 @@ public class DialogueManager : MonoBehaviour
             {
                 case "ProchaineCible":
                     if (propValue == null) return;
-                    else if ((string)propValue == "") FinDialogue();
+                    else if ((string)propValue == "") { FinDialogue(); return; }
                     else
                     {
                         //Debug.Log(((string)propValue));
@@ -231,5 +233,7 @@ public class DialogueManager : MonoBehaviour
                     break;
             }
         }
+
+        return;
     }
 }
