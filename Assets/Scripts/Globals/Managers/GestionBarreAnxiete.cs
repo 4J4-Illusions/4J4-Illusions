@@ -106,7 +106,7 @@ public class GestionBarreAnxiete : MonoBehaviour
         imgBarre.fillAmount = stressTotal;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
 
-        if (stressTotal == 1 && GameManager.Instance.stageJeu != StageJeu.Theatre) GameManager.Instance.Jumpscare();
+        if (stressTotal == 1 && GameManager.Instance.stageJeu == StageJeu.Foret) GameManager.Instance.Jumpscare();
         else if (stressTotal == 0 && GameManager.Instance.stageJeu == StageJeu.Theatre) GameManager.Instance.TerminerNiveau();
     }
     private void OnEnable()

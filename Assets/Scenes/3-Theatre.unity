@@ -5171,6 +5171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 6496015618605055458, guid: 5897bd3ca4bcf8d40be61c5d0e7a6818, type: 3}
+      propertyPath: nomQuete
+      value: Survivre
+      objectReference: {fileID: 0}
     - target: {fileID: 8188979654602834147, guid: 5897bd3ca4bcf8d40be61c5d0e7a6818, type: 3}
       propertyPath: modeProgBarre
       value: 1
@@ -13863,6 +13867,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3454348370283036716, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d6d624ca8719ec488e56009c02646b9, type: 3}
     - target: {fileID: 4058053405875700129, guid: 7ab989417ab56ae468eabc45c86d9d40, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -63569,14 +63577,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: ambience3.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1462250292591554053, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-      propertyPath: 'ambience3.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 568c1986157ef8d429ab30ffb2932b6a, type: 3}
     - target: {fileID: 2833769379919400830, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.59377

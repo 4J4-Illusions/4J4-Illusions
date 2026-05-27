@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour
     {
         if (stageJeu == StageJeu.Foret || stageJeu == StageJeu.Theatre)
         {
+            GestionPause(true);
             jumpscareImage.SetActive(true);
             AudioManager.Instance.JouerSon(CategorieSon.SFX, sonJumpscare, aud);
         }
@@ -204,7 +205,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void TransitionNiveau()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 3)
+        if (SceneManager.GetActiveScene().buildIndex != 4)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -240,6 +241,7 @@ public class GameManager : MonoBehaviour
             // boite dialogue
             //GameObject.Find("DialogueManager");
             DialogueManager.Instance.SceneLoadedDialogue(stageJeu);
+            AudioManager.Instance.SceneLoadedInit(stageJeu);
         }
         // affections quand la scene est ni celle de menu ni celle d'intro
         if (!new int[] { 0, 1 }.Contains(scene.buildIndex))
@@ -253,6 +255,10 @@ public class GameManager : MonoBehaviour
             recompense = GameObject.FindWithTag("Recompense");
             //Debug.Log(recompense.name);
             if (recompense != null) recompense.SetActive(false);
+        }
+        else
+        {
+            allowGameLoop = false;
         }
 
 

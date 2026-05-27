@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6661221421152396799}
   - component: {fileID: 3238654033450009225}
   - component: {fileID: 8774818618647921872}
-  - component: {fileID: 7926756755403375689}
   - component: {fileID: 4003099110088343431}
+  - component: {fileID: 1593584652316108963}
   m_Layer: 0
   m_Name: Monstre
   m_TagString: Untagged
@@ -68,28 +68,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonstreForet
   vitesseMonstreParSeconde: 1.75
   incrementDureeDeplacement: 5
---- !u!195 &7926756755403375689
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3590479037041426801}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!82 &4003099110088343431
 AudioSource:
   m_ObjectHideFlags: 0
@@ -102,7 +80,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 46fcc6c8c1624ab41b2459ff17f01e4c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
@@ -187,6 +165,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!195 &1593584652316108963
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3590479037041426801}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &95600970627197458
 PrefabInstance:
   m_ObjectHideFlags: 0

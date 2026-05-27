@@ -3,19 +3,20 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
     // référence statique pour accéder aux propriététs du singleton
     public static AudioManager Instance { get; private set; }
 
     [Header("Affectation inspecteur"), Space(30)]
-    public List<AudioClip> ambienceMenu;
+    public AudioClip[] ambienceMenu;
     /// <summary>
     /// les numéros dans les noms de variables correspondent à l'étape du jeu à laquelle les clips sont associés selon l'enum <see cref="StageJeu"/>
     /// </summary>
-    public List<AudioClip> ambienceIntro, ambienceDesert, ambienceForet, ambienceTheatre;
+    public AudioClip[] ambienceIntro, ambienceDesert, ambienceForet, ambienceTheatre;
+    public AudioClip[] dialoguesFr, dialoguesEn;
 
     public static Action OnAudioSettingsChange;
 
@@ -25,7 +26,6 @@ public class AudioManager : MonoBehaviour
     AudioClip[] clipsAmbience;
     readonly List<AudioSource> listeAudsrcs = new();
     AudioSource audsrc;
-    Dictionary<AudioSource, float> sonsAmbienceAvecVolumeBase = new();
     List<float> sonsBase;
 
     void Awake()
@@ -43,34 +43,7 @@ public class AudioManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        audsrc = GetComponent<AudioSource>();
-        clipsAmbience = new[] { ambienceMenu, ambienceIntro, ambienceDesert, ambienceForet, ambienceTheatre }.SelectMany(clip => clip).ToArray();
-        sonsBase = Enumerable.Repeat(1f, clipsAmbience.Length).ToList();
-    }
-    private void Start()
-    {
-        foreach (AudioClip clip in clipsAmbience)
-        {
-            //JouerSon(CategorieSon.Ambience, clip);
-            switch (GameManager.Instance.stageJeu)
-            {
-                case StageJeu.Menu:
-                    if (ambienceMenu.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
-                    break;
-                case StageJeu.Intro:
-                    if (ambienceIntro.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
-                    break;
-                case StageJeu.Desert:
-                    if (ambienceDesert.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
-                    break;
-                case StageJeu.Foret:
-                    if (ambienceForet.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
-                    break;
-                case StageJeu.Theatre:
-                    if (ambienceTheatre.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
-                    break;
-            }
-        }
+        SceneLoadedInit((StageJeu)SceneManager.GetActiveScene().buildIndex);
     }
     private void OnEnable()
     {
@@ -214,8 +187,39 @@ public class AudioManager : MonoBehaviour
         }
         return null;
     }
-    public void Reinitialisation(StageJeu stageJeu)
+    public void SceneLoadedInit(StageJeu stageJeu)
     {
+        foreach (var item in GetComponents<AudioSource>())
+        {
+            Destroy(item);
+        }
 
+        audsrc = gameObject.AddComponent<AudioSource>();
+        clipsAmbience = new[] { ambienceMenu, ambienceIntro, ambienceDesert, ambienceForet, ambienceTheatre }.SelectMany(clip => clip).ToArray();
+        sonsBase = Enumerable.Repeat(1f, clipsAmbience.Length).ToList();
+        listeAudsrcs.Clear();
+
+        foreach (AudioClip clip in clipsAmbience)
+        {
+            //JouerSon(CategorieSon.Ambience, clip);
+            switch (stageJeu)
+            {
+                case StageJeu.Menu:
+                    if (ambienceMenu.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
+                    break;
+                case StageJeu.Intro:
+                    if (ambienceIntro.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
+                    break;
+                case StageJeu.Desert:
+                    if (ambienceDesert.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
+                    break;
+                case StageJeu.Foret:
+                    if (ambienceForet.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
+                    break;
+                case StageJeu.Theatre:
+                    if (ambienceTheatre.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
+                    break;
+            }
+        }
     }
 }

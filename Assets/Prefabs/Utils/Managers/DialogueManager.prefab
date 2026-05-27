@@ -48,4 +48,8 @@ MonoBehaviour:
   zoneTexteDialogue: {fileID: 0}
   zoneTitreDialogue: {fileID: 0}
   sonUI: {fileID: 8300000, guid: f7aac346acc5f984b864cee750626fda, type: 3}
+  zoneImagePersonnage: {fileID: 0}
+  imageVyktor: {fileID: 21300000, guid: 010ff50e025c1384396cd98d11c74c8e, type: 3}
+  imageAlaric: {fileID: 21300000, guid: bdbd08987c98bf94282036a9fed83983, type: 3}
+  imageAutres: {fileID: 21300000, guid: 8ad6114d13f6c1e40b17b07af2a10dae, type: 3}
   fullPath: 
