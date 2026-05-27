@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
     // référence statique pour accéder aux propriététs du singleton
@@ -212,5 +213,9 @@ public class AudioManager : MonoBehaviour
             return nouvAudsrc;
         }
         return null;
+    }
+    public void Reinitialisation(StageJeu stageJeu)
+    {
+
     }
 }
