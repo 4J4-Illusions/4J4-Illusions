@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿using System;
 
 namespace Globals
 {
@@ -9,7 +9,7 @@ namespace Globals
     {
         None,
         Papier,
-        Parler,
+        Dialogue,
         Onde,
         Lampadaire,
         Calibration,
@@ -21,6 +21,7 @@ namespace Globals
     /// </summary>
     public enum StageJeu
     {
+        Menu,
         Intro,
         Desert,
         Foret,
@@ -68,16 +69,6 @@ namespace Globals
         public override readonly string ToString()
         {
             return $"Valeur Stresss: {valeurStress}    Type: {type}    Pause Barre Prog?: {pauseProgBarre}";
-        }
-    }
-    public struct VariationSelonBase
-    {
-        public float valeurBase;
-        public float variation;
-
-        public override readonly string ToString()
-        {
-            return $"Valeur base: {valeurBase}    Variation: {variation}";
         }
     }
 }

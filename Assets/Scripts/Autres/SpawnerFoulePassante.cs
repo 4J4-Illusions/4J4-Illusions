@@ -5,7 +5,7 @@ using UnityEngine.Splines;
 public class SpawnerFoulePassante : MonoBehaviour
 {
     [Header("Affectation inspecteur"), Space(30)]
-    public GameObject prefabFoulePassante;
+    public GameObject[] prefabsFoulePassante = new GameObject[2];
     public GameObject foule;
     public List<SplineContainer> cheminsFoulePassante;
 
@@ -21,7 +21,7 @@ public class SpawnerFoulePassante : MonoBehaviour
 
         for (int i = 0; i < cheminsFoulePassante.Count; i++)
         {
-            GameObject instanceFoulePassante = Instantiate(prefabFoulePassante);
+            GameObject instanceFoulePassante = Instantiate(SelectionSexeMembreFoule());
             instanceFoulePassante.transform.SetParent(foule.transform.Find("FoulePassante"));
             splanim = instanceFoulePassante.GetComponent<SplineAnimate>();
             splanim.Container = cheminsFoulePassante[i];
@@ -44,19 +44,28 @@ public class SpawnerFoulePassante : MonoBehaviour
 
 
 
+    /// <summary>
+    /// Crée une nouvelle instance de foule passante sur un chemin aléatoire
+    /// </summary>
     void CreerFoulePassanteSurCheminRandom()
     {
-        //for (int i = 0; i < cheminsFoulePassante.Count; i++)
-        //{
-        int indexRandom = Random.Range(0, cheminsFoulePassante.Count);
+        int indexCheminRandom = Random.Range(0, cheminsFoulePassante.Count);
 
-        GameObject instanceFoulePassante = Instantiate(prefabFoulePassante);
+        GameObject instanceFoulePassante = Instantiate(SelectionSexeMembreFoule());
         instanceFoulePassante.transform.SetParent(foule.transform.Find("FoulePassante"));
         splanim = instanceFoulePassante.GetComponent<SplineAnimate>();
         //splanim.Container = cheminsFoulePassante[i];
-        splanim.Container = cheminsFoulePassante[indexRandom];
+        splanim.Container = cheminsFoulePassante[indexCheminRandom];
         splanim.Duration = Random.Range(20f, 50f);
         splanim.Play();
-        //}
+    }
+    /// <summary>
+    /// Choix aléatoire du sexe du membre de la foule passante à créer
+    /// </summary>
+    /// <returns>Le prefab avec le sexe choisi aléatoirement</returns>
+    GameObject SelectionSexeMembreFoule()
+    {
+
+        return prefabsFoulePassante[(int)Mathf.Round(Random.Range(0f, 1f))];
     }
 }

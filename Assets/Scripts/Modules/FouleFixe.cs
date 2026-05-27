@@ -1,28 +1,62 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class FouleFixe : MonoBehaviour
 {
-    [Header("Accès pour autres scripts"), Space(30)]
-    public float cooldownEnleverTexte = 0;
+    [Header("Affectation inspecteur"), Space(30)]
+    public float vitesseRotation;
 
+    float dureeTempsProche, distance;
+    StressPoint strpt;
+    Quaternion rotationParDefaut, lookAtRot;
+
+    private void Awake()
+    {
+        rotationParDefaut = transform.rotation;
+        rotationParDefaut.x = rotationParDefaut.z = 0;
+
+        strpt = GetComponent<StressPoint>();
+    }
     // Update is called once per frame
     void Update()
     {
-        if(cooldownEnleverTexte > 0)
+        distance = Vector3.Distance(transform.position, GameManager.Instance.player.transform.position);
+        //Debug.Log("distance: " + distance, this);
+
+        if (distance <= 25)
         {
-            cooldownEnleverTexte -= Time.deltaTime;
-            cooldownEnleverTexte = Mathf.Max(cooldownEnleverTexte, 0);
+            dureeTempsProche += Time.deltaTime;
+            //Debug.Log("dur�e temps proche: " + dureeTempsProche, this);
         }
         else
         {
-            EnleverTexte(transform.Find("TexteFoule").gameObject);
+            dureeTempsProche -= Time.deltaTime;
+        }
+        dureeTempsProche = Mathf.Clamp(dureeTempsProche, 0, 7.5f);
+
+        if(dureeTempsProche >= 5)
+        {
+            FixerJoueur();
+            strpt.intervalleValeursStressPourcent[1] = .02f;
+        }
+        else
+        {
+            RetourRotNomale();
+            strpt.intervalleValeursStressPourcent[1] = .01f;
         }
     }
 
 
 
-    public void EnleverTexte(GameObject texte)
+    void FixerJoueur()
     {
-        texte.SetActive(false);
+        //Debug.Log("regarde joueur");
+        lookAtRot = Quaternion.LookRotation(GameManager.Instance.player.transform.position - transform.position);
+        lookAtRot.x = lookAtRot.z = 0;
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookAtRot, vitesseRotation * Time.deltaTime);
+    }
+    void RetourRotNomale()
+    {
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotationParDefaut, vitesseRotation * Time.deltaTime);
     }
 }

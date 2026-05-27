@@ -8,6 +8,9 @@ TagManager:
   - Recompense
   - Monstre
   - CheminFoulePassante
+  - Jumpscare
+  - CalibOverlay
+  - DialogueOverlay
   layers:
   - Default
   - TransparentFX

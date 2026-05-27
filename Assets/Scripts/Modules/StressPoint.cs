@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class StressPoint : MonoBehaviour
 {
-    [Header("Affectation inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
     public float porteeStress = 50;
     public float[] intervalleValeursStressPourcent = new float[2] { 0, 1f };
     public TypeStress type;
 
-    [Header("Accès pour autres scripts"), Space]
+    [Header("Accès pour autres scripts"), Space(30)]
     public bool inRange = false;
 
     StressPointEntry valeurDict;

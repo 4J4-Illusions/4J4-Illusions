@@ -1,15 +1,15 @@
 using Globals;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class AudioManagerConnect : MonoBehaviour
 {
-    [Header("Accès pour autres scripts"), Space]
+    [Header("Accès pour autres scripts"), Space(30)]
     public AudioSource audsrc;
 
     private void Awake()
     {
         audsrc = GetComponent<AudioSource>();
-        //audsrc = AudioManager.Instance.JouerSon(CategorieSon.Ambience, audsrc.clip, audsrc);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
