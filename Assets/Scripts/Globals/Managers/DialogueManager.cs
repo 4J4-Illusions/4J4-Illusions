@@ -200,6 +200,7 @@ public class DialogueManager : MonoBehaviour
             Array.Sort(choixDialogues, (a, b) => a.name.CompareTo(b.name));
             foreach (var item in choixDialogues)
             {
+                //Debug.Log(item);
                 item.SetActive(false);
             }
 
@@ -235,7 +236,7 @@ public class DialogueManager : MonoBehaviour
     /// <param name="dialogue">Le dialogue dont les options seront extraites</param>
     void GestionOptionsExtra(DialogueItem dialogue)
     {
-        Debug.Log(dialogue.Id);
+        //Debug.Log("dialogue.Id: " + dialogue.Id);
         ExtraOptions options = dialogue.ExtraOptions;
         if (options == null) return;
 
@@ -249,8 +250,10 @@ public class DialogueManager : MonoBehaviour
             switch (item)
             {
                 case "ProchaineCible":
-                    if (propValue == null) return;
-                    else if ((string)propValue == "") { doPreemptiveQuit = true; }
+                    if (propValue == null) break;
+                    //Debug.Log("contient une cible");
+
+                    if ((string)propValue == "") { doPreemptiveQuit = true; }
                     else
                     {
                         //Debug.Log(((string)propValue));
@@ -259,8 +262,11 @@ public class DialogueManager : MonoBehaviour
                         //ProgresserDialogue(int.Parse(((string)propValue)[^3..]) - 1);
                         indexDialogue = int.Parse(((string)propValue)[^3..]) - 2;
                     }
-                    break;
+                    return;
                 case "Event":
+                    if (propValue == null) break;
+                    //Debug.Log("contient un event");
+
                     switch (propValue)
                     {
                         case "OnStartDesertLevel":
@@ -269,13 +275,13 @@ public class DialogueManager : MonoBehaviour
                     }
                     break;
                 case "ContientChoix":
-                    if (propValue == null) return;
+                    if (propValue == null) break;
+                    //Debug.Log("contient un choix");
 
-                    //Debug.Log("dialogue.Id: " + dialogue.Id);
                     doitFaireChoix = true;
-
                     for (int i = 0; i < choixDialogues.Length; i++)
                     {
+                        //Debug.Log(i);
                         // aficher les boutons de choix
                         choixDialogues[i].SetActive(true);
 
@@ -290,15 +296,24 @@ public class DialogueManager : MonoBehaviour
                         // gérer le comportement du choix en fonction de son type (dialogue ou event)
                         if (dictChoix[dialogue.Id + "_00" + i].Action == "dialogue")
                         {
+                            //Debug.Log(i);
+                            int bonIndex = i;
                             choixDialogues[i].GetComponent<Button>().onClick.RemoveAllListeners();
                             choixDialogues[i].GetComponent<Button>().onClick.AddListener(() =>
                             {
                                 doitFaireChoix = false;
-                                ProgresserDialogue(int.Parse(dictChoix[dialogue.Id + "00" + i].Cible[^3..]) - 1);
+                                //Debug.Log(i);
+                                ProgresserDialogue(int.Parse(dictChoix[dialogue.Id + "_00" + bonIndex].Cible[^3..]) - 1);
+                                foreach (var item in choixDialogues)
+                                {
+                                    //Debug.Log(item);
+                                    item.SetActive(false);
+                                }
                             });
                         }
+
                     }
-                    break;
+                    return;
             }
         }
 

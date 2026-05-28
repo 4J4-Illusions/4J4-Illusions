@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.066037714, g: 0.06261123, b: 0.06261123, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.2
@@ -3906,14 +3906,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6493633147633882295, guid: d0059be423470a941a950dc826487a0e, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 6493633147633882295, guid: d0059be423470a941a950dc826487a0e, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4226,11 +4218,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
---- !u!82 &4274887401292483854 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3124524009432028011, guid: 934fa088411622d44b4be1c6e482f020, type: 3}
-  m_PrefabInstance: {fileID: 4274887401292483853}
-  m_PrefabAsset: {fileID: 0}
 --- !u!64 &4512037947759267932
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4367,11 +4354,11 @@ PrefabInstance:
     - target: {fileID: 8480843637571876178, guid: b037d3243f2aef04e87fbf17bf8c452f, type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 4274887401292483854}
+      objectReference: {fileID: 0}
     - target: {fileID: 8713431776020321654, guid: b037d3243f2aef04e87fbf17bf8c452f, type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 4274887401292483854}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

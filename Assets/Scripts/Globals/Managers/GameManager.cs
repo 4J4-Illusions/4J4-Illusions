@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
         ControlesPersonnage.canMove = allowGameLoop = !enPause;
         //Debug.Log("allowGameLoop: " + allowGameLoop);
 
-        if (!new StageJeu[] {StageJeu.Menu, StageJeu.Prelude, StageJeu.PreludeSuite }.Contains(stageJeu)) Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
+        if (!new StageJeu[] {StageJeu.Menu, StageJeu.Prelude }.Contains(stageJeu)) Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
     }
     /// <summary>
     /// Retourne au menu principal
