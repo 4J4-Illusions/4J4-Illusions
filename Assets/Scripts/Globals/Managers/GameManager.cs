@@ -206,7 +206,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void TransitionNiveau()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 4)
+        if (SceneManager.GetActiveScene().buildIndex != 3)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

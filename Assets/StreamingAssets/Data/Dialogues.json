@@ -130,8 +130,8 @@
     ],
     "choix": {
       "prelude_013_000": {
-        "fr": "Je n’ai rien consommé et je ne veux pas jouer à un jeu.",
-        "en": "I didn’t smoke anything and I don’t wanna play a game.",
+        "fr": "Pas du tout.",
+        "en": "Not at all.",
         "estChoix": true,
         "action": "dialogue",
         "cible": "prelude_014"
