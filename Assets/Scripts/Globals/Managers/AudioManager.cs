@@ -217,7 +217,7 @@ public class AudioManager : MonoBehaviour
                 case StageJeu.Menu:
                     if (ambienceMenu.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
                     break;
-                case StageJeu.Intro:
+                case StageJeu.PreludeSuite:
                     if (ambienceIntro.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
                     break;
                 case StageJeu.Desert:

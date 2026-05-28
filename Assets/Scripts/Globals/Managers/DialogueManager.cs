@@ -169,7 +169,7 @@ public class DialogueManager : MonoBehaviour
         //StageJeu stageJeu = (StageJeu)scene.buildIndex;
         //Debug.Log("stageJeu: " + stageJeu);
 
-        if (new StageJeu[] { StageJeu.Intro, StageJeu.Desert, StageJeu.Foret, StageJeu.Theatre }.Contains(stageJeu))
+        if (new StageJeu[] { StageJeu.PreludeSuite, StageJeu.Desert, StageJeu.Foret, StageJeu.Theatre }.Contains(stageJeu))
         {
             // setup de l'overlay de dialogue
             overlayDialogue = GameObject.FindWithTag("DialogueOverlay");
@@ -182,7 +182,7 @@ public class DialogueManager : MonoBehaviour
             object[] dialogues = null;
             switch (stageJeu)
             {
-                case StageJeu.Intro:
+                case StageJeu.PreludeSuite:
                     //Debug.Log("stageJeu = intro");
                     dialogues = tousLesDialogues.Prelude.Dialogues;
                     break;

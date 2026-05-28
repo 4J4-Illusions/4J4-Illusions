@@ -17,7 +17,10 @@
         "id": "prelude_003",
         "personnage": "Vyktor",
         "fr": "Ummmm… Tout a l’air normal. Je devrais juste vérifier si la porte d’entrée est fermée.",
-        "en": "Ummmm… Everything looks normal. I should just go check if the entrance door is locked."
+        "en": "Ummmm… Everything looks normal. I should just go check if the entrance door is locked.",
+        "extraOptions": {
+          "prochaineCible": ""
+        }
       },
       {
         "id": "prelude_004",
@@ -35,7 +38,10 @@
         "id": "prelude_006",
         "personnage": "Vyktor",
         "fr": "Mais c’est qui ça? Il y a un intrus?",
-        "en": "Who is that? Is there an intruder?"
+        "en": "Who is that? Is there an intruder?",
+        "extraOptions": {
+          "prochaineCible": ""
+        }
       },
       {
         "id": "prelude_007",
