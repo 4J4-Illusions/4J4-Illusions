@@ -245,10 +245,13 @@ public class AudioManager : MonoBehaviour
         {
             throw new Exception("Id du clip invalide");
         }
+        if (idClip == "prelude_018")
+        {
+            return;
+        }
 
         AudioClip[] listeDeDialoguesACheck = (GameManager.Instance.langue == LanguageManager.Language.English) ? dialoguesEn : dialoguesFr;
 
-        //AudioClip leBonDialogue = listeDeDialoguesACheck.FirstOrDefault((dialogue) => dialogue.name == idClip);
         AudioClip leBonDialogue = listeDeDialoguesACheck.Single((dialogue) => dialogue.name.ToLower() == idClip);
         //if (leBonDialogue == null)
         //{

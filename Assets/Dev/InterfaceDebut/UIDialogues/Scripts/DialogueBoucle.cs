@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using Globals;
 
 public class DialogueBoucle : MonoBehaviour
 {
@@ -28,7 +30,7 @@ public class DialogueBoucle : MonoBehaviour
     {
         canvasRect = canvasParent.GetComponent<RectTransform>();
 
-        dialogueText.text = dialogues[index];
+        //dialogueText.text = dialogues[index];
     }
 
     public void OnClickNon()
@@ -50,7 +52,7 @@ public class DialogueBoucle : MonoBehaviour
         dialogueText.text = dialogues[index];
     }
 
-    void LancerPhaseFinale()
+    public void LancerPhaseFinale()
     {
         boutonNon.SetActive(false);
 
@@ -95,5 +97,6 @@ public class DialogueBoucle : MonoBehaviour
             StopCoroutine(spawnRoutine);
 
         Debug.Log("Le joueur a cliqué sur OUI");
+        SceneManager.LoadScene(1);
     }
 }

@@ -133,7 +133,7 @@ public class DialogueManager : MonoBehaviour
     void FinDialogue()
     {
         indexDialogue = 0;
-        doPreemptiveQuit = false;
+        doPreemptiveQuit = doitFaireChoix = false;
         ToggleOverlayDialogue(false);
     }
     /// <summary>
@@ -203,6 +203,9 @@ public class DialogueManager : MonoBehaviour
                 //Debug.Log(item);
                 item.SetActive(false);
             }
+
+            indexDialogue = 0;
+            doPreemptiveQuit = doitFaireChoix = false;
 
             // récupère les dialogues correspondants à l'étape du jeu actuelle et les convertit en DialogueItem[]
             object[] dialogues = null;
@@ -281,6 +284,7 @@ public class DialogueManager : MonoBehaviour
                     doitFaireChoix = true;
                     for (int i = 0; i < choixDialogues.Length; i++)
                     {
+                        int bonIndex = i;
                         //Debug.Log(i);
                         // aficher les boutons de choix
                         choixDialogues[i].SetActive(true);
@@ -296,18 +300,34 @@ public class DialogueManager : MonoBehaviour
                         // gérer le comportement du choix en fonction de son type (dialogue ou event)
                         if (dictChoix[dialogue.Id + "_00" + i].Action == "dialogue")
                         {
-                            //Debug.Log(i);
-                            int bonIndex = i;
                             choixDialogues[i].GetComponent<Button>().onClick.RemoveAllListeners();
                             choixDialogues[i].GetComponent<Button>().onClick.AddListener(() =>
                             {
                                 doitFaireChoix = false;
-                                //Debug.Log(i);
                                 ProgresserDialogue(int.Parse(dictChoix[dialogue.Id + "_00" + bonIndex].Cible[^3..]) - 1);
                                 foreach (var item in choixDialogues)
                                 {
                                     //Debug.Log(item);
                                     item.SetActive(false);
+                                }
+                            });
+                        }
+                        else if (dictChoix[dialogue.Id + "_00" + i].Action == "methode")
+                        {
+                            DialogueBoucle scriptBoucle = overlayDialogue.GetComponent<DialogueBoucle>();
+
+                            choixDialogues[i].GetComponent<Button>().onClick.RemoveAllListeners();
+                            choixDialogues[i].GetComponent<Button>().onClick.AddListener(() =>
+                            {
+                                if (bonIndex == 0)
+                                {
+                                    scriptBoucle.StopSpawning();
+                                }
+                                else
+                                {
+                                    doitFaireChoix = false;
+                                    ProgresserDialogue();
+                                    scriptBoucle.LancerPhaseFinale();
                                 }
                             });
                         }
