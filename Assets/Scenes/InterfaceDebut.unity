@@ -758,7 +758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d701567cf1f149c45a0ad7e97e1eccfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CommencerPartie
-  sceneToLoad: Game
 --- !u!1 &186278468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,7 +1554,7 @@ MonoBehaviour:
   objetsSecondaires:
   - {fileID: 1037619101}
   - {fileID: 1697986437}
-  menuController: {fileID: 1153222203}
+  menuParametres: {fileID: 1054946615}
   rideaux: {fileID: 504125209}
   animationDelay: 2
 --- !u!4 &865885782
@@ -2728,6 +2727,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2793270015535362758, guid: b037d3243f2aef04e87fbf17bf8c452f, type: 3}
+      propertyPath: rideaux
+      value: 
+      objectReference: {fileID: 504125209}
     - target: {fileID: 3789227454051891593, guid: b037d3243f2aef04e87fbf17bf8c452f, type: 3}
       propertyPath: m_Name
       value: CanvasMenuPause

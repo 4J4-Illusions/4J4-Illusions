@@ -9,7 +9,7 @@ public class MenuRetourEscape : MonoBehaviour
 
     [Header("Menus secondaires (Credits, Settings, Quit etc.)")]
     public GameObject[] objetsSecondaires;
-    public ScriptMenuPauseDepuisInterface menuController;
+    public GameObject menuParametres;
 
     [Header("Rideaux")]
     public ControllerRideaux rideaux;
@@ -29,8 +29,8 @@ public class MenuRetourEscape : MonoBehaviour
     {
         Debug.Log("ESC -> RESET UI COMPLET");
 
-        // 0. fermer menu paramètres
-        menuController.CloseSettings();
+        // 0. fermer menu paramètres instantatnément
+        menuParametres.SetActive(false);
 
         // 1. fermer rideaux
         if (rideaux != null)
