@@ -204,6 +204,7 @@ public class AudioManager : MonoBehaviour
 
         audsrc = gameObject.AddComponent<AudioSource>();
         audsrcDialogues = gameObject.AddComponent<AudioSource>();
+        audsrc.playOnAwake = audsrc.loop = audsrcDialogues.playOnAwake = audsrcDialogues.loop = false;
         clipsAmbience = new[] { ambienceMenu, ambienceIntro, ambienceDesert, ambienceForet, ambienceTheatre }.SelectMany(clip => clip).ToArray();
         sonsBase = Enumerable.Repeat(1f, clipsAmbience.Length).ToList();
         listeAudsrcs.Clear();
@@ -242,15 +243,16 @@ public class AudioManager : MonoBehaviour
 
         AudioClip[] listeDeDialoguesACheck = (GameManager.Instance.langue == LanguageManager.Language.English) ? dialoguesEn : dialoguesFr;
 
-        AudioClip leBonDialogue = listeDeDialoguesACheck.FirstOrDefault((dialogue) => dialogue.name == idClip);
-        if (leBonDialogue == null)
-        {
-            throw new Exception($"Aucun dialogue trouvé avec l'id '{idClip}'");
-        }
-        //Debug.Log("leBonDialogue: " + leBonDialogue.name);
+        //AudioClip leBonDialogue = listeDeDialoguesACheck.FirstOrDefault((dialogue) => dialogue.name == idClip);
+        AudioClip leBonDialogue = listeDeDialoguesACheck.Single((dialogue) => dialogue.name == idClip);
+        //if (leBonDialogue == null)
+        //{
+        //    throw new Exception($"Aucun dialogue trouvé avec l'id '{idClip}'");
+        //}
+        //Debug.Log("leBonDialogue: " + leBonDialogue);
 
         audsrcDialogues.clip = leBonDialogue;
-        Debug.Log("audsrcDialogues.clip: " + audsrcDialogues.clip);
+        //Debug.Log("audsrcDialogues.clip: " + audsrcDialogues.clip);
         audsrcDialogues.volume = SetAudioVolume(CategorieSon.SFX);
         audsrcDialogues.Play();
     }

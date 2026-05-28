@@ -37,6 +37,7 @@ public class DialogueManager : MonoBehaviour
     public static Action<bool> OnDialogueInteraction;
 
     int indexDialogue = 0;
+    bool doPreemptiveQuit = false;
 
     void Awake()
     {        /*
@@ -122,6 +123,7 @@ public class DialogueManager : MonoBehaviour
     void FinDialogue()
     {
         indexDialogue = 0;
+        doPreemptiveQuit = false;
         ToggleOverlayDialogue(false);
     }
     /// <summary>
@@ -130,10 +132,16 @@ public class DialogueManager : MonoBehaviour
     /// <param name="targetDialogue">Option optionnelle pour afficher un dialogue spécifique</param>
     public void ProgresserDialogue(int targetDialogue = -1)
     {
+        if (doPreemptiveQuit)
+        {
+            FinDialogue();
+            return;
+        }
+
         //Debug.Log("targetDialogue: " + targetDialogue);
-        Debug.Log("indexDialogue avant: " + indexDialogue);
+        //Debug.Log("indexDialogue avant: " + indexDialogue);
         indexDialogue = (targetDialogue == -1) ? indexDialogue + 1 : targetDialogue;
-        Debug.Log("indexDialogue apres: " + indexDialogue);
+        //Debug.Log("indexDialogue apres: " + indexDialogue);
         //Debug.Log("dialogueItems.Length: " + dialogueItems.Length);
 
         AudioManager.Instance.JouerSon(CategorieSon.SFX, sonUI);
@@ -143,7 +151,8 @@ public class DialogueManager : MonoBehaviour
             FinDialogue();
             return;
         }
-        else AfficherTexteDialogue(dialogueItems[indexDialogue]);
+        //else AfficherTexteDialogue(dialogueItems[indexDialogue]);
+        AfficherTexteDialogue(dialogueItems[indexDialogue]);
 
         AudioManager.Instance.JouerSonDialogue(dialogueItems[indexDialogue].Id);
 
@@ -155,7 +164,7 @@ public class DialogueManager : MonoBehaviour
     /// Gère le dialogue introfuctif de chaque scène en fonction de l'étape du jeu.
     /// </summary>
     /// <param name="stageJeu">L'étape actuelle du jeu</param>
-    public void SceneLoadedDialogue(StageJeu stageJeu)
+    public void SceneLoadedInit(StageJeu stageJeu)
     {
         //StageJeu stageJeu = (StageJeu)scene.buildIndex;
         //Debug.Log("stageJeu: " + stageJeu);
@@ -213,7 +222,7 @@ public class DialogueManager : MonoBehaviour
             {
                 case "ProchaineCible":
                     if (propValue == null) return;
-                    else if ((string)propValue == "") { FinDialogue(); return; }
+                    else if ((string)propValue == "") { doPreemptiveQuit = true; }
                     else
                     {
                         //Debug.Log(((string)propValue));

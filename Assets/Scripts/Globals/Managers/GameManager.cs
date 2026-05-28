@@ -240,10 +240,8 @@ public class GameManager : MonoBehaviour
             // etat curseur
             Cursor.lockState = CursorLockMode.Locked;
 
-            // boite dialogue
-            //GameObject.Find("DialogueManager");
-            DialogueManager.Instance.SceneLoadedDialogue(stageJeu);
             AudioManager.Instance.SceneLoadedInit(stageJeu);
+            DialogueManager.Instance.SceneLoadedInit(stageJeu);
         }
         // affections quand la scene est ni celle de menu ni celle d'intro
         if (!new int[] { 0, 1 }.Contains(scene.buildIndex))
@@ -296,7 +294,7 @@ public class GameManager : MonoBehaviour
                 // image jumpscare
                 jumpscareImage = GameObject.FindWithTag("Jumpscare");
                 jumpscareImage.SetActive(false);
-                jumpscareImage.transform.localScale = Vector3.one;
+                jumpscareImage.transform.localScale = Vector3.one * 2;
                 break;
         }
     }
