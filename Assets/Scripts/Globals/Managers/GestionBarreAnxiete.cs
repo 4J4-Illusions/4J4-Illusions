@@ -1,6 +1,7 @@
 using Globals;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -99,13 +100,15 @@ public class GestionBarreAnxiete : MonoBehaviour
         stressTotal = Mathf.Clamp(stressTotal, 0, 1);
         //Debug.Log("stress total: " + stressTotal);
 
-        volume.weight = imgBarre.fillAmount = stressTotal;
-        audsrc.volume = stressTotal * AudioManager.Instance.SetAudioVolume(CategorieSon.Ambience);
-        vitesseAnimCoeur = 1 + stressTotal * 4;
+        if (!modeProgBarre)
+        {
+            ModifierIndicateursStress(stressTotal);
+        }
+        imgBarre.fillAmount = stressTotal;
         animCoeur.SetFloat("speedMultiplier", vitesseAnimCoeur);
 
         if (stressTotal == 1 && GameManager.Instance.stageJeu != StageJeu.Theatre) GameManager.Instance.Jumpscare();
-        else if(stressTotal == 0 && GameManager.Instance.stageJeu == StageJeu.Theatre) GameManager.Instance.TerminerNiveau();
+        else if (stressTotal == 0 && GameManager.Instance.stageJeu == StageJeu.Theatre) GameManager.Instance.TerminerNiveau();
     }
     private void OnEnable()
     {
@@ -126,6 +129,10 @@ public class GestionBarreAnxiete : MonoBehaviour
     void CriseDePanique()
     {
         imgBarre.fillAmount = 1;
+
+        if (GameManager.Instance.langue == LanguageManager.Language.English)
+        { texteGameOver.GetComponent<TextMeshProUGUI>().text = "Game Over"; }
+        else texteGameOver.GetComponent<TextMeshProUGUI>().text = "Partie Terminée";
         texteGameOver.SetActive(true);
 
         enabled = false;
@@ -137,5 +144,15 @@ public class GestionBarreAnxiete : MonoBehaviour
     {
         //Debug.Log($"Soulagement d'une valeur de: {valeurSoulagement} ({valeurSoulagement * 100}%)");
         stressTotal -= valeurSoulagement;
+    }
+    /// <summary>
+    /// Regroupe différents éléments du jeu qui sont affectés par le niveau de stress du joueur, tels que le volume de la musique d'ambiance, les effets visuels et la vitesse de l'animation du coeur, en fonction de la valeur de stress total.
+    /// </summary>
+    /// <param name="valeur">La valeur à applqieur à ces différents éléments</param>
+    public void ModifierIndicateursStress(float valeur)
+    {
+        volume.weight = valeur;
+        audsrc.volume = valeur * AudioManager.Instance.SetAudioVolume(CategorieSon.Ambience);
+        vitesseAnimCoeur = 1 + valeur * 4;
     }
 }

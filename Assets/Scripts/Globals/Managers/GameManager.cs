@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     [Header("Autres")]
     public GameObject player, recompense, cameraJoueur;
     public ControlesPersonnage playerScript;
+    public LanguageManager.Language langue = LanguageManager.Language.French;
 
     public static Action OnGameOver, OnLevelComplete;
     public static Action<float> OnLevelProgress;
@@ -116,7 +117,7 @@ public class GameManager : MonoBehaviour
         ControlesPersonnage.canMove = allowGameLoop = !enPause;
         //Debug.Log("allowGameLoop: " + allowGameLoop);
 
-        if (stageJeu != StageJeu.Intro || stageJeu != StageJeu.Menu) Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
+        if (!new StageJeu[] {StageJeu.Menu, StageJeu.Prelude, StageJeu.PreludeSuite }.Contains(stageJeu)) Cursor.lockState = (enPause) ? CursorLockMode.None : CursorLockMode.Locked;
     }
     /// <summary>
     /// Retourne au menu principal
@@ -132,6 +133,7 @@ public class GameManager : MonoBehaviour
     {
         if (stageJeu == StageJeu.Foret || stageJeu == StageJeu.Theatre)
         {
+            GestionPause(true);
             jumpscareImage.SetActive(true);
             AudioManager.Instance.JouerSon(CategorieSon.SFX, sonJumpscare, aud);
         }
@@ -204,7 +206,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void TransitionNiveau()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 3)
+        if (SceneManager.GetActiveScene().buildIndex != 4)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -222,6 +224,7 @@ public class GameManager : MonoBehaviour
 
         // affectations valeurs générales importantes
         stageJeu = (StageJeu)scene.buildIndex;
+
         // reset du compteur de quête
         QueteCompteur.ResetCompteur();
 
@@ -232,14 +235,13 @@ public class GameManager : MonoBehaviour
 
 
         // affections quand la scene est pas celle de menu
-        if(scene.buildIndex != 0)
+        if (scene.buildIndex != 0)
         {
             // etat curseur
             Cursor.lockState = CursorLockMode.Locked;
 
-            // boite dialogue
-            //GameObject.Find("DialogueManager");
-            DialogueManager.Instance.SceneLoadedDialogue(stageJeu);
+            AudioManager.Instance.SceneLoadedInit(stageJeu);
+            DialogueManager.Instance.SceneLoadedInit(stageJeu);
         }
         // affections quand la scene est ni celle de menu ni celle d'intro
         if (!new int[] { 0, 1 }.Contains(scene.buildIndex))
@@ -253,6 +255,10 @@ public class GameManager : MonoBehaviour
             recompense = GameObject.FindWithTag("Recompense");
             //Debug.Log(recompense.name);
             if (recompense != null) recompense.SetActive(false);
+        }
+        else
+        {
+            allowGameLoop = false;
         }
 
 
@@ -288,7 +294,7 @@ public class GameManager : MonoBehaviour
                 // image jumpscare
                 jumpscareImage = GameObject.FindWithTag("Jumpscare");
                 jumpscareImage.SetActive(false);
-                jumpscareImage.transform.localScale = Vector3.one;
+                jumpscareImage.transform.localScale = Vector3.one * 2;
                 break;
         }
     }

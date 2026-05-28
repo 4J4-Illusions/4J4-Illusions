@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class MachineCalibration : MonoBehaviour
 {
+    [Header("Affectation inspecteur"), Space(30)]
+    [Header("Projet")]
+    public AudioClip sonBreak;
+    public AudioClip sonRepair;
+
     Animator anim;
     BoxCollider collision;
     float cooldown = -1;
@@ -23,6 +28,7 @@ public class MachineCalibration : MonoBehaviour
         else if (cooldown == 0)
         {
             BreakMachine();
+            AudioManager.Instance.JouerSon(Globals.CategorieSon.SFX, sonBreak, volumeMultiplier: .25f);
             cooldown = -1;
         }
     }
@@ -30,7 +36,7 @@ public class MachineCalibration : MonoBehaviour
 
 
     /// <summary>
-    /// Joue l'animation de la machine qui se casse et active le collider pour que le joueur puisse interagir avec la machine
+    /// Joue l'animation de la machine qui se casse et active le collider pour que le joueur puisse interagir avec la machine.
     /// </summary>
     void BreakMachine()
     {
@@ -38,7 +44,7 @@ public class MachineCalibration : MonoBehaviour
         anim.SetTrigger("TriggerBreak");
     }
     /// <summary>
-    /// Joue l'animation de la machine qui se répare et désactive le collider pour empêcher l'interaction jusqu'à ce qu'elle se casse à nouveau
+    /// Joue l'animation de la machine qui se répare et désactive le collider pour empêcher l'interaction jusqu'à ce qu'elle se casse à nouveau.
     /// </summary>
     public void SuccessfulRepairMachine()
     {
@@ -46,11 +52,16 @@ public class MachineCalibration : MonoBehaviour
         anim.SetTrigger("TriggerRepair");
         cooldown = Random.Range(15, 30);
         //cooldown = Random.Range(1, 3);
+        AudioManager.Instance.JouerSon(Globals.CategorieSon.SFX, sonRepair);
     }
+    /// <summary>
+    /// Désactive le collider pour empêcher l'interaction, puis lance un cooldown aléatoire avant que la machine ne se casse à nouveau.
+    /// </summary>
     public void FailedRepairMachine()
     {
         collision.enabled = false;
         cooldown = Random.Range(20, 40);
         //cooldown = Random.Range(2, 4);
+        AudioManager.Instance.JouerSon(Globals.CategorieSon.SFX, sonBreak, volumeMultiplier: .25f);
     }
 }

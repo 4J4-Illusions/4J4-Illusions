@@ -22,12 +22,11 @@ namespace Globals
     public enum StageJeu
     {
         Menu,
-        Intro,
         Desert,
         Foret,
         Theatre,
-        Fin,
-        Lobby
+        Prelude,
+        PreludeSuite
     }
     /// <summary>
     /// Les types de stress possibles pour un point de stress.

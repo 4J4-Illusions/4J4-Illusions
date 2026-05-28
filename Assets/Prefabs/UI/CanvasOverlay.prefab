@@ -336,7 +336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6302296851646718001
 RectTransform:
   m_ObjectHideFlags: 0
@@ -676,6 +676,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6186812930378935911}
     m_Modifications:
+    - target: {fileID: 2548518300567239697, guid: e26d275723fb9b9419e97dd239b924fb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f361c5e00d3f44441a213455010549b8, type: 2}
+    - target: {fileID: 2548518300567239697, guid: e26d275723fb9b9419e97dd239b924fb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1016721525815296162, guid: f361c5e00d3f44441a213455010549b8, type: 2}
+    - target: {fileID: 2548518300567239697, guid: e26d275723fb9b9419e97dd239b924fb, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6375362853850034771, guid: e26d275723fb9b9419e97dd239b924fb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -756,7 +768,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6531239994585751601, guid: e26d275723fb9b9419e97dd239b924fb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

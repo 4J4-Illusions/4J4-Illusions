@@ -18,7 +18,6 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance { get; private set; }
 
     [Header("Affectation inspecteur"), Space(30)]
-    [TextArea] public DialogueItem[] dialogueItems;
     [Header("Hiérarchie")]
     public GameObject overlayDialogue;
     public TextMeshProUGUI zoneTexteDialogue, zoneTitreDialogue;
@@ -31,12 +30,14 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Accès pour autres scripts"), Space(30)]
     public string fullPath = "";
+    public DialogueItem[] dialogueItems;
     public Dialogues tousLesDialogues;
 
     public static bool inDialogue = false;
     public static Action<bool> OnDialogueInteraction;
 
     int indexDialogue = 0;
+    bool doPreemptiveQuit = false;
 
     void Awake()
     {        /*
@@ -80,7 +81,7 @@ public class DialogueManager : MonoBehaviour
         zoneTexteDialogue.text = "";
 
         // Pour chaque caractère dans la ligne de dialogue actuelle
-        foreach(char c in texte)
+        foreach (char c in texte)
         {
             // On ajoute les caractères un par un avec un délai
             zoneTexteDialogue.text += c;
@@ -98,21 +99,22 @@ public class DialogueManager : MonoBehaviour
         // Arrêt de toutes les coroutines
         StopAllCoroutines();
         // Lancement de la coroutine pour faire apparaître le texte lettre par lettre
-        StartCoroutine(TypeWriter(dialogue.Fr));
+        StartCoroutine(TypeWriter((GameManager.Instance.langue == LanguageManager.Language.English) ? dialogue.En : dialogue.Fr));
 
         // Affichage de l'image du personnage en fonction du nom du personnage dans le dialogue
-        switch (dialogue.Personnage.ToString()) {
+        switch (dialogue.Personnage.ToString())
+        {
             case "Vyktor":
                 zoneImagePersonnage.sprite = imageVyktor;
-            break;
+                break;
 
             case "Alaric":
                 zoneImagePersonnage.sprite = imageAlaric;
-            break;
+                break;
 
             case "Foule":
                 zoneImagePersonnage.sprite = imageAutres;
-            break;
+                break;
         }
     }
     /// <summary>
@@ -121,6 +123,7 @@ public class DialogueManager : MonoBehaviour
     void FinDialogue()
     {
         indexDialogue = 0;
+        doPreemptiveQuit = false;
         ToggleOverlayDialogue(false);
     }
     /// <summary>
@@ -129,18 +132,29 @@ public class DialogueManager : MonoBehaviour
     /// <param name="targetDialogue">Option optionnelle pour afficher un dialogue spécifique</param>
     public void ProgresserDialogue(int targetDialogue = -1)
     {
+        if (doPreemptiveQuit)
+        {
+            FinDialogue();
+            return;
+        }
+
         //Debug.Log("targetDialogue: " + targetDialogue);
+        //Debug.Log("indexDialogue avant: " + indexDialogue);
         indexDialogue = (targetDialogue == -1) ? indexDialogue + 1 : targetDialogue;
-        //Debug.Log("indexDialogue: " + indexDialogue);
+        //Debug.Log("indexDialogue apres: " + indexDialogue);
         //Debug.Log("dialogueItems.Length: " + dialogueItems.Length);
 
         AudioManager.Instance.JouerSon(CategorieSon.SFX, sonUI);
+
         if (indexDialogue >= dialogueItems.Length)
         {
             FinDialogue();
             return;
         }
-        else AfficherTexteDialogue(dialogueItems[indexDialogue]);
+        //else AfficherTexteDialogue(dialogueItems[indexDialogue]);
+        AfficherTexteDialogue(dialogueItems[indexDialogue]);
+
+        AudioManager.Instance.JouerSonDialogue(dialogueItems[indexDialogue].Id);
 
         // gestion comportement selon options extra
         //Debug.Log("dialogue id: " + dialogueItems[indexDialogue].Id);
@@ -150,12 +164,12 @@ public class DialogueManager : MonoBehaviour
     /// Gère le dialogue introfuctif de chaque scène en fonction de l'étape du jeu.
     /// </summary>
     /// <param name="stageJeu">L'étape actuelle du jeu</param>
-    public void SceneLoadedDialogue(StageJeu stageJeu)
+    public void SceneLoadedInit(StageJeu stageJeu)
     {
         //StageJeu stageJeu = (StageJeu)scene.buildIndex;
         //Debug.Log("stageJeu: " + stageJeu);
 
-        if (new StageJeu[] { StageJeu.Intro, StageJeu.Desert, StageJeu.Foret, StageJeu.Theatre }.Contains(stageJeu))
+        if (new StageJeu[] { StageJeu.PreludeSuite, StageJeu.Desert, StageJeu.Foret, StageJeu.Theatre }.Contains(stageJeu))
         {
             // setup de l'overlay de dialogue
             overlayDialogue = GameObject.FindWithTag("DialogueOverlay");
@@ -168,7 +182,7 @@ public class DialogueManager : MonoBehaviour
             object[] dialogues = null;
             switch (stageJeu)
             {
-                case StageJeu.Intro:
+                case StageJeu.PreludeSuite:
                     //Debug.Log("stageJeu = intro");
                     dialogues = tousLesDialogues.Prelude.Dialogues;
                     break;
@@ -194,6 +208,7 @@ public class DialogueManager : MonoBehaviour
     /// Cette méthode gère les options supplémentaires associées à un dialogue, permettant d'ajuster le comportement du jeu en fonction des paramètres définis dans les dialogues.
     /// </summary>
     /// <param name="options">Les possibles options additionnelles</param>
+    /// <returns>Si le reste de la logique de progression de dialogue doit être sautée au non</returns>
     void GestionOptionsExtra(ExtraOptions options = null)
     {
         if (options == null) return;
@@ -207,7 +222,7 @@ public class DialogueManager : MonoBehaviour
             {
                 case "ProchaineCible":
                     if (propValue == null) return;
-                    else if ((string)propValue == "") FinDialogue();
+                    else if ((string)propValue == "") { doPreemptiveQuit = true; }
                     else
                     {
                         //Debug.Log(((string)propValue));
@@ -227,5 +242,7 @@ public class DialogueManager : MonoBehaviour
                     break;
             }
         }
+
+        return;
     }
 }

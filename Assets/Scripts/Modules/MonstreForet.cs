@@ -26,7 +26,7 @@ public class MonstreForet : MonoBehaviour
             distance = Vector3.Distance(transform.position, GameManager.Instance.player.transform.position);
             if (distance <= 2)
             {
-                GameManager.Instance.Jumpscare();
+                GameManager.Instance.Jumpscare(GetComponent<AudioSource>());
             }
         }
         else
