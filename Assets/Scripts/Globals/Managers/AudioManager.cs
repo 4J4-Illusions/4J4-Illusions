@@ -232,6 +232,11 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Jouer une audio de dialogue en fonction de son id.
+    /// </summary>
+    /// <param name="idClip">Correspond au nom du clip audio dans les listes de dialogues (en minuscules et sans espaces)</param>
+    /// <exception cref="Exception">Si le clip n'est pas trouvé, une exception est levée</exception>
     public void JouerSonDialogue(string idClip)
     {
         //Debug.Log("idClip: " + idClip);
@@ -244,7 +249,7 @@ public class AudioManager : MonoBehaviour
         AudioClip[] listeDeDialoguesACheck = (GameManager.Instance.langue == LanguageManager.Language.English) ? dialoguesEn : dialoguesFr;
 
         //AudioClip leBonDialogue = listeDeDialoguesACheck.FirstOrDefault((dialogue) => dialogue.name == idClip);
-        AudioClip leBonDialogue = listeDeDialoguesACheck.Single((dialogue) => dialogue.name == idClip);
+        AudioClip leBonDialogue = listeDeDialoguesACheck.Single((dialogue) => dialogue.name.ToLower() == idClip);
         //if (leBonDialogue == null)
         //{
         //    throw new Exception($"Aucun dialogue trouvé avec l'id '{idClip}'");
