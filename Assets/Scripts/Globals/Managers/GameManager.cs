@@ -221,9 +221,11 @@ public class GameManager : MonoBehaviour
     void Initialisation(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Chargement de la scène: " + scene.name);
+        Debug.Log("Build index: " + scene.buildIndex);
 
         // affectations valeurs générales importantes
         stageJeu = (StageJeu)scene.buildIndex;
+        Debug.Log("Stage du jeu: " + stageJeu);
 
         // reset du compteur de quête
         QueteCompteur.ResetCompteur();
@@ -234,18 +236,25 @@ public class GameManager : MonoBehaviour
         allowGameLoop = true;
 
 
-        // affections quand la scene est pas celle de menu
-        if (scene.buildIndex != 0)
+        //// affections quand la scene est pas celle de menu
+        //if (scene.buildIndex != 0)
+        //{
+        //    // etat curseur
+        //    Cursor.lockState = CursorLockMode.Locked;
+
+        //    AudioManager.Instance.SceneLoadedInit(stageJeu);
+        //    DialogueManager.Instance.SceneLoadedInit(stageJeu);
+        //}
+        // affections quand la scene est ni celle de menu ni celle de prelude
+        if (!new int[] { 0, 4 }.Contains(scene.buildIndex))
         {
             // etat curseur
             Cursor.lockState = CursorLockMode.Locked;
 
+            // initialisation/réinitialisation d'autres managers
             AudioManager.Instance.SceneLoadedInit(stageJeu);
             DialogueManager.Instance.SceneLoadedInit(stageJeu);
-        }
-        // affections quand la scene est ni celle de menu ni celle d'intro
-        if (!new int[] { 0, 1 }.Contains(scene.buildIndex))
-        {
+
             // affectations éléments de la hiérarchie
             player = GameObject.FindWithTag("Player");
             cameraJoueur = player.transform.Find("CameraJoueur").gameObject;

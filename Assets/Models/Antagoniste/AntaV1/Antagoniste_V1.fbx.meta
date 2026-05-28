@@ -1,0 +1,1006 @@
+fileFormatVersion: 2
+guid: 044595c715775cf42abb198612989a35
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CO_textures_PBR
+    second: {fileID: 2100000, guid: cd8a6b30419f6714f895770d20418e34, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Alaric_Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alaric_Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Antagoniste_V1(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: squelette
+      parentName: Antagoniste_V1(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.7305898, y: 0.7305898, z: 0.7305898}
+    - name: Alaric_Hips
+      parentName: squelette
+      position: {x: -0, y: 1, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftUpLeg
+      parentName: Alaric_Hips
+      position: {x: -0.10168162, y: -0.06625855, z: 0.06975279}
+      rotation: {x: 0, y: 0, z: 4.107825e-15, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftLeg
+      parentName: Alaric_LeftUpLeg
+      position: {x: -0.022550136, y: -0.44112167, z: -0.027284598}
+      rotation: {x: 0, y: -0, z: -2.8848451e-15, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftFoot
+      parentName: Alaric_LeftLeg
+      position: {x: -0.020084184, y: -0.44628155, z: -0.0018279382}
+      rotation: {x: 3.1052731e-30, y: 3.1077571e-15, z: -9.992007e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftToeBase
+      parentName: Alaric_LeftFoot
+      position: {x: -0.0050133085, y: -0.03866972, z: 0.16129896}
+      rotation: {x: 4.548276e-30, y: -1.5543122e-15, z: -9.992007e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightUpLeg
+      parentName: Alaric_Hips
+      position: {x: 0.096874624, y: -0.065848045, z: 0.069922864}
+      rotation: {x: -1.2213361e-14, y: -8.6909646e-16, z: 4.107758e-15, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightLeg
+      parentName: Alaric_RightUpLeg
+      position: {x: 0.01635834, y: -0.4406651, z: -0.03637187}
+      rotation: {x: -1.2296696e-14, y: -3.7209819e-16, z: 1.3935335e-15, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightFoot
+      parentName: Alaric_RightLeg
+      position: {x: 0.02629272, y: -0.44835198, z: -0.013999961}
+      rotation: {x: -6.646429e-14, y: 0.000041891275, z: 1.0574459e-13, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightToeBase
+      parentName: Alaric_RightFoot
+      position: {x: 0.0065593976, y: -0.035675377, z: 0.15820077}
+      rotation: {x: 0.000025415164, y: 3.4452817e-15, z: -6.3499194e-14, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_Spine
+      parentName: Alaric_Hips
+      position: {x: -0, y: 0.09452008, z: 0.00900832}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_Spine1
+      parentName: Alaric_Spine
+      position: {x: -0, y: 0.19660136, z: -0.019417895}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_Spine2
+      parentName: Alaric_Spine1
+      position: {x: -0, y: 0.12610628, z: -0.03232684}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightShoulder
+      parentName: Alaric_Spine2
+      position: {x: 0.044429045, y: 0.12389648, z: 0.076276466}
+      rotation: {x: -0.0049709426, y: -0.11250145, z: -0.33716688, w: 0.93468565}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightArm
+      parentName: Alaric_RightShoulder
+      position: {x: 0.13019586, y: 0.11530011, z: -0.038937166}
+      rotation: {x: 0.009574047, y: 0.06138355, z: 0.38299215, w: 0.9216602}
+      scale: {x: 0.99999946, y: 0.99999946, z: 0.9999994}
+    - name: Alaric_RightForeArm
+      parentName: Alaric_RightArm
+      position: {x: 0.25886717, y: -0.020410469, z: -0.028449617}
+      rotation: {x: 0.019146595, y: 0.9297256, z: -0.36401382, w: -0.05232286}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHand
+      parentName: Alaric_RightForeArm
+      position: {x: -0.38607544, y: 0.00000009686532, z: -0.0000001085524}
+      rotation: {x: -0.017277615, y: 0.9304982, z: -0.36586392, w: -0.0042715142}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandIndex1
+      parentName: Alaric_RightHand
+      position: {x: 0.10588078, y: 0.0054827044, z: 0.057041816}
+      rotation: {x: -0.009667508, y: 0.0099505335, z: 0.036405087, w: 0.9992408}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandIndex2
+      parentName: Alaric_RightHandIndex1
+      position: {x: 0.050071962, y: -0.00391521, z: 0.013427407}
+      rotation: {x: 4.831137e-11, y: 5.8986027e-10, z: 9.116777e-12, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandIndex3
+      parentName: Alaric_RightHandIndex2
+      position: {x: 0.04410506, y: -0.00525721, z: 0.00950112}
+      rotation: {x: -0.0014899528, y: -0.0896145, z: -0.042670157, w: 0.99506104}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandIndex4
+      parentName: Alaric_RightHandIndex3
+      position: {x: 0.0195703, y: -0.000000044436245, z: -0.0006829037}
+      rotation: {x: 6.0936834e-17, y: 9.579046e-12, z: 6.724081e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandMiddle1
+      parentName: Alaric_RightHand
+      position: {x: 0.11975153, y: 0.020001415, z: 0.033670228}
+      rotation: {x: -0.0012463123, y: -0.0031155597, z: 0.015657695, w: 0.99987185}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandMiddle2
+      parentName: Alaric_RightHandMiddle1
+      position: {x: 0.048835386, y: 0.0014679214, z: 0.006677466}
+      rotation: {x: 4.825052e-10, y: -0.000000007927793, z: -4.4680448e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandMiddle3
+      parentName: Alaric_RightHandMiddle2
+      position: {x: 0.046607822, y: -0.0011047255, z: 0.005458175}
+      rotation: {x: -2.7408853e-11, y: 8.625843e-10, z: 8.6211066e-11, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandMiddle4
+      parentName: Alaric_RightHandMiddle3
+      position: {x: 0.03215752, y: -0.0020886871, z: 0.002788006}
+      rotation: {x: 1.8943049e-11, y: 5.5337657e-10, z: 3.8581076e-11, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandRing1
+      parentName: Alaric_RightHand
+      position: {x: 0.11853009, y: 0.03197476, z: 0.011274514}
+      rotation: {x: 0.004043911, y: -0.051794894, z: 0.025241196, w: 0.9983306}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandRing2
+      parentName: Alaric_RightHandRing1
+      position: {x: 0.046483923, y: 0.0027148654, z: 0.0008072739}
+      rotation: {x: -1.1658062e-10, y: 0.0000000024927749, z: 1.7584963e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandRing3
+      parentName: Alaric_RightHandRing2
+      position: {x: 0.03411287, y: -0.0002591578, z: 0.0010908205}
+      rotation: {x: -6.3743656e-11, y: -0.0000000032050456, z: 8.9838394e-11, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandRing4
+      parentName: Alaric_RightHandRing3
+      position: {x: 0.028956303, y: -0.0014262999, z: -0.00088315253}
+      rotation: {x: 2.0933708e-10, y: 0.0000000019991322, z: 1.4187063e-12, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandPinky1
+      parentName: Alaric_RightHand
+      position: {x: 0.10992259, y: 0.03449902, z: -0.010412587}
+      rotation: {x: 0.011070449, y: -0.12450987, z: 0.04242353, w: 0.99124926}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandPinky2
+      parentName: Alaric_RightHandPinky1
+      position: {x: 0.04325651, y: 0.0015118468, z: -0.005453766}
+      rotation: {x: -4.9443716e-11, y: 3.957125e-10, z: 6.0253186e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandPinky3
+      parentName: Alaric_RightHandPinky2
+      position: {x: 0.036538087, y: -0.0000057611655, z: -0.0018573204}
+      rotation: {x: 0.0011750491, y: -0.0067607593, z: 0.023135634, w: 0.9997089}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandPinky4
+      parentName: Alaric_RightHandPinky3
+      position: {x: 0.016982287, y: -0.0021253766, z: -0.0014836272}
+      rotation: {x: 2.9432567e-12, y: 1.6972877e-10, z: -4.195308e-14, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandThumb1
+      parentName: Alaric_RightHand
+      position: {x: 0.050631426, y: -0.035135455, z: 0.047802474}
+      rotation: {x: -0.19181164, y: -0.26085553, z: 0.1286063, w: 0.93734896}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandThumb2
+      parentName: Alaric_RightHandThumb1
+      position: {x: 0.037675407, y: -0.02021972, z: 0.01517903}
+      rotation: {x: -0.0053233486, y: -0.040708706, z: -0.041009407, w: 0.9983149}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandThumb3
+      parentName: Alaric_RightHandThumb2
+      position: {x: 0.04455015, y: -0.015981564, z: 0.010079772}
+      rotation: {x: -0.000000015858548, y: 0.0000000010581344, z: -0.0000018157747, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_RightHandThumb4
+      parentName: Alaric_RightHandThumb3
+      position: {x: 0.019838562, y: -0.0068166773, z: 0.0027530112}
+      rotation: {x: -3.102895e-10, y: -5.4459576e-10, z: 0.000000001398016, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftShoulder
+      parentName: Alaric_Spine2
+      position: {x: -0.042785898, y: 0.123795286, z: 0.07366831}
+      rotation: {x: -0.032759026, y: 0.11291852, z: -0.30824864, w: 0.9440122}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftArm
+      parentName: Alaric_LeftShoulder
+      position: {x: -0.14211896, y: -0.10079109, z: -0.031889386}
+      rotation: {x: 0.06761439, y: -0.13338849, z: 0.22510757, w: 0.9627889}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftForeArm
+      parentName: Alaric_LeftArm
+      position: {x: -0.265172, y: -0.042662114, z: 0.020107713}
+      rotation: {x: -0.05268663, y: -0.038012728, z: 0.05720179, w: 0.9962465}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHand
+      parentName: Alaric_LeftForeArm
+      position: {x: -0.39076847, y: -0.014023603, z: 0.057221133}
+      rotation: {x: 0.0013167335, y: -0.0006845928, z: 0.008824343, w: 0.99996}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandIndex1
+      parentName: Alaric_LeftHand
+      position: {x: -0.09721652, y: 0.004038604, z: 0.07541127}
+      rotation: {x: -0.008433523, y: 0.02274723, z: -0.020403894, w: 0.9994975}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandIndex2
+      parentName: Alaric_LeftHandIndex1
+      position: {x: -0.048034094, y: -0.0042753355, z: 0.017773835}
+      rotation: {x: -0.002294093, y: 0.0027197015, z: -0.0055456767, w: 0.99997836}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandIndex3
+      parentName: Alaric_LeftHandIndex2
+      position: {x: -0.043551758, y: -0.00787321, z: 0.014155014}
+      rotation: {x: 0.0023443077, y: 0.10798899, z: 0.06727788, w: 0.9918702}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandIndex4
+      parentName: Alaric_LeftHandIndex3
+      position: {x: -0.019570403, y: -0.00000017252927, z: 0.00068218925}
+      rotation: {x: -0.000000004950674, y: 5.046772e-10, z: 8.476393e-11, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandMiddle1
+      parentName: Alaric_LeftHand
+      position: {x: -0.11482787, y: 0.015345676, z: 0.05383412}
+      rotation: {x: -0.0041066017, y: 0.020874644, z: -0.014702081, w: 0.9996656}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandMiddle2
+      parentName: Alaric_LeftHandMiddle1
+      position: {x: -0.048025616, y: -0.00031538765, z: 0.012965658}
+      rotation: {x: -0.0014088593, y: 0.0025563866, z: -0.005156296, w: 0.99998254}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandMiddle3
+      parentName: Alaric_LeftHandMiddle2
+      position: {x: -0.046339896, y: -0.0043586595, z: 0.010500662}
+      rotation: {x: 0.0000015146791, y: 0.0762649, z: 0.031662207, w: 0.9965847}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandMiddle4
+      parentName: Alaric_LeftHandMiddle3
+      position: {x: -0.020056285, y: -0.00000007495611, z: 0.0000012256415}
+      rotation: {x: -2.7816013e-10, y: -6.101215e-10, z: 8.205268e-11, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandRing1
+      parentName: Alaric_LeftHand
+      position: {x: -0.117019214, y: 0.024685336, z: 0.02809185}
+      rotation: {x: -0.004273917, y: 0.06282958, z: -0.027019395, w: 0.9976494}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandRing2
+      parentName: Alaric_LeftHandRing1
+      position: {x: -0.048601285, y: 0.00017135091, z: 0.008084769}
+      rotation: {x: 0, y: -0.0000000019283888, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandRing3
+      parentName: Alaric_LeftHandRing2
+      position: {x: -0.033932846, y: -0.0018373448, z: 0.004120972}
+      rotation: {x: -0.0000002118556, y: 0.023529958, z: 0.010488423, w: 0.9996682}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandRing4
+      parentName: Alaric_LeftHandRing3
+      position: {x: -0.01923349, y: 0.0000000036011354, z: -0.0000000087878504}
+      rotation: {x: -8.40739e-11, y: -0.0000000014978212, z: 4.6399443e-11, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandPinky1
+      parentName: Alaric_LeftHand
+      position: {x: -0.11358792, y: 0.026476583, z: 0.0043345406}
+      rotation: {x: -0.010582093, y: 0.12666214, z: -0.05868246, w: 0.99015206}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandPinky2
+      parentName: Alaric_LeftHandPinky1
+      position: {x: -0.043528046, y: -0.0027348814, z: 0.0019470275}
+      rotation: {x: 8.773503e-13, y: 5.6430555e-14, z: 1.7867771e-11, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandPinky3
+      parentName: Alaric_LeftHandPinky2
+      position: {x: -0.037214372, y: -0.002845343, z: 0.0026047498}
+      rotation: {x: 0.00000013410967, y: 0.007156073, z: 0.00781923, w: 0.9999439}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandPinky4
+      parentName: Alaric_LeftHandPinky3
+      position: {x: -0.016666098, y: 0.00000024603116, z: 0.000000004074189}
+      rotation: {x: 0.0000000072476327, y: 6.2731653e-10, z: -9.417589e-11, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandThumb1
+      parentName: Alaric_LeftHand
+      position: {x: -0.037594207, y: -0.02995756, z: 0.058687437}
+      rotation: {x: -0.20738648, y: 0.22714108, z: -0.08159962, w: 0.9480186}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandThumb2
+      parentName: Alaric_LeftHandThumb1
+      position: {x: -0.036622733, y: -0.024240753, z: 0.025600672}
+      rotation: {x: 0.0041016783, y: 0.05004864, z: 0.053260073, w: 0.99731725}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandThumb3
+      parentName: Alaric_LeftHandThumb2
+      position: {x: -0.039982166, y: -0.016039545, z: 0.018152738}
+      rotation: {x: -0.0000010647343, y: 0.18002488, z: 0.15906446, w: 0.97071606}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_LeftHandThumb4
+      parentName: Alaric_LeftHandThumb3
+      position: {x: -0.02666746, y: -0.000000051153883, z: -0.00000006766248}
+      rotation: {x: -1.3870429e-17, y: -2.8310687e-15, z: 0.0000025993363, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_Neck
+      parentName: Alaric_Spine2
+      position: {x: -0, y: 0.24125117, z: 0.023031784}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alaric_Head
+      parentName: Alaric_Neck
+      position: {x: -0, y: 0.096013404, z: 0.0121418405}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: corps
+      parentName: Antagoniste_V1(Clone)
+      position: {x: 0.01120779, y: 0.68307805, z: 0.048347544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: souliers
+      parentName: corps
+      position: {x: -0.01120779, y: -0.68307805, z: -0.048347544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pantalon
+      parentName: corps
+      position: {x: -0.01120779, y: -0.68307805, z: -0.048347544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: chapeau
+      parentName: corps
+      position: {x: -0.01120779, y: -0.68307805, z: -0.048347544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: veste
+      parentName: corps
+      position: {x: -0.01120779, y: -0.68307805, z: -0.048347544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bouton1
+      parentName: corps
+      position: {x: -0.01120779, y: -0.68307805, z: -0.048347544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bouton2
+      parentName: corps
+      position: {x: -0.01120779, y: -0.68307805, z: -0.048347544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bouton3
+      parentName: corps
+      position: {x: -0.01120779, y: -0.68307805, z: -0.048347544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: tete
+      parentName: corps
+      position: {x: -0.01120779, y: -0.68307805, z: -0.048347544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mains
+      parentName: corps
+      position: {x: -0.01120779, y: -0.68307805, z: -0.048347544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: masque
+      parentName: corps
+      position: {x: -0.01120779, y: -0.68307805, z: -0.048347544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: nez
+      parentName: masque
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: masque
+      parentName: masque
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: cordes
+      parentName: masque
+      position: {x: -0.00026473522, y: 1.2583066, z: 0.07201111}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: sweep1
+      parentName: cordes
+      position: {x: -0.00085875636, y: -1.2421329, z: -0.078269124}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: sweep2
+      parentName: cordes
+      position: {x: -0.00085875636, y: -1.2421329, z: -0.078269124}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: sweep3
+      parentName: cordes
+      position: {x: -0.00085875636, y: -1.2421329, z: -0.078269124}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: sweep7
+      parentName: cordes
+      position: {x: -0.00085875636, y: -1.2421329, z: -0.07884926}
+      rotation: {x: -0.0012993418, y: -0.03684143, z: -0.035222627, w: 0.99869937}
+      scale: {x: 1.2084434, y: 2.1565259, z: 2.1565259}
+    - name: sweep11
+      parentName: cordes
+      position: {x: 0.0159737, y: -1.3120842, z: -0.0750233}
+      rotation: {x: 0.016564677, y: -0.023331089, z: 0.5786757, w: 0.81505567}
+      scale: {x: 0.60968214, y: 0.93357944, z: 0.93357944}
+    - name: sweep13
+      parentName: cordes
+      position: {x: -0.01879645, y: -1.3130682, z: -0.07597056}
+      rotation: {x: 0.011435617, y: -0.026228894, z: 0.7333268, w: 0.67927396}
+      scale: {x: 0.5926, y: 1.0244021, z: 1.0244021}
+    - name: sweep14
+      parentName: cordes
+      position: {x: 0.01082674, y: -1.3145851, z: -0.07281373}
+      rotation: {x: 0.10228, y: -0.10841014, z: 0.73576593, w: 0.66063195}
+      scale: {x: 0.7369644, y: 0.9739151, z: 0.9739151}
+    - name: sweep15
+      parentName: cordes
+      position: {x: -0.012914352, y: -1.3138232, z: -0.07281371}
+      rotation: {x: 0.1294682, y: -0.073837265, z: 0.51091045, w: 0.8466148}
+      scale: {x: 0.6511319, y: 0.83287877, z: 0.83287877}
+    - name: sweep16
+      parentName: cordes
+      position: {x: -0.0012063477, y: -1.2481577, z: -0.07884926}
+      rotation: {x: -0.0012993418, y: -0.03684143, z: -0.035222627, w: 0.99869937}
+      scale: {x: 1.2084434, y: 2.1565259, z: 2.1565259}
+    - name: sweep17
+      parentName: cordes
+      position: {x: -0.0011777934, y: -1.2349846, z: -0.08058766}
+      rotation: {x: 0.0013649076, y: -0.06541874, z: -0.0910463, w: 0.99369466}
+      scale: {x: 1.7078317, y: 3.721843, z: 3.721843}
+    - name: sweep18
+      parentName: cordes
+      position: {x: -0.0010597861, y: -1.2455933, z: -0.07891975}
+      rotation: {x: 0.0078129815, y: -0.036026888, z: -0.28007063, w: 0.9592714}
+      scale: {x: 1.141408, y: 2.1565259, z: 2.1565259}
+    - name: sweep19
+      parentName: cordes
+      position: {x: -0.0010597861, y: -1.2506822, z: -0.07870393}
+      rotation: {x: 0.0078129815, y: -0.036026888, z: -0.28007063, w: 0.9592714}
+      scale: {x: 1.141408, y: 2.1565259, z: 2.1565259}
+    - name: sweep20
+      parentName: cordes
+      position: {x: -0.001696167, y: -1.2385668, z: -0.07931699}
+      rotation: {x: -0.004171798, y: -0.0816453, z: -0.29569578, w: 0.95177764}
+      scale: {x: 1.2750624, y: 2.7460372, z: 2.7460372}
+    - name: sweep21
+      parentName: cordes
+      position: {x: -0.0018153134, y: -1.2300398, z: -0.081951596}
+      rotation: {x: -0.0058865864, y: -0.081539616, z: -0.27562964, w: 0.9577813}
+      scale: {x: 1.9324377, y: 3.5096183, z: 3.5096183}
+    - name: sweep22
+      parentName: cordes
+      position: {x: -0.006789148, y: -1.318058, z: -0.07013257}
+      rotation: {x: 0.04586202, y: -0.057593033, z: 0.68879473, w: 0.7212084}
+      scale: {x: 0.7369644, y: 0.9739151, z: 0.9739151}
+    - name: sweep23
+      parentName: cordes
+      position: {x: 0.005018877, y: -1.318058, z: -0.07013257}
+      rotation: {x: 0.061593592, y: -0.06484288, z: 0.60415137, w: 0.79183507}
+      scale: {x: 0.7369644, y: 0.9739151, z: 0.9739151}
+    - name: sweep24
+      parentName: cordes
+      position: {x: -0.00039684816, y: -1.319419, z: -0.06852345}
+      rotation: {x: 0.062238123, y: -0.0710392, z: 0.63396496, w: 0.767573}
+      scale: {x: 0.7369644, y: 0.9739151, z: 0.9739151}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

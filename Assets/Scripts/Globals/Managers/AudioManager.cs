@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// les numéros dans les noms de variables correspondent à l'étape du jeu à laquelle les clips sont associés selon l'enum <see cref="StageJeu"/>
     /// </summary>
-    public AudioClip[] ambienceIntro, ambienceDesert, ambienceForet, ambienceTheatre;
+    public AudioClip[] ambiencePreludeSuite, ambienceDesert, ambienceForet, ambienceTheatre;
     public AudioClip[] dialoguesFr, dialoguesEn;
 
     public static Action OnAudioSettingsChange;
@@ -205,7 +205,7 @@ public class AudioManager : MonoBehaviour
         audsrc = gameObject.AddComponent<AudioSource>();
         audsrcDialogues = gameObject.AddComponent<AudioSource>();
         audsrc.playOnAwake = audsrc.loop = audsrcDialogues.playOnAwake = audsrcDialogues.loop = false;
-        clipsAmbience = new[] { ambienceMenu, ambienceIntro, ambienceDesert, ambienceForet, ambienceTheatre }.SelectMany(clip => clip).ToArray();
+        clipsAmbience = new[] { ambienceMenu, ambiencePreludeSuite, ambienceDesert, ambienceForet, ambienceTheatre }.SelectMany(clip => clip).ToArray();
         sonsBase = Enumerable.Repeat(1f, clipsAmbience.Length).ToList();
         listeAudsrcs.Clear();
 
@@ -218,7 +218,7 @@ public class AudioManager : MonoBehaviour
                     if (ambienceMenu.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
                     break;
                 case StageJeu.PreludeSuite:
-                    if (ambienceIntro.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
+                    if (ambiencePreludeSuite.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
                     break;
                 case StageJeu.Desert:
                     if (ambienceDesert.Contains(clip)) JouerSon(CategorieSon.Ambience, clip);
