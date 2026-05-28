@@ -114,7 +114,11 @@ public class DialogueManager : MonoBehaviour
 
             case "Foule":
                 zoneImagePersonnage.sprite = imageAutres;
-                break;
+            break;
+
+            case "????":
+                zoneImagePersonnage.sprite = imageAutres;
+            break;
         }
     }
     /// <summary>
