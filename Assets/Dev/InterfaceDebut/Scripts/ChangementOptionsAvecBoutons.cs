@@ -6,6 +6,11 @@ public class ChangementOptionsAvecBoutons : MonoBehaviour
     public TMP_Text texteOption;   // Texte affiché
     public string[] options;       // Tableau des options
     private int index = 0;         // Index courant
+    //Aller lire l'index publiquement pour ne pas faire de problèmes avec le changement de langue.
+    public int Index
+{
+    get { return index; }
+}
 
     void Start()
     {

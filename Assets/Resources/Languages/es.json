@@ -14,6 +14,8 @@
     { "key": "MENU_CIRCULAIRE_COMMANDES_DEPLACEMENTS", "value": "Movimientos" },
     { "key": "MENU_CIRCULAIRE_COMMANDES_INTERACTIONS", "value": "Interacciones" },
     { "key": "MENU_CIRCULAIRE_COMMANDES_CAMERA", "value": "Cámara" },
+      { "key": "MENU_CIRCULAIRE_COMMANDES_RETOUR", "value": "Regresar" },
+    { "key": "MENU_CIRCULAIRE_COMMANDES_OBJECTIF", "value": "Objetivo" },
     { "key": "MENU_CIRCULAIRE_GRAPHIQUE_QUALITEGENERALE", "value": "Calidad general" },
     { "key": "MENU_CIRCULAIRE_GRAPHIQUE_OMBRES", "value": "Sombras" },
     { "key": "MENU_CIRCULAIRE_GRAPHIQUE_RESOLUTION", "value": "Resolución" },
