@@ -1,10 +1,9 @@
 using UnityEngine;
 using Globals;
-using Utils;
 
 public class ObjetInteractif : MonoBehaviour
 {
-    [Header("Ajustement inspecteur"), Space]
+    [Header("Affectation inspecteur"), Space(30)]
     // valeur servant a identifier le type d'interaction
     public TypeInteraction typeInterac = 0;
 

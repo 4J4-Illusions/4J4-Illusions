@@ -1,14 +1,14 @@
 using System;
-using Globals;
 using UnityEngine;
-using UnityEngine.UI;
 using static UnityEngine.Object;
+using QuickType;
+using System.IO;
+using Newtonsoft.Json;
 
-namespace Utils
+namespace Globals
 {
     public class Gameplay
     {
-        // evenements
         public static Action<TypeInteraction> OnInteraction;
 
 
@@ -19,19 +19,53 @@ namespace Utils
         /// <param name="obj">Le GameObject qui sera affecté (si applicable)</param>
         public static void Interaction(TypeInteraction typeInteraction, GameObject obj = null)
         {
-            Debug.Log($"Gestion de l'interaction de type {typeInteraction} pour l'objet {obj}");
+            //Debug.Log($"Gestion de l'interaction de type {typeInteraction} pour l'objet {obj}");
             switch (typeInteraction)
             {
                 case TypeInteraction.None:
                     if (obj != null) Destroy(obj);
                     break;
                 case TypeInteraction.Papier:
+                    // check la liste des bouts de papier pour trouver celui qui correspond à l'objet interagi
+
+                    foreach (GameObject papier in GameManager.Instance.listeBoutsPapier)
+                    {
+                        if (papier.name == obj.name)
+                        {
+                            // change son matériel pour le rendre visible et détruit l'objet interagi
+                            papier.GetComponent<MeshRenderer>().material = GameManager.Instance.matPapier;
+                            Destroy(obj);
+                            GameManager.Instance.AvancerObjectifNiveau(StageJeu.Desert);
+                            break;
+                        }
+                    }
                     break;
-                case TypeInteraction.Parler:
+                case TypeInteraction.Dialogue:
+                    // fait progresser le dialogue si l'overlay de dialogue est actif, sinon l'active
+
+                    if (DialogueManager.inDialogue)
+                    {
+                        DialogueManager.Instance.ProgresserDialogue();
+                    }
+                    else
+                    {
+                        if (File.Exists(DialogueManager.Instance.fullPath))
+                        {
+                            //Debug.Log(obj.transform.GetSiblingIndex());
+                            string tempJsonString = JsonConvert.SerializeObject(new[] { DialogueManager.Instance.tousLesDialogues.Niveau1.Indices[obj.transform.GetSiblingIndex()] });
+                            DialogueManager.Instance.dialogueItems = JsonConvert.DeserializeObject<DialogueItem[]>(tempJsonString);
+                            DialogueManager.Instance.ToggleOverlayDialogue(true);
+                        }
+                        else
+                        {
+                            throw new FileNotFoundException();
+                        }
+                    }
                     break;
                 case TypeInteraction.Onde:
                     // fait jouer animation onde quand elle ne joue pas presentement
                     // active script indicateur lampadaire
+
                     if (obj.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Default"))
                     {
                         // donner position du joueur à l'onde
@@ -42,52 +76,44 @@ namespace Utils
                             GameManager.Instance.listeLampadaires[GameManager.Instance.indexLampCour].GetComponent<IndicateurLampadaireSurEcran>().enabled = true;
 
                         AudioSource ondeAudsrc = obj.GetComponent<AudioSource>();
-                        ondeAudsrc.volume = AudioManager.Instance.SetClipVolume(ondeAudsrc.clip);
-                        ondeAudsrc.Play();
+                        AudioManager.Instance.JouerSon(CategorieSon.SFX, ondeAudsrc.clip, ondeAudsrc);
                     }
                     break;
                 case TypeInteraction.Lampadaire:
-                    //if (int.Parse(obj.name[^2..]) == GameManager.Instance.indexLampCour)
+                    // check si le lampadaire est le bon dans l'ordre choisi aléatoirement
+
                     if (obj == GameManager.Instance.listeLampadaires[GameManager.Instance.indexLampCour])
                     {
                         // detruit le component ObjectInteractif pour arreter la détection par le raycast du joueur sans empêcher les collisions
                         Destroy(obj.GetComponent<ObjetInteractif>());
-                        // fait jouer la particule
-                        obj.transform.Find("Lampadaire/Final_Candle1/ParticuleFeuLumiere").GetComponent<ParticleSystem>().Play();
-                        // active la lumiere
-                        obj.transform.Find("Lampadaire/Final_Candle1/PointLightLampadaire").gameObject.SetActive(true);
 
-                        GameManager.Instance.indexLampCour++;
-                        // si tous les lampadaires sont allumés, lance la fin de partie
-                        if (GameManager.Instance.indexLampCour == 5)
-                        {
-                            GameManager.Instance.FinDePartie();
-                        }
+                        // active parent contenant lumiere et particule
+                        // fait jouer la particule et active la lumiere
+                        obj.transform.Find("Lampadaire/Final_Candle1").gameObject.SetActive(true);
+
+                        GameManager.Instance.AvancerObjectifNiveau(StageJeu.Foret);
                     }
                     break;
                 case TypeInteraction.Calibration:
                     // active l'état en mode calibration, l'overlay de calibration et empêche le joueur de bouger
-                    GameManager.Instance.InCalibInterac = true;
-                    GameManager.Instance.overlayCalibration.SetActive(true);
+
+                    CalibrationManager.inCalibrationInteraction = true;
+                    GameManager.Instance.calibOverlay.SetActive(true);
+                    GameManager.Instance.calibOverlay.GetComponent<CalibrationManager>().machineCalibration = obj;
                     ControlesPersonnage.canMove = false;
                     break;
                 case TypeInteraction.CalibrationStop:
                     // stop la roulette de calibration, cachant l'overlay par conséquent
-                    GameManager.Instance.overlayCalibration.GetComponent<CalibRoulette>().StopRoulette();
+
+                    GameManager.Instance.calibOverlay.GetComponent<CalibrationManager>().StopRoulette();
+                    break;
+                case TypeInteraction.Recompense:
+                    GameManager.Instance.TerminerNiveau();
                     break;
             }
 
             GameManager.Instance.player.GetComponent<ControlesPersonnage>().texteInteraction.SetActive(false);
-            OnInteraction.Invoke(typeInteraction);
-        }
-        /// <summary>
-        /// Lance la séquence de jumpscare, qui correspond à la fin du jeu.
-        /// </summary>
-        public static void Jumpscare()
-        {
-            GestionBarreAnxiete.Instance.conteneurBarre.transform.GetChild(0).GetComponent<Image>().fillAmount = 1;
-            GameManager.Instance.FinDePartie();
+            OnInteraction?.Invoke(typeInteraction);
         }
     }
 }
-

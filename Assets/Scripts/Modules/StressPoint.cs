@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class StressPoint : MonoBehaviour
 {
-    [Header("Affectation inspecteur"), Space]
-    [Range(0, 100)] public float porteeStress = 50;
+    [Header("Affectation inspecteur"), Space(30)]
+    public float porteeStress = 50;
     public float[] intervalleValeursStressPourcent = new float[2] { 0, 1f };
     public TypeStress type;
 
-    [Header("Accès pour autres scripts"), Space]
+    [Header("Accès pour autres scripts"), Space(30)]
     public bool inRange = false;
 
     StressPointEntry valeurDict;
@@ -20,7 +20,6 @@ public class StressPoint : MonoBehaviour
         valeurDict.pauseProgBarre = true;
         GestionBarreAnxiete.collectionStressPoints.Add(GetInstanceID(), valeurDict);
     }
-
     private void Update()
     {
         // récupère la distance entre le joueur et le point de stress
@@ -33,6 +32,7 @@ public class StressPoint : MonoBehaviour
             if (type == TypeStress.Proportionnel)
             {
                 inRange = true;
+                // calcul du stress proportonnellement à la distance
                 calculValeurStress = Mathf.Clamp(
                     (1 - Mathf.Clamp(distance / porteeStress, 0, 1)) * intervalleValeursStressPourcent[1],
                     intervalleValeursStressPourcent[0],
@@ -58,12 +58,10 @@ public class StressPoint : MonoBehaviour
         //Debug.Log($"GameObject: {gameObject.name}    Dictionnary value: {valeurDict}");
         GestionBarreAnxiete.collectionStressPoints[GetInstanceID()] = valeurDict;
     }
-
     private void OnDisable()
     {
         GestionBarreAnxiete.collectionStressPoints.Remove(GetInstanceID());
     }
-
     private void OnDestroy()
     {
         GestionBarreAnxiete.collectionStressPoints.Remove(GetInstanceID());

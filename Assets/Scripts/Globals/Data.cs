@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿using System;
 
 namespace Globals
 {
@@ -9,23 +9,24 @@ namespace Globals
     {
         None,
         Papier,
-        Parler,
+        Dialogue,
         Onde,
         Lampadaire,
         Calibration,
-        CalibrationStop
+        CalibrationStop,
+        Recompense
     }
     /// <summary>
     /// Décrit les différentes étapes du jeu.
     /// </summary>
     public enum StageJeu
     {
-        Intro,
+        Menu,
         Desert,
         Foret,
         Theatre,
-        Fin,
-        Lobby
+        Prelude,
+        PreludeSuite
     }
     /// <summary>
     /// Les types de stress possibles pour un point de stress.

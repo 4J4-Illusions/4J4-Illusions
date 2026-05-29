@@ -73,3 +73,16 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+
+
+# Autres ignores
+
+# fonts chiants
+Assets/Fonts/*.asset
+Assets/Fonts/*.asset.meta
+Assets/Fonts/*.ttf.meta
+
+# Dossier backup
+Assets/_Recovery
+Assets/_Recovery.meta

@@ -12,7 +12,8 @@ public class BoutonHoverSon : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if (!estSurvole)
         {
-            audioSource.PlayOneShot(sonHover);
+            //audioSource.PlayOneShot(sonHover);
+            AudioManager.Instance.JouerSon(Globals.CategorieSon.SFX, sonHover);
             estSurvole = true;
         }
     }
